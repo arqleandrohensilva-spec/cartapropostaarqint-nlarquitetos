@@ -1102,4 +1102,182 @@ const Contact = ({ id, label, value }: { id: string; label: string; value: strin
   </div>
 );
 
+const ScopeRow = ({ idx, n, t, d }: { idx: number; n: string; t: string; d: string }) => (
+  <div className="group border-t border-border/60 last:border-b py-8 grid grid-cols-12 gap-6 items-baseline transition-colors hover:bg-surface/40 px-4 -mx-4">
+    <span className="col-span-2 md:col-span-1 font-mono text-xs text-primary/70 tracking-[0.2em]">
+      {n}
+    </span>
+    <Editable
+      as="h3"
+      id={`scope.${idx}.t`}
+      className="col-span-10 md:col-span-4 font-display text-2xl md:text-3xl text-foreground"
+    >
+      {t}
+    </Editable>
+    <Editable
+      id={`scope.${idx}.d`}
+      multiline
+      as="p"
+      className="col-span-12 md:col-span-7 font-display text-foreground/70 leading-relaxed"
+    >
+      {d}
+    </Editable>
+  </div>
+);
+
+const MethodStep = ({
+  n,
+  t,
+  d,
+  idx,
+}: {
+  n: string;
+  t: string;
+  d: string;
+  idx: number;
+}) => (
+  <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2 group">
+    <div className="border-t border-primary/30 pt-6">
+      <span className="font-display text-5xl md:text-6xl text-primary/80 block mb-6 leading-none">
+        {n}
+      </span>
+      <Editable
+        as="h3"
+        id={`method.${idx}.t`}
+        className="font-display text-2xl text-foreground mb-3"
+      >
+        {t}
+      </Editable>
+      <Editable
+        id={`method.${idx}.d`}
+        multiline
+        as="p"
+        className="font-display text-sm text-foreground/65 leading-relaxed"
+      >
+        {d}
+      </Editable>
+    </div>
+  </div>
+);
+
+const BenefitCard = ({ t, d, idx }: { t: string; d: string; idx: number }) => (
+  <div className="bg-background p-8 md:p-10 group hover:bg-surface/60 transition-colors">
+    <div className="gold-line w-8 mb-6 group-hover:w-16 transition-all duration-700" />
+    <Editable
+      as="h3"
+      id={`benefit.${idx}.t`}
+      className="font-display text-2xl md:text-3xl text-foreground mb-4 leading-tight"
+    >
+      {t}
+    </Editable>
+    <Editable
+      id={`benefit.${idx}.d`}
+      multiline
+      as="p"
+      className="font-display text-foreground/70 leading-relaxed"
+    >
+      {d}
+    </Editable>
+  </div>
+);
+
+const PaymentTier = ({
+  id,
+  label,
+  value,
+  sub,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  sub: string;
+}) => (
+  <div className="px-8 py-8 text-center">
+    <Editable
+      id={`${id}.lbl`}
+      className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-3"
+    >
+      {label}
+    </Editable>
+    <Editable
+      id={`${id}.val`}
+      className="font-display text-4xl md:text-5xl text-foreground block mb-2"
+    >
+      {value}
+    </Editable>
+    <Editable
+      id={`${id}.sub`}
+      className="font-display italic text-sm text-foreground/60 block"
+    >
+      {sub}
+    </Editable>
+  </div>
+);
+
+const DifferentialItem = ({ n, t, d }: { n: string; t: string; d: string }) => (
+  <div className="group">
+    <div className="flex items-baseline gap-6 mb-4">
+      <span className="font-mono text-xs text-primary/70 tracking-[0.2em]">{n}</span>
+      <span className="h-px flex-1 bg-border group-hover:bg-primary/60 transition-colors duration-700" />
+    </div>
+    <Editable
+      as="h3"
+      id={`diff.${n}.t`}
+      className="font-display text-3xl md:text-4xl text-foreground mb-4"
+    >
+      {t}
+    </Editable>
+    <Editable
+      id={`diff.${n}.d`}
+      multiline
+      as="p"
+      className="font-display text-foreground/70 leading-relaxed max-w-md"
+    >
+      {d}
+    </Editable>
+  </div>
+);
+
+const NextStep = ({ n, t, d }: { n: string; t: string; d: string }) => (
+  <div className="flex gap-6 items-baseline">
+    <span className="font-display text-4xl text-primary/80 leading-none shrink-0">{n}</span>
+    <div>
+      <Editable
+        as="h3"
+        id={`next.${n}.t`}
+        className="font-display text-2xl text-foreground mb-2"
+      >
+        {t}
+      </Editable>
+      <Editable
+        id={`next.${n}.d`}
+        multiline
+        as="p"
+        className="font-display text-foreground/70 leading-relaxed"
+      >
+        {d}
+      </Editable>
+    </div>
+  </div>
+);
+
+const Condition = ({ id, label, value }: { id: string; label: string; value: string }) => (
+  <div>
+    <Editable
+      id={`${id}.lbl`}
+      className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2"
+    >
+      {label}
+    </Editable>
+    <Editable
+      id={`${id}.val`}
+      multiline
+      as="p"
+      className="font-display text-foreground/80 leading-relaxed"
+    >
+      {value}
+    </Editable>
+  </div>
+);
+
 export default Index;
