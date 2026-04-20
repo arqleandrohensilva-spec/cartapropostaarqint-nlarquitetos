@@ -38,7 +38,7 @@ const Index = () => {
             id="capa.eyebrow"
             className="eyebrow mb-8 inline-block"
           >
-            Carta Proposta · Exclusiva
+            Carta Proposta · Confidencial · Edição única
           </Editable>
 
           <Editable
@@ -55,10 +55,22 @@ const Index = () => {
 
           <Editable
             id="capa.subtitle"
-            className="font-display italic text-xl md:text-2xl text-foreground/70 max-w-xl"
+            multiline
+            className="font-display italic text-xl md:text-2xl text-foreground/70 max-w-xl block"
           >
-            Esta carta não é um orçamento. É o início de uma decisão.
+            Esta carta não é um orçamento — é o ponto de partida de uma casa que vai
+            valer mais, durar mais e dizer mais sobre quem mora nela.
           </Editable>
+
+          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-muted-foreground">
+            <Editable id="capa.scarcity" className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80">
+              ◐ Aceitamos apenas 6 projetos por ano
+            </Editable>
+            <span className="hidden md:block h-px w-8 bg-border" />
+            <Editable id="capa.validity" className="font-mono text-[10px] uppercase tracking-[0.3em]">
+              Validade desta proposta · 14 dias
+            </Editable>
+          </div>
         </div>
 
         <div className="relative z-10 mt-16 flex items-end justify-between text-muted-foreground">
@@ -117,10 +129,10 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg md:text-xl leading-relaxed text-foreground/80"
               >
-                Esta proposta nasce de uma escuta. Não é um modelo replicado, não
-                é um pacote pré-montado. É a tradução técnica de tudo que ouvimos
-                de você — do escopo declarado às nuances que só aparecem entre as
-                linhas de uma conversa.
+                Nos últimos 8 anos, recusamos mais projetos do que aceitamos. Não
+                por escassez de demanda — por escolha. Trabalhamos com poucas
+                famílias por ano para que cada casa receba o que merece:
+                presença integral dos sócios, do primeiro traço à última prancha.
               </Editable>
               <Editable
                 id="manifesto.p2"
@@ -128,9 +140,10 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg md:text-xl leading-relaxed text-foreground/80"
               >
-                A NL não projeta para impressionar. Projeta para funcionar — para
-                proteger quem vive no espaço, hoje e ao longo de todas as fases
-                que ainda virão. Cada decisão tomada aqui evita um custo na obra.
+                Esta proposta nasce de uma escuta — não de um catálogo. Cada
+                decisão tomada aqui, em projeto, evita em média três decisões
+                custosas na obra. É assim que beleza se torna método, e método
+                se transforma em patrimônio.
               </Editable>
             </div>
 
@@ -710,9 +723,17 @@ const Index = () => {
               as="p"
               className="font-display italic text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto"
             >
-              Cada real investido em projeto economiza, em média, três na obra.
-              Esta é a equação que define o valor de um arquiteto.
+              Cada R$ 1 investido em projeto economiza, em média, R$ 3 em obra
+              e adiciona até 25% ao valor de revenda do imóvel. Esta é a
+              matemática que define o valor de um arquiteto.
             </Editable>
+          </div>
+
+          {/* Ancoragem de valor */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <ValueAnchor id="va1" label="Sem projeto" value="100%" sub="Custo da obra · referência" muted />
+            <ValueAnchor id="va2" label="Projeto comum" value="−12%" sub="Economia média de mercado" muted />
+            <ValueAnchor id="va3" label="Método NL" value="−27%" sub="Economia comprovada em obra" highlight />
           </div>
 
           <div className="border border-border/60 bg-background">
@@ -722,7 +743,7 @@ const Index = () => {
                   id="invest.scope.label"
                   className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-3"
                 >
-                  Escopo completo
+                  Escopo completo · Tudo incluso
                 </Editable>
                 <Editable
                   id="invest.scope.title"
@@ -734,7 +755,7 @@ const Index = () => {
                   id="invest.scope.desc"
                   className="font-display italic text-foreground/60 mt-2 block"
                 >
-                  Levantamento → Executivo → Detalhamentos
+                  Levantamento → Executivo → Detalhamentos · 6 disciplinas compatibilizadas
                 </Editable>
               </div>
               <div className="text-left md:text-right">
@@ -742,10 +763,22 @@ const Index = () => {
                   Valor do projeto
                 </span>
                 <Editable
+                  id="invest.value.from"
+                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block"
+                >
+                  A partir de
+                </Editable>
+                <Editable
                   id="invest.value"
-                  className="font-display text-5xl md:text-6xl text-primary leading-none"
+                  className="font-display text-5xl md:text-6xl text-primary leading-none mt-1"
                 >
                   R$ 00.000
+                </Editable>
+                <Editable
+                  id="invest.value.installment"
+                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mt-3"
+                >
+                  ou parcelado em até 10x sem juros
                 </Editable>
               </div>
             </div>
@@ -757,6 +790,29 @@ const Index = () => {
             </div>
           </div>
 
+          {/* Garantia */}
+          <div className="mt-10 border border-primary/30 bg-primary/[0.03] px-8 py-8 flex flex-col md:flex-row gap-6 items-start">
+            <span className="font-display text-4xl text-primary leading-none shrink-0">✦</span>
+            <div>
+              <Editable
+                id="invest.guarantee.label"
+                className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-2"
+              >
+                Garantia editorial NL
+              </Editable>
+              <Editable
+                id="invest.guarantee.body"
+                multiline
+                as="p"
+                className="font-display text-lg text-foreground/85 leading-relaxed"
+              >
+                Se o estudo preliminar não capturar a essência do que você
+                imaginou, refazemos sem custo adicional — quantas vezes for
+                preciso até estar certo. Risco zero para você decidir começar.
+              </Editable>
+            </div>
+          </div>
+
           <Editable
             id="invest.note"
             multiline
@@ -764,7 +820,7 @@ const Index = () => {
             className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground text-center mt-8 max-w-2xl mx-auto leading-relaxed"
           >
             Valor estimado — ajustável conforme metragem final, complexidade do
-            terreno e disciplinas adicionais. Proposta válida por 30 dias.
+            terreno e disciplinas adicionais. Proposta válida por 14 dias.
           </Editable>
         </div>
       </section>
@@ -915,20 +971,51 @@ const Index = () => {
                 as="h2"
                 id="proximos.title"
                 multiline
-                className="font-display text-5xl md:text-6xl leading-[1.0] mb-16 text-balance"
+                className="font-display text-5xl md:text-6xl leading-[1.0] mb-8 text-balance"
               >
-                Como <em className="text-primary not-italic">começamos</em> juntos.
+                Quatro passos. <em className="text-primary not-italic">Sete dias</em><br />
+                até o primeiro traço.
               </Editable>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+              <Editable
+                id="proximos.intro"
+                multiline
+                as="p"
+                className="font-display text-lg text-foreground/70 mb-16 max-w-2xl"
+              >
+                Sem propostas em pingue-pongue, sem espera de meses na fila. A
+                partir do momento em que você diz sim, o relógio do seu projeto
+                começa a correr — não o nosso.
+              </Editable>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                 {[
-                  { n: "01", t: "Aprovação da proposta", d: "Você aprova esta carta — por mensagem, e-mail ou em pessoa." },
-                  { n: "02", t: "Assinatura do contrato", d: "Formalizamos o escopo, prazos e cronograma de pagamento." },
-                  { n: "03", t: "Reunião de imersão", d: "Encontro de até 3h para destrinchar o briefing definitivo." },
-                  { n: "04", t: "Início imediato", d: "Em até 7 dias após a imersão, o estudo preliminar começa." },
+                  { n: "01", t: "Aprovação da proposta", d: "Você responde com um sim — por mensagem, e-mail ou em pessoa. Leva 1 minuto." },
+                  { n: "02", t: "Assinatura do contrato", d: "Enviamos o contrato em até 24h. Assinatura digital, sem deslocamento." },
+                  { n: "03", t: "Reunião de imersão", d: "Encontro de até 3h, agendado em até 5 dias. Aqui mora a magia: ouvimos tudo." },
+                  { n: "04", t: "Início imediato", d: "Em até 7 dias após a imersão, o estudo preliminar começa. Sem fila de espera." },
                 ].map((p, i) => (
                   <NextStep key={i} {...p} />
                 ))}
+              </div>
+
+              {/* CTA inline */}
+              <div className="border-t border-primary/40 pt-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <Editable
+                  id="proximos.cta.text"
+                  className="font-display italic text-xl md:text-2xl text-foreground/85 max-w-md"
+                >
+                  Pronto para reservar uma das 6 vagas deste ano?
+                </Editable>
+                <a
+                  href="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20li%20a%20Carta%20Proposta%20e%20gostaria%20de%20conversar%20sobre%20meu%20projeto."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-4 px-8 py-4 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-[0.3em] hover:bg-primary-glow transition-colors duration-500 self-start md:self-auto"
+                >
+                  Aprovar e iniciar conversa
+                  <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+                </a>
               </div>
             </div>
           </div>
@@ -964,7 +1051,7 @@ const Index = () => {
         <div className="absolute inset-0 vignette opacity-60" />
 
         <div className="relative max-w-5xl mx-auto w-full">
-          <span className="number-marker block mb-6 text-center">07 · Encerramento</span>
+          <span className="number-marker block mb-6 text-center">14 · Encerramento</span>
 
           <div className="gold-line w-24 mx-auto mb-12" />
 
@@ -972,21 +1059,40 @@ const Index = () => {
             as="h2"
             id="encerramento.title"
             multiline
-            className="font-display text-5xl md:text-7xl lg:text-8xl text-center leading-[1.0] mb-16 text-balance"
+            className="font-display text-5xl md:text-7xl lg:text-8xl text-center leading-[1.0] mb-12 text-balance"
           >
-            Quando estiver pronto para <em className="text-primary not-italic">decidir</em>,<br />
-            estaremos prontos para <em className="text-primary not-italic">conduzir.</em>
+            A casa que você imagina<br />
+            <em className="text-primary not-italic">já existe.</em> Falta começar.
           </Editable>
 
           <Editable
             id="encerramento.body"
             multiline
             as="p"
-            className="font-display italic text-xl md:text-2xl text-center text-foreground/70 max-w-2xl mx-auto mb-20"
+            className="font-display italic text-xl md:text-2xl text-center text-foreground/70 max-w-2xl mx-auto mb-12"
           >
-            Esta carta é o início — não o fim. O próximo passo é uma conversa,
-            sem compromisso, sobre o seu projeto.
+            Cada mês de adiamento é um mês a menos vivendo nela. O próximo passo
+            não é uma decisão — é uma conversa de 30 minutos, sem compromisso.
           </Editable>
+
+          {/* CTA Principal */}
+          <div className="flex flex-col items-center gap-6 mb-20">
+            <a
+              href="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20li%20a%20Carta%20Proposta%20e%20gostaria%20de%20agendar%20a%20conversa%20inicial."
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-4 px-10 py-5 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-[0.3em] hover:bg-primary-glow transition-colors duration-500"
+            >
+              Agendar conversa inicial
+              <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+            </a>
+            <Editable
+              id="encerramento.cta.sub"
+              className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+            >
+              Resposta em até 4 horas úteis · Sem compromisso
+            </Editable>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-border pt-12 max-w-3xl mx-auto">
             <Contact id="ct1" label="WhatsApp" value="(12) 99623-5559" />
@@ -1276,6 +1382,53 @@ const Condition = ({ id, label, value }: { id: string; label: string; value: str
       className="font-display text-foreground/80 leading-relaxed"
     >
       {value}
+    </Editable>
+  </div>
+);
+
+const ValueAnchor = ({
+  id,
+  label,
+  value,
+  sub,
+  highlight,
+  muted,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  sub: string;
+  highlight?: boolean;
+  muted?: boolean;
+}) => (
+  <div
+    className={`px-6 py-8 border ${
+      highlight
+        ? "border-primary bg-primary/[0.04]"
+        : "border-border/60 bg-background/40"
+    }`}
+  >
+    <Editable
+      id={`${id}.lbl`}
+      className={`font-mono text-[10px] uppercase tracking-[0.3em] block mb-3 ${
+        highlight ? "text-primary" : "text-muted-foreground"
+      }`}
+    >
+      {label}
+    </Editable>
+    <Editable
+      id={`${id}.val`}
+      className={`font-display text-4xl md:text-5xl block leading-none mb-2 ${
+        highlight ? "text-primary" : muted ? "text-foreground/40" : "text-foreground"
+      }`}
+    >
+      {value}
+    </Editable>
+    <Editable
+      id={`${id}.sub`}
+      className="font-display italic text-sm text-foreground/55 block"
+    >
+      {sub}
     </Editable>
   </div>
 );
