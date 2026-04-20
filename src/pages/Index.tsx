@@ -38,7 +38,7 @@ const Index = () => {
             id="capa.eyebrow"
             className="eyebrow mb-8 inline-block"
           >
-            Carta Proposta · Exclusiva
+            Carta Proposta · Confidencial · Edição única
           </Editable>
 
           <Editable
@@ -55,10 +55,22 @@ const Index = () => {
 
           <Editable
             id="capa.subtitle"
-            className="font-display italic text-xl md:text-2xl text-foreground/70 max-w-xl"
+            multiline
+            className="font-display italic text-xl md:text-2xl text-foreground/70 max-w-xl block"
           >
-            Esta carta não é um orçamento. É o início de uma decisão.
+            Esta carta não é um orçamento — é o ponto de partida de uma casa que vai
+            valer mais, durar mais e dizer mais sobre quem mora nela.
           </Editable>
+
+          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-muted-foreground">
+            <Editable id="capa.scarcity" className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80">
+              ◐ Aceitamos apenas 6 projetos por ano
+            </Editable>
+            <span className="hidden md:block h-px w-8 bg-border" />
+            <Editable id="capa.validity" className="font-mono text-[10px] uppercase tracking-[0.3em]">
+              Validade desta proposta · 14 dias
+            </Editable>
+          </div>
         </div>
 
         <div className="relative z-10 mt-16 flex items-end justify-between text-muted-foreground">
