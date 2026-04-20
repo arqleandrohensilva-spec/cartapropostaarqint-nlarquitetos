@@ -1386,4 +1386,51 @@ const Condition = ({ id, label, value }: { id: string; label: string; value: str
   </div>
 );
 
+const ValueAnchor = ({
+  id,
+  label,
+  value,
+  sub,
+  highlight,
+  muted,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  sub: string;
+  highlight?: boolean;
+  muted?: boolean;
+}) => (
+  <div
+    className={`px-6 py-8 border ${
+      highlight
+        ? "border-primary bg-primary/[0.04]"
+        : "border-border/60 bg-background/40"
+    }`}
+  >
+    <Editable
+      id={`${id}.lbl`}
+      className={`font-mono text-[10px] uppercase tracking-[0.3em] block mb-3 ${
+        highlight ? "text-primary" : "text-muted-foreground"
+      }`}
+    >
+      {label}
+    </Editable>
+    <Editable
+      id={`${id}.val`}
+      className={`font-display text-4xl md:text-5xl block leading-none mb-2 ${
+        highlight ? "text-primary" : muted ? "text-foreground/40" : "text-foreground"
+      }`}
+    >
+      {value}
+    </Editable>
+    <Editable
+      id={`${id}.sub`}
+      className="font-display italic text-sm text-foreground/55 block"
+    >
+      {sub}
+    </Editable>
+  </div>
+);
+
 export default Index;
