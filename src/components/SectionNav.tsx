@@ -3,11 +3,18 @@ import { clearAllEdits } from "./Editable";
 
 const SECTIONS = [
   { id: "capa", label: "Capa" },
-  { id: "manifesto", label: "Manifesto" },
+  { id: "manifesto", label: "Carta" },
   { id: "apresentacao", label: "Apresentação" },
   { id: "case", label: "Casa Costas" },
   { id: "interiores", label: "Interiores" },
   { id: "portfolio", label: "Portfólio" },
+  { id: "escopo", label: "Escopo" },
+  { id: "metodologia", label: "Metodologia" },
+  { id: "beneficios", label: "Benefícios" },
+  { id: "investimento", label: "Investimento" },
+  { id: "diferenciais", label: "Diferenciais" },
+  { id: "prova", label: "Prova social" },
+  { id: "proximos", label: "Próximos passos" },
   { id: "encerramento", label: "Encerramento" },
 ];
 

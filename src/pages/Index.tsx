@@ -7,6 +7,9 @@ import portfolioStair from "@/assets/portfolio-stair.jpg";
 import portfolioKitchen from "@/assets/portfolio-kitchen.jpg";
 import portfolioBedroom from "@/assets/portfolio-bedroom.jpg";
 import portfolioFacade from "@/assets/portfolio-facade.jpg";
+import processBlueprint from "@/assets/process-blueprint.jpg";
+import scopeMaterials from "@/assets/scope-materials.jpg";
+import beforeAfter from "@/assets/before-after.jpg";
 
 const Index = () => {
   return (
