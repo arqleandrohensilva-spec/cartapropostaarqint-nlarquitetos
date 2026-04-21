@@ -191,8 +191,26 @@ const Index = () => {
 
             <aside className="col-span-12 lg:col-span-5 lg:pl-12 lg:border-l border-border/60">
               <div className="space-y-10">
-                <PartnerCard id="leandro" name="Leandro Henrique" role="Co-Fundador · Arquiteto" cau="CAU A252250-0" />
-                <PartnerCard id="neandro" name="Neandro Jacque" role="Co-Fundador · Arquiteto" cau="CAU A264629-3" />
+                <PartnerCard
+                  id="leandro"
+                  name="Leandro Henrique"
+                  role="Co-Fundador · Arquiteto"
+                  cau="CAU A252250-0"
+                  images={[
+                    "https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1",
+                    "https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1",
+                  ]}
+                />
+                <PartnerCard
+                  id="neandro"
+                  name="Neandro Jacque"
+                  role="Co-Fundador · Arquiteto"
+                  cau="CAU A264629-3"
+                  images={[
+                    "https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1",
+                    "https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1",
+                  ]}
+                />
               </div>
             </aside>
           </div>
@@ -1251,8 +1269,34 @@ const Stat = ({ number, label, id }: { number: string; label: string; id: string
   </div>
 );
 
-const PartnerCard = ({ id, name, role, cau }: { id: string; name: string; role: string; cau: string }) => (
+const PartnerCard = ({
+  id,
+  name,
+  role,
+  cau,
+  images,
+}: {
+  id: string;
+  name: string;
+  role: string;
+  cau: string;
+  images?: [string, string];
+}) => (
   <div className="group">
+    {images && (
+      <div className="grid grid-cols-2 gap-2 mb-5">
+        {images.map((src, i) => (
+          <div key={i} className="relative aspect-[3/4] overflow-hidden bg-surface">
+            <img
+              src={src}
+              alt={`${name} · NL Arquitetos`}
+              className="absolute inset-0 w-full h-full object-cover grayscale-[15%] transition-all duration-[1200ms] group-hover:grayscale-0 group-hover:scale-[1.03]"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    )}
     <div className="flex items-baseline gap-4 mb-2">
       <span className="font-mono text-xs text-primary/70">→</span>
       <Editable as="h3" id={`p.${id}.name`} className="font-display text-3xl md:text-4xl text-foreground">
