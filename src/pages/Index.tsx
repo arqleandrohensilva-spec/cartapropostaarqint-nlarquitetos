@@ -1269,8 +1269,34 @@ const Stat = ({ number, label, id }: { number: string; label: string; id: string
   </div>
 );
 
-const PartnerCard = ({ id, name, role, cau }: { id: string; name: string; role: string; cau: string }) => (
+const PartnerCard = ({
+  id,
+  name,
+  role,
+  cau,
+  images,
+}: {
+  id: string;
+  name: string;
+  role: string;
+  cau: string;
+  images?: [string, string];
+}) => (
   <div className="group">
+    {images && (
+      <div className="grid grid-cols-2 gap-2 mb-5">
+        {images.map((src, i) => (
+          <div key={i} className="relative aspect-[3/4] overflow-hidden bg-surface">
+            <img
+              src={src}
+              alt={`${name} · NL Arquitetos`}
+              className="absolute inset-0 w-full h-full object-cover grayscale-[15%] transition-all duration-[1200ms] group-hover:grayscale-0 group-hover:scale-[1.03]"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    )}
     <div className="flex items-baseline gap-4 mb-2">
       <span className="font-mono text-xs text-primary/70">→</span>
       <Editable as="h3" id={`p.${id}.name`} className="font-display text-3xl md:text-4xl text-foreground">
