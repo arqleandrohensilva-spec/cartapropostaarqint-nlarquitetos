@@ -191,8 +191,26 @@ const Index = () => {
 
             <aside className="col-span-12 lg:col-span-5 lg:pl-12 lg:border-l border-border/60">
               <div className="space-y-10">
-                <PartnerCard id="leandro" name="Leandro Henrique" role="Co-Fundador · Arquiteto" cau="CAU A252250-0" />
-                <PartnerCard id="neandro" name="Neandro Jacque" role="Co-Fundador · Arquiteto" cau="CAU A264629-3" />
+                <PartnerCard
+                  id="leandro"
+                  name="Leandro Henrique"
+                  role="Co-Fundador · Arquiteto"
+                  cau="CAU A252250-0"
+                  images={[
+                    "https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1",
+                    "https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1",
+                  ]}
+                />
+                <PartnerCard
+                  id="neandro"
+                  name="Neandro Jacque"
+                  role="Co-Fundador · Arquiteto"
+                  cau="CAU A264629-3"
+                  images={[
+                    "https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1",
+                    "https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1",
+                  ]}
+                />
               </div>
             </aside>
           </div>
