@@ -1381,7 +1381,7 @@ const Contact = ({ id, label, value }: { id: string; label: string; value: strin
   </div>
 );
 
-const ScopeRow = ({ idx, n, t, d }: { idx: number; n: string; t: string; d: string }) => (
+const ScopeRow = ({ idx, n, t, d }: { idx: number | string; n: string; t: string; d: string }) => (
   <div className="group border-t border-border/60 last:border-b py-8 grid grid-cols-12 gap-6 items-baseline transition-colors hover:bg-surface/40 px-4 -mx-4">
     <span className="col-span-2 md:col-span-1 font-mono text-xs text-primary/70 tracking-[0.2em]">
       {n}
