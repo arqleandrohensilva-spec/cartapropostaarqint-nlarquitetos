@@ -356,7 +356,7 @@ const Index = () => {
 
     <div className="grid grid-cols-12 gap-4 md:gap-6">
       <figure className="col-span-12 md:col-span-5 row-span-2 group">
-        
+        <a
           href="https://www.dropbox.com/scl/fi/gc7yr8gcdep5iaxthxlz6/nomo-ai-6adc7dfa-c608-4cee-ad95-4693eb7f5a61.png?rlkey=mewhomhfyn14gs2p6a6y757rc&raw=1"
           target="_blank"
           rel="noreferrer"
@@ -382,7 +382,7 @@ const Index = () => {
       </figure>
 
       <figure className="col-span-12 md:col-span-7 group">
-        
+        <a
           href="https://www.dropbox.com/scl/fi/mnuvtilaks5qtv8ghjjll/nomo-result-1776203970806.png?rlkey=nuz4nzorchhctk9ef6efxt5km&raw=1"
           target="_blank"
           rel="noreferrer"
@@ -408,7 +408,7 @@ const Index = () => {
       </figure>
 
       <figure className="col-span-6 md:col-span-3 group">
-        
+        <a
           href="https://www.dropbox.com/scl/fi/qprr4s2fjkfti6tnyd89v/nomo-result-1775917620975.png?rlkey=0o6hu9dkmh2wr2phqu23z6avb&raw=1"
           target="_blank"
           rel="noreferrer"
@@ -434,7 +434,7 @@ const Index = () => {
       </figure>
 
       <figure className="col-span-6 md:col-span-4 group">
-        
+        <a
           href="https://www.dropbox.com/scl/fi/vr5t57j716ouai5a8nujn/Gemini_Generated_Image_m7jpdpm7jpdpm7jp.png?rlkey=al8wrep2dwow5zulb8xnyzgyv&raw=1"
           target="_blank"
           rel="noreferrer"
