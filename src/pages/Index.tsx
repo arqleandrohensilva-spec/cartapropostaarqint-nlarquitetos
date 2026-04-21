@@ -377,8 +377,8 @@ const Index = () => {
             <figure className="col-span-12 md:col-span-7 group">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img
-                  src="https://www.dropbox.com/scl/fi/hv5ka2it7y3mx78a9plos/tghdfjg.png?rlkey=7gx28a6t2ru8o4s8nz0mea4jp&raw=1"
-                  alt="Espaço Gourmet SJ · NL Arquitetos"
+                  src="https://www.dropbox.com/scl/fi/mnuvtilaks5qtv8ghjjll/nomo-result-1776203970806.png?rlkey=nuz4nzorchhctk9ef6efxt5km&raw=1"
+                  alt="Sala de estar · NL Arquitetos"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
                   loading="lazy"
                   width={1920}
@@ -387,7 +387,7 @@ const Index = () => {
               </div>
               <figcaption className="mt-4 flex items-baseline justify-between">
                 <Editable id="port.cap2" className="font-display italic text-foreground/80">
-                  Espaço Gourmet SJ · Interiores
+                  Sala de estar · Iluminação cênica
                 </Editable>
                 <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">02</span>
               </figcaption>
@@ -415,8 +415,8 @@ const Index = () => {
             <figure className="col-span-6 md:col-span-4 group">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img
-                  src="https://www.dropbox.com/scl/fi/mnuvtilaks5qtv8ghjjll/nomo-result-1776203970806.png?rlkey=nuz4nzorchhctk9ef6efxt5km&raw=1"
-                  alt="Sala de estar · NL Arquitetos"
+                  src="https://www.dropbox.com/scl/fi/vr5t57j716ouai5a8nujn/Gemini_Generated_Image_m7jpdpm7jpdpm7jp.png?rlkey=al8wrep2dwow5zulb8xnyzgyv&raw=1"
+                  alt="Quarto · NL Arquitetos"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
                   loading="lazy"
                   width={1920}
@@ -425,7 +425,7 @@ const Index = () => {
               </div>
               <figcaption className="mt-4">
                 <Editable id="port.cap4" className="font-display italic text-foreground/80 text-sm">
-                  Sala de estar · Iluminação cênica
+                  Suíte · Conforto e precisão
                 </Editable>
                 <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground mt-1">04</div>
               </figcaption>
