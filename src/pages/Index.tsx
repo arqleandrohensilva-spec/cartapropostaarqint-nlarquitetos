@@ -772,7 +772,7 @@ const Index = () => {
             />
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-x-4 gap-y-10">
-              {[
+              {([
                 { m: "Mês 01", t: "Briefing & Levantamento", trail: "ARQ" },
                 { m: "Mês 02", t: "Estudo Preliminar + 3D", trail: "ARQ" },
                 { m: "Mês 03", t: "Anteprojeto", trail: "ARQ" },
@@ -781,7 +781,7 @@ const Index = () => {
                 { m: "Mês 07", t: "Conceito de Interiores", trail: "INT" },
                 { m: "Mês 08–09", t: "Layout, Marcenaria & Iluminação", trail: "INT" },
                 { m: "Mês 10", t: "Detalhamento & Entrega", trail: "INT" },
-              ].map((p, i) => (
+              ] as const).map((p, i) => (
                 <TimelineNode key={i} idx={i} {...p} />
               ))}
             </div>
