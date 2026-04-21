@@ -84,8 +84,8 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          02 · MANIFESTO
-          ============================================================ */}
+    02 · MANIFESTO
+    ============================================================ */}
       <section id="manifesto" className="relative min-h-screen flex items-center px-6 md:px-16 lg:px-24 py-32">
         <div className="grid grid-cols-12 gap-8 w-full max-w-7xl mx-auto">
           <div className="col-span-12 md:col-span-3">
@@ -94,7 +94,6 @@ const Index = () => {
               Manifesto
             </Editable>
           </div>
-
           <div className="col-span-12 md:col-span-9">
             <Editable
               as="h2"
@@ -106,7 +105,6 @@ const Index = () => {
               <br />
               Antes de construir, <em className="text-primary not-italic">decidimos.</em>
             </Editable>
-
             <div className="grid md:grid-cols-2 gap-12 max-w-4xl">
               <Editable
                 id="manifesto.p1"
@@ -114,9 +112,8 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg md:text-xl leading-relaxed text-foreground/80"
               >
-                Nos últimos 8 anos, recusamos mais projetos do que aceitamos. Não por escassez de demanda — por escolha.
-                Trabalhamos com poucas famílias por ano para que cada casa receba o que merece: presença integral dos
-                sócios, do primeiro traço à última prancha.
+                A NL não começa pelo desenho. Começa pela escuta — entendendo o terreno, a família, o modo de viver. Só
+                depois o primeiro traço aparece. E quando aparece, já foi validado.
               </Editable>
               <Editable
                 id="manifesto.p2"
@@ -124,12 +121,10 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg md:text-xl leading-relaxed text-foreground/80"
               >
-                Esta proposta nasce de uma escuta — não de um catálogo. Cada decisão tomada aqui, em projeto, evita em
-                média três decisões custosas na obra. É assim que beleza se torna método, e método se transforma em
-                patrimônio.
+                Cada decisão tomada em projeto evita uma decisão custosa na obra. Não é opinião — é lógica construtiva.
+                Quando você decide no canteiro, o material já foi comprado e o erro já virou custo.
               </Editable>
             </div>
-
             <div className="mt-20 pl-8 border-l border-primary/40 max-w-2xl">
               <Editable
                 id="manifesto.quote"
