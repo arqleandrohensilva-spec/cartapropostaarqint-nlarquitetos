@@ -142,9 +142,9 @@ const Index = () => {
       {/* ============================================================
           03 · APRESENTAÇÃO VISUAL (editorial)
           ============================================================ */}
-      <section id="apresentacao" className="relative min-h-screen px-6 md:px-16 lg:px-24 py-32">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-baseline justify-between mb-20 border-b border-border/60 pb-6">
+      <section id="apresentacao" className="relative min-h-screen px-6 md:px-16 lg:px-24 py-16 lg:py-20 flex flex-col justify-center">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="flex items-baseline justify-between mb-8 lg:mb-10 border-b border-border/60 pb-4">
             <div className="flex items-baseline gap-6">
               <span className="number-marker">03</span>
               <Editable id="apresentacao.eyebrow" className="eyebrow">
@@ -159,13 +159,13 @@ const Index = () => {
             </Editable>
           </div>
 
-          <div className="grid grid-cols-12 gap-x-8 gap-y-16">
-            <div className="col-span-12 lg:col-span-7">
+          <div className="grid grid-cols-12 gap-x-8 gap-y-10 items-start">
+            <div className="col-span-12 lg:col-span-6">
               <Editable
                 as="h2"
                 id="apresentacao.title"
                 multiline
-                className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.0] text-balance mb-12"
+                className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.0] text-balance mb-6"
               >
                 A NL não é definida por quem assina —<br />
                 <em className="text-primary not-italic">é definida pelo processo.</em>
@@ -175,41 +175,35 @@ const Index = () => {
                 id="apresentacao.body"
                 multiline
                 as="p"
-                className="font-display text-lg leading-relaxed text-foreground/75 max-w-xl"
+                className="font-display text-base lg:text-lg leading-relaxed text-foreground/75 max-w-xl"
               >
                 Fundada por Leandro e Neandro, a NL une visão estratégica e disciplina executiva em um único método.
                 Transformamos o desejo do cliente em projeto executivo sem perdas — de conceito, de qualidade ou de
                 controle.
               </Editable>
 
-              <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg">
+              <div className="mt-8 grid grid-cols-3 gap-6 max-w-lg">
                 <Stat number="+50" label="Projetos entregues" id="stat1" />
                 <Stat number="+8" label="Anos de mercado" id="stat2" />
                 <Stat number="100%" label="Compatibilizados" id="stat3" />
               </div>
             </div>
 
-            <aside className="col-span-12 lg:col-span-5 lg:pl-12 lg:border-l border-border/60">
-              <div className="space-y-10">
+            <aside className="col-span-12 lg:col-span-6 lg:pl-10 lg:border-l border-border/60">
+              <div className="grid grid-cols-2 gap-5">
                 <PartnerCard
                   id="leandro"
                   name="Leandro Henrique"
                   role="Co-Fundador · Arquiteto"
                   cau="CAU A252250-0"
-                  images={[
-                    "https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1",
-                    "https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1",
-                  ]}
+                  image="https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1"
                 />
                 <PartnerCard
                   id="neandro"
                   name="Neandro Jacque"
                   role="Co-Fundador · Arquiteto"
                   cau="CAU A264629-3"
-                  images={[
-                    "https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1",
-                    "https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1",
-                  ]}
+                  image="https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1"
                 />
               </div>
             </aside>
