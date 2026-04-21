@@ -524,13 +524,14 @@ const Index = () => {
             title="Arquitetura Residencial"
             duration="5 a 6 meses"
             phases={[
-              { n: "01", t: "Briefing & Levantamentos", d: "Escuta profunda, programa de necessidades e leitura do terreno." },
-              { n: "02", t: "Estudo Preliminar com 3D", d: "Volumetria, implantação e atmosferas em 3D antes de qualquer técnica." },
-              { n: "03", t: "EVF — Viabilidade Financeira", d: "Orçamento por quantitativos reais — decisão consciente de escopo.", optional: true },
-              { n: "04", t: "Compatibilização", d: "Coordenação entre arquitetura, estrutura e instalações." },
-              { n: "05", t: "Aprovações", d: "Prefeitura, concessionárias e órgãos — conduzidos pela NL." },
+              { n: "01", t: "Levantamento & Briefing", d: "Escuta profunda, programa de necessidades e leitura do terreno." },
+              { n: "02", t: "Criação do Conceito", d: "Partido arquitetônico, narrativa e diretrizes que guiam todo o projeto." },
+              { n: "03", t: "Estudo Preliminar com 3D", d: "Volumetria, implantação e atmosferas em 3D antes de qualquer técnica." },
+              { n: "04", t: "EVF — Viabilidade Financeira", d: "Orçamento por quantitativos reais — decisão consciente de escopo.", optional: true },
+              { n: "05", t: "Projeto Legal & Aprovações", d: "Prefeitura, concessionárias e órgãos — conduzidos pela NL." },
               { n: "06", t: "Projeto Executivo", d: "Pranchas, memoriais e detalhamentos prontos para canteiro." },
-              { n: "07", t: "Acompanhamento de obra", d: "Visitas técnicas, ajustes e curadoria de fornecedores.", optional: true },
+              { n: "07", t: "Compatibilização Técnica", d: "Coordenação entre arquitetura, estrutura e instalações — em parceria com engenheiros especializados." },
+              { n: "08", t: "Acompanhamento de obra", d: "Visitas técnicas, ajustes e curadoria de fornecedores.", optional: true },
             ]}
           />
 
@@ -550,11 +551,12 @@ const Index = () => {
             duration="3 a 4 meses · após arquitetura"
             phases={[
               { n: "01", t: "Briefing & Levantamentos", d: "Escuta profunda, leitura do espaço e do estilo de vida." },
-              { n: "02", t: "Estudo Preliminar com 3D", d: "Atmosferas, layout e materialidade em 3D antes do detalhamento." },
-              { n: "03", t: "EVF — Viabilidade Financeira", d: "Orçamento por quantitativos reais — decisão consciente de escopo.", optional: true },
-              { n: "04", t: "Aprovações", d: "Validação integral do projeto com o cliente antes de detalhar." },
-              { n: "05", t: "Detalhamento de Interiores", d: "Marcenaria, iluminação, revestimentos e pranchas executivas." },
+              { n: "02", t: "Criação do Conceito", d: "Atmosfera, paleta e narrativa de interiores que orientam cada decisão." },
+              { n: "03", t: "Concepção 3D", d: "Imagens realistas e vídeo 360° para experimentar o projeto antes da obra." },
+              { n: "04", t: "EVF — Viabilidade Financeira", d: "Orçamento por quantitativos reais — decisão consciente de escopo.", optional: true },
+              { n: "05", t: "Projeto Executivo de Interiores", d: "Marcenaria, iluminação, revestimentos e pranchas executivas." },
               { n: "06", t: "Visitas em Lojas", d: "Curadoria conjunta de mobiliário, acabamentos, arte e têxteis.", optional: true },
+              { n: "07", t: "Acompanhamento de obra", d: "Visitas técnicas, ajustes finos e curadoria de fornecedores.", optional: true },
             ]}
           />
         </div>
