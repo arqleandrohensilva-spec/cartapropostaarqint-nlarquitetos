@@ -946,6 +946,9 @@ const Index = () => {
             />
           </div>
 
+          {/* Tabela comparativa detalhada */}
+          <ComparisonTable />
+
           {/* Forma de pagamento (comum) */}
           <div className="mt-12 border border-border/60 bg-background max-w-5xl mx-auto">
             <div className="px-8 py-6 border-b border-border/60">
