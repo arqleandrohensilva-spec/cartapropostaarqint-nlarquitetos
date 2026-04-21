@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Editable from "@/components/Editable";
 import SectionNav from "@/components/SectionNav";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import coverHero from "@/assets/cover-hero.jpg";
 import caseCasaCostas from "@/assets/case-casa-costas.jpg";
 import interiorLiving from "@/assets/interior-living.jpg";
@@ -500,7 +502,114 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          07 · ESCOPO DO PROJETO
+          06.5 · ETAPAS DO PROJETO (Arquitetura + Interiores)
+          ============================================================ */}
+      <section
+        id="etapas"
+        className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
+            <div className="flex items-baseline gap-6">
+              <span className="number-marker">06.5</span>
+              <Editable id="etapas.eyebrow" className="eyebrow">
+                Etapas · Do briefing à entrega
+              </Editable>
+            </div>
+            <Editable
+              id="etapas.tag"
+              className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
+            >
+              Arquitetura → Interiores · Fluxo encadeado
+            </Editable>
+          </div>
+
+          <Editable
+            as="h2"
+            id="etapas.title"
+            multiline
+            className="font-display text-5xl md:text-7xl leading-[1.0] mb-6 max-w-4xl text-balance"
+          >
+            Do primeiro traço<br />
+            <em className="text-primary not-italic">ao detalhe final.</em>
+          </Editable>
+
+          <Editable
+            id="etapas.intro"
+            multiline
+            as="p"
+            className="font-display text-lg text-foreground/70 max-w-2xl mb-16"
+          >
+            Interiores inicia somente após aprovação integral da etapa de Arquitetura.
+            Cada decisão é tomada na ordem certa — para que nada precise ser refeito depois.
+          </Editable>
+
+          {/* Trilha Arquitetura */}
+          <div className="mb-20">
+            <div className="flex items-baseline justify-between mb-8 border-b border-primary/30 pb-4">
+              <Editable
+                id="etapas.arq.label"
+                className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary"
+              >
+                ◆ Trilha 01 · Arquitetura
+              </Editable>
+              <Editable
+                id="etapas.arq.dur"
+                className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+              >
+                5 a 6 meses
+              </Editable>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+              {[
+                { n: "01", t: "Briefing & Levantamentos", d: "A decisão começa aqui — antes do primeiro traço." },
+                { n: "02", t: "Estudo Preliminar com 3D", d: "A decisão precisa ser visual antes de ser técnica." },
+                { n: "03", t: "EVF · Viabilidade Financeira", d: "Orçamento baseado em quantitativos reais — sem chute.", optional: true },
+                { n: "04", t: "Compatibilização", d: "Mostramos o erro no computador para não errar no cimento." },
+                { n: "05", t: "Aprovações legais", d: "A NL conduz — o cliente aprova com segurança." },
+                { n: "06", t: "Projeto Executivo", d: "Resultado previsível porque o processo é controlado." },
+              ].map((p, i) => (
+                <PhaseCard key={i} idx={`arq.${i}`} {...p} />
+              ))}
+            </div>
+          </div>
+
+          {/* Trilha Interiores */}
+          <div>
+            <div className="flex items-baseline justify-between mb-8 border-b border-primary/30 pb-4">
+              <Editable
+                id="etapas.int.label"
+                className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary"
+              >
+                ◆ Trilha 02 · Interiores
+              </Editable>
+              <Editable
+                id="etapas.int.dur"
+                className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+              >
+                3 a 4 meses · após arquitetura
+              </Editable>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+              {[
+                { n: "01", t: "Briefing de estilo de vida", d: "Atmosferas, rotinas e referências afetivas do cliente." },
+                { n: "02", t: "Conceito & moodboard", d: "Materialidade, paleta e linguagem de interiores." },
+                { n: "03", t: "Layout & marcenaria", d: "Plantas humanizadas, marcenaria sob medida e fluxos." },
+                { n: "04", t: "Iluminação cênica", d: "Projeto luminotécnico integrado ao mobiliário." },
+                { n: "05", t: "Especificações & curadoria", d: "Mobiliário, revestimentos, têxteis, arte e adega." },
+                { n: "06", t: "Detalhamento executivo", d: "Pranchas para marceneiro, eletricista e instaladores." },
+              ].map((p, i) => (
+                <PhaseCard key={i} idx={`int.${i}`} {...p} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          07 · ESCOPO TÉCNICO (Arquitetônico / Interiores)
           ============================================================ */}
       <section
         id="escopo"
@@ -510,7 +619,7 @@ const Index = () => {
           <div className="col-span-12 lg:col-span-5 lg:sticky lg:top-24 self-start">
             <span className="number-marker block mb-3">07</span>
             <Editable id="escopo.eyebrow" className="eyebrow mb-8 inline-block">
-              Escopo · O que entregamos
+              Escopo técnico · O que entregamos
             </Editable>
 
             <Editable
@@ -519,7 +628,7 @@ const Index = () => {
               multiline
               className="font-display text-5xl md:text-6xl leading-[1.0] mb-10 text-balance"
             >
-              Cinco etapas. <em className="text-primary not-italic">Zero improviso.</em>
+              Duas disciplinas. <em className="text-primary not-italic">Um só método.</em>
             </Editable>
 
             <Editable
@@ -528,9 +637,9 @@ const Index = () => {
               as="p"
               className="font-display text-lg leading-relaxed text-foreground/75 mb-10"
             >
-              Cada fase tem entregáveis claros, prazo definido e ponto de
-              aprovação. Você sabe exatamente onde estamos, o que está pronto e
-              o que vem a seguir — do primeiro encontro à última prancha.
+              O escopo técnico é dividido em duas frentes complementares — Arquitetônico
+              e Interiores. Cada entregável tem prazo definido, ponto de aprovação e
+              documentação que vai direto para a obra.
             </Editable>
 
             <div className="relative aspect-[4/5] overflow-hidden hidden lg:block">
@@ -545,36 +654,8 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="col-span-12 lg:col-span-7 space-y-px">
-            {[
-              {
-                n: "01",
-                t: "Levantamento e briefing",
-                d: "Visita técnica, estudo do terreno, mapeamento de desejos e restrições. Documentação fotográfica e dimensional completa.",
-              },
-              {
-                n: "02",
-                t: "Estudo preliminar",
-                d: "Primeiras volumetrias, implantação no terreno, fluxos e relações entre ambientes. Apresentação em prancha + render conceitual.",
-              },
-              {
-                n: "03",
-                t: "Anteprojeto",
-                d: "Plantas, cortes, fachadas e 3D em alta fidelidade. Definição de pé-direito, materiais principais e especificações técnicas.",
-              },
-              {
-                n: "04",
-                t: "Projeto executivo",
-                d: "Pranchas para obra: dimensionamento, cotas, paginação de pisos, especificação de esquadrias, marcenaria e acabamentos.",
-              },
-              {
-                n: "05",
-                t: "Detalhamentos & compatibilização",
-                d: "Coordenação com elétrica, hidráulica, estrutural e ar-condicionado. Detalhes construtivos para evitar retrabalho na obra.",
-              },
-            ].map((s, i) => (
-              <ScopeRow key={i} idx={i} {...s} />
-            ))}
+          <div className="col-span-12 lg:col-span-7">
+            <ScopeTabs />
           </div>
         </div>
       </section>
@@ -639,6 +720,87 @@ const Index = () => {
       </section>
 
       {/* ============================================================
+          08.5 · CRONOGRAMA ESTIMADO
+          ============================================================ */}
+      <section
+        id="cronograma"
+        className="relative px-6 md:px-16 lg:px-24 py-32"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
+            <div className="flex items-baseline gap-6">
+              <span className="number-marker">08.5</span>
+              <Editable id="crono.eyebrow" className="eyebrow">
+                Cronograma · Linha do tempo estimada
+              </Editable>
+            </div>
+            <Editable
+              id="crono.tag"
+              className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
+            >
+              Arquitetura + Interiores · 8 a 10 meses
+            </Editable>
+          </div>
+
+          <Editable
+            as="h2"
+            id="crono.title"
+            multiline
+            className="font-display text-5xl md:text-7xl leading-[1.0] mb-8 max-w-4xl text-balance"
+          >
+            Um ritmo <em className="text-primary not-italic">previsível</em>,<br />
+            de ponta a ponta.
+          </Editable>
+
+          <Editable
+            id="crono.intro"
+            multiline
+            as="p"
+            className="font-display text-lg text-foreground/70 max-w-2xl mb-20"
+          >
+            Cada fase tem janela própria, ponto de aprovação e entregável. Você
+            sabe, desde o início, quando cada decisão será tomada.
+          </Editable>
+
+          {/* Timeline horizontal */}
+          <div className="relative">
+            {/* Linha base */}
+            <div className="absolute left-0 right-0 top-[34px] h-px bg-border hidden md:block" />
+            <div
+              className="absolute left-0 top-[34px] h-px bg-primary hidden md:block"
+              style={{ width: "100%" }}
+            />
+
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-x-4 gap-y-10">
+              {([
+                { m: "Mês 01", t: "Briefing & Levantamento", trail: "ARQ" },
+                { m: "Mês 02", t: "Estudo Preliminar + 3D", trail: "ARQ" },
+                { m: "Mês 03", t: "Anteprojeto", trail: "ARQ" },
+                { m: "Mês 04", t: "Compatibilização", trail: "ARQ" },
+                { m: "Mês 05–06", t: "Projeto Executivo", trail: "ARQ" },
+                { m: "Mês 07", t: "Conceito de Interiores", trail: "INT" },
+                { m: "Mês 08–09", t: "Layout, Marcenaria & Iluminação", trail: "INT" },
+                { m: "Mês 10", t: "Detalhamento & Entrega", trail: "INT" },
+              ] as const).map((p, i) => (
+                <TimelineNode key={i} idx={i} {...p} />
+              ))}
+            </div>
+          </div>
+
+          <Editable
+            id="crono.note"
+            multiline
+            as="p"
+            className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mt-16 max-w-3xl leading-relaxed"
+          >
+            Cronograma estimado · Pode variar conforme escopo, aprovações de
+            terceiros (prefeitura, condomínio) e disponibilidade do cliente nas
+            etapas de aprovação.
+          </Editable>
+        </div>
+      </section>
+
+      {/* ============================================================
           09 · BENEFÍCIOS
           ============================================================ */}
       <section
@@ -699,14 +861,14 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          10 · INVESTIMENTO
+          10 · INVESTIMENTO · Pacotes Basic e Premium
           ============================================================ */}
       <section
         id="investimento"
         className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40"
       >
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="number-marker block mb-4">10 · Investimento</span>
             <div className="gold-line w-16 mx-auto mb-10" />
             <Editable
@@ -715,74 +877,85 @@ const Index = () => {
               multiline
               className="font-display text-5xl md:text-7xl leading-[1.0] mb-8 text-balance"
             >
-              Um investimento, <em className="text-primary not-italic">não um custo.</em>
+              Dois pacotes. <em className="text-primary not-italic">Um só método.</em>
             </Editable>
             <Editable
               id="investimento.body"
               multiline
               as="p"
-              className="font-display italic text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto"
+              className="font-display italic text-lg md:text-xl text-foreground/70"
             >
               Cada R$ 1 investido em projeto economiza, em média, R$ 3 em obra
-              e adiciona até 25% ao valor de revenda do imóvel. Esta é a
-              matemática que define o valor de um arquiteto.
+              e adiciona até 25% ao valor de revenda do imóvel. Escolha a
+              profundidade do escopo — o rigor é o mesmo.
             </Editable>
           </div>
 
           {/* Ancoragem de valor */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
             <ValueAnchor id="va1" label="Sem projeto" value="100%" sub="Custo da obra · referência" muted />
             <ValueAnchor id="va2" label="Projeto comum" value="−12%" sub="Economia média de mercado" muted />
             <ValueAnchor id="va3" label="Método NL" value="−27%" sub="Economia comprovada em obra" highlight />
           </div>
 
-          <div className="border border-border/60 bg-background">
-            <div className="px-8 md:px-12 py-10 border-b border-border/60 flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <Editable
-                  id="invest.scope.label"
-                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-3"
-                >
-                  Escopo completo · Tudo incluso
-                </Editable>
-                <Editable
-                  id="invest.scope.title"
-                  className="font-display text-3xl md:text-4xl text-foreground"
-                >
-                  Projeto Arquitetônico Integral
-                </Editable>
-                <Editable
-                  id="invest.scope.desc"
-                  className="font-display italic text-foreground/60 mt-2 block"
-                >
-                  Levantamento → Executivo → Detalhamentos · 6 disciplinas compatibilizadas
-                </Editable>
-              </div>
-              <div className="text-left md:text-right">
-                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-2">
-                  Valor do projeto
-                </span>
-                <Editable
-                  id="invest.value.from"
-                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block"
-                >
-                  A partir de
-                </Editable>
-                <Editable
-                  id="invest.value"
-                  className="font-display text-5xl md:text-6xl text-primary leading-none mt-1"
-                >
-                  R$ 00.000
-                </Editable>
-                <Editable
-                  id="invest.value.installment"
-                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mt-3"
-                >
-                  ou parcelado em até 10x sem juros
-                </Editable>
-              </div>
-            </div>
+          {/* Pacotes lado a lado */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <PackageCard
+              id="basic"
+              tier="Pacote Basic"
+              tagline="Arquitetura essencial · pronto para construir"
+              price="R$ 00.000"
+              priceNote="A partir de · 8x sem juros"
+              features={[
+                { included: true, text: "Levantamento, briefing e estudo do terreno" },
+                { included: true, text: "Estudo Preliminar com 1 render conceitual" },
+                { included: true, text: "Anteprojeto arquitetônico (plantas, cortes, fachadas)" },
+                { included: true, text: "Projeto Executivo arquitetônico" },
+                { included: true, text: "Compatibilização básica · até 3 disciplinas" },
+                { included: true, text: "2 rodadas de revisão por etapa" },
+                { included: false, text: "Projeto de Interiores" },
+                { included: false, text: "Projeto luminotécnico cênico" },
+                { included: false, text: "Curadoria de mobiliário e arte" },
+                { included: false, text: "Acompanhamento de obra mensal" },
+              ]}
+              cta="Quero o pacote Basic"
+              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Basic."
+            />
 
+            <PackageCard
+              id="premium"
+              tier="Pacote Premium"
+              tagline="Arquitetura + Interiores · experiência completa"
+              price="R$ 00.000"
+              priceNote="A partir de · 10x sem juros"
+              features={[
+                { included: true, text: "Tudo do Pacote Basic" },
+                { included: true, text: "Compatibilização total · 6 disciplinas" },
+                { included: true, text: "Renders fotorrealistas ilimitados" },
+                { included: true, text: "Projeto completo de Interiores" },
+                { included: true, text: "Marcenaria sob medida detalhada" },
+                { included: true, text: "Projeto luminotécnico cênico integrado" },
+                { included: true, text: "Curadoria de mobiliário, arte e revestimentos" },
+                { included: true, text: "Acompanhamento de obra (visitas mensais)" },
+                { included: true, text: "Atendimento direto com os sócios" },
+                { included: true, text: "Garantia editorial NL · revisões ilimitadas" },
+              ]}
+              cta="Quero o pacote Premium"
+              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Premium."
+              recommended
+            />
+          </div>
+
+          {/* Forma de pagamento (comum) */}
+          <div className="mt-12 border border-border/60 bg-background max-w-5xl mx-auto">
+            <div className="px-8 py-6 border-b border-border/60">
+              <Editable
+                id="invest.pay.label"
+                className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block"
+              >
+                Condições de pagamento · Aplicáveis aos dois pacotes
+              </Editable>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border/60">
               <PaymentTier id="pay1" label="Entrada" value="30%" sub="Na assinatura do contrato" />
               <PaymentTier id="pay2" label="Anteprojeto" value="40%" sub="Na aprovação do anteprojeto" />
@@ -791,7 +964,7 @@ const Index = () => {
           </div>
 
           {/* Garantia */}
-          <div className="mt-10 border border-primary/30 bg-primary/[0.03] px-8 py-8 flex flex-col md:flex-row gap-6 items-start">
+          <div className="mt-10 border border-primary/30 bg-primary/[0.03] px-8 py-8 flex flex-col md:flex-row gap-6 items-start max-w-5xl mx-auto">
             <span className="font-display text-4xl text-primary leading-none shrink-0">✦</span>
             <div>
               <Editable
@@ -819,8 +992,8 @@ const Index = () => {
             as="p"
             className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground text-center mt-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Valor estimado — ajustável conforme metragem final, complexidade do
-            terreno e disciplinas adicionais. Proposta válida por 14 dias.
+            Valores estimados — ajustáveis conforme metragem final, complexidade
+            do terreno e disciplinas adicionais. Proposta válida por 14 dias.
           </Editable>
         </div>
       </section>
@@ -1208,7 +1381,7 @@ const Contact = ({ id, label, value }: { id: string; label: string; value: strin
   </div>
 );
 
-const ScopeRow = ({ idx, n, t, d }: { idx: number; n: string; t: string; d: string }) => (
+const ScopeRow = ({ idx, n, t, d }: { idx: number | string; n: string; t: string; d: string }) => (
   <div className="group border-t border-border/60 last:border-b py-8 grid grid-cols-12 gap-6 items-baseline transition-colors hover:bg-surface/40 px-4 -mx-4">
     <span className="col-span-2 md:col-span-1 font-mono text-xs text-primary/70 tracking-[0.2em]">
       {n}
@@ -1430,6 +1603,260 @@ const ValueAnchor = ({
     >
       {sub}
     </Editable>
+  </div>
+);
+
+/* --- Etapas (cards de fase) --- */
+const PhaseCard = ({
+  idx,
+  n,
+  t,
+  d,
+  optional,
+}: {
+  idx: string;
+  n: string;
+  t: string;
+  d: string;
+  optional?: boolean;
+}) => (
+  <div className="bg-background p-8 group hover:bg-surface/60 transition-colors">
+    <div className="flex items-baseline justify-between mb-6">
+      <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70">
+        {n}
+      </span>
+      {optional && (
+        <Editable
+          id={`phase.${idx}.opt`}
+          className="font-mono text-[9px] uppercase tracking-[0.25em] text-muted-foreground/70 border border-border/60 px-2 py-0.5"
+        >
+          Opcional
+        </Editable>
+      )}
+    </div>
+    <Editable
+      as="h3"
+      id={`phase.${idx}.t`}
+      className="font-display text-xl md:text-2xl text-foreground mb-3 leading-tight"
+    >
+      {t}
+    </Editable>
+    <Editable
+      id={`phase.${idx}.d`}
+      multiline
+      as="p"
+      className="font-display italic text-sm text-foreground/65 leading-relaxed"
+    >
+      {d}
+    </Editable>
+  </div>
+);
+
+/* --- Escopo Técnico com Tabs (Arquitetônico / Interiores) --- */
+const SCOPE_ARQ = [
+  { n: "01", t: "Levantamento e briefing", d: "Visita técnica, estudo do terreno, mapeamento de desejos e restrições. Documentação fotográfica e dimensional completa." },
+  { n: "02", t: "Estudo preliminar", d: "Volumetria, implantação, fluxos e relações entre ambientes. Apresentação em prancha + render conceitual." },
+  { n: "03", t: "Anteprojeto arquitetônico", d: "Plantas, cortes, fachadas e 3D em alta fidelidade. Pé-direito, materiais principais e especificações." },
+  { n: "04", t: "Projeto executivo", d: "Pranchas para obra: dimensionamento, cotas, paginação de pisos, esquadrias e acabamentos." },
+  { n: "05", t: "Compatibilização técnica", d: "Coordenação com elétrica, hidráulica, estrutural e ar-condicionado. Detalhes construtivos sem retrabalho." },
+];
+
+const SCOPE_INT = [
+  { n: "01", t: "Briefing de interiores", d: "Mapeamento de estilo de vida, atmosferas desejadas e referências afetivas do cliente." },
+  { n: "02", t: "Conceito & moodboard", d: "Linguagem visual, paleta cromática, materialidade e direção de atmosfera por ambiente." },
+  { n: "03", t: "Layout humanizado & marcenaria", d: "Plantas com mobiliário definitivo, marcenaria sob medida com cortes e detalhamento." },
+  { n: "04", t: "Projeto luminotécnico", d: "Iluminação cênica e funcional integrada — pontos, especificação de luminárias e cenas." },
+  { n: "05", t: "Curadoria & especificação", d: "Mobiliário solto, revestimentos, têxteis, acessórios, arte e adega. Tudo orçado e codificado." },
+  { n: "06", t: "Detalhamento executivo de interiores", d: "Pranchas para marceneiro, eletricista e instaladores. Sem ambiguidade na obra." },
+];
+
+const ScopeTabs = () => {
+  const [tab, setTab] = useState("arq");
+  return (
+    <Tabs value={tab} onValueChange={setTab} className="w-full">
+      <TabsList className="bg-transparent border-b border-border/60 rounded-none p-0 h-auto w-full justify-start gap-8 mb-8">
+        <TabsTrigger
+          value="arq"
+          className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary text-muted-foreground rounded-none px-0 pb-4 font-mono text-[11px] uppercase tracking-[0.3em] border-b-2 border-transparent data-[state=active]:border-primary"
+        >
+          Arquitetônico
+        </TabsTrigger>
+        <TabsTrigger
+          value="int"
+          className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary text-muted-foreground rounded-none px-0 pb-4 font-mono text-[11px] uppercase tracking-[0.3em] border-b-2 border-transparent data-[state=active]:border-primary"
+        >
+          Interiores
+        </TabsTrigger>
+      </TabsList>
+
+      <TabsContent value="arq" className="mt-0 space-y-px">
+        {SCOPE_ARQ.map((s, i) => (
+          <ScopeRow key={i} idx={`arq-${i}`} {...s} />
+        ))}
+      </TabsContent>
+      <TabsContent value="int" className="mt-0 space-y-px">
+        {SCOPE_INT.map((s, i) => (
+          <ScopeRow key={i} idx={`int-${i}`} {...s} />
+        ))}
+      </TabsContent>
+    </Tabs>
+  );
+};
+
+/* --- Cronograma · Timeline node --- */
+const TimelineNode = ({
+  idx,
+  m,
+  t,
+  trail,
+}: {
+  idx: number;
+  m: string;
+  t: string;
+  trail: "ARQ" | "INT";
+}) => (
+  <div className="relative">
+    {/* Marcador na linha */}
+    <div className="hidden md:flex justify-center">
+      <span
+        className={`relative z-10 w-3 h-3 rounded-full border-2 ${
+          trail === "ARQ"
+            ? "bg-primary border-primary"
+            : "bg-background border-primary"
+        }`}
+      />
+    </div>
+    <div className="md:mt-6 text-left md:text-center">
+      <Editable
+        id={`crono.${idx}.m`}
+        className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-2"
+      >
+        {m}
+      </Editable>
+      <Editable
+        as="h4"
+        id={`crono.${idx}.t`}
+        multiline
+        className="font-display text-base text-foreground/90 leading-tight mb-2"
+      >
+        {t}
+      </Editable>
+      <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground/70">
+        Trilha · {trail === "ARQ" ? "Arquitetura" : "Interiores"}
+      </span>
+    </div>
+  </div>
+);
+
+/* --- Pacotes Basic / Premium --- */
+const PackageCard = ({
+  id,
+  tier,
+  tagline,
+  price,
+  priceNote,
+  features,
+  cta,
+  ctaHref,
+  recommended,
+}: {
+  id: string;
+  tier: string;
+  tagline: string;
+  price: string;
+  priceNote: string;
+  features: { included: boolean; text: string }[];
+  cta: string;
+  ctaHref: string;
+  recommended?: boolean;
+}) => (
+  <div
+    className={`relative flex flex-col p-10 md:p-12 ${
+      recommended
+        ? "border-2 border-primary bg-background"
+        : "border border-border/60 bg-background/60"
+    }`}
+  >
+    {recommended && (
+      <div className="absolute -top-3 left-10 bg-primary text-primary-foreground px-4 py-1">
+        <Editable
+          id={`pkg.${id}.badge`}
+          className="font-mono text-[9px] uppercase tracking-[0.3em]"
+        >
+          ◆ Mais escolhido
+        </Editable>
+      </div>
+    )}
+
+    <div className="mb-8">
+      <Editable
+        id={`pkg.${id}.tier`}
+        className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-4"
+      >
+        {tier}
+      </Editable>
+      <Editable
+        as="h3"
+        id={`pkg.${id}.tagline`}
+        multiline
+        className="font-display text-3xl md:text-4xl text-foreground leading-tight mb-6"
+      >
+        {tagline}
+      </Editable>
+      <div className="gold-line w-12 mb-6" />
+      <Editable
+        id={`pkg.${id}.price.note`}
+        className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-1"
+      >
+        {priceNote}
+      </Editable>
+      <Editable
+        id={`pkg.${id}.price`}
+        className={`font-display text-5xl md:text-6xl leading-none block ${
+          recommended ? "text-primary" : "text-foreground"
+        }`}
+      >
+        {price}
+      </Editable>
+    </div>
+
+    <ul className="space-y-3 mb-10 flex-1">
+      {features.map((f, i) => (
+        <li key={i} className="flex gap-3 items-baseline border-b border-border/40 pb-3">
+          <span
+            className={`font-mono text-xs shrink-0 ${
+              f.included ? "text-primary" : "text-muted-foreground/40"
+            }`}
+          >
+            {f.included ? "✓" : "—"}
+          </span>
+          <Editable
+            id={`pkg.${id}.f${i}`}
+            className={`font-display text-sm leading-relaxed flex-1 ${
+              f.included ? "text-foreground/85" : "text-muted-foreground/50 line-through"
+            }`}
+          >
+            {f.text}
+          </Editable>
+        </li>
+      ))}
+    </ul>
+
+    <a
+      href={ctaHref}
+      target="_blank"
+      rel="noreferrer"
+      className={`group inline-flex items-center justify-center gap-4 px-8 py-4 font-mono text-xs uppercase tracking-[0.3em] transition-colors duration-500 self-stretch ${
+        recommended
+          ? "bg-primary text-primary-foreground hover:bg-primary-glow"
+          : "border border-foreground/30 text-foreground hover:border-primary hover:text-primary"
+      }`}
+    >
+      <Editable id={`pkg.${id}.cta`} className="inline-block">
+        {cta}
+      </Editable>
+      <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+    </a>
   </div>
 );
 
