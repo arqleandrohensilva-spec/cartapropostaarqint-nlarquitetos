@@ -328,111 +328,139 @@ const Index = () => {
       {/* ============================================================
     06 · SEQUÊNCIA VISUAL — PORTFÓLIO EXPANDIDO
     ============================================================ */}
-      <section id="portfolio" className="relative px-6 md:px-16 lg:px-24 py-32">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
-            <div className="flex items-baseline gap-6">
-              <span className="number-marker">06</span>
-              <Editable id="portfolio.eyebrow" className="eyebrow">
-                Portfólio · Sequência
-              </Editable>
-            </div>
-            <Editable
-              id="portfolio.tag"
-              className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
-            >
-              Quatro fragmentos · Um método
-            </Editable>
-          </div>
+<section id="portfolio" className="relative px-6 md:px-16 lg:px-24 py-32">
+  <div className="max-w-7xl mx-auto">
+    <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
+      <div className="flex items-baseline gap-6">
+        <span className="number-marker">06</span>
+        <Editable id="portfolio.eyebrow" className="eyebrow">
+          Portfólio · Sequência
+        </Editable>
+      </div>
+      <Editable
+        id="portfolio.tag"
+        className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
+      >
+        Quatro fragmentos · Um método
+      </Editable>
+    </div>
 
-          <Editable
-            as="h2"
-            id="portfolio.title"
-            multiline
-            className="font-display text-5xl md:text-7xl leading-[1.0] mb-20 max-w-4xl text-balance"
-          >
-            Projetos que <em className="text-primary not-italic">provam</em> o método.
+    <Editable
+      as="h2"
+      id="portfolio.title"
+      multiline
+      className="font-display text-5xl md:text-7xl leading-[1.0] mb-20 max-w-4xl text-balance"
+    >
+      Projetos que <em className="text-primary not-italic">provam</em> o método.
+    </Editable>
+
+    <div className="grid grid-cols-12 gap-4 md:gap-6">
+      <figure className="col-span-12 md:col-span-5 row-span-2 group">
+        
+          href="https://www.dropbox.com/scl/fi/gc7yr8gcdep5iaxthxlz6/nomo-ai-6adc7dfa-c608-4cee-ad95-4693eb7f5a61.png?rlkey=mewhomhfyn14gs2p6a6y757rc&raw=1"
+          target="_blank"
+          rel="noreferrer"
+          className="block overflow-hidden"
+        >
+          <div className="relative aspect-[3/4] overflow-hidden">
+            <img
+              src="https://www.dropbox.com/scl/fi/gc7yr8gcdep5iaxthxlz6/nomo-ai-6adc7dfa-c608-4cee-ad95-4693eb7f5a61.png?rlkey=mewhomhfyn14gs2p6a6y757rc&raw=1"
+              alt="Residência · fachada · NL Arquitetos"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
+              loading="lazy"
+              width={1080}
+              height={1440}
+            />
+          </div>
+        </a>
+        <figcaption className="mt-4 flex items-baseline justify-between">
+          <Editable id="port.cap1" className="font-display italic text-foreground/80">
+            Fachada residencial · São José dos Campos
           </Editable>
+          <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">01</span>
+        </figcaption>
+      </figure>
 
-          <div className="grid grid-cols-12 gap-4 md:gap-6">
-            <figure className="col-span-12 md:col-span-5 row-span-2 group">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <img
-                  src="https://www.dropbox.com/scl/fi/gc7yr8gcdep5iaxthxlz6/nomo-ai-6adc7dfa-c608-4cee-ad95-4693eb7f5a61.png?rlkey=mewhomhfyn14gs2p6a6y757rc&raw=1"
-                  alt="Residência · fachada · NL Arquitetos"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
-                  loading="lazy"
-                  width={1080}
-                  height={1440}
-                />
-              </div>
-              <figcaption className="mt-4 flex items-baseline justify-between">
-                <Editable id="port.cap1" className="font-display italic text-foreground/80">
-                  Fachada residencial · São José dos Campos
-                </Editable>
-                <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">01</span>
-              </figcaption>
-            </figure>
-
-            <figure className="col-span-12 md:col-span-7 group">
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src="https://www.dropbox.com/scl/fi/mnuvtilaks5qtv8ghjjll/nomo-result-1776203970806.png?rlkey=nuz4nzorchhctk9ef6efxt5km&raw=1"
-                  alt="Sala de estar · NL Arquitetos"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
-                  loading="lazy"
-                  width={1920}
-                  height={1200}
-                />
-              </div>
-              <figcaption className="mt-4 flex items-baseline justify-between">
-                <Editable id="port.cap2" className="font-display italic text-foreground/80">
-                  Sala de estar · Iluminação cênica
-                </Editable>
-                <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">02</span>
-              </figcaption>
-            </figure>
-
-            <figure className="col-span-6 md:col-span-3 group">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <img
-                  src="https://www.dropbox.com/scl/fi/qprr4s2fjkfti6tnyd89v/nomo-result-1775917620975.png?rlkey=0o6hu9dkmh2wr2phqu23z6avb&raw=1"
-                  alt="Área de lazer · NL Arquitetos"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
-                  loading="lazy"
-                  width={1080}
-                  height={1440}
-                />
-              </div>
-              <figcaption className="mt-4">
-                <Editable id="port.cap3" className="font-display italic text-foreground/80 text-sm">
-                  Área de lazer · Convivência e materialidade
-                </Editable>
-                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground mt-1">03</div>
-              </figcaption>
-            </figure>
-
-            <figure className="col-span-6 md:col-span-4 group">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <img
-                  src="https://www.dropbox.com/scl/fi/vr5t57j716ouai5a8nujn/Gemini_Generated_Image_m7jpdpm7jpdpm7jp.png?rlkey=al8wrep2dwow5zulb8xnyzgyv&raw=1"
-                  alt="Quarto · NL Arquitetos"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
-                  loading="lazy"
-                  width={1920}
-                  height={1200}
-                />
-              </div>
-              <figcaption className="mt-4">
-                <Editable id="port.cap4" className="font-display italic text-foreground/80 text-sm">
-                  Suíte · Conforto e precisão
-                </Editable>
-                <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground mt-1">04</div>
-              </figcaption>
-            </figure>
+      <figure className="col-span-12 md:col-span-7 group">
+        
+          href="https://www.dropbox.com/scl/fi/mnuvtilaks5qtv8ghjjll/nomo-result-1776203970806.png?rlkey=nuz4nzorchhctk9ef6efxt5km&raw=1"
+          target="_blank"
+          rel="noreferrer"
+          className="block overflow-hidden"
+        >
+          <div className="relative aspect-[16/10] overflow-hidden">
+            <img
+              src="https://www.dropbox.com/scl/fi/mnuvtilaks5qtv8ghjjll/nomo-result-1776203970806.png?rlkey=nuz4nzorchhctk9ef6efxt5km&raw=1"
+              alt="Sala de estar · NL Arquitetos"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
+              loading="lazy"
+              width={1920}
+              height={1200}
+            />
           </div>
-        </div>
-      </section>
+        </a>
+        <figcaption className="mt-4 flex items-baseline justify-between">
+          <Editable id="port.cap2" className="font-display italic text-foreground/80">
+            Sala de estar · Iluminação cênica
+          </Editable>
+          <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">02</span>
+        </figcaption>
+      </figure>
+
+      <figure className="col-span-6 md:col-span-3 group">
+        
+          href="https://www.dropbox.com/scl/fi/qprr4s2fjkfti6tnyd89v/nomo-result-1775917620975.png?rlkey=0o6hu9dkmh2wr2phqu23z6avb&raw=1"
+          target="_blank"
+          rel="noreferrer"
+          className="block overflow-hidden"
+        >
+          <div className="relative aspect-[3/4] overflow-hidden">
+            <img
+              src="https://www.dropbox.com/scl/fi/qprr4s2fjkfti6tnyd89v/nomo-result-1775917620975.png?rlkey=0o6hu9dkmh2wr2phqu23z6avb&raw=1"
+              alt="Área de lazer · NL Arquitetos"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
+              loading="lazy"
+              width={1080}
+              height={1440}
+            />
+          </div>
+        </a>
+        <figcaption className="mt-4">
+          <Editable id="port.cap3" className="font-display italic text-foreground/80 text-sm">
+            Área de lazer · Convivência e materialidade
+          </Editable>
+          <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground mt-1">03</div>
+        </figcaption>
+      </figure>
+
+      <figure className="col-span-6 md:col-span-4 group">
+        
+          href="https://www.dropbox.com/scl/fi/vr5t57j716ouai5a8nujn/Gemini_Generated_Image_m7jpdpm7jpdpm7jp.png?rlkey=al8wrep2dwow5zulb8xnyzgyv&raw=1"
+          target="_blank"
+          rel="noreferrer"
+          className="block overflow-hidden"
+        >
+          <div className="relative aspect-[3/4] overflow-hidden">
+            <img
+              src="https://www.dropbox.com/scl/fi/vr5t57j716ouai5a8nujn/Gemini_Generated_Image_m7jpdpm7jpdpm7jp.png?rlkey=al8wrep2dwow5zulb8xnyzgyv&raw=1"
+              alt="Suíte · NL Arquitetos"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
+              loading="lazy"
+              width={1920}
+              height={1200}
+            />
+          </div>
+        </a>
+        <figcaption className="mt-4">
+          <Editable id="port.cap4" className="font-display italic text-foreground/80 text-sm">
+            Suíte · Conforto e precisão
+          </Editable>
+          <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground mt-1">04</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
       {/* ============================================================
           06.5 · ETAPAS DO PROJETO
