@@ -500,7 +500,114 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          07 · ESCOPO DO PROJETO
+          06.5 · ETAPAS DO PROJETO (Arquitetura + Interiores)
+          ============================================================ */}
+      <section
+        id="etapas"
+        className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
+            <div className="flex items-baseline gap-6">
+              <span className="number-marker">06.5</span>
+              <Editable id="etapas.eyebrow" className="eyebrow">
+                Etapas · Do briefing à entrega
+              </Editable>
+            </div>
+            <Editable
+              id="etapas.tag"
+              className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
+            >
+              Arquitetura → Interiores · Fluxo encadeado
+            </Editable>
+          </div>
+
+          <Editable
+            as="h2"
+            id="etapas.title"
+            multiline
+            className="font-display text-5xl md:text-7xl leading-[1.0] mb-6 max-w-4xl text-balance"
+          >
+            Do primeiro traço<br />
+            <em className="text-primary not-italic">ao detalhe final.</em>
+          </Editable>
+
+          <Editable
+            id="etapas.intro"
+            multiline
+            as="p"
+            className="font-display text-lg text-foreground/70 max-w-2xl mb-16"
+          >
+            Interiores inicia somente após aprovação integral da etapa de Arquitetura.
+            Cada decisão é tomada na ordem certa — para que nada precise ser refeito depois.
+          </Editable>
+
+          {/* Trilha Arquitetura */}
+          <div className="mb-20">
+            <div className="flex items-baseline justify-between mb-8 border-b border-primary/30 pb-4">
+              <Editable
+                id="etapas.arq.label"
+                className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary"
+              >
+                ◆ Trilha 01 · Arquitetura
+              </Editable>
+              <Editable
+                id="etapas.arq.dur"
+                className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+              >
+                5 a 6 meses
+              </Editable>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+              {[
+                { n: "01", t: "Briefing & Levantamentos", d: "A decisão começa aqui — antes do primeiro traço." },
+                { n: "02", t: "Estudo Preliminar com 3D", d: "A decisão precisa ser visual antes de ser técnica." },
+                { n: "03", t: "EVF · Viabilidade Financeira", d: "Orçamento baseado em quantitativos reais — sem chute.", optional: true },
+                { n: "04", t: "Compatibilização", d: "Mostramos o erro no computador para não errar no cimento." },
+                { n: "05", t: "Aprovações legais", d: "A NL conduz — o cliente aprova com segurança." },
+                { n: "06", t: "Projeto Executivo", d: "Resultado previsível porque o processo é controlado." },
+              ].map((p, i) => (
+                <PhaseCard key={i} idx={`arq.${i}`} {...p} />
+              ))}
+            </div>
+          </div>
+
+          {/* Trilha Interiores */}
+          <div>
+            <div className="flex items-baseline justify-between mb-8 border-b border-primary/30 pb-4">
+              <Editable
+                id="etapas.int.label"
+                className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary"
+              >
+                ◆ Trilha 02 · Interiores
+              </Editable>
+              <Editable
+                id="etapas.int.dur"
+                className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+              >
+                3 a 4 meses · após arquitetura
+              </Editable>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+              {[
+                { n: "01", t: "Briefing de estilo de vida", d: "Atmosferas, rotinas e referências afetivas do cliente." },
+                { n: "02", t: "Conceito & moodboard", d: "Materialidade, paleta e linguagem de interiores." },
+                { n: "03", t: "Layout & marcenaria", d: "Plantas humanizadas, marcenaria sob medida e fluxos." },
+                { n: "04", t: "Iluminação cênica", d: "Projeto luminotécnico integrado ao mobiliário." },
+                { n: "05", t: "Especificações & curadoria", d: "Mobiliário, revestimentos, têxteis, arte e adega." },
+                { n: "06", t: "Detalhamento executivo", d: "Pranchas para marceneiro, eletricista e instaladores." },
+              ].map((p, i) => (
+                <PhaseCard key={i} idx={`int.${i}`} {...p} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          07 · ESCOPO TÉCNICO (Arquitetônico / Interiores)
           ============================================================ */}
       <section
         id="escopo"
@@ -510,7 +617,7 @@ const Index = () => {
           <div className="col-span-12 lg:col-span-5 lg:sticky lg:top-24 self-start">
             <span className="number-marker block mb-3">07</span>
             <Editable id="escopo.eyebrow" className="eyebrow mb-8 inline-block">
-              Escopo · O que entregamos
+              Escopo técnico · O que entregamos
             </Editable>
 
             <Editable
@@ -519,7 +626,7 @@ const Index = () => {
               multiline
               className="font-display text-5xl md:text-6xl leading-[1.0] mb-10 text-balance"
             >
-              Cinco etapas. <em className="text-primary not-italic">Zero improviso.</em>
+              Duas disciplinas. <em className="text-primary not-italic">Um só método.</em>
             </Editable>
 
             <Editable
@@ -528,9 +635,9 @@ const Index = () => {
               as="p"
               className="font-display text-lg leading-relaxed text-foreground/75 mb-10"
             >
-              Cada fase tem entregáveis claros, prazo definido e ponto de
-              aprovação. Você sabe exatamente onde estamos, o que está pronto e
-              o que vem a seguir — do primeiro encontro à última prancha.
+              O escopo técnico é dividido em duas frentes complementares — Arquitetônico
+              e Interiores. Cada entregável tem prazo definido, ponto de aprovação e
+              documentação que vai direto para a obra.
             </Editable>
 
             <div className="relative aspect-[4/5] overflow-hidden hidden lg:block">
@@ -545,36 +652,8 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="col-span-12 lg:col-span-7 space-y-px">
-            {[
-              {
-                n: "01",
-                t: "Levantamento e briefing",
-                d: "Visita técnica, estudo do terreno, mapeamento de desejos e restrições. Documentação fotográfica e dimensional completa.",
-              },
-              {
-                n: "02",
-                t: "Estudo preliminar",
-                d: "Primeiras volumetrias, implantação no terreno, fluxos e relações entre ambientes. Apresentação em prancha + render conceitual.",
-              },
-              {
-                n: "03",
-                t: "Anteprojeto",
-                d: "Plantas, cortes, fachadas e 3D em alta fidelidade. Definição de pé-direito, materiais principais e especificações técnicas.",
-              },
-              {
-                n: "04",
-                t: "Projeto executivo",
-                d: "Pranchas para obra: dimensionamento, cotas, paginação de pisos, especificação de esquadrias, marcenaria e acabamentos.",
-              },
-              {
-                n: "05",
-                t: "Detalhamentos & compatibilização",
-                d: "Coordenação com elétrica, hidráulica, estrutural e ar-condicionado. Detalhes construtivos para evitar retrabalho na obra.",
-              },
-            ].map((s, i) => (
-              <ScopeRow key={i} idx={i} {...s} />
-            ))}
+          <div className="col-span-12 lg:col-span-7">
+            <ScopeTabs />
           </div>
         </div>
       </section>
