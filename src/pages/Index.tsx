@@ -1268,43 +1268,39 @@ const PartnerCard = ({
   name,
   role,
   cau,
-  images,
+  image,
 }: {
   id: string;
   name: string;
   role: string;
   cau: string;
-  images?: [string, string];
+  image?: string;
 }) => (
   <div className="group">
-    {images && (
-      <div className="grid grid-cols-2 gap-2 mb-5">
-        {images.map((src, i) => (
-          <div key={i} className="relative aspect-[3/4] overflow-hidden bg-surface">
-            <img
-              src={src}
-              alt={`${name} · NL Arquitetos`}
-              className="absolute inset-0 w-full h-full object-cover grayscale-[15%] transition-all duration-[1200ms] group-hover:grayscale-0 group-hover:scale-[1.03]"
-              loading="lazy"
-            />
-          </div>
-        ))}
+    {image && (
+      <div className="relative aspect-[3/4] overflow-hidden bg-surface mb-4">
+        <img
+          src={image}
+          alt={`${name} · NL Arquitetos`}
+          className="absolute inset-0 w-full h-full object-cover grayscale-[15%] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.03]"
+          loading="lazy"
+        />
       </div>
     )}
-    <div className="flex items-baseline gap-4 mb-2">
+    <div className="flex items-baseline gap-2 mb-1">
       <span className="font-mono text-xs text-primary/70">→</span>
-      <Editable as="h3" id={`p.${id}.name`} className="font-display text-3xl md:text-4xl text-foreground">
+      <Editable as="h3" id={`p.${id}.name`} className="font-display text-xl md:text-2xl text-foreground leading-tight">
         {name}
       </Editable>
     </div>
-    <div className="pl-7 space-y-1">
+    <div className="pl-5 space-y-0.5">
       <Editable
         id={`p.${id}.role`}
-        className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground block"
+        className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground block"
       >
         {role}
       </Editable>
-      <Editable id={`p.${id}.cau`} className="font-mono text-[10px] tracking-[0.2em] text-primary/60 block">
+      <Editable id={`p.${id}.cau`} className="font-mono text-[9px] tracking-[0.2em] text-primary/60 block">
         {cau}
       </Editable>
     </div>
