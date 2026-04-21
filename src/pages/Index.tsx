@@ -200,14 +200,14 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-    04 · CASE — ESPAÇO GOURMET SJ
+    04 · CASE — CASA COSTAS
     ============================================================ */}
       <section id="case" className="relative">
         <div className="grid grid-cols-12 min-h-screen">
           <div className="col-span-12 lg:col-span-7 relative min-h-[60vh] lg:min-h-screen">
             <img
-              src="https://www.dropbox.com/scl/fi/hv5ka2it7y3mx78a9plos/tghdfjg.png?rlkey=7gx28a6t2ru8o4s8nz0mea4jp&raw=1"
-              alt="Espaço Gourmet SJ · projeto NL Arquitetos"
+              src="https://www.dropbox.com/scl/fi/dibhyhod5xpz47v3l9rp3/Gemini_Generated_Image_896gxz896gxz896g-1.png?rlkey=q1ltxbytg9eo2ynmbz0njb0f3&raw=1"
+              alt="Casa Costas · residência NL Arquitetos · São José dos Campos"
               className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
               width={1920}
@@ -228,13 +228,13 @@ const Index = () => {
                 multiline
                 className="font-display text-5xl md:text-6xl leading-[0.95] mb-2"
               >
-                Espaço Gourmet <em className="text-primary not-italic">SJ.</em>
+                Casa <em className="text-primary not-italic">Costas.</em>
               </Editable>
               <Editable
                 id="case.location"
                 className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground block mb-10"
               >
-                Interiores · São José dos Campos
+                Residência · 300m² · São José dos Campos
               </Editable>
               <div className="gold-line w-16 mb-8" />
               <Editable
@@ -243,13 +243,14 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg leading-relaxed text-foreground/80 mb-10"
               >
-                Um espaço de convivência que precisava funcionar como extensão da casa — sem abrir mão da precisão
-                técnica. Cada decisão de material, iluminação e marcenaria foi tomada no projeto, não na obra. O
-                resultado: um ambiente que entrega exatamente o que foi prometido no primeiro render.
+                O pedido era claro: uma residência que equilibrasse presença e acolhimento. A fachada em concreto e
+                madeira define o limite entre o público e o privado — sem abrir mão da luz. Cada detalhe, do
+                revestimento ao recuo da garagem, foi validado em projeto antes de qualquer execução. O resultado é uma
+                casa que funciona exatamente como foi decidido — antes da primeira escavação.
               </Editable>
               <div className="grid grid-cols-3 gap-6 border-t border-border/60 pt-8">
-                <CaseStat id="case.s1" value="03" label="Meses de projeto" />
-                <CaseStat id="case.s2" value="04" label="Disciplinas" />
+                <CaseStat id="case.s1" value="04" label="Meses de projeto" />
+                <CaseStat id="case.s2" value="05" label="Disciplinas" />
                 <CaseStat id="case.s3" value="0" label="Retrabalho" />
               </div>
             </div>
