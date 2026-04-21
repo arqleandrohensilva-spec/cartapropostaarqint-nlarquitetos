@@ -200,14 +200,14 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          04 · CASE — CASA COSTAS
-          ============================================================ */}
+    04 · CASE — ESPAÇO GOURMET SJ
+    ============================================================ */}
       <section id="case" className="relative">
         <div className="grid grid-cols-12 min-h-screen">
           <div className="col-span-12 lg:col-span-7 relative min-h-[60vh] lg:min-h-screen">
             <img
-              src={caseCasaCostas}
-              alt="Casa Costas · residência contemporânea com piscina infinita ao entardecer"
+              src="https://www.dropbox.com/scl/fi/hv5ka2it7y3mx78a9plos/tghdfjg.png?rlkey=7gx28a6t2ru8o4s8nz0mea4jp&raw=1"
+              alt="Espaço Gourmet SJ · projeto NL Arquitetos"
               className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
               width={1920}
@@ -219,44 +219,37 @@ const Index = () => {
               <span className="h-px w-8 bg-primary/60" />
             </div>
           </div>
-
           <div className="col-span-12 lg:col-span-5 relative px-8 md:px-16 py-20 lg:py-32 flex flex-col justify-center">
             <div className="max-w-md">
               <span className="number-marker block mb-4">04 · Projeto referência</span>
-
               <Editable
                 as="h2"
                 id="case.title"
                 multiline
                 className="font-display text-5xl md:text-6xl leading-[0.95] mb-2"
               >
-                Casa <em className="text-primary not-italic">Costas.</em>
+                Espaço Gourmet <em className="text-primary not-italic">SJ.</em>
               </Editable>
-
               <Editable
                 id="case.location"
                 className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground block mb-10"
               >
-                Residência · 480m² · São José dos Campos
+                Interiores · São José dos Campos
               </Editable>
-
               <div className="gold-line w-16 mb-8" />
-
               <Editable
                 id="case.body"
                 multiline
                 as="p"
                 className="font-display text-lg leading-relaxed text-foreground/80 mb-10"
               >
-                Um terreno em declive. Uma família que cresce. Um pedido aparente: "queremos uma casa moderna." A escuta
-                revelou outra coisa — queriam, sobretudo, ficar. Casa Costas foi projetada para evoluir com seus
-                moradores: estrutura preparada para uma futura suíte, cozinha que abraça a sala, e uma fachada que
-                respira sob a luz da serra ao entardecer.
+                Um espaço de convivência que precisava funcionar como extensão da casa — sem abrir mão da precisão
+                técnica. Cada decisão de material, iluminação e marcenaria foi tomada no projeto, não na obra. O
+                resultado: um ambiente que entrega exatamente o que foi prometido no primeiro render.
               </Editable>
-
               <div className="grid grid-cols-3 gap-6 border-t border-border/60 pt-8">
-                <CaseStat id="case.s1" value="14" label="Meses de projeto" />
-                <CaseStat id="case.s2" value="06" label="Disciplinas" />
+                <CaseStat id="case.s1" value="03" label="Meses de projeto" />
+                <CaseStat id="case.s2" value="04" label="Disciplinas" />
                 <CaseStat id="case.s3" value="0" label="Retrabalho" />
               </div>
             </div>
