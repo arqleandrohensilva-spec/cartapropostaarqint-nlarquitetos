@@ -859,14 +859,14 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          10 · INVESTIMENTO
+          10 · INVESTIMENTO · Pacotes Basic e Premium
           ============================================================ */}
       <section
         id="investimento"
         className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40"
       >
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="number-marker block mb-4">10 · Investimento</span>
             <div className="gold-line w-16 mx-auto mb-10" />
             <Editable
@@ -875,74 +875,85 @@ const Index = () => {
               multiline
               className="font-display text-5xl md:text-7xl leading-[1.0] mb-8 text-balance"
             >
-              Um investimento, <em className="text-primary not-italic">não um custo.</em>
+              Dois pacotes. <em className="text-primary not-italic">Um só método.</em>
             </Editable>
             <Editable
               id="investimento.body"
               multiline
               as="p"
-              className="font-display italic text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto"
+              className="font-display italic text-lg md:text-xl text-foreground/70"
             >
               Cada R$ 1 investido em projeto economiza, em média, R$ 3 em obra
-              e adiciona até 25% ao valor de revenda do imóvel. Esta é a
-              matemática que define o valor de um arquiteto.
+              e adiciona até 25% ao valor de revenda do imóvel. Escolha a
+              profundidade do escopo — o rigor é o mesmo.
             </Editable>
           </div>
 
           {/* Ancoragem de valor */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
             <ValueAnchor id="va1" label="Sem projeto" value="100%" sub="Custo da obra · referência" muted />
             <ValueAnchor id="va2" label="Projeto comum" value="−12%" sub="Economia média de mercado" muted />
             <ValueAnchor id="va3" label="Método NL" value="−27%" sub="Economia comprovada em obra" highlight />
           </div>
 
-          <div className="border border-border/60 bg-background">
-            <div className="px-8 md:px-12 py-10 border-b border-border/60 flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <Editable
-                  id="invest.scope.label"
-                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-3"
-                >
-                  Escopo completo · Tudo incluso
-                </Editable>
-                <Editable
-                  id="invest.scope.title"
-                  className="font-display text-3xl md:text-4xl text-foreground"
-                >
-                  Projeto Arquitetônico Integral
-                </Editable>
-                <Editable
-                  id="invest.scope.desc"
-                  className="font-display italic text-foreground/60 mt-2 block"
-                >
-                  Levantamento → Executivo → Detalhamentos · 6 disciplinas compatibilizadas
-                </Editable>
-              </div>
-              <div className="text-left md:text-right">
-                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-2">
-                  Valor do projeto
-                </span>
-                <Editable
-                  id="invest.value.from"
-                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block"
-                >
-                  A partir de
-                </Editable>
-                <Editable
-                  id="invest.value"
-                  className="font-display text-5xl md:text-6xl text-primary leading-none mt-1"
-                >
-                  R$ 00.000
-                </Editable>
-                <Editable
-                  id="invest.value.installment"
-                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mt-3"
-                >
-                  ou parcelado em até 10x sem juros
-                </Editable>
-              </div>
-            </div>
+          {/* Pacotes lado a lado */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <PackageCard
+              id="basic"
+              tier="Pacote Basic"
+              tagline="Arquitetura essencial · pronto para construir"
+              price="R$ 00.000"
+              priceNote="A partir de · 8x sem juros"
+              features={[
+                { included: true, text: "Levantamento, briefing e estudo do terreno" },
+                { included: true, text: "Estudo Preliminar com 1 render conceitual" },
+                { included: true, text: "Anteprojeto arquitetônico (plantas, cortes, fachadas)" },
+                { included: true, text: "Projeto Executivo arquitetônico" },
+                { included: true, text: "Compatibilização básica · até 3 disciplinas" },
+                { included: true, text: "2 rodadas de revisão por etapa" },
+                { included: false, text: "Projeto de Interiores" },
+                { included: false, text: "Projeto luminotécnico cênico" },
+                { included: false, text: "Curadoria de mobiliário e arte" },
+                { included: false, text: "Acompanhamento de obra mensal" },
+              ]}
+              cta="Quero o pacote Basic"
+              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Basic."
+            />
 
+            <PackageCard
+              id="premium"
+              tier="Pacote Premium"
+              tagline="Arquitetura + Interiores · experiência completa"
+              price="R$ 00.000"
+              priceNote="A partir de · 10x sem juros"
+              features={[
+                { included: true, text: "Tudo do Pacote Basic" },
+                { included: true, text: "Compatibilização total · 6 disciplinas" },
+                { included: true, text: "Renders fotorrealistas ilimitados" },
+                { included: true, text: "Projeto completo de Interiores" },
+                { included: true, text: "Marcenaria sob medida detalhada" },
+                { included: true, text: "Projeto luminotécnico cênico integrado" },
+                { included: true, text: "Curadoria de mobiliário, arte e revestimentos" },
+                { included: true, text: "Acompanhamento de obra (visitas mensais)" },
+                { included: true, text: "Atendimento direto com os sócios" },
+                { included: true, text: "Garantia editorial NL · revisões ilimitadas" },
+              ]}
+              cta="Quero o pacote Premium"
+              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Premium."
+              recommended
+            />
+          </div>
+
+          {/* Forma de pagamento (comum) */}
+          <div className="mt-12 border border-border/60 bg-background max-w-5xl mx-auto">
+            <div className="px-8 py-6 border-b border-border/60">
+              <Editable
+                id="invest.pay.label"
+                className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block"
+              >
+                Condições de pagamento · Aplicáveis aos dois pacotes
+              </Editable>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border/60">
               <PaymentTier id="pay1" label="Entrada" value="30%" sub="Na assinatura do contrato" />
               <PaymentTier id="pay2" label="Anteprojeto" value="40%" sub="Na aprovação do anteprojeto" />
@@ -951,7 +962,7 @@ const Index = () => {
           </div>
 
           {/* Garantia */}
-          <div className="mt-10 border border-primary/30 bg-primary/[0.03] px-8 py-8 flex flex-col md:flex-row gap-6 items-start">
+          <div className="mt-10 border border-primary/30 bg-primary/[0.03] px-8 py-8 flex flex-col md:flex-row gap-6 items-start max-w-5xl mx-auto">
             <span className="font-display text-4xl text-primary leading-none shrink-0">✦</span>
             <div>
               <Editable
@@ -979,8 +990,8 @@ const Index = () => {
             as="p"
             className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground text-center mt-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Valor estimado — ajustável conforme metragem final, complexidade do
-            terreno e disciplinas adicionais. Proposta válida por 14 dias.
+            Valores estimados — ajustáveis conforme metragem final, complexidade
+            do terreno e disciplinas adicionais. Proposta válida por 14 dias.
           </Editable>
         </div>
       </section>
