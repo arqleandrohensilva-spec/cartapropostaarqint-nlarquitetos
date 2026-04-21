@@ -718,6 +718,87 @@ const Index = () => {
       </section>
 
       {/* ============================================================
+          08.5 · CRONOGRAMA ESTIMADO
+          ============================================================ */}
+      <section
+        id="cronograma"
+        className="relative px-6 md:px-16 lg:px-24 py-32"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
+            <div className="flex items-baseline gap-6">
+              <span className="number-marker">08.5</span>
+              <Editable id="crono.eyebrow" className="eyebrow">
+                Cronograma · Linha do tempo estimada
+              </Editable>
+            </div>
+            <Editable
+              id="crono.tag"
+              className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
+            >
+              Arquitetura + Interiores · 8 a 10 meses
+            </Editable>
+          </div>
+
+          <Editable
+            as="h2"
+            id="crono.title"
+            multiline
+            className="font-display text-5xl md:text-7xl leading-[1.0] mb-8 max-w-4xl text-balance"
+          >
+            Um ritmo <em className="text-primary not-italic">previsível</em>,<br />
+            de ponta a ponta.
+          </Editable>
+
+          <Editable
+            id="crono.intro"
+            multiline
+            as="p"
+            className="font-display text-lg text-foreground/70 max-w-2xl mb-20"
+          >
+            Cada fase tem janela própria, ponto de aprovação e entregável. Você
+            sabe, desde o início, quando cada decisão será tomada.
+          </Editable>
+
+          {/* Timeline horizontal */}
+          <div className="relative">
+            {/* Linha base */}
+            <div className="absolute left-0 right-0 top-[34px] h-px bg-border hidden md:block" />
+            <div
+              className="absolute left-0 top-[34px] h-px bg-primary hidden md:block"
+              style={{ width: "100%" }}
+            />
+
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-x-4 gap-y-10">
+              {[
+                { m: "Mês 01", t: "Briefing & Levantamento", trail: "ARQ" },
+                { m: "Mês 02", t: "Estudo Preliminar + 3D", trail: "ARQ" },
+                { m: "Mês 03", t: "Anteprojeto", trail: "ARQ" },
+                { m: "Mês 04", t: "Compatibilização", trail: "ARQ" },
+                { m: "Mês 05–06", t: "Projeto Executivo", trail: "ARQ" },
+                { m: "Mês 07", t: "Conceito de Interiores", trail: "INT" },
+                { m: "Mês 08–09", t: "Layout, Marcenaria & Iluminação", trail: "INT" },
+                { m: "Mês 10", t: "Detalhamento & Entrega", trail: "INT" },
+              ].map((p, i) => (
+                <TimelineNode key={i} idx={i} {...p} />
+              ))}
+            </div>
+          </div>
+
+          <Editable
+            id="crono.note"
+            multiline
+            as="p"
+            className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mt-16 max-w-3xl leading-relaxed"
+          >
+            Cronograma estimado · Pode variar conforme escopo, aprovações de
+            terceiros (prefeitura, condomínio) e disponibilidade do cliente nas
+            etapas de aprovação.
+          </Editable>
+        </div>
+      </section>
+
+      {/* ============================================================
           09 · BENEFÍCIOS
           ============================================================ */}
       <section
