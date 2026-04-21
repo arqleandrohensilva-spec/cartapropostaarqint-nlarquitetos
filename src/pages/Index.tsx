@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Editable from "@/components/Editable";
 import SectionNav from "@/components/SectionNav";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import coverHero from "@/assets/cover-hero.jpg";
 import caseCasaCostas from "@/assets/case-casa-costas.jpg";
 import interiorLiving from "@/assets/interior-living.jpg";
@@ -1601,6 +1603,260 @@ const ValueAnchor = ({
     >
       {sub}
     </Editable>
+  </div>
+);
+
+/* --- Etapas (cards de fase) --- */
+const PhaseCard = ({
+  idx,
+  n,
+  t,
+  d,
+  optional,
+}: {
+  idx: string;
+  n: string;
+  t: string;
+  d: string;
+  optional?: boolean;
+}) => (
+  <div className="bg-background p-8 group hover:bg-surface/60 transition-colors">
+    <div className="flex items-baseline justify-between mb-6">
+      <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70">
+        {n}
+      </span>
+      {optional && (
+        <Editable
+          id={`phase.${idx}.opt`}
+          className="font-mono text-[9px] uppercase tracking-[0.25em] text-muted-foreground/70 border border-border/60 px-2 py-0.5"
+        >
+          Opcional
+        </Editable>
+      )}
+    </div>
+    <Editable
+      as="h3"
+      id={`phase.${idx}.t`}
+      className="font-display text-xl md:text-2xl text-foreground mb-3 leading-tight"
+    >
+      {t}
+    </Editable>
+    <Editable
+      id={`phase.${idx}.d`}
+      multiline
+      as="p"
+      className="font-display italic text-sm text-foreground/65 leading-relaxed"
+    >
+      {d}
+    </Editable>
+  </div>
+);
+
+/* --- Escopo Técnico com Tabs (Arquitetônico / Interiores) --- */
+const SCOPE_ARQ = [
+  { n: "01", t: "Levantamento e briefing", d: "Visita técnica, estudo do terreno, mapeamento de desejos e restrições. Documentação fotográfica e dimensional completa." },
+  { n: "02", t: "Estudo preliminar", d: "Volumetria, implantação, fluxos e relações entre ambientes. Apresentação em prancha + render conceitual." },
+  { n: "03", t: "Anteprojeto arquitetônico", d: "Plantas, cortes, fachadas e 3D em alta fidelidade. Pé-direito, materiais principais e especificações." },
+  { n: "04", t: "Projeto executivo", d: "Pranchas para obra: dimensionamento, cotas, paginação de pisos, esquadrias e acabamentos." },
+  { n: "05", t: "Compatibilização técnica", d: "Coordenação com elétrica, hidráulica, estrutural e ar-condicionado. Detalhes construtivos sem retrabalho." },
+];
+
+const SCOPE_INT = [
+  { n: "01", t: "Briefing de interiores", d: "Mapeamento de estilo de vida, atmosferas desejadas e referências afetivas do cliente." },
+  { n: "02", t: "Conceito & moodboard", d: "Linguagem visual, paleta cromática, materialidade e direção de atmosfera por ambiente." },
+  { n: "03", t: "Layout humanizado & marcenaria", d: "Plantas com mobiliário definitivo, marcenaria sob medida com cortes e detalhamento." },
+  { n: "04", t: "Projeto luminotécnico", d: "Iluminação cênica e funcional integrada — pontos, especificação de luminárias e cenas." },
+  { n: "05", t: "Curadoria & especificação", d: "Mobiliário solto, revestimentos, têxteis, acessórios, arte e adega. Tudo orçado e codificado." },
+  { n: "06", t: "Detalhamento executivo de interiores", d: "Pranchas para marceneiro, eletricista e instaladores. Sem ambiguidade na obra." },
+];
+
+const ScopeTabs = () => {
+  const [tab, setTab] = useState("arq");
+  return (
+    <Tabs value={tab} onValueChange={setTab} className="w-full">
+      <TabsList className="bg-transparent border-b border-border/60 rounded-none p-0 h-auto w-full justify-start gap-8 mb-8">
+        <TabsTrigger
+          value="arq"
+          className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary text-muted-foreground rounded-none px-0 pb-4 font-mono text-[11px] uppercase tracking-[0.3em] border-b-2 border-transparent data-[state=active]:border-primary"
+        >
+          Arquitetônico
+        </TabsTrigger>
+        <TabsTrigger
+          value="int"
+          className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary text-muted-foreground rounded-none px-0 pb-4 font-mono text-[11px] uppercase tracking-[0.3em] border-b-2 border-transparent data-[state=active]:border-primary"
+        >
+          Interiores
+        </TabsTrigger>
+      </TabsList>
+
+      <TabsContent value="arq" className="mt-0 space-y-px">
+        {SCOPE_ARQ.map((s, i) => (
+          <ScopeRow key={i} idx={`arq-${i}`} {...s} />
+        ))}
+      </TabsContent>
+      <TabsContent value="int" className="mt-0 space-y-px">
+        {SCOPE_INT.map((s, i) => (
+          <ScopeRow key={i} idx={`int-${i}`} {...s} />
+        ))}
+      </TabsContent>
+    </Tabs>
+  );
+};
+
+/* --- Cronograma · Timeline node --- */
+const TimelineNode = ({
+  idx,
+  m,
+  t,
+  trail,
+}: {
+  idx: number;
+  m: string;
+  t: string;
+  trail: "ARQ" | "INT";
+}) => (
+  <div className="relative">
+    {/* Marcador na linha */}
+    <div className="hidden md:flex justify-center">
+      <span
+        className={`relative z-10 w-3 h-3 rounded-full border-2 ${
+          trail === "ARQ"
+            ? "bg-primary border-primary"
+            : "bg-background border-primary"
+        }`}
+      />
+    </div>
+    <div className="md:mt-6 text-left md:text-center">
+      <Editable
+        id={`crono.${idx}.m`}
+        className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-2"
+      >
+        {m}
+      </Editable>
+      <Editable
+        as="h4"
+        id={`crono.${idx}.t`}
+        multiline
+        className="font-display text-base text-foreground/90 leading-tight mb-2"
+      >
+        {t}
+      </Editable>
+      <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground/70">
+        Trilha · {trail === "ARQ" ? "Arquitetura" : "Interiores"}
+      </span>
+    </div>
+  </div>
+);
+
+/* --- Pacotes Basic / Premium --- */
+const PackageCard = ({
+  id,
+  tier,
+  tagline,
+  price,
+  priceNote,
+  features,
+  cta,
+  ctaHref,
+  recommended,
+}: {
+  id: string;
+  tier: string;
+  tagline: string;
+  price: string;
+  priceNote: string;
+  features: { included: boolean; text: string }[];
+  cta: string;
+  ctaHref: string;
+  recommended?: boolean;
+}) => (
+  <div
+    className={`relative flex flex-col p-10 md:p-12 ${
+      recommended
+        ? "border-2 border-primary bg-background"
+        : "border border-border/60 bg-background/60"
+    }`}
+  >
+    {recommended && (
+      <div className="absolute -top-3 left-10 bg-primary text-primary-foreground px-4 py-1">
+        <Editable
+          id={`pkg.${id}.badge`}
+          className="font-mono text-[9px] uppercase tracking-[0.3em]"
+        >
+          ◆ Mais escolhido
+        </Editable>
+      </div>
+    )}
+
+    <div className="mb-8">
+      <Editable
+        id={`pkg.${id}.tier`}
+        className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-4"
+      >
+        {tier}
+      </Editable>
+      <Editable
+        as="h3"
+        id={`pkg.${id}.tagline`}
+        multiline
+        className="font-display text-3xl md:text-4xl text-foreground leading-tight mb-6"
+      >
+        {tagline}
+      </Editable>
+      <div className="gold-line w-12 mb-6" />
+      <Editable
+        id={`pkg.${id}.price.note`}
+        className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-1"
+      >
+        {priceNote}
+      </Editable>
+      <Editable
+        id={`pkg.${id}.price`}
+        className={`font-display text-5xl md:text-6xl leading-none block ${
+          recommended ? "text-primary" : "text-foreground"
+        }`}
+      >
+        {price}
+      </Editable>
+    </div>
+
+    <ul className="space-y-3 mb-10 flex-1">
+      {features.map((f, i) => (
+        <li key={i} className="flex gap-3 items-baseline border-b border-border/40 pb-3">
+          <span
+            className={`font-mono text-xs shrink-0 ${
+              f.included ? "text-primary" : "text-muted-foreground/40"
+            }`}
+          >
+            {f.included ? "✓" : "—"}
+          </span>
+          <Editable
+            id={`pkg.${id}.f${i}`}
+            className={`font-display text-sm leading-relaxed flex-1 ${
+              f.included ? "text-foreground/85" : "text-muted-foreground/50 line-through"
+            }`}
+          >
+            {f.text}
+          </Editable>
+        </li>
+      ))}
+    </ul>
+
+    <a
+      href={ctaHref}
+      target="_blank"
+      rel="noreferrer"
+      className={`group inline-flex items-center justify-center gap-4 px-8 py-4 font-mono text-xs uppercase tracking-[0.3em] transition-colors duration-500 self-stretch ${
+        recommended
+          ? "bg-primary text-primary-foreground hover:bg-primary-glow"
+          : "border border-foreground/30 text-foreground hover:border-primary hover:text-primary"
+      }`}
+    >
+      <Editable id={`pkg.${id}.cta`} className="inline-block">
+        {cta}
+      </Editable>
+      <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+    </a>
   </div>
 );
 
