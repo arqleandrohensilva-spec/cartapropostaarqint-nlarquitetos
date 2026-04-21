@@ -142,9 +142,9 @@ const Index = () => {
       {/* ============================================================
           03 · APRESENTAÇÃO VISUAL (editorial)
           ============================================================ */}
-      <section id="apresentacao" className="relative min-h-screen px-6 md:px-16 lg:px-24 py-32">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-baseline justify-between mb-20 border-b border-border/60 pb-6">
+      <section id="apresentacao" className="relative min-h-screen px-6 md:px-16 lg:px-24 py-16 lg:py-20 flex flex-col justify-center">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="flex items-baseline justify-between mb-8 lg:mb-10 border-b border-border/60 pb-4">
             <div className="flex items-baseline gap-6">
               <span className="number-marker">03</span>
               <Editable id="apresentacao.eyebrow" className="eyebrow">
@@ -159,13 +159,13 @@ const Index = () => {
             </Editable>
           </div>
 
-          <div className="grid grid-cols-12 gap-x-8 gap-y-16">
-            <div className="col-span-12 lg:col-span-7">
+          <div className="grid grid-cols-12 gap-x-8 gap-y-10 items-start">
+            <div className="col-span-12 lg:col-span-6">
               <Editable
                 as="h2"
                 id="apresentacao.title"
                 multiline
-                className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.0] text-balance mb-12"
+                className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.0] text-balance mb-6"
               >
                 A NL não é definida por quem assina —<br />
                 <em className="text-primary not-italic">é definida pelo processo.</em>
@@ -175,41 +175,35 @@ const Index = () => {
                 id="apresentacao.body"
                 multiline
                 as="p"
-                className="font-display text-lg leading-relaxed text-foreground/75 max-w-xl"
+                className="font-display text-base lg:text-lg leading-relaxed text-foreground/75 max-w-xl"
               >
                 Fundada por Leandro e Neandro, a NL une visão estratégica e disciplina executiva em um único método.
                 Transformamos o desejo do cliente em projeto executivo sem perdas — de conceito, de qualidade ou de
                 controle.
               </Editable>
 
-              <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg">
+              <div className="mt-8 grid grid-cols-3 gap-6 max-w-lg">
                 <Stat number="+50" label="Projetos entregues" id="stat1" />
                 <Stat number="+8" label="Anos de mercado" id="stat2" />
                 <Stat number="100%" label="Compatibilizados" id="stat3" />
               </div>
             </div>
 
-            <aside className="col-span-12 lg:col-span-5 lg:pl-12 lg:border-l border-border/60">
-              <div className="space-y-10">
+            <aside className="col-span-12 lg:col-span-6 lg:pl-10 lg:border-l border-border/60">
+              <div className="grid grid-cols-2 gap-5">
                 <PartnerCard
                   id="leandro"
                   name="Leandro Henrique"
                   role="Co-Fundador · Arquiteto"
                   cau="CAU A252250-0"
-                  images={[
-                    "https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1",
-                    "https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1",
-                  ]}
+                  image="https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1"
                 />
                 <PartnerCard
                   id="neandro"
                   name="Neandro Jacque"
                   role="Co-Fundador · Arquiteto"
                   cau="CAU A264629-3"
-                  images={[
-                    "https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1",
-                    "https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1",
-                  ]}
+                  image="https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1"
                 />
               </div>
             </aside>
@@ -1274,43 +1268,39 @@ const PartnerCard = ({
   name,
   role,
   cau,
-  images,
+  image,
 }: {
   id: string;
   name: string;
   role: string;
   cau: string;
-  images?: [string, string];
+  image?: string;
 }) => (
   <div className="group">
-    {images && (
-      <div className="grid grid-cols-2 gap-2 mb-5">
-        {images.map((src, i) => (
-          <div key={i} className="relative aspect-[3/4] overflow-hidden bg-surface">
-            <img
-              src={src}
-              alt={`${name} · NL Arquitetos`}
-              className="absolute inset-0 w-full h-full object-cover grayscale-[15%] transition-all duration-[1200ms] group-hover:grayscale-0 group-hover:scale-[1.03]"
-              loading="lazy"
-            />
-          </div>
-        ))}
+    {image && (
+      <div className="relative aspect-[3/4] overflow-hidden bg-surface mb-4">
+        <img
+          src={image}
+          alt={`${name} · NL Arquitetos`}
+          className="absolute inset-0 w-full h-full object-cover grayscale-[15%] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.03]"
+          loading="lazy"
+        />
       </div>
     )}
-    <div className="flex items-baseline gap-4 mb-2">
+    <div className="flex items-baseline gap-2 mb-1">
       <span className="font-mono text-xs text-primary/70">→</span>
-      <Editable as="h3" id={`p.${id}.name`} className="font-display text-3xl md:text-4xl text-foreground">
+      <Editable as="h3" id={`p.${id}.name`} className="font-display text-xl md:text-2xl text-foreground leading-tight">
         {name}
       </Editable>
     </div>
-    <div className="pl-7 space-y-1">
+    <div className="pl-5 space-y-0.5">
       <Editable
         id={`p.${id}.role`}
-        className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground block"
+        className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground block"
       >
         {role}
       </Editable>
-      <Editable id={`p.${id}.cau`} className="font-mono text-[10px] tracking-[0.2em] text-primary/60 block">
+      <Editable id={`p.${id}.cau`} className="font-mono text-[9px] tracking-[0.2em] text-primary/60 block">
         {cau}
       </Editable>
     </div>
