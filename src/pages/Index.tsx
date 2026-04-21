@@ -525,12 +525,12 @@ const Index = () => {
             duration="5 a 6 meses"
             phases={[
               { n: "01", t: "Briefing & Levantamentos", d: "Escuta profunda, programa de necessidades e leitura do terreno." },
-              { n: "02", t: "Estudo Preliminar 3D", d: "Volumetria, implantação e atmosferas em 3D antes de qualquer técnica." },
-              { n: "03", t: "Viabilidade Financeira", d: "Orçamento por quantitativos reais — decisão consciente de escopo." },
-              { n: "04", t: "Anteprojeto & Compatibilização", d: "Coordenação entre arquitetura, estrutura e instalações." },
-              { n: "05", t: "Aprovações legais", d: "Prefeitura, concessionárias e órgãos — conduzidos pela NL." },
+              { n: "02", t: "Estudo Preliminar com 3D", d: "Volumetria, implantação e atmosferas em 3D antes de qualquer técnica." },
+              { n: "03", t: "EVF — Viabilidade Financeira", d: "Orçamento por quantitativos reais — decisão consciente de escopo.", optional: true },
+              { n: "04", t: "Compatibilização", d: "Coordenação entre arquitetura, estrutura e instalações." },
+              { n: "05", t: "Aprovações", d: "Prefeitura, concessionárias e órgãos — conduzidos pela NL." },
               { n: "06", t: "Projeto Executivo", d: "Pranchas, memoriais e detalhamentos prontos para canteiro." },
-              { n: "07", t: "Acompanhamento de obra", d: "Visitas técnicas, ajustes e curadoria de fornecedores." },
+              { n: "07", t: "Acompanhamento de obra", d: "Visitas técnicas, ajustes e curadoria de fornecedores.", optional: true },
             ]}
           />
 
@@ -549,13 +549,12 @@ const Index = () => {
             title="Arquitetura de Interiores"
             duration="3 a 4 meses · após arquitetura"
             phases={[
-              { n: "01", t: "Briefing de estilo de vida", d: "Atmosferas, rotinas e referências afetivas do cliente." },
-              { n: "02", t: "Conceito & moodboard", d: "Materialidade, paleta e linguagem de interiores." },
-              { n: "03", t: "Layout & marcenaria", d: "Plantas humanizadas, marcenaria sob medida e fluxos." },
-              { n: "04", t: "Iluminação cênica", d: "Projeto luminotécnico integrado ao mobiliário." },
-              { n: "05", t: "Especificações & curadoria", d: "Mobiliário, revestimentos, têxteis, arte e adega." },
-              { n: "06", t: "Detalhamento executivo", d: "Pranchas para marceneiro, eletricista e instaladores." },
-              { n: "07", t: "Entrega & styling final", d: "Instalação, ajustes finos e composição da casa pronta para morar." },
+              { n: "01", t: "Briefing & Levantamentos", d: "Escuta profunda, leitura do espaço e do estilo de vida." },
+              { n: "02", t: "Estudo Preliminar com 3D", d: "Atmosferas, layout e materialidade em 3D antes do detalhamento." },
+              { n: "03", t: "EVF — Viabilidade Financeira", d: "Orçamento por quantitativos reais — decisão consciente de escopo.", optional: true },
+              { n: "04", t: "Aprovações", d: "Validação integral do projeto com o cliente antes de detalhar." },
+              { n: "05", t: "Detalhamento de Interiores", d: "Marcenaria, iluminação, revestimentos e pranchas executivas." },
+              { n: "06", t: "Visitas em Lojas", d: "Curadoria conjunta de mobiliário, acabamentos, arte e têxteis.", optional: true },
             ]}
           />
         </div>
@@ -1470,7 +1469,7 @@ const PhaseTimeline = ({
   number: string;
   title: string;
   duration: string;
-  phases: { n: string; t: string; d: string }[];
+  phases: { n: string; t: string; d: string; optional?: boolean }[];
 }) => (
   <div className="group/timeline">
     {/* Cabeçalho da trilha */}
@@ -1513,10 +1512,18 @@ const PhaseTimeline = ({
         {phases.map((p, i) => (
           <li key={i} className="relative flex flex-col items-start group/step">
             {/* Marcador circular */}
-            <div className="relative z-10 flex items-center justify-center w-[52px] h-[52px] rounded-full bg-background border border-primary/40 mb-5 transition-all duration-500 group-hover/step:bg-primary group-hover/step:border-primary group-hover/step:scale-110">
+            <div
+              className={`relative z-10 flex items-center justify-center w-[52px] h-[52px] rounded-full bg-background mb-5 transition-all duration-500 group-hover/step:scale-110 ${
+                p.optional
+                  ? "border border-dashed border-primary/40 group-hover/step:border-primary group-hover/step:bg-background"
+                  : "border border-primary/40 group-hover/step:bg-primary group-hover/step:border-primary"
+              }`}
+            >
               <Editable
                 id={`etapas.${trackId}.${i}.n`}
-                className="font-mono text-[11px] tracking-[0.15em] text-primary group-hover/step:text-primary-foreground transition-colors"
+                className={`font-mono text-[11px] tracking-[0.15em] text-primary transition-colors ${
+                  p.optional ? "" : "group-hover/step:text-primary-foreground"
+                }`}
               >
                 {p.n}
               </Editable>
@@ -1524,6 +1531,12 @@ const PhaseTimeline = ({
 
             {/* Tick decorativo */}
             <div className="absolute left-[26px] top-[52px] w-px h-3 bg-primary/30 -translate-x-1/2" aria-hidden />
+
+            {p.optional && (
+              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-primary/70 mb-1">
+                Opcional
+              </span>
+            )}
 
             <Editable
               as="h4"
