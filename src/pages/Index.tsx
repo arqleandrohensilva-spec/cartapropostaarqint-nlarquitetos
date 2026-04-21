@@ -477,9 +477,10 @@ const Index = () => {
       {/* ============================================================
           06.5 · ETAPAS DO PROJETO
           ============================================================ */}
-      <section id="etapas" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
+      <section id="etapas" className="relative px-6 md:px-16 lg:px-24 py-28 bg-surface/40">
+        <div className="max-w-[1400px] mx-auto">
+          {/* Cabeçalho */}
+          <div className="flex items-baseline justify-between mb-12 border-b border-border/60 pb-6">
             <div className="flex items-baseline gap-6">
               <span className="number-marker">06.5</span>
               <Editable id="etapas.eyebrow" className="eyebrow">
@@ -494,89 +495,69 @@ const Index = () => {
             </Editable>
           </div>
 
-          <Editable
-            as="h2"
-            id="etapas.title"
-            multiline
-            className="font-display text-5xl md:text-7xl leading-[1.0] mb-6 max-w-4xl text-balance"
-          >
-            Do primeiro traço
-            <br />
-            <em className="text-primary not-italic">ao detalhe final.</em>
-          </Editable>
-
-          <Editable
-            id="etapas.intro"
-            multiline
-            as="p"
-            className="font-display text-lg text-foreground/70 max-w-2xl mb-16"
-          >
-            Interiores inicia somente após aprovação integral da etapa de Arquitetura. Cada decisão é tomada na ordem
-            certa — para que nada precise ser refeito depois.
-          </Editable>
-
-          <div className="mb-20">
-            <div className="flex items-baseline justify-between mb-8 border-b border-primary/30 pb-4">
-              <Editable id="etapas.arq.label" className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
-                ◆ Trilha 01 · Arquitetura
-              </Editable>
-              <Editable
-                id="etapas.arq.dur"
-                className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
-              >
-                5 a 6 meses
-              </Editable>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-              {[
-                { n: "01", t: "Briefing & Levantamentos", d: "A decisão começa aqui — antes do primeiro traço." },
-                { n: "02", t: "Estudo Preliminar com 3D", d: "A decisão precisa ser visual antes de ser técnica." },
-                {
-                  n: "03",
-                  t: "EVF · Viabilidade Financeira",
-                  d: "Orçamento baseado em quantitativos reais — sem chute.",
-                  optional: true,
-                },
-                { n: "04", t: "Compatibilização", d: "Mostramos o erro no computador para não errar no cimento." },
-                { n: "05", t: "Aprovações legais", d: "A NL conduz — o cliente aprova com segurança." },
-                { n: "06", t: "Projeto Executivo", d: "Resultado previsível porque o processo é controlado." },
-              ].map((p, i) => (
-                <PhaseCard key={i} idx={`arq.${i}`} {...p} />
-              ))}
-            </div>
+          <div className="grid grid-cols-12 gap-8 mb-16">
+            <Editable
+              as="h2"
+              id="etapas.title"
+              multiline
+              className="col-span-12 lg:col-span-7 font-display text-5xl md:text-6xl lg:text-7xl leading-[1.0] text-balance"
+            >
+              Do primeiro traço
+              <br />
+              <em className="text-primary not-italic">ao detalhe final.</em>
+            </Editable>
+            <Editable
+              id="etapas.intro"
+              multiline
+              as="p"
+              className="col-span-12 lg:col-span-5 lg:pt-4 font-display text-lg text-foreground/70 leading-relaxed"
+            >
+              Interiores inicia somente após aprovação integral da etapa de Arquitetura. Cada decisão é tomada na ordem
+              certa — para que nada precise ser refeito depois.
+            </Editable>
           </div>
 
-          <div>
-            <div className="flex items-baseline justify-between mb-8 border-b border-primary/30 pb-4">
-              <Editable id="etapas.int.label" className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
-                ◆ Trilha 02 · Interiores
-              </Editable>
-              <Editable
-                id="etapas.int.dur"
-                className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
-              >
-                3 a 4 meses · após arquitetura
-              </Editable>
-            </div>
+          {/* Trilha 01 · Arquitetura Residencial */}
+          <PhaseTimeline
+            trackId="arq"
+            number="01"
+            title="Arquitetura Residencial"
+            duration="5 a 6 meses"
+            phases={[
+              { n: "01", t: "Briefing & Levantamentos", d: "Escuta profunda, programa de necessidades e leitura do terreno." },
+              { n: "02", t: "Estudo Preliminar 3D", d: "Volumetria, implantação e atmosferas em 3D antes de qualquer técnica." },
+              { n: "03", t: "Viabilidade Financeira", d: "Orçamento por quantitativos reais — decisão consciente de escopo." },
+              { n: "04", t: "Anteprojeto & Compatibilização", d: "Coordenação entre arquitetura, estrutura e instalações." },
+              { n: "05", t: "Aprovações legais", d: "Prefeitura, concessionárias e órgãos — conduzidos pela NL." },
+              { n: "06", t: "Projeto Executivo", d: "Pranchas, memoriais e detalhamentos prontos para canteiro." },
+              { n: "07", t: "Acompanhamento de obra", d: "Visitas técnicas, ajustes e curadoria de fornecedores." },
+            ]}
+          />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-              {[
-                {
-                  n: "01",
-                  t: "Briefing de estilo de vida",
-                  d: "Atmosferas, rotinas e referências afetivas do cliente.",
-                },
-                { n: "02", t: "Conceito & moodboard", d: "Materialidade, paleta e linguagem de interiores." },
-                { n: "03", t: "Layout & marcenaria", d: "Plantas humanizadas, marcenaria sob medida e fluxos." },
-                { n: "04", t: "Iluminação cênica", d: "Projeto luminotécnico integrado ao mobiliário." },
-                { n: "05", t: "Especificações & curadoria", d: "Mobiliário, revestimentos, têxteis, arte e adega." },
-                { n: "06", t: "Detalhamento executivo", d: "Pranchas para marceneiro, eletricista e instaladores." },
-              ].map((p, i) => (
-                <PhaseCard key={i} idx={`int.${i}`} {...p} />
-              ))}
-            </div>
+          <div className="my-20 flex items-center gap-6">
+            <span className="h-px flex-1 bg-border" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
+              Após aprovação da arquitetura
+            </span>
+            <span className="h-px flex-1 bg-border" />
           </div>
+
+          {/* Trilha 02 · Arquitetura de Interiores */}
+          <PhaseTimeline
+            trackId="int"
+            number="02"
+            title="Arquitetura de Interiores"
+            duration="3 a 4 meses · após arquitetura"
+            phases={[
+              { n: "01", t: "Briefing de estilo de vida", d: "Atmosferas, rotinas e referências afetivas do cliente." },
+              { n: "02", t: "Conceito & moodboard", d: "Materialidade, paleta e linguagem de interiores." },
+              { n: "03", t: "Layout & marcenaria", d: "Plantas humanizadas, marcenaria sob medida e fluxos." },
+              { n: "04", t: "Iluminação cênica", d: "Projeto luminotécnico integrado ao mobiliário." },
+              { n: "05", t: "Especificações & curadoria", d: "Mobiliário, revestimentos, têxteis, arte e adega." },
+              { n: "06", t: "Detalhamento executivo", d: "Pranchas para marceneiro, eletricista e instaladores." },
+              { n: "07", t: "Entrega & styling final", d: "Instalação, ajustes finos e composição da casa pronta para morar." },
+            ]}
+          />
         </div>
       </section>
 
