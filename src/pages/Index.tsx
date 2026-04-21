@@ -2,7 +2,6 @@ import { useState } from "react";
 import Editable from "@/components/Editable";
 import SectionNav from "@/components/SectionNav";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import coverHero from "@/assets/cover-hero.jpg";
 import caseCasaCostas from "@/assets/case-casa-costas.jpg";
 import interiorLiving from "@/assets/interior-living.jpg";
 import portfolioStair from "@/assets/portfolio-stair.jpg";
@@ -19,16 +18,13 @@ const Index = () => {
       <SectionNav />
 
       {/* ============================================================
-          01 · CAPA / CONCEITO
+          01 · CAPA — CORRIGIDA
           ============================================================ */}
-      <section
-        id="capa"
-        className="relative min-h-screen flex flex-col justify-end px-6 md:px-16 lg:px-24 py-20"
-      >
+      <section id="capa" className="relative min-h-screen flex flex-col justify-end px-6 md:px-16 lg:px-24 py-20">
         <img
-          src={coverHero}
-          alt="NL Arquitetos · monograma esculpido em concreto com luz dourada"
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
+          src="https://www.dropbox.com/scl/fi/h4zgd1j7vbpy7vnp8nc93/Capa-Apresenta-o.jpg?rlkey=42sutzf60yam0hhmjvyrvfwym&raw=1"
+          alt="NL Arquitetos · monograma esculpido com luz dourada"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
           width={1920}
           height={1280}
         />
@@ -36,11 +32,8 @@ const Index = () => {
         <div className="absolute inset-0 vignette" />
 
         <div className="relative z-10 max-w-4xl fade-up">
-          <Editable
-            id="capa.eyebrow"
-            className="eyebrow mb-8 inline-block"
-          >
-            Carta Proposta · Confidencial · Edição única
+          <Editable id="capa.eyebrow" className="eyebrow mb-8 inline-block">
+            Carta Proposta · Confidencial
           </Editable>
 
           <Editable
@@ -49,8 +42,9 @@ const Index = () => {
             multiline
             className="font-display text-5xl md:text-7xl lg:text-[7.5rem] leading-[0.95] text-foreground mb-8 text-balance"
           >
-            Uma proposta<br />
-            <em className="text-primary not-italic font-light">desenhada</em> para você.
+            A decisão tomada
+            <br />
+            <em className="text-primary not-italic font-light">antes</em> da obra.
           </Editable>
 
           <div className="gold-line w-32 mb-8" />
@@ -60,36 +54,30 @@ const Index = () => {
             multiline
             className="font-display italic text-xl md:text-2xl text-foreground/70 max-w-xl block"
           >
-            Esta carta não é um orçamento — é o ponto de partida de uma casa que vai
-            valer mais, durar mais e dizer mais sobre quem mora nela.
+            Projeto executivo com compatibilização técnica e validação antecipada — para que cada centímetro seja
+            decidido no papel, não no canteiro.
           </Editable>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-muted-foreground">
             <Editable id="capa.scarcity" className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80">
-              ◐ Aceitamos apenas 6 projetos por ano
+              Metodologia R.E.S.O.L.V.E.
             </Editable>
             <span className="hidden md:block h-px w-8 bg-border" />
             <Editable id="capa.validity" className="font-mono text-[10px] uppercase tracking-[0.3em]">
-              Validade desta proposta · 14 dias
+              Validade · 30 dias corridos
             </Editable>
           </div>
         </div>
 
         <div className="relative z-10 mt-16 flex items-end justify-between text-muted-foreground">
           <div className="flex items-center gap-4">
-            <span className="font-mono text-xs tracking-[0.3em]">01 / 07</span>
+            <span className="font-mono text-xs tracking-[0.3em]">01 / 13</span>
             <span className="h-px w-12 bg-border" />
-            <Editable
-              id="capa.client"
-              className="font-mono text-xs tracking-[0.3em] uppercase text-primary/80"
-            >
+            <Editable id="capa.client" className="font-mono text-xs tracking-[0.3em] uppercase text-primary/80">
               Cliente · [Nome do Cliente]
             </Editable>
           </div>
-          <Editable
-            id="capa.date"
-            className="font-mono text-xs tracking-[0.3em] uppercase"
-          >
+          <Editable id="capa.date" className="font-mono text-xs tracking-[0.3em] uppercase">
             São José dos Campos · 2025
           </Editable>
         </div>
@@ -98,17 +86,11 @@ const Index = () => {
       {/* ============================================================
           02 · MANIFESTO
           ============================================================ */}
-      <section
-        id="manifesto"
-        className="relative min-h-screen flex items-center px-6 md:px-16 lg:px-24 py-32"
-      >
+      <section id="manifesto" className="relative min-h-screen flex items-center px-6 md:px-16 lg:px-24 py-32">
         <div className="grid grid-cols-12 gap-8 w-full max-w-7xl mx-auto">
           <div className="col-span-12 md:col-span-3">
             <span className="number-marker block mb-2">02</span>
-            <Editable
-              id="manifesto.eyebrow"
-              className="eyebrow"
-            >
+            <Editable id="manifesto.eyebrow" className="eyebrow">
               Manifesto
             </Editable>
           </div>
@@ -120,7 +102,8 @@ const Index = () => {
               multiline
               className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-16 text-balance"
             >
-              Antes de desenhar, <em className="text-primary not-italic">escutamos.</em><br />
+              Antes de desenhar, <em className="text-primary not-italic">escutamos.</em>
+              <br />
               Antes de construir, <em className="text-primary not-italic">decidimos.</em>
             </Editable>
 
@@ -131,10 +114,9 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg md:text-xl leading-relaxed text-foreground/80"
               >
-                Nos últimos 8 anos, recusamos mais projetos do que aceitamos. Não
-                por escassez de demanda — por escolha. Trabalhamos com poucas
-                famílias por ano para que cada casa receba o que merece:
-                presença integral dos sócios, do primeiro traço à última prancha.
+                Nos últimos 8 anos, recusamos mais projetos do que aceitamos. Não por escassez de demanda — por escolha.
+                Trabalhamos com poucas famílias por ano para que cada casa receba o que merece: presença integral dos
+                sócios, do primeiro traço à última prancha.
               </Editable>
               <Editable
                 id="manifesto.p2"
@@ -142,10 +124,9 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg md:text-xl leading-relaxed text-foreground/80"
               >
-                Esta proposta nasce de uma escuta — não de um catálogo. Cada
-                decisão tomada aqui, em projeto, evita em média três decisões
-                custosas na obra. É assim que beleza se torna método, e método
-                se transforma em patrimônio.
+                Esta proposta nasce de uma escuta — não de um catálogo. Cada decisão tomada aqui, em projeto, evita em
+                média três decisões custosas na obra. É assim que beleza se torna método, e método se transforma em
+                patrimônio.
               </Editable>
             </div>
 
@@ -156,8 +137,7 @@ const Index = () => {
                 as="p"
                 className="font-display italic text-2xl md:text-3xl text-primary/90 leading-snug"
               >
-                "Beleza sem método é apenas decoração. Arquitetura é a decisão
-                tomada antes do primeiro traço."
+                "Beleza sem método é apenas decoração. Arquitetura é a decisão tomada antes do primeiro traço."
               </Editable>
             </div>
           </div>
@@ -167,10 +147,7 @@ const Index = () => {
       {/* ============================================================
           03 · APRESENTAÇÃO VISUAL (editorial)
           ============================================================ */}
-      <section
-        id="apresentacao"
-        className="relative min-h-screen px-6 md:px-16 lg:px-24 py-32"
-      >
+      <section id="apresentacao" className="relative min-h-screen px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-baseline justify-between mb-20 border-b border-border/60 pb-6">
             <div className="flex items-baseline gap-6">
@@ -205,10 +182,9 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg leading-relaxed text-foreground/75 max-w-xl"
               >
-                Fundada por Leandro e Neandro, a NL une visão estratégica e
-                disciplina executiva em um único método. Transformamos o desejo
-                do cliente em projeto executivo sem perdas — de conceito, de
-                qualidade ou de controle.
+                Fundada por Leandro e Neandro, a NL une visão estratégica e disciplina executiva em um único método.
+                Transformamos o desejo do cliente em projeto executivo sem perdas — de conceito, de qualidade ou de
+                controle.
               </Editable>
 
               <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg">
@@ -220,18 +196,8 @@ const Index = () => {
 
             <aside className="col-span-12 lg:col-span-5 lg:pl-12 lg:border-l border-border/60">
               <div className="space-y-10">
-                <PartnerCard
-                  id="leandro"
-                  name="Leandro Henrique"
-                  role="Co-Fundador · Arquiteto"
-                  cau="CAU A252250-0"
-                />
-                <PartnerCard
-                  id="neandro"
-                  name="Neandro Jacque"
-                  role="Co-Fundador · Arquiteto"
-                  cau="CAU A264629-3"
-                />
+                <PartnerCard id="leandro" name="Leandro Henrique" role="Co-Fundador · Arquiteto" cau="CAU A252250-0" />
+                <PartnerCard id="neandro" name="Neandro Jacque" role="Co-Fundador · Arquiteto" cau="CAU A264629-3" />
               </div>
             </aside>
           </div>
@@ -243,7 +209,6 @@ const Index = () => {
           ============================================================ */}
       <section id="case" className="relative">
         <div className="grid grid-cols-12 min-h-screen">
-          {/* Image left */}
           <div className="col-span-12 lg:col-span-7 relative min-h-[60vh] lg:min-h-screen">
             <img
               src={caseCasaCostas}
@@ -255,14 +220,11 @@ const Index = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background/40 lg:to-background" />
             <div className="absolute bottom-8 left-8 z-10 flex items-center gap-3">
-              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary">
-                Case · 01
-              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary">Case · 01</span>
               <span className="h-px w-8 bg-primary/60" />
             </div>
           </div>
 
-          {/* Content right */}
           <div className="col-span-12 lg:col-span-5 relative px-8 md:px-16 py-20 lg:py-32 flex flex-col justify-center">
             <div className="max-w-md">
               <span className="number-marker block mb-4">04 · Projeto referência</span>
@@ -291,12 +253,10 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg leading-relaxed text-foreground/80 mb-10"
               >
-                Um terreno em declive. Uma família que cresce. Um pedido aparente:
-                "queremos uma casa moderna." A escuta revelou outra coisa —
-                queriam, sobretudo, ficar. Casa Costas foi projetada para evoluir
-                com seus moradores: estrutura preparada para uma futura suíte,
-                cozinha que abraça a sala, e uma fachada que respira sob a luz da
-                serra ao entardecer.
+                Um terreno em declive. Uma família que cresce. Um pedido aparente: "queremos uma casa moderna." A escuta
+                revelou outra coisa — queriam, sobretudo, ficar. Casa Costas foi projetada para evoluir com seus
+                moradores: estrutura preparada para uma futura suíte, cozinha que abraça a sala, e uma fachada que
+                respira sob a luz da serra ao entardecer.
               </Editable>
 
               <div className="grid grid-cols-3 gap-6 border-t border-border/60 pt-8">
@@ -312,10 +272,7 @@ const Index = () => {
       {/* ============================================================
           05 · BLOCO DE INTERIORES
           ============================================================ */}
-      <section
-        id="interiores"
-        className="relative px-6 md:px-16 lg:px-24 py-32"
-      >
+      <section id="interiores" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-center">
           <div className="col-span-12 lg:col-span-5 order-2 lg:order-1">
             <span className="number-marker block mb-3">05</span>
@@ -338,11 +295,9 @@ const Index = () => {
               as="p"
               className="font-display text-lg leading-relaxed text-foreground/75 mb-10"
             >
-              Não decoramos espaços — projetamos atmosferas. Cada material é
-              escolhido pelo modo como envelhece, pelo toque, pelo som que o
-              ambiente faz quando alguém entra. O resultado: interiores que não
-              datam, que não cansam, e que continuam pertencendo a você dez anos
-              depois da entrega.
+              Não decoramos espaços — projetamos atmosferas. Cada material é escolhido pelo modo como envelhece, pelo
+              toque, pelo som que o ambiente faz quando alguém entra. O resultado: interiores que não datam, que não
+              cansam, e que continuam pertencendo a você dez anos após a entrega.
             </Editable>
 
             <ul className="space-y-3 font-display text-foreground/80">
@@ -388,10 +343,7 @@ const Index = () => {
       {/* ============================================================
           06 · SEQUÊNCIA VISUAL — PORTFÓLIO EXPANDIDO
           ============================================================ */}
-      <section
-        id="portfolio"
-        className="relative px-6 md:px-16 lg:px-24 py-32"
-      >
+      <section id="portfolio" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
             <div className="flex items-baseline gap-6">
@@ -418,7 +370,6 @@ const Index = () => {
           </Editable>
 
           <div className="grid grid-cols-12 gap-4 md:gap-6">
-            {/* Tall left */}
             <figure className="col-span-12 md:col-span-5 row-span-2 group">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img
@@ -438,7 +389,6 @@ const Index = () => {
               </figcaption>
             </figure>
 
-            {/* Top right wide */}
             <figure className="col-span-12 md:col-span-7 group">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img
@@ -458,7 +408,6 @@ const Index = () => {
               </figcaption>
             </figure>
 
-            {/* Bottom right narrow */}
             <figure className="col-span-6 md:col-span-3 group">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img
@@ -478,7 +427,6 @@ const Index = () => {
               </figcaption>
             </figure>
 
-            {/* Bottom right wide */}
             <figure className="col-span-6 md:col-span-4 group">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img
@@ -502,12 +450,9 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          06.5 · ETAPAS DO PROJETO (Arquitetura + Interiores)
+          06.5 · ETAPAS DO PROJETO
           ============================================================ */}
-      <section
-        id="etapas"
-        className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40"
-      >
+      <section id="etapas" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
             <div className="flex items-baseline gap-6">
@@ -530,7 +475,8 @@ const Index = () => {
             multiline
             className="font-display text-5xl md:text-7xl leading-[1.0] mb-6 max-w-4xl text-balance"
           >
-            Do primeiro traço<br />
+            Do primeiro traço
+            <br />
             <em className="text-primary not-italic">ao detalhe final.</em>
           </Editable>
 
@@ -540,17 +486,13 @@ const Index = () => {
             as="p"
             className="font-display text-lg text-foreground/70 max-w-2xl mb-16"
           >
-            Interiores inicia somente após aprovação integral da etapa de Arquitetura.
-            Cada decisão é tomada na ordem certa — para que nada precise ser refeito depois.
+            Interiores inicia somente após aprovação integral da etapa de Arquitetura. Cada decisão é tomada na ordem
+            certa — para que nada precise ser refeito depois.
           </Editable>
 
-          {/* Trilha Arquitetura */}
           <div className="mb-20">
             <div className="flex items-baseline justify-between mb-8 border-b border-primary/30 pb-4">
-              <Editable
-                id="etapas.arq.label"
-                className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary"
-              >
+              <Editable id="etapas.arq.label" className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
                 ◆ Trilha 01 · Arquitetura
               </Editable>
               <Editable
@@ -565,7 +507,12 @@ const Index = () => {
               {[
                 { n: "01", t: "Briefing & Levantamentos", d: "A decisão começa aqui — antes do primeiro traço." },
                 { n: "02", t: "Estudo Preliminar com 3D", d: "A decisão precisa ser visual antes de ser técnica." },
-                { n: "03", t: "EVF · Viabilidade Financeira", d: "Orçamento baseado em quantitativos reais — sem chute.", optional: true },
+                {
+                  n: "03",
+                  t: "EVF · Viabilidade Financeira",
+                  d: "Orçamento baseado em quantitativos reais — sem chute.",
+                  optional: true,
+                },
                 { n: "04", t: "Compatibilização", d: "Mostramos o erro no computador para não errar no cimento." },
                 { n: "05", t: "Aprovações legais", d: "A NL conduz — o cliente aprova com segurança." },
                 { n: "06", t: "Projeto Executivo", d: "Resultado previsível porque o processo é controlado." },
@@ -575,13 +522,9 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Trilha Interiores */}
           <div>
             <div className="flex items-baseline justify-between mb-8 border-b border-primary/30 pb-4">
-              <Editable
-                id="etapas.int.label"
-                className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary"
-              >
+              <Editable id="etapas.int.label" className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
                 ◆ Trilha 02 · Interiores
               </Editable>
               <Editable
@@ -594,7 +537,11 @@ const Index = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
               {[
-                { n: "01", t: "Briefing de estilo de vida", d: "Atmosferas, rotinas e referências afetivas do cliente." },
+                {
+                  n: "01",
+                  t: "Briefing de estilo de vida",
+                  d: "Atmosferas, rotinas e referências afetivas do cliente.",
+                },
                 { n: "02", t: "Conceito & moodboard", d: "Materialidade, paleta e linguagem de interiores." },
                 { n: "03", t: "Layout & marcenaria", d: "Plantas humanizadas, marcenaria sob medida e fluxos." },
                 { n: "04", t: "Iluminação cênica", d: "Projeto luminotécnico integrado ao mobiliário." },
@@ -609,12 +556,9 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          07 · ESCOPO TÉCNICO (Arquitetônico / Interiores)
+          07 · ESCOPO TÉCNICO
           ============================================================ */}
-      <section
-        id="escopo"
-        className="relative px-6 md:px-16 lg:px-24 py-32"
-      >
+      <section id="escopo" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8">
           <div className="col-span-12 lg:col-span-5 lg:sticky lg:top-24 self-start">
             <span className="number-marker block mb-3">07</span>
@@ -637,9 +581,8 @@ const Index = () => {
               as="p"
               className="font-display text-lg leading-relaxed text-foreground/75 mb-10"
             >
-              O escopo técnico é dividido em duas frentes complementares — Arquitetônico
-              e Interiores. Cada entregável tem prazo definido, ponto de aprovação e
-              documentação que vai direto para a obra.
+              O escopo técnico é dividido em duas frentes complementares — Arquitetônico e Interiores. Cada entregável
+              tem prazo definido, ponto de aprovação e documentação que vai direto para a obra.
             </Editable>
 
             <div className="relative aspect-[4/5] overflow-hidden hidden lg:block">
@@ -663,10 +606,7 @@ const Index = () => {
       {/* ============================================================
           08 · METODOLOGIA
           ============================================================ */}
-      <section
-        id="metodologia"
-        className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40"
-      >
+      <section id="metodologia" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-baseline justify-between mb-20 border-b border-border/60 pb-6">
             <div className="flex items-baseline gap-6">
@@ -689,7 +629,8 @@ const Index = () => {
             multiline
             className="font-display text-5xl md:text-7xl leading-[1.0] mb-20 max-w-4xl text-balance"
           >
-            Um processo que <em className="text-primary not-italic">respeita</em><br />
+            Um processo que <em className="text-primary not-italic">respeita</em>
+            <br />
             quem vai morar.
           </Editable>
 
@@ -722,10 +663,7 @@ const Index = () => {
       {/* ============================================================
           08.5 · CRONOGRAMA ESTIMADO
           ============================================================ */}
-      <section
-        id="cronograma"
-        className="relative px-6 md:px-16 lg:px-24 py-32"
-      >
+      <section id="cronograma" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
             <div className="flex items-baseline gap-6">
@@ -758,30 +696,27 @@ const Index = () => {
             as="p"
             className="font-display text-lg text-foreground/70 max-w-2xl mb-20"
           >
-            Cada fase tem janela própria, ponto de aprovação e entregável. Você
-            sabe, desde o início, quando cada decisão será tomada.
+            Cada fase tem janela própria, ponto de aprovação e entregável. Você sabe, desde o início, quando cada
+            decisão será tomada.
           </Editable>
 
-          {/* Timeline horizontal */}
           <div className="relative">
-            {/* Linha base */}
             <div className="absolute left-0 right-0 top-[34px] h-px bg-border hidden md:block" />
-            <div
-              className="absolute left-0 top-[34px] h-px bg-primary hidden md:block"
-              style={{ width: "100%" }}
-            />
+            <div className="absolute left-0 top-[34px] h-px bg-primary hidden md:block" style={{ width: "100%" }} />
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-x-4 gap-y-10">
-              {([
-                { m: "Mês 01", t: "Briefing & Levantamento", trail: "ARQ" },
-                { m: "Mês 02", t: "Estudo Preliminar + 3D", trail: "ARQ" },
-                { m: "Mês 03", t: "Anteprojeto", trail: "ARQ" },
-                { m: "Mês 04", t: "Compatibilização", trail: "ARQ" },
-                { m: "Mês 05–06", t: "Projeto Executivo", trail: "ARQ" },
-                { m: "Mês 07", t: "Conceito de Interiores", trail: "INT" },
-                { m: "Mês 08–09", t: "Layout, Marcenaria & Iluminação", trail: "INT" },
-                { m: "Mês 10", t: "Detalhamento & Entrega", trail: "INT" },
-              ] as const).map((p, i) => (
+              {(
+                [
+                  { m: "Mês 01", t: "Briefing & Levantamento", trail: "ARQ" },
+                  { m: "Mês 02", t: "Estudo Preliminar + 3D", trail: "ARQ" },
+                  { m: "Mês 03", t: "Anteprojeto", trail: "ARQ" },
+                  { m: "Mês 04", t: "Compatibilização", trail: "ARQ" },
+                  { m: "Mês 05–06", t: "Projeto Executivo", trail: "ARQ" },
+                  { m: "Mês 07", t: "Conceito de Interiores", trail: "INT" },
+                  { m: "Mês 08–09", t: "Layout, Marcenaria & Iluminação", trail: "INT" },
+                  { m: "Mês 10", t: "Detalhamento & Entrega", trail: "INT" },
+                ] as const
+              ).map((p, i) => (
                 <TimelineNode key={i} idx={i} {...p} />
               ))}
             </div>
@@ -793,9 +728,8 @@ const Index = () => {
             as="p"
             className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mt-16 max-w-3xl leading-relaxed"
           >
-            Cronograma estimado · Pode variar conforme escopo, aprovações de
-            terceiros (prefeitura, condomínio) e disponibilidade do cliente nas
-            etapas de aprovação.
+            Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros (prefeitura, condomínio) e
+            disponibilidade do cliente nas etapas de aprovação.
           </Editable>
         </div>
       </section>
@@ -803,10 +737,7 @@ const Index = () => {
       {/* ============================================================
           09 · BENEFÍCIOS
           ============================================================ */}
-      <section
-        id="beneficios"
-        className="relative px-6 md:px-16 lg:px-24 py-32"
-      >
+      <section id="beneficios" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-8 mb-20">
             <div className="col-span-12 md:col-span-3">
@@ -861,12 +792,9 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          10 · INVESTIMENTO · Pacotes Basic e Premium
+          10 · INVESTIMENTO
           ============================================================ */}
-      <section
-        id="investimento"
-        className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40"
-      >
+      <section id="investimento" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="number-marker block mb-4">10 · Investimento</span>
@@ -885,24 +813,21 @@ const Index = () => {
               as="p"
               className="font-display italic text-lg md:text-xl text-foreground/70"
             >
-              Cada R$ 1 investido em projeto economiza, em média, R$ 3 em obra
-              e adiciona até 25% ao valor de revenda do imóvel. Escolha a
-              profundidade do escopo — o rigor é o mesmo.
+              Cada R$ 1 investido em projeto economiza, em média, R$ 3 em obra e adiciona até 25% ao valor de revenda do
+              imóvel. Escolha a profundidade do escopo — o rigor é o mesmo.
             </Editable>
           </div>
 
-          {/* Ancoragem de valor */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
             <ValueAnchor id="va1" label="Sem projeto" value="100%" sub="Custo da obra · referência" muted />
             <ValueAnchor id="va2" label="Projeto comum" value="−12%" sub="Economia média de mercado" muted />
             <ValueAnchor id="va3" label="Método NL" value="−27%" sub="Economia comprovada em obra" highlight />
           </div>
 
-          {/* Pacotes lado a lado */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <PackageCard
               id="basic"
-              tier="Pacote Basic"
+              tier="Pacote Essencial"
               tagline="Arquitetura essencial · pronto para construir"
               price="R$ 00.000"
               priceNote="A partir de · 8x sem juros"
@@ -918,18 +843,18 @@ const Index = () => {
                 { included: false, text: "Curadoria de mobiliário e arte" },
                 { included: false, text: "Acompanhamento de obra mensal" },
               ]}
-              cta="Quero o pacote Basic"
-              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Basic."
+              cta="Quero o pacote Essencial"
+              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Essencial."
             />
 
             <PackageCard
               id="premium"
-              tier="Pacote Premium"
+              tier="Pacote Completo"
               tagline="Arquitetura + Interiores · experiência completa"
               price="R$ 00.000"
               priceNote="A partir de · 10x sem juros"
               features={[
-                { included: true, text: "Tudo do Pacote Basic" },
+                { included: true, text: "Tudo do Pacote Essencial" },
                 { included: true, text: "Compatibilização total · 6 disciplinas" },
                 { included: true, text: "Renders fotorrealistas ilimitados" },
                 { included: true, text: "Projeto completo de Interiores" },
@@ -938,18 +863,16 @@ const Index = () => {
                 { included: true, text: "Curadoria de mobiliário, arte e revestimentos" },
                 { included: true, text: "Acompanhamento de obra (visitas mensais)" },
                 { included: true, text: "Atendimento direto com os sócios" },
-                { included: true, text: "Garantia editorial NL · revisões ilimitadas" },
+                { included: true, text: "Revisões ilimitadas por etapa" },
               ]}
-              cta="Quero o pacote Premium"
-              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Premium."
+              cta="Quero o pacote Completo"
+              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Completo."
               recommended
             />
           </div>
 
-          {/* Tabela comparativa detalhada */}
           <ComparisonTable />
 
-          {/* Forma de pagamento (comum) */}
           <div className="mt-12 border border-border/60 bg-background max-w-5xl mx-auto">
             <div className="px-8 py-6 border-b border-border/60">
               <Editable
@@ -966,7 +889,6 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Garantia */}
           <div className="mt-10 border border-primary/30 bg-primary/[0.03] px-8 py-8 flex flex-col md:flex-row gap-6 items-start max-w-5xl mx-auto">
             <span className="font-display text-4xl text-primary leading-none shrink-0">✦</span>
             <div>
@@ -974,7 +896,7 @@ const Index = () => {
                 id="invest.guarantee.label"
                 className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-2"
               >
-                Garantia editorial NL
+                Garantia NL
               </Editable>
               <Editable
                 id="invest.guarantee.body"
@@ -982,9 +904,8 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg text-foreground/85 leading-relaxed"
               >
-                Se o estudo preliminar não capturar a essência do que você
-                imaginou, refazemos sem custo adicional — quantas vezes for
-                preciso até estar certo. Risco zero para você decidir começar.
+                Se o estudo preliminar não capturar a essência do que você imaginou, refazemos sem custo adicional — até
+                estar certo.
               </Editable>
             </div>
           </div>
@@ -995,8 +916,7 @@ const Index = () => {
             as="p"
             className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground text-center mt-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Valores estimados — ajustáveis conforme metragem final, complexidade
-            do terreno e disciplinas adicionais. Proposta válida por 14 dias.
+            Valores estimados · Ajustáveis conforme metragem e complexidade do projeto · Validade 30 dias
           </Editable>
         </div>
       </section>
@@ -1004,10 +924,7 @@ const Index = () => {
       {/* ============================================================
           11 · DIFERENCIAIS
           ============================================================ */}
-      <section
-        id="diferenciais"
-        className="relative px-6 md:px-16 lg:px-24 py-32"
-      >
+      <section id="diferenciais" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-8 mb-20 items-end">
             <div className="col-span-12 md:col-span-7">
@@ -1030,23 +947,23 @@ const Index = () => {
             {[
               {
                 n: "01",
-                t: "Atendimento próximo",
-                d: "Você fala diretamente com os arquitetos titulares. Sem intermediários, sem delegação. Cada decisão passa pelos sócios.",
+                t: "Atendimento direto com os sócios",
+                d: "Você fala com Leandro e Neandro — não com um assistente. Cada decisão passa pelos arquitetos titulares, do briefing à entrega.",
               },
               {
                 n: "02",
-                t: "Projeto personalizado",
-                d: "Nada de templates. Cada casa é desenhada a partir do seu terreno, da sua família, do seu modo de viver — não de um catálogo.",
+                t: "Projeto personalizado, não catálogo",
+                d: "Cada casa é desenhada a partir do seu terreno, da sua família e do seu modo de viver. Nenhum projeto da NL se repete.",
               },
               {
                 n: "03",
-                t: "Visualização realista",
-                d: "Renders em alta fidelidade que mostram a casa antes da obra. Você decide com clareza, não com imaginação.",
+                t: "Visualização antes da obra",
+                d: "Renders em alta fidelidade mostram a casa antes de qualquer escavação. Você decide com clareza, não com suposições.",
               },
               {
                 n: "04",
-                t: "Foco em valorização",
-                d: "Arquitetura pensada como ativo. Decisões que protegem o investimento e aumentam o valor patrimonial ao longo do tempo.",
+                t: "Decisão técnica que protege o patrimônio",
+                d: "Arquitetura pensada como ativo de longo prazo. Cada decisão de projeto aumenta o valor do imóvel e reduz o custo da obra.",
               },
             ].map((d, i) => (
               <DifferentialItem key={i} {...d} />
@@ -1058,26 +975,17 @@ const Index = () => {
       {/* ============================================================
           12 · PROVA SOCIAL
           ============================================================ */}
-      <section
-        id="prova"
-        className="relative"
-      >
+      <section id="prova" className="relative">
         <div className="grid grid-cols-12 min-h-screen">
           <div className="col-span-12 lg:col-span-6 relative min-h-[60vh] lg:min-h-screen">
             <img
               src={beforeAfter}
-              alt="Antes e depois de uma sala de estar transformada por projeto arquitetônico"
+              alt="Resultado de projeto arquitetônico NL"
               className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
               width={1920}
               height={1080}
             />
-            <div className="absolute bottom-8 left-8 z-10 flex items-center gap-3">
-              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary">
-                Antes · Depois
-              </span>
-              <span className="h-px w-8 bg-primary/60" />
-            </div>
           </div>
 
           <div className="col-span-12 lg:col-span-6 px-8 md:px-16 py-20 lg:py-32 flex flex-col justify-center">
@@ -1100,18 +1008,14 @@ const Index = () => {
                 as="blockquote"
                 className="font-display italic text-2xl md:text-3xl leading-snug text-foreground/85 mb-8"
               >
-                "Eles não desenharam uma casa para nós — desenharam a forma como
-                queríamos viver. Cada detalhe fez sentido na obra, e ainda faz
-                sentido todos os dias."
+                "Eles não desenharam uma casa para nós — desenharam a forma como queríamos viver. Cada detalhe fez
+                sentido na obra, e ainda faz sentido todos os dias."
               </Editable>
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-px bg-primary/60" />
                 <div>
-                  <Editable
-                    id="prova.author"
-                    className="font-display text-foreground block"
-                  >
+                  <Editable id="prova.author" className="font-display text-foreground block">
                     Família Costas
                   </Editable>
                   <Editable
@@ -1128,12 +1032,9 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          13 · PRÓXIMOS PASSOS + CONDIÇÕES GERAIS
+          13 · PRÓXIMOS PASSOS
           ============================================================ */}
-      <section
-        id="proximos"
-        className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40"
-      >
+      <section id="proximos" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-8 mb-20">
             <div className="col-span-12 md:col-span-3">
@@ -1149,7 +1050,8 @@ const Index = () => {
                 multiline
                 className="font-display text-5xl md:text-6xl leading-[1.0] mb-8 text-balance"
               >
-                Quatro passos. <em className="text-primary not-italic">Sete dias</em><br />
+                Quatro passos. <em className="text-primary not-italic">Sete dias</em>
+                <br />
                 até o primeiro traço.
               </Editable>
 
@@ -1159,29 +1061,38 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg text-foreground/70 mb-16 max-w-2xl"
               >
-                Sem propostas em pingue-pongue, sem espera de meses na fila. A
-                partir do momento em que você diz sim, o relógio do seu projeto
-                começa a correr — não o nosso.
+                A partir do momento em que você aprova a proposta, o processo começa. Sem espera. Sem fila.
               </Editable>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                 {[
-                  { n: "01", t: "Aprovação da proposta", d: "Você responde com um sim — por mensagem, e-mail ou em pessoa. Leva 1 minuto." },
-                  { n: "02", t: "Assinatura do contrato", d: "Enviamos o contrato em até 24h. Assinatura digital, sem deslocamento." },
-                  { n: "03", t: "Reunião de imersão", d: "Encontro de até 3h, agendado em até 5 dias. Aqui mora a magia: ouvimos tudo." },
-                  { n: "04", t: "Início imediato", d: "Em até 7 dias após a imersão, o estudo preliminar começa. Sem fila de espera." },
+                  {
+                    n: "01",
+                    t: "Aprovação da proposta",
+                    d: "Você responde com um sim — por mensagem, e-mail ou em pessoa.",
+                  },
+                  {
+                    n: "02",
+                    t: "Assinatura do contrato",
+                    d: "Enviamos o contrato em até 24h. Assinatura digital, sem deslocamento.",
+                  },
+                  {
+                    n: "03",
+                    t: "Reunião de imersão",
+                    d: "Encontro de até 3h, agendado em até 5 dias. Aqui ouvimos tudo.",
+                  },
+                  { n: "04", t: "Início imediato", d: "Em até 7 dias após a imersão, o estudo preliminar começa." },
                 ].map((p, i) => (
                   <NextStep key={i} {...p} />
                 ))}
               </div>
 
-              {/* CTA inline */}
               <div className="border-t border-primary/40 pt-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <Editable
                   id="proximos.cta.text"
                   className="font-display italic text-xl md:text-2xl text-foreground/85 max-w-md"
                 >
-                  Pronto para reservar uma das 6 vagas deste ano?
+                  Pronto para dar início ao seu projeto?
                 </Editable>
                 <a
                   href="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20li%20a%20Carta%20Proposta%20e%20gostaria%20de%20conversar%20sobre%20meu%20projeto."
@@ -1196,7 +1107,6 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Condições gerais */}
           <div className="border-t border-border pt-16">
             <div className="grid grid-cols-12 gap-8">
               <div className="col-span-12 md:col-span-3">
@@ -1205,12 +1115,36 @@ const Index = () => {
                 </Editable>
               </div>
               <div className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                <Condition id="c1" label="Prazo total" value="Até 14 semanas para escopo integral, divididas em entregas parciais aprovadas." />
-                <Condition id="c2" label="Revisões" value="Duas rodadas de revisão inclusas em cada etapa. Adicionais cobrados por hora técnica." />
-                <Condition id="c3" label="Forma de pagamento" value="PIX, transferência ou cartão (até 3x sem juros). Boleto sob demanda." />
-                <Condition id="c4" label="Validade da proposta" value="30 dias a partir da data desta carta. Após esse prazo, valores podem ser revisados." />
-                <Condition id="c5" label="Acompanhamento de obra" value="Não incluso no escopo padrão. Pode ser contratado à parte por visita ou pacote mensal." />
-                <Condition id="c6" label="Direitos autorais" value="O projeto é de autoria intelectual da NL Arquitetos, conforme Lei nº 9.610/98." />
+                <Condition
+                  id="c1"
+                  label="Prazo total"
+                  value="Até 14 semanas para escopo integral, divididas em entregas parciais aprovadas."
+                />
+                <Condition
+                  id="c2"
+                  label="Revisões"
+                  value="Duas rodadas de revisão inclusas em cada etapa. Adicionais cobrados por hora técnica."
+                />
+                <Condition
+                  id="c3"
+                  label="Forma de pagamento"
+                  value="PIX, transferência ou cartão. Boleto sob demanda."
+                />
+                <Condition
+                  id="c4"
+                  label="Validade da proposta"
+                  value="30 dias corridos a partir da data desta carta. Após esse prazo, valores podem ser revisados."
+                />
+                <Condition
+                  id="c5"
+                  label="Acompanhamento de obra"
+                  value="Não incluso no escopo padrão. Pode ser contratado à parte por visita ou pacote mensal."
+                />
+                <Condition
+                  id="c6"
+                  label="Direitos autorais"
+                  value="O projeto é de autoria intelectual da NL Arquitetos, conforme Lei nº 9.610/98."
+                />
               </div>
             </div>
           </div>
@@ -1218,7 +1152,7 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          14 · ENCERRAMENTO IMPLÍCITO
+          14 · ENCERRAMENTO
           ============================================================ */}
       <section
         id="encerramento"
@@ -1237,7 +1171,8 @@ const Index = () => {
             multiline
             className="font-display text-5xl md:text-7xl lg:text-8xl text-center leading-[1.0] mb-12 text-balance"
           >
-            A casa que você imagina<br />
+            A casa que você imagina
+            <br />
             <em className="text-primary not-italic">já existe.</em> Falta começar.
           </Editable>
 
@@ -1247,11 +1182,10 @@ const Index = () => {
             as="p"
             className="font-display italic text-xl md:text-2xl text-center text-foreground/70 max-w-2xl mx-auto mb-12"
           >
-            Cada mês de adiamento é um mês a menos vivendo nela. O próximo passo
-            não é uma decisão — é uma conversa de 30 minutos, sem compromisso.
+            Cada mês de adiamento é um mês a menos vivendo nela. O próximo passo é uma conversa de 30 minutos — sem
+            compromisso.
           </Editable>
 
-          {/* CTA Principal */}
           <div className="flex flex-col items-center gap-6 mb-20">
             <a
               href="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20li%20a%20Carta%20Proposta%20e%20gostaria%20de%20agendar%20a%20conversa%20inicial."
@@ -1277,12 +1211,8 @@ const Index = () => {
           </div>
 
           <div className="mt-24 flex items-center justify-between text-muted-foreground">
-            <span className="font-display italic text-foreground/60">
-              "A arquitetura como decisão."
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em]">
-              NL Arquitetos · 2025
-            </span>
+            <span className="font-display italic text-foreground/60">"A arquitetura como decisão."</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em]">NL Arquitetos · 2025</span>
           </div>
         </div>
       </section>
@@ -1296,10 +1226,7 @@ const Index = () => {
 
 const Stat = ({ number, label, id }: { number: string; label: string; id: string }) => (
   <div>
-    <Editable
-      id={`stat.${id}.num`}
-      className="font-display text-3xl md:text-4xl text-primary block mb-1"
-    >
+    <Editable id={`stat.${id}.num`} className="font-display text-3xl md:text-4xl text-primary block mb-1">
       {number}
     </Editable>
     <Editable
@@ -1311,25 +1238,11 @@ const Stat = ({ number, label, id }: { number: string; label: string; id: string
   </div>
 );
 
-const PartnerCard = ({
-  id,
-  name,
-  role,
-  cau,
-}: {
-  id: string;
-  name: string;
-  role: string;
-  cau: string;
-}) => (
+const PartnerCard = ({ id, name, role, cau }: { id: string; name: string; role: string; cau: string }) => (
   <div className="group">
     <div className="flex items-baseline gap-4 mb-2">
       <span className="font-mono text-xs text-primary/70">→</span>
-      <Editable
-        as="h3"
-        id={`p.${id}.name`}
-        className="font-display text-3xl md:text-4xl text-foreground"
-      >
+      <Editable as="h3" id={`p.${id}.name`} className="font-display text-3xl md:text-4xl text-foreground">
         {name}
       </Editable>
     </div>
@@ -1340,10 +1253,7 @@ const PartnerCard = ({
       >
         {role}
       </Editable>
-      <Editable
-        id={`p.${id}.cau`}
-        className="font-mono text-[10px] tracking-[0.2em] text-primary/60 block"
-      >
+      <Editable id={`p.${id}.cau`} className="font-mono text-[10px] tracking-[0.2em] text-primary/60 block">
         {cau}
       </Editable>
     </div>
@@ -1352,10 +1262,7 @@ const PartnerCard = ({
 
 const CaseStat = ({ id, value, label }: { id: string; value: string; label: string }) => (
   <div>
-    <Editable
-      id={`${id}.v`}
-      className="font-display text-3xl text-primary block mb-1"
-    >
+    <Editable id={`${id}.v`} className="font-display text-3xl text-primary block mb-1">
       {value}
     </Editable>
     <Editable
@@ -1369,16 +1276,10 @@ const CaseStat = ({ id, value, label }: { id: string; value: string; label: stri
 
 const Contact = ({ id, label, value }: { id: string; label: string; value: string }) => (
   <div>
-    <Editable
-      id={`${id}.lbl`}
-      className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2"
-    >
+    <Editable id={`${id}.lbl`} className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2">
       {label}
     </Editable>
-    <Editable
-      id={`${id}.val`}
-      className="font-display text-lg text-foreground/90 block"
-    >
+    <Editable id={`${id}.val`} className="font-display text-lg text-foreground/90 block">
       {value}
     </Editable>
   </div>
@@ -1386,9 +1287,7 @@ const Contact = ({ id, label, value }: { id: string; label: string; value: strin
 
 const ScopeRow = ({ idx, n, t, d }: { idx: number | string; n: string; t: string; d: string }) => (
   <div className="group border-t border-border/60 last:border-b py-8 grid grid-cols-12 gap-6 items-baseline transition-colors hover:bg-surface/40 px-4 -mx-4">
-    <span className="col-span-2 md:col-span-1 font-mono text-xs text-primary/70 tracking-[0.2em]">
-      {n}
-    </span>
+    <span className="col-span-2 md:col-span-1 font-mono text-xs text-primary/70 tracking-[0.2em]">{n}</span>
     <Editable
       as="h3"
       id={`scope.${idx}.t`}
@@ -1407,27 +1306,11 @@ const ScopeRow = ({ idx, n, t, d }: { idx: number | string; n: string; t: string
   </div>
 );
 
-const MethodStep = ({
-  n,
-  t,
-  d,
-  idx,
-}: {
-  n: string;
-  t: string;
-  d: string;
-  idx: number;
-}) => (
+const MethodStep = ({ n, t, d, idx }: { n: string; t: string; d: string; idx: number }) => (
   <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2 group">
     <div className="border-t border-primary/30 pt-6">
-      <span className="font-display text-5xl md:text-6xl text-primary/80 block mb-6 leading-none">
-        {n}
-      </span>
-      <Editable
-        as="h3"
-        id={`method.${idx}.t`}
-        className="font-display text-2xl text-foreground mb-3"
-      >
+      <span className="font-display text-5xl md:text-6xl text-primary/80 block mb-6 leading-none">{n}</span>
+      <Editable as="h3" id={`method.${idx}.t`} className="font-display text-2xl text-foreground mb-3">
         {t}
       </Editable>
       <Editable
@@ -1452,45 +1335,21 @@ const BenefitCard = ({ t, d, idx }: { t: string; d: string; idx: number }) => (
     >
       {t}
     </Editable>
-    <Editable
-      id={`benefit.${idx}.d`}
-      multiline
-      as="p"
-      className="font-display text-foreground/70 leading-relaxed"
-    >
+    <Editable id={`benefit.${idx}.d`} multiline as="p" className="font-display text-foreground/70 leading-relaxed">
       {d}
     </Editable>
   </div>
 );
 
-const PaymentTier = ({
-  id,
-  label,
-  value,
-  sub,
-}: {
-  id: string;
-  label: string;
-  value: string;
-  sub: string;
-}) => (
+const PaymentTier = ({ id, label, value, sub }: { id: string; label: string; value: string; sub: string }) => (
   <div className="px-8 py-8 text-center">
-    <Editable
-      id={`${id}.lbl`}
-      className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-3"
-    >
+    <Editable id={`${id}.lbl`} className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-3">
       {label}
     </Editable>
-    <Editable
-      id={`${id}.val`}
-      className="font-display text-4xl md:text-5xl text-foreground block mb-2"
-    >
+    <Editable id={`${id}.val`} className="font-display text-4xl md:text-5xl text-foreground block mb-2">
       {value}
     </Editable>
-    <Editable
-      id={`${id}.sub`}
-      className="font-display italic text-sm text-foreground/60 block"
-    >
+    <Editable id={`${id}.sub`} className="font-display italic text-sm text-foreground/60 block">
       {sub}
     </Editable>
   </div>
@@ -1502,19 +1361,10 @@ const DifferentialItem = ({ n, t, d }: { n: string; t: string; d: string }) => (
       <span className="font-mono text-xs text-primary/70 tracking-[0.2em]">{n}</span>
       <span className="h-px flex-1 bg-border group-hover:bg-primary/60 transition-colors duration-700" />
     </div>
-    <Editable
-      as="h3"
-      id={`diff.${n}.t`}
-      className="font-display text-3xl md:text-4xl text-foreground mb-4"
-    >
+    <Editable as="h3" id={`diff.${n}.t`} className="font-display text-3xl md:text-4xl text-foreground mb-4">
       {t}
     </Editable>
-    <Editable
-      id={`diff.${n}.d`}
-      multiline
-      as="p"
-      className="font-display text-foreground/70 leading-relaxed max-w-md"
-    >
+    <Editable id={`diff.${n}.d`} multiline as="p" className="font-display text-foreground/70 leading-relaxed max-w-md">
       {d}
     </Editable>
   </div>
@@ -1524,19 +1374,10 @@ const NextStep = ({ n, t, d }: { n: string; t: string; d: string }) => (
   <div className="flex gap-6 items-baseline">
     <span className="font-display text-4xl text-primary/80 leading-none shrink-0">{n}</span>
     <div>
-      <Editable
-        as="h3"
-        id={`next.${n}.t`}
-        className="font-display text-2xl text-foreground mb-2"
-      >
+      <Editable as="h3" id={`next.${n}.t`} className="font-display text-2xl text-foreground mb-2">
         {t}
       </Editable>
-      <Editable
-        id={`next.${n}.d`}
-        multiline
-        as="p"
-        className="font-display text-foreground/70 leading-relaxed"
-      >
+      <Editable id={`next.${n}.d`} multiline as="p" className="font-display text-foreground/70 leading-relaxed">
         {d}
       </Editable>
     </div>
@@ -1545,18 +1386,10 @@ const NextStep = ({ n, t, d }: { n: string; t: string; d: string }) => (
 
 const Condition = ({ id, label, value }: { id: string; label: string; value: string }) => (
   <div>
-    <Editable
-      id={`${id}.lbl`}
-      className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2"
-    >
+    <Editable id={`${id}.lbl`} className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2">
       {label}
     </Editable>
-    <Editable
-      id={`${id}.val`}
-      multiline
-      as="p"
-      className="font-display text-foreground/80 leading-relaxed"
-    >
+    <Editable id={`${id}.val`} multiline as="p" className="font-display text-foreground/80 leading-relaxed">
       {value}
     </Editable>
   </div>
@@ -1578,38 +1411,26 @@ const ValueAnchor = ({
   muted?: boolean;
 }) => (
   <div
-    className={`px-6 py-8 border ${
-      highlight
-        ? "border-primary bg-primary/[0.04]"
-        : "border-border/60 bg-background/40"
-    }`}
+    className={`px-6 py-8 border ${highlight ? "border-primary bg-primary/[0.04]" : "border-border/60 bg-background/40"}`}
   >
     <Editable
       id={`${id}.lbl`}
-      className={`font-mono text-[10px] uppercase tracking-[0.3em] block mb-3 ${
-        highlight ? "text-primary" : "text-muted-foreground"
-      }`}
+      className={`font-mono text-[10px] uppercase tracking-[0.3em] block mb-3 ${highlight ? "text-primary" : "text-muted-foreground"}`}
     >
       {label}
     </Editable>
     <Editable
       id={`${id}.val`}
-      className={`font-display text-4xl md:text-5xl block leading-none mb-2 ${
-        highlight ? "text-primary" : muted ? "text-foreground/40" : "text-foreground"
-      }`}
+      className={`font-display text-4xl md:text-5xl block leading-none mb-2 ${highlight ? "text-primary" : muted ? "text-foreground/40" : "text-foreground"}`}
     >
       {value}
     </Editable>
-    <Editable
-      id={`${id}.sub`}
-      className="font-display italic text-sm text-foreground/55 block"
-    >
+    <Editable id={`${id}.sub`} className="font-display italic text-sm text-foreground/55 block">
       {sub}
     </Editable>
   </div>
 );
 
-/* --- Etapas (cards de fase) --- */
 const PhaseCard = ({
   idx,
   n,
@@ -1625,9 +1446,7 @@ const PhaseCard = ({
 }) => (
   <div className="bg-background p-8 group hover:bg-surface/60 transition-colors">
     <div className="flex items-baseline justify-between mb-6">
-      <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70">
-        {n}
-      </span>
+      <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70">{n}</span>
       {optional && (
         <Editable
           id={`phase.${idx}.opt`}
@@ -1655,22 +1474,65 @@ const PhaseCard = ({
   </div>
 );
 
-/* --- Escopo Técnico com Tabs (Arquitetônico / Interiores) --- */
 const SCOPE_ARQ = [
-  { n: "01", t: "Levantamento e briefing", d: "Visita técnica, estudo do terreno, mapeamento de desejos e restrições. Documentação fotográfica e dimensional completa." },
-  { n: "02", t: "Estudo preliminar", d: "Volumetria, implantação, fluxos e relações entre ambientes. Apresentação em prancha + render conceitual." },
-  { n: "03", t: "Anteprojeto arquitetônico", d: "Plantas, cortes, fachadas e 3D em alta fidelidade. Pé-direito, materiais principais e especificações." },
-  { n: "04", t: "Projeto executivo", d: "Pranchas para obra: dimensionamento, cotas, paginação de pisos, esquadrias e acabamentos." },
-  { n: "05", t: "Compatibilização técnica", d: "Coordenação com elétrica, hidráulica, estrutural e ar-condicionado. Detalhes construtivos sem retrabalho." },
+  {
+    n: "01",
+    t: "Levantamento e briefing",
+    d: "Visita técnica, estudo do terreno, mapeamento de desejos e restrições. Documentação fotográfica e dimensional completa.",
+  },
+  {
+    n: "02",
+    t: "Estudo preliminar",
+    d: "Volumetria, implantação, fluxos e relações entre ambientes. Apresentação em prancha + render conceitual.",
+  },
+  {
+    n: "03",
+    t: "Anteprojeto arquitetônico",
+    d: "Plantas, cortes, fachadas e 3D em alta fidelidade. Pé-direito, materiais principais e especificações.",
+  },
+  {
+    n: "04",
+    t: "Projeto executivo",
+    d: "Pranchas para obra: dimensionamento, cotas, paginação de pisos, esquadrias e acabamentos.",
+  },
+  {
+    n: "05",
+    t: "Compatibilização técnica",
+    d: "Coordenação com elétrica, hidráulica, estrutural e ar-condicionado. Detalhes construtivos sem retrabalho.",
+  },
 ];
 
 const SCOPE_INT = [
-  { n: "01", t: "Briefing de interiores", d: "Mapeamento de estilo de vida, atmosferas desejadas e referências afetivas do cliente." },
-  { n: "02", t: "Conceito & moodboard", d: "Linguagem visual, paleta cromática, materialidade e direção de atmosfera por ambiente." },
-  { n: "03", t: "Layout humanizado & marcenaria", d: "Plantas com mobiliário definitivo, marcenaria sob medida com cortes e detalhamento." },
-  { n: "04", t: "Projeto luminotécnico", d: "Iluminação cênica e funcional integrada — pontos, especificação de luminárias e cenas." },
-  { n: "05", t: "Curadoria & especificação", d: "Mobiliário solto, revestimentos, têxteis, acessórios, arte e adega. Tudo orçado e codificado." },
-  { n: "06", t: "Detalhamento executivo de interiores", d: "Pranchas para marceneiro, eletricista e instaladores. Sem ambiguidade na obra." },
+  {
+    n: "01",
+    t: "Briefing de interiores",
+    d: "Mapeamento de estilo de vida, atmosferas desejadas e referências afetivas do cliente.",
+  },
+  {
+    n: "02",
+    t: "Conceito & moodboard",
+    d: "Linguagem visual, paleta cromática, materialidade e direção de atmosfera por ambiente.",
+  },
+  {
+    n: "03",
+    t: "Layout humanizado & marcenaria",
+    d: "Plantas com mobiliário definitivo, marcenaria sob medida com cortes e detalhamento.",
+  },
+  {
+    n: "04",
+    t: "Projeto luminotécnico",
+    d: "Iluminação cênica e funcional integrada — pontos, especificação de luminárias e cenas.",
+  },
+  {
+    n: "05",
+    t: "Curadoria & especificação",
+    d: "Mobiliário solto, revestimentos, têxteis, acessórios, arte e adega. Tudo orçado e codificado.",
+  },
+  {
+    n: "06",
+    t: "Detalhamento executivo de interiores",
+    d: "Pranchas para marceneiro, eletricista e instaladores. Sem ambiguidade na obra.",
+  },
 ];
 
 const ScopeTabs = () => {
@@ -1691,7 +1553,6 @@ const ScopeTabs = () => {
           Interiores
         </TabsTrigger>
       </TabsList>
-
       <TabsContent value="arq" className="mt-0 space-y-px">
         {SCOPE_ARQ.map((s, i) => (
           <ScopeRow key={i} idx={`arq-${i}`} {...s} />
@@ -1706,27 +1567,11 @@ const ScopeTabs = () => {
   );
 };
 
-/* --- Cronograma · Timeline node --- */
-const TimelineNode = ({
-  idx,
-  m,
-  t,
-  trail,
-}: {
-  idx: number;
-  m: string;
-  t: string;
-  trail: "ARQ" | "INT";
-}) => (
+const TimelineNode = ({ idx, m, t, trail }: { idx: number; m: string; t: string; trail: "ARQ" | "INT" }) => (
   <div className="relative">
-    {/* Marcador na linha */}
     <div className="hidden md:flex justify-center">
       <span
-        className={`relative z-10 w-3 h-3 rounded-full border-2 ${
-          trail === "ARQ"
-            ? "bg-primary border-primary"
-            : "bg-background border-primary"
-        }`}
+        className={`relative z-10 w-3 h-3 rounded-full border-2 ${trail === "ARQ" ? "bg-primary border-primary" : "bg-background border-primary"}`}
       />
     </div>
     <div className="md:mt-6 text-left md:text-center">
@@ -1751,7 +1596,6 @@ const TimelineNode = ({
   </div>
 );
 
-/* --- Pacotes Basic / Premium --- */
 const PackageCard = ({
   id,
   tier,
@@ -1774,23 +1618,15 @@ const PackageCard = ({
   recommended?: boolean;
 }) => (
   <div
-    className={`relative flex flex-col p-10 md:p-12 ${
-      recommended
-        ? "border-2 border-primary bg-background"
-        : "border border-border/60 bg-background/60"
-    }`}
+    className={`relative flex flex-col p-10 md:p-12 ${recommended ? "border-2 border-primary bg-background" : "border border-border/60 bg-background/60"}`}
   >
     {recommended && (
       <div className="absolute -top-3 left-10 bg-primary text-primary-foreground px-4 py-1">
-        <Editable
-          id={`pkg.${id}.badge`}
-          className="font-mono text-[9px] uppercase tracking-[0.3em]"
-        >
+        <Editable id={`pkg.${id}.badge`} className="font-mono text-[9px] uppercase tracking-[0.3em]">
           ◆ Mais escolhido
         </Editable>
       </div>
     )}
-
     <div className="mb-8">
       <Editable
         id={`pkg.${id}.tier`}
@@ -1815,45 +1651,31 @@ const PackageCard = ({
       </Editable>
       <Editable
         id={`pkg.${id}.price`}
-        className={`font-display text-5xl md:text-6xl leading-none block ${
-          recommended ? "text-primary" : "text-foreground"
-        }`}
+        className={`font-display text-5xl md:text-6xl leading-none block ${recommended ? "text-primary" : "text-foreground"}`}
       >
         {price}
       </Editable>
     </div>
-
     <ul className="space-y-3 mb-10 flex-1">
       {features.map((f, i) => (
         <li key={i} className="flex gap-3 items-baseline border-b border-border/40 pb-3">
-          <span
-            className={`font-mono text-xs shrink-0 ${
-              f.included ? "text-primary" : "text-muted-foreground/40"
-            }`}
-          >
+          <span className={`font-mono text-xs shrink-0 ${f.included ? "text-primary" : "text-muted-foreground/40"}`}>
             {f.included ? "✓" : "—"}
           </span>
           <Editable
             id={`pkg.${id}.f${i}`}
-            className={`font-display text-sm leading-relaxed flex-1 ${
-              f.included ? "text-foreground/85" : "text-muted-foreground/50 line-through"
-            }`}
+            className={`font-display text-sm leading-relaxed flex-1 ${f.included ? "text-foreground/85" : "text-muted-foreground/50 line-through"}`}
           >
             {f.text}
           </Editable>
         </li>
       ))}
     </ul>
-
     <a
       href={ctaHref}
       target="_blank"
       rel="noreferrer"
-      className={`group inline-flex items-center justify-center gap-4 px-8 py-4 font-mono text-xs uppercase tracking-[0.3em] transition-colors duration-500 self-stretch ${
-        recommended
-          ? "bg-primary text-primary-foreground hover:bg-primary-glow"
-          : "border border-foreground/30 text-foreground hover:border-primary hover:text-primary"
-      }`}
+      className={`group inline-flex items-center justify-center gap-4 px-8 py-4 font-mono text-xs uppercase tracking-[0.3em] transition-colors duration-500 self-stretch ${recommended ? "bg-primary text-primary-foreground hover:bg-primary-glow" : "border border-foreground/30 text-foreground hover:border-primary hover:text-primary"}`}
     >
       <Editable id={`pkg.${id}.cta`} className="inline-block">
         {cta}
@@ -1863,7 +1685,6 @@ const PackageCard = ({
   </div>
 );
 
-/* --- Tabela comparativa Basic × Premium --- */
 const COMPARISON_GROUPS: {
   group: string;
   rows: { id: string; label: string; basic: string | boolean; premium: string | boolean }[];
@@ -1875,7 +1696,12 @@ const COMPARISON_GROUPS: {
       { id: "cmp.arq.2", label: "Estudo Preliminar", basic: "1 render conceitual", premium: "Renders ilimitados" },
       { id: "cmp.arq.3", label: "Anteprojeto arquitetônico", basic: true, premium: true },
       { id: "cmp.arq.4", label: "Projeto Executivo arquitetônico", basic: true, premium: true },
-      { id: "cmp.arq.5", label: "Compatibilização de disciplinas", basic: "Até 3 disciplinas", premium: "Até 6 disciplinas" },
+      {
+        id: "cmp.arq.5",
+        label: "Compatibilização de disciplinas",
+        basic: "Até 3 disciplinas",
+        premium: "Até 6 disciplinas",
+      },
       { id: "cmp.arq.6", label: "Detalhamentos construtivos", basic: "Essenciais", premium: "Completos" },
     ],
   },
@@ -1903,21 +1729,15 @@ const COMPARISON_GROUPS: {
       { id: "cmp.acc.1", label: "Rodadas de revisão por etapa", basic: "2 rodadas", premium: "Ilimitadas" },
       { id: "cmp.acc.2", label: "Acompanhamento de obra", basic: "Sob demanda", premium: "Visitas mensais" },
       { id: "cmp.acc.3", label: "Atendimento direto com os sócios", basic: false, premium: true },
-      { id: "cmp.acc.4", label: "Garantia editorial NL", basic: "Estudo preliminar", premium: "Todas as etapas" },
+      { id: "cmp.acc.4", label: "Garantia NL", basic: "Estudo preliminar", premium: "Todas as etapas" },
     ],
   },
 ];
 
 const ComparisonCell = ({ value }: { value: string | boolean }) => {
-  if (value === true)
-    return <span className="font-mono text-primary text-base">✓</span>;
-  if (value === false)
-    return <span className="font-mono text-muted-foreground/30 text-base">—</span>;
-  return (
-    <span className="font-display text-sm text-foreground/85 leading-snug">
-      {value}
-    </span>
-  );
+  if (value === true) return <span className="font-mono text-primary text-base">✓</span>;
+  if (value === false) return <span className="font-mono text-muted-foreground/30 text-base">—</span>;
+  return <span className="font-display text-sm text-foreground/85 leading-snug">{value}</span>;
 };
 
 const ComparisonTable = () => (
@@ -1935,31 +1755,25 @@ const ComparisonTable = () => (
         O que você recebe em <em className="text-primary not-italic">cada pacote</em>
       </Editable>
     </div>
-
     <div className="border border-border/60 bg-background overflow-hidden">
-      {/* Cabeçalho */}
       <div className="grid grid-cols-[1.6fr_1fr_1fr] border-b border-border/60 bg-surface/40">
         <div className="px-6 py-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-            Entregáveis
-          </span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Entregáveis</span>
         </div>
         <div className="px-6 py-5 border-l border-border/60 text-center">
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-1">
             Pacote
           </span>
-          <span className="font-display text-xl text-foreground">Basic</span>
+          <span className="font-display text-xl text-foreground">Essencial</span>
         </div>
         <div className="px-6 py-5 border-l border-border/60 text-center bg-primary/[0.04] relative">
           <div className="absolute top-0 inset-x-0 h-px bg-primary" />
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-1">
             Recomendado
           </span>
-          <span className="font-display text-xl text-primary">Premium</span>
+          <span className="font-display text-xl text-primary">Completo</span>
         </div>
       </div>
-
-      {/* Grupos */}
       {COMPARISON_GROUPS.map((g, gi) => (
         <div key={gi}>
           <div className="grid grid-cols-[1.6fr_1fr_1fr] border-b border-border/40 bg-surface/20">
@@ -1972,17 +1786,10 @@ const ComparisonTable = () => (
           {g.rows.map((r, ri) => (
             <div
               key={r.id}
-              className={`grid grid-cols-[1.6fr_1fr_1fr] ${
-                ri === g.rows.length - 1 && gi === COMPARISON_GROUPS.length - 1
-                  ? ""
-                  : "border-b border-border/40"
-              }`}
+              className={`grid grid-cols-[1.6fr_1fr_1fr] ${ri === g.rows.length - 1 && gi === COMPARISON_GROUPS.length - 1 ? "" : "border-b border-border/40"}`}
             >
               <div className="px-6 py-4 flex items-center">
-                <Editable
-                  id={`${r.id}.label`}
-                  className="font-display text-sm text-foreground/85 leading-snug"
-                >
+                <Editable id={`${r.id}.label`} className="font-display text-sm text-foreground/85 leading-snug">
                   {r.label}
                 </Editable>
               </div>
@@ -1997,7 +1804,10 @@ const ComparisonTable = () => (
               </div>
               <div className="px-6 py-4 border-l border-border/40 flex items-center justify-center text-center bg-primary/[0.025]">
                 {typeof r.premium === "string" ? (
-                  <Editable id={`${r.id}.premium`} className="font-display text-sm text-primary leading-snug font-medium">
+                  <Editable
+                    id={`${r.id}.premium`}
+                    className="font-display text-sm text-primary leading-snug font-medium"
+                  >
                     {r.premium}
                   </Editable>
                 ) : (
@@ -2009,7 +1819,6 @@ const ComparisonTable = () => (
         </div>
       ))}
     </div>
-
     <Editable
       id="cmp.footnote"
       multiline
