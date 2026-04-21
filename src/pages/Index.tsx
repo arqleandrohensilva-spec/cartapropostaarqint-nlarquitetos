@@ -1459,6 +1459,94 @@ const ValueAnchor = ({
   </div>
 );
 
+const PhaseTimeline = ({
+  trackId,
+  number,
+  title,
+  duration,
+  phases,
+}: {
+  trackId: string;
+  number: string;
+  title: string;
+  duration: string;
+  phases: { n: string; t: string; d: string }[];
+}) => (
+  <div className="group/timeline">
+    {/* Cabeçalho da trilha */}
+    <div className="flex items-end justify-between mb-10 border-b border-primary/30 pb-5">
+      <div className="flex items-baseline gap-5">
+        <Editable
+          id={`etapas.${trackId}.num`}
+          className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary"
+        >
+          {`Trilha ${number}`}
+        </Editable>
+        <Editable
+          as="h3"
+          id={`etapas.${trackId}.title`}
+          className="font-display text-3xl md:text-4xl text-foreground leading-none"
+        >
+          {title}
+        </Editable>
+      </div>
+      <Editable
+        id={`etapas.${trackId}.dur`}
+        className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
+      >
+        {duration}
+      </Editable>
+    </div>
+
+    {/* Timeline horizontal */}
+    <div className="relative">
+      {/* Linha base contínua atrás dos marcadores */}
+      <div className="absolute left-0 right-0 top-[26px] h-px bg-border" aria-hidden />
+      {/* Linha bronze sobreposta — progresso visual */}
+      <div
+        className="absolute left-0 top-[26px] h-px bg-primary/40 transition-all duration-700 group-hover/timeline:bg-primary"
+        style={{ right: `${100 / phases.length / 2}%` }}
+        aria-hidden
+      />
+
+      <ol className={`relative grid gap-6`} style={{ gridTemplateColumns: `repeat(${phases.length}, minmax(0, 1fr))` }}>
+        {phases.map((p, i) => (
+          <li key={i} className="relative flex flex-col items-start group/step">
+            {/* Marcador circular */}
+            <div className="relative z-10 flex items-center justify-center w-[52px] h-[52px] rounded-full bg-background border border-primary/40 mb-5 transition-all duration-500 group-hover/step:bg-primary group-hover/step:border-primary group-hover/step:scale-110">
+              <Editable
+                id={`etapas.${trackId}.${i}.n`}
+                className="font-mono text-[11px] tracking-[0.15em] text-primary group-hover/step:text-primary-foreground transition-colors"
+              >
+                {p.n}
+              </Editable>
+            </div>
+
+            {/* Tick decorativo */}
+            <div className="absolute left-[26px] top-[52px] w-px h-3 bg-primary/30 -translate-x-1/2" aria-hidden />
+
+            <Editable
+              as="h4"
+              id={`etapas.${trackId}.${i}.t`}
+              className="font-display text-base md:text-lg text-foreground leading-snug mb-2 mt-2 pr-2"
+            >
+              {p.t}
+            </Editable>
+            <Editable
+              id={`etapas.${trackId}.${i}.d`}
+              multiline
+              as="p"
+              className="font-display italic text-[13px] text-foreground/60 leading-relaxed pr-3"
+            >
+              {p.d}
+            </Editable>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+);
+
 const PhaseCard = ({
   idx,
   n,
