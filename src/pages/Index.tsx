@@ -259,8 +259,8 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          05 · BLOCO DE INTERIORES
-          ============================================================ */}
+    05 · BLOCO DE INTERIORES
+    ============================================================ */}
       <section id="interiores" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-center">
           <div className="col-span-12 lg:col-span-5 order-2 lg:order-1">
@@ -268,7 +268,6 @@ const Index = () => {
             <Editable id="interiores.eyebrow" className="eyebrow mb-8 inline-block">
               Interiores · Camada do habitar
             </Editable>
-
             <Editable
               as="h2"
               id="interiores.title"
@@ -277,7 +276,6 @@ const Index = () => {
             >
               O interior é onde a <em className="text-primary not-italic">arquitetura</em> encontra a vida.
             </Editable>
-
             <Editable
               id="interiores.body"
               multiline
@@ -288,7 +286,6 @@ const Index = () => {
               toque, pelo som que o ambiente faz quando alguém entra. O resultado: interiores que não datam, que não
               cansam, e que continuam pertencendo a você dez anos após a entrega.
             </Editable>
-
             <ul className="space-y-3 font-display text-foreground/80">
               {[
                 ["01", "Curadoria de materiais e acabamentos"],
@@ -305,12 +302,11 @@ const Index = () => {
               ))}
             </ul>
           </div>
-
           <div className="col-span-12 lg:col-span-7 order-1 lg:order-2 relative">
             <div className="relative aspect-[4/5] overflow-hidden">
               <img
-                src={interiorLiving}
-                alt="Sala de estar minimalista quente com sofá de couro e mesa de travertino"
+                src="https://www.dropbox.com/scl/fi/hv5ka2it7y3mx78a9plos/tghdfjg.png?rlkey=7gx28a6t2ru8o4s8nz0mea4jp&raw=1"
+                alt="Espaço Gourmet SJ · NL Arquitetos · interiores"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
                 width={1600}
@@ -322,7 +318,7 @@ const Index = () => {
                 id="interiores.caption"
                 className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
               >
-                Estar · Materialidade quente · Luz natural
+                Espaço Gourmet SJ · Materialidade e precisão
               </Editable>
             </div>
           </div>
