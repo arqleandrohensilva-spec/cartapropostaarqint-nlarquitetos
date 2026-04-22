@@ -2,6 +2,7 @@ import { useState } from "react";
 import Editable from "@/components/Editable";
 import SectionNav from "@/components/SectionNav";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 import caseCasaCostas from "@/assets/case-casa-costas.jpg";
 import interiorLiving from "@/assets/interior-living.jpg";
 import portfolioStair from "@/assets/portfolio-stair.jpg";
