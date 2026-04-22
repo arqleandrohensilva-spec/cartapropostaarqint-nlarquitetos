@@ -1610,7 +1610,9 @@ type ScopeBloco = {
   num: string;
   title: string;
   note?: string;
-  items: string[];
+  description?: string;
+  items?: string[];
+  wide?: boolean;
 };
 
 const SCOPE_ARQ: ScopeBloco[] = [
@@ -1669,49 +1671,67 @@ const SCOPE_ARQ: ScopeBloco[] = [
 
 const SCOPE_INT: ScopeBloco[] = [
   {
-    id: "conceito-int",
+    id: "caderno-geral-int",
     num: "I",
-    title: "Conceito & Atmosfera",
+    title: "Caderno Geral",
+    wide: true,
     items: [
-      "Moodboard por ambiente",
-      "Paleta cromática e materialidade",
-      "Diretriz de estilo e narrativa",
-      "Referências afetivas traduzidas",
+      "Capa",
+      "Imagens aprovadas",
+      "Quadros quantitativos e especificações",
+      "Planta baixa de layout",
+      "Planta baixa demolir / construir",
+      "Planta baixa construtiva",
+      "Paginação de piso",
+      "Mapa de revestimentos",
+      "Planta de forro",
+      "Projeto luminotécnico",
+      "Mapa de instalações elétricas, hidráulicas e ar-condicionado",
     ],
+    note: "instalações em parceria com engenheiros especializados",
   },
   {
-    id: "concepcao-3d",
+    id: "detalhes-int",
     num: "II",
-    title: "Concepção 3D",
-    items: [
-      "Imagens realistas por ambiente",
-      "Vídeo 360° navegável",
-      "Estudo de iluminação cênica",
-      "Validação de atmosfera antes da obra",
-    ],
+    title: "Caderno de Detalhes Construtivos",
+    description:
+      "Graficação de todos os detalhes necessários para execução — o escopo de detalhamento é definido conforme a complexidade de cada projeto.",
   },
   {
-    id: "executivo-int",
+    id: "ambientes-int",
     num: "III",
-    title: "Executivo de Interiores",
-    items: [
-      "Plantas de layout humanizado",
-      "Marcenaria sob medida — cortes e detalhes",
-      "Projeto luminotécnico cênico",
-      "Paginação de revestimentos e forros",
-      "Pranchas para marceneiro e instaladores",
-    ],
+    title: "Caderno de Ambientes",
+    description:
+      "Especificações completas por ambiente, com localizações de vistas e siglas de materiais.",
   },
   {
-    id: "curadoria",
+    id: "esquadrias-int",
     num: "IV",
-    title: "Curadoria & Especificação",
-    items: [
-      "Mobiliário solto e estofados",
-      "Têxteis, tapetes e cortinas",
-      "Acessórios, arte e adega",
-      "Lista codificada e orçada por fornecedor",
-    ],
+    title: "Caderno de Esquadrias",
+    description:
+      "Especificação e localização de todas as esquadrias novas, com detalhamento para fabricação.",
+  },
+  {
+    id: "marmoraria-int",
+    num: "V",
+    title: "Caderno de Marmoraria",
+    description:
+      "Bancadas, soleiras, bordas, nichos e elementos em mármore ou pedra natural.",
+  },
+  {
+    id: "porcelanataria-int",
+    num: "VI",
+    title: "Caderno de Porcelanataria",
+    description:
+      "Paginação, perfis, fixação e intervenções em revestimentos cerâmicos por ambiente.",
+  },
+  {
+    id: "marcenaria-int",
+    num: "VII",
+    title: "Caderno de Marcenaria",
+    wide: true,
+    description:
+      "Detalhamento completo de todo mobiliário fabricado sob medida — portas, gavetas, elementos internos e acabamentos.",
   },
 ];
 
