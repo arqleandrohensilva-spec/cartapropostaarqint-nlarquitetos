@@ -535,145 +535,6 @@ const Index = () => {
             ]}
           />
 
-          {/* Entregáveis · Projeto Executivo Arquitetônico */}
-          <div className="mt-24 mb-8">
-            <div className="grid grid-cols-12 gap-8 mb-12">
-              <div className="col-span-12 lg:col-span-5">
-                <Editable
-                  id="entregaveis.arq.eyebrow"
-                  className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-6 inline-block"
-                >
-                  Entregáveis · Trilha 01
-                </Editable>
-                <Editable
-                  as="h3"
-                  id="entregaveis.arq.title"
-                  multiline
-                  className="font-display text-4xl md:text-5xl leading-[1.05] text-balance"
-                >
-                  Projeto Executivo
-                  <br />
-                  <em className="text-primary not-italic">Arquitetônico.</em>
-                </Editable>
-              </div>
-              <Editable
-                id="entregaveis.arq.intro"
-                multiline
-                as="p"
-                className="col-span-12 lg:col-span-7 lg:pt-4 font-display italic text-lg text-foreground/70 leading-relaxed"
-              >
-                Quatro cadernos coordenados pela NL — base documental para uma obra sem improviso, com cada componente
-                identificado, localizado e quantificado.
-              </Editable>
-            </div>
-
-            <div className="grid grid-cols-12 gap-px bg-border border border-border">
-              {[
-                {
-                  id: "caderno-geral",
-                  num: "I",
-                  title: "Caderno Geral",
-                  items: [
-                    "Prancha de índice",
-                    "Planta de situação, locação e cobertura",
-                    "Planta de layout",
-                    "Plantas construtivas",
-                    "Planta de paginação de piso",
-                    "Planta de forro",
-                    "Projeto luminotécnico",
-                  ],
-                },
-                {
-                  id: "mapas-instalacoes",
-                  num: "II",
-                  title: "Mapas de Instalações",
-                  note: "em parceria com engenheiros especializados",
-                  items: [
-                    "Instalações elétricas",
-                    "Instalações hidráulicas",
-                    "Ar-condicionado",
-                    "Pontos de gás",
-                    "Revestimentos",
-                  ],
-                },
-                {
-                  id: "detalhes-construtivos",
-                  num: "III",
-                  title: "Caderno de Detalhes Construtivos",
-                  items: [
-                    "Detalhamentos gerais",
-                    "Representação gráfica por ambiente",
-                    "Portas e esquadrias",
-                    "Marmoraria",
-                    "Marcenaria",
-                    "Porcelanataria",
-                  ],
-                },
-                {
-                  id: "memorial",
-                  num: "IV",
-                  title: "Memorial Descritivo",
-                  items: [
-                    "Componentes construtivos identificados",
-                    "Localizados em planta",
-                    "Quantificados por ambiente",
-                    "Base para orçamento de obra sem improviso",
-                  ],
-                },
-              ].map((bloco) => (
-                <article
-                  key={bloco.id}
-                  className="col-span-12 md:col-span-6 bg-background p-8 md:p-10 flex flex-col"
-                >
-                  <div className="flex items-baseline gap-4 mb-6">
-                    <span className="font-display italic text-3xl text-primary/60">{bloco.num}</span>
-                    <Editable
-                      as="h4"
-                      id={`entregaveis.arq.${bloco.id}.title`}
-                      className="font-display text-2xl md:text-[1.6rem] leading-tight text-foreground"
-                    >
-                      {bloco.title}
-                    </Editable>
-                  </div>
-
-                  {bloco.note && (
-                    <Editable
-                      id={`entregaveis.arq.${bloco.id}.note`}
-                      className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary/80 mb-5 -mt-2"
-                    >
-                      {bloco.note}
-                    </Editable>
-                  )}
-
-                  <ul className="space-y-2.5 mt-1">
-                    {bloco.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 group/item">
-                        <span className="mt-[0.55rem] h-px w-3 bg-primary/40 flex-shrink-0 group-hover/item:bg-primary group-hover/item:w-5 transition-all duration-300" />
-                        <Editable
-                          as="span"
-                          id={`entregaveis.arq.${bloco.id}.item.${i}`}
-                          className="font-display text-base text-foreground/80 leading-snug"
-                        >
-                          {item}
-                        </Editable>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-
-            <Editable
-              id="entregaveis.arq.parceria"
-              multiline
-              as="p"
-              className="mt-8 max-w-3xl font-display italic text-base text-foreground/65 leading-relaxed border-l-2 border-primary/40 pl-5"
-            >
-              A nota "em parceria com engenheiros especializados" comunica duas coisas: transparência sobre quem
-              executa — e que a NL coordena e garante a qualidade desses entregáveis.
-            </Editable>
-          </div>
-
           <div className="my-20 flex items-center gap-6">
             <span className="h-px flex-1 bg-border" />
             <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
@@ -727,8 +588,8 @@ const Index = () => {
               as="p"
               className="font-display text-lg leading-relaxed text-foreground/75 mb-10"
             >
-              O escopo técnico é dividido em duas frentes complementares — Arquitetônico e Interiores. Cada entregável
-              tem prazo definido, ponto de aprovação e documentação que vai direto para a obra.
+              Quatro cadernos coordenados pela NL — base documental para uma obra sem improviso, com cada componente
+              identificado, localizado e quantificado. Mesma estrutura para Arquitetônico e Interiores.
             </Editable>
 
             <div className="relative aspect-[4/5] overflow-hidden hidden lg:block">
@@ -1744,66 +1605,161 @@ const PhaseCard = ({
   </div>
 );
 
-const SCOPE_ARQ = [
+type ScopeBloco = {
+  id: string;
+  num: string;
+  title: string;
+  note?: string;
+  items: string[];
+};
+
+const SCOPE_ARQ: ScopeBloco[] = [
   {
-    n: "01",
-    t: "Levantamento e briefing",
-    d: "Visita técnica, estudo do terreno, mapeamento de desejos e restrições. Documentação fotográfica e dimensional completa.",
+    id: "caderno-geral",
+    num: "I",
+    title: "Caderno Geral",
+    items: [
+      "Prancha de índice",
+      "Planta de situação, locação e cobertura",
+      "Planta de layout",
+      "Plantas construtivas",
+      "Planta de paginação de piso",
+      "Planta de forro",
+      "Projeto luminotécnico",
+    ],
   },
   {
-    n: "02",
-    t: "Estudo preliminar",
-    d: "Volumetria, implantação, fluxos e relações entre ambientes. Apresentação em prancha + render conceitual.",
+    id: "mapas-instalacoes",
+    num: "II",
+    title: "Mapas de Instalações",
+    note: "em parceria com engenheiros especializados",
+    items: [
+      "Instalações elétricas",
+      "Instalações hidráulicas",
+      "Ar-condicionado",
+      "Pontos de gás",
+      "Revestimentos",
+    ],
   },
   {
-    n: "03",
-    t: "Anteprojeto arquitetônico",
-    d: "Plantas, cortes, fachadas e 3D em alta fidelidade. Pé-direito, materiais principais e especificações.",
+    id: "detalhes-construtivos",
+    num: "III",
+    title: "Caderno de Detalhes Construtivos",
+    items: [
+      "Detalhamentos gerais",
+      "Representação gráfica por ambiente",
+      "Portas e esquadrias",
+      "Marmoraria",
+      "Marcenaria",
+      "Porcelanataria",
+    ],
   },
   {
-    n: "04",
-    t: "Projeto executivo",
-    d: "Pranchas para obra: dimensionamento, cotas, paginação de pisos, esquadrias e acabamentos.",
-  },
-  {
-    n: "05",
-    t: "Compatibilização técnica",
-    d: "Coordenação com elétrica, hidráulica, estrutural e ar-condicionado. Detalhes construtivos sem retrabalho.",
+    id: "memorial",
+    num: "IV",
+    title: "Memorial Descritivo",
+    items: [
+      "Componentes construtivos identificados",
+      "Localizados em planta",
+      "Quantificados por ambiente",
+      "Base para orçamento de obra sem improviso",
+    ],
   },
 ];
 
-const SCOPE_INT = [
+const SCOPE_INT: ScopeBloco[] = [
   {
-    n: "01",
-    t: "Briefing de interiores",
-    d: "Mapeamento de estilo de vida, atmosferas desejadas e referências afetivas do cliente.",
+    id: "conceito-int",
+    num: "I",
+    title: "Conceito & Atmosfera",
+    items: [
+      "Moodboard por ambiente",
+      "Paleta cromática e materialidade",
+      "Diretriz de estilo e narrativa",
+      "Referências afetivas traduzidas",
+    ],
   },
   {
-    n: "02",
-    t: "Conceito & moodboard",
-    d: "Linguagem visual, paleta cromática, materialidade e direção de atmosfera por ambiente.",
+    id: "concepcao-3d",
+    num: "II",
+    title: "Concepção 3D",
+    items: [
+      "Imagens realistas por ambiente",
+      "Vídeo 360° navegável",
+      "Estudo de iluminação cênica",
+      "Validação de atmosfera antes da obra",
+    ],
   },
   {
-    n: "03",
-    t: "Layout humanizado & marcenaria",
-    d: "Plantas com mobiliário definitivo, marcenaria sob medida com cortes e detalhamento.",
+    id: "executivo-int",
+    num: "III",
+    title: "Executivo de Interiores",
+    items: [
+      "Plantas de layout humanizado",
+      "Marcenaria sob medida — cortes e detalhes",
+      "Projeto luminotécnico cênico",
+      "Paginação de revestimentos e forros",
+      "Pranchas para marceneiro e instaladores",
+    ],
   },
   {
-    n: "04",
-    t: "Projeto luminotécnico",
-    d: "Iluminação cênica e funcional integrada — pontos, especificação de luminárias e cenas.",
-  },
-  {
-    n: "05",
-    t: "Curadoria & especificação",
-    d: "Mobiliário solto, revestimentos, têxteis, acessórios, arte e adega. Tudo orçado e codificado.",
-  },
-  {
-    n: "06",
-    t: "Detalhamento executivo de interiores",
-    d: "Pranchas para marceneiro, eletricista e instaladores. Sem ambiguidade na obra.",
+    id: "curadoria",
+    num: "IV",
+    title: "Curadoria & Especificação",
+    items: [
+      "Mobiliário solto e estofados",
+      "Têxteis, tapetes e cortinas",
+      "Acessórios, arte e adega",
+      "Lista codificada e orçada por fornecedor",
+    ],
   },
 ];
+
+const ScopeBlocos = ({ data, trackId }: { data: ScopeBloco[]; trackId: string }) => (
+  <div className="grid grid-cols-12 gap-px bg-border border border-border">
+    {data.map((bloco) => (
+      <article
+        key={bloco.id}
+        className="col-span-12 md:col-span-6 bg-background p-7 md:p-8 flex flex-col"
+      >
+        <div className="flex items-baseline gap-3 mb-5">
+          <span className="font-display italic text-2xl text-primary/60">{bloco.num}</span>
+          <Editable
+            as="h4"
+            id={`scope.${trackId}.${bloco.id}.title`}
+            className="font-display text-xl md:text-[1.4rem] leading-tight text-foreground"
+          >
+            {bloco.title}
+          </Editable>
+        </div>
+
+        {bloco.note && (
+          <Editable
+            id={`scope.${trackId}.${bloco.id}.note`}
+            className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary/80 mb-4 -mt-1"
+          >
+            {bloco.note}
+          </Editable>
+        )}
+
+        <ul className="space-y-2 mt-1">
+          {bloco.items.map((item, i) => (
+            <li key={i} className="flex items-start gap-3 group/item">
+              <span className="mt-[0.55rem] h-px w-3 bg-primary/40 flex-shrink-0 group-hover/item:bg-primary group-hover/item:w-5 transition-all duration-300" />
+              <Editable
+                as="span"
+                id={`scope.${trackId}.${bloco.id}.item.${i}`}
+                className="font-display text-[0.95rem] text-foreground/80 leading-snug"
+              >
+                {item}
+              </Editable>
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+);
 
 const ScopeTabs = () => {
   const [tab, setTab] = useState("arq");
@@ -1823,15 +1779,20 @@ const ScopeTabs = () => {
           Interiores
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="arq" className="mt-0 space-y-px">
-        {SCOPE_ARQ.map((s, i) => (
-          <ScopeRow key={i} idx={`arq-${i}`} {...s} />
-        ))}
+      <TabsContent value="arq" className="mt-0">
+        <ScopeBlocos data={SCOPE_ARQ} trackId="arq" />
+        <Editable
+          id="scope.arq.parceria"
+          multiline
+          as="p"
+          className="mt-6 font-display italic text-sm text-foreground/65 leading-relaxed border-l-2 border-primary/40 pl-4"
+        >
+          A nota "em parceria com engenheiros especializados" comunica duas coisas: transparência sobre quem
+          executa — e que a NL coordena e garante a qualidade desses entregáveis.
+        </Editable>
       </TabsContent>
-      <TabsContent value="int" className="mt-0 space-y-px">
-        {SCOPE_INT.map((s, i) => (
-          <ScopeRow key={i} idx={`int-${i}`} {...s} />
-        ))}
+      <TabsContent value="int" className="mt-0">
+        <ScopeBlocos data={SCOPE_INT} trackId="int" />
       </TabsContent>
     </Tabs>
   );
