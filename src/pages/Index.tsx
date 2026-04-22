@@ -1740,7 +1740,10 @@ const ScopeBlocos = ({ data, trackId }: { data: ScopeBloco[]; trackId: string })
     {data.map((bloco) => (
       <article
         key={bloco.id}
-        className="col-span-12 md:col-span-6 bg-background p-7 md:p-8 flex flex-col"
+        className={cn(
+          "bg-background p-7 md:p-8 flex flex-col col-span-12",
+          bloco.wide ? "md:col-span-12" : "md:col-span-6"
+        )}
       >
         <div className="flex items-baseline gap-3 mb-5">
           <span className="font-display italic text-2xl text-primary/60">{bloco.num}</span>
@@ -1762,20 +1765,32 @@ const ScopeBlocos = ({ data, trackId }: { data: ScopeBloco[]; trackId: string })
           </Editable>
         )}
 
-        <ul className="space-y-2 mt-1">
-          {bloco.items.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 group/item">
-              <span className="mt-[0.55rem] h-px w-3 bg-primary/40 flex-shrink-0 group-hover/item:bg-primary group-hover/item:w-5 transition-all duration-300" />
-              <Editable
-                as="span"
-                id={`scope.${trackId}.${bloco.id}.item.${i}`}
-                className="font-display text-[0.95rem] text-foreground/80 leading-snug"
-              >
-                {item}
-              </Editable>
-            </li>
-          ))}
-        </ul>
+        {bloco.description && (
+          <Editable
+            as="p"
+            id={`scope.${trackId}.${bloco.id}.description`}
+            className="font-display italic text-[0.95rem] text-foreground/75 leading-relaxed mt-1"
+          >
+            {bloco.description}
+          </Editable>
+        )}
+
+        {bloco.items && (
+          <ul className={cn("space-y-2 mt-1", bloco.wide && "md:columns-2 md:gap-x-10 md:space-y-0")}>
+            {bloco.items.map((item, i) => (
+              <li key={i} className="flex items-start gap-3 group/item md:break-inside-avoid md:mb-2">
+                <span className="mt-[0.55rem] h-px w-3 bg-primary/40 flex-shrink-0 group-hover/item:bg-primary group-hover/item:w-5 transition-all duration-300" />
+                <Editable
+                  as="span"
+                  id={`scope.${trackId}.${bloco.id}.item.${i}`}
+                  className="font-display text-[0.95rem] text-foreground/80 leading-snug"
+                >
+                  {item}
+                </Editable>
+              </li>
+            ))}
+          </ul>
+        )}
       </article>
     ))}
   </div>
