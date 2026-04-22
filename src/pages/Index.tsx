@@ -1057,7 +1057,7 @@ const Index = () => {
               tagline="Arquitetura"
               price="R$ 00.000"
               priceNote="Sob consulta · conforme escopo"
-              cta="Quero o Plano Executivo"
+              cta="Iniciar conversa"
               ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Plano%20Executivo."
             />
 
@@ -1067,7 +1067,7 @@ const Index = () => {
               tagline="Arquitetura + Interiores"
               price="R$ 00.000"
               priceNote="Sob consulta · conforme escopo"
-              cta="Quero o Plano Completo"
+              cta="Iniciar conversa"
               ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Plano%20Completo."
               recommended
             />
