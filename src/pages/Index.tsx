@@ -1091,7 +1091,16 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mt-10 border border-primary/30 bg-primary/[0.03] px-8 py-8 flex flex-col md:flex-row gap-6 items-start max-w-5xl mx-auto">
+          <Editable
+            id="invest.mapas.note"
+            multiline
+            as="p"
+            className="font-mono text-[11px] text-muted-foreground text-center mt-8 max-w-3xl mx-auto leading-relaxed"
+          >
+            * Mapas de Instalações desenvolvidos em parceria com engenheiros especializados. A NL coordena e valida todos os projetos complementares.
+          </Editable>
+
+          <div className="mt-8 border border-primary/30 bg-primary/[0.03] px-8 py-8 flex flex-col md:flex-row gap-6 items-start max-w-5xl mx-auto">
             <span className="font-display text-4xl text-primary leading-none shrink-0">✦</span>
             <div>
               <Editable
@@ -2070,7 +2079,6 @@ const PackageCard = ({
   tagline,
   price,
   priceNote,
-  features,
   cta,
   ctaHref,
   recommended,
@@ -2080,7 +2088,6 @@ const PackageCard = ({
   tagline: string;
   price: string;
   priceNote: string;
-  features: { included: boolean; text: string }[];
   cta: string;
   ctaHref: string;
   recommended?: boolean;
@@ -2124,21 +2131,6 @@ const PackageCard = ({
         {price}
       </Editable>
     </div>
-    <ul className="space-y-3 mb-10 flex-1">
-      {features.map((f, i) => (
-        <li key={i} className="flex gap-3 items-baseline border-b border-border/40 pb-3">
-          <span className={`font-mono text-xs shrink-0 ${f.included ? "text-primary" : "text-muted-foreground/40"}`}>
-            {f.included ? "✓" : "—"}
-          </span>
-          <Editable
-            id={`pkg.${id}.f${i}`}
-            className={`font-display text-sm leading-relaxed flex-1 ${f.included ? "text-foreground/85" : "text-muted-foreground/50 line-through"}`}
-          >
-            {f.text}
-          </Editable>
-        </li>
-      ))}
-    </ul>
     <a
       href={ctaHref}
       target="_blank"
