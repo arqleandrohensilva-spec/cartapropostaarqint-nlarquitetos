@@ -614,17 +614,36 @@ const Index = () => {
       {/* ============================================================
           08 · NOSSOS PILARES
           ============================================================ */}
-      <section id="pilares" className="relative px-6 md:px-16 lg:px-24 py-32 bg-foreground text-background overflow-hidden">
-        {/* Texturas / marcas d'água editoriais */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
-          <div className="absolute top-20 -right-10 font-display italic text-[28rem] leading-none text-background select-none">
+      <section
+        id="pilares"
+        className="relative px-6 md:px-16 lg:px-24 py-40 text-background overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse at 30% 20%, hsl(0 0% 28%) 0%, hsl(0 0% 23%) 45%, hsl(0 0% 18%) 100%)",
+        }}
+      >
+        {/* Grão sutil */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.06] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+          }}
+        />
+
+        {/* Marca d'água NL */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.035] overflow-hidden">
+          <div className="absolute top-10 -right-16 font-display italic text-[32rem] leading-none text-background select-none">
             NL
           </div>
         </div>
 
+        {/* Espinha vertical condutora — Travertino */}
+        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary-glow/30 to-transparent pointer-events-none" />
+
         <div className="relative max-w-7xl mx-auto">
-          {/* Cabeçalho — diferente: sem barra inferior, com indicador vertical */}
-          <div className="grid grid-cols-12 gap-6 mb-24">
+          {/* Cabeçalho — enigmático, curto */}
+          <div className="grid grid-cols-12 gap-6 mb-32">
             <div className="col-span-12 md:col-span-3 flex md:flex-col gap-4 md:gap-3 md:border-l border-background/20 md:pl-6">
               <span className="number-marker text-background/60">08</span>
               <Editable id="pilares.eyebrow" className="eyebrow text-background/60">
@@ -634,7 +653,7 @@ const Index = () => {
             <div className="col-span-12 md:col-span-9">
               <Editable
                 id="pilares.tag"
-                className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary-glow mb-8 block"
+                className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary-glow mb-10 block"
               >
                 — O que nos diferencia
               </Editable>
@@ -642,18 +661,16 @@ const Index = () => {
                 as="h2"
                 id="pilares.title"
                 multiline
-                className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] text-balance"
+                className="font-display text-6xl md:text-8xl lg:text-[7rem] leading-[0.92] text-balance"
               >
-                Quatro <em className="text-primary-glow not-italic">decisões</em>
+                Quatro <em className="text-primary-glow not-italic">decisões</em>.
                 <br />
-                que sustentam
-                <br />
-                cada projeto.
+                Um método.
               </Editable>
             </div>
           </div>
 
-          {/* Pilares — stack vertical, layout assimétrico, cada um como um capítulo */}
+          {/* Pilares — ritmo assimétrico, numerais outline gigantes */}
           <div className="space-y-px">
             {[
               {
@@ -688,88 +705,108 @@ const Index = () => {
                 body: "Obra sem improviso, sem surpresa de custo, sem retrabalho. A estética é a última camada — o que garante o resultado é a decisão tomada antes de tudo começar.",
                 quote: "A NL não projeta para impressionar. Projeta para funcionar.",
               },
-            ].map((p, idx) => (
-              <article
-                key={p.id}
-                className="group relative grid grid-cols-12 gap-6 py-12 md:py-16 border-t border-background/15 hover:border-primary-glow/40 transition-colors duration-500"
-              >
-                {/* Numeral romano gigante */}
-                <div className="col-span-12 md:col-span-2 flex md:block">
-                  <span className="font-display italic text-7xl md:text-8xl lg:text-9xl leading-none text-primary-glow/80 group-hover:text-primary-glow transition-colors duration-500">
-                    {p.num}
-                  </span>
-                </div>
-
-                {/* Conteúdo principal */}
-                <div className="col-span-12 md:col-span-6 flex flex-col justify-center">
-                  <Editable
-                    id={`pilares.${p.id}.kicker`}
-                    className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary-glow mb-4"
+            ].map((p, idx) => {
+              const isOdd = idx % 2 === 0;
+              return (
+                <article
+                  key={p.id}
+                  className="group relative grid grid-cols-12 gap-6 py-24 md:py-32 border-t border-background/15 hover:border-primary-glow/40 transition-colors duration-700"
+                >
+                  {/* Numeral romano OUTLINE gigante */}
+                  <div
+                    className={`col-span-12 md:col-span-3 flex md:block ${
+                      isOdd ? "md:order-1" : "md:order-2"
+                    }`}
                   >
-                    {p.kicker}
-                  </Editable>
-                  <Editable
-                    as="h3"
-                    id={`pilares.${p.id}.title`}
-                    multiline
-                    className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-5 text-background text-balance"
-                  >
-                    {p.title}
-                  </Editable>
-                  <Editable
-                    as="p"
-                    id={`pilares.${p.id}.body`}
-                    multiline
-                    className="text-background/70 leading-relaxed max-w-xl"
-                  >
-                    {p.body}
-                  </Editable>
-                </div>
-
-                {/* Citação — bloco lateral destacado */}
-                <div className="col-span-12 md:col-span-4 flex items-center md:border-l border-background/15 md:pl-8">
-                  <div className="relative">
-                    <span className="absolute -top-6 -left-2 font-display text-6xl text-primary-glow/30 leading-none select-none">
-                      “
+                    <span
+                      className="font-display italic text-[10rem] md:text-[14rem] lg:text-[18rem] leading-[0.8] text-transparent group-hover:text-primary-glow/10 transition-colors duration-700 block -mt-6"
+                      style={{
+                        WebkitTextStroke: "1px hsl(var(--primary-glow) / 0.55)",
+                      }}
+                    >
+                      {p.num}
                     </span>
+                  </div>
+
+                  {/* Conteúdo principal */}
+                  <div
+                    className={`col-span-12 md:col-span-5 flex flex-col justify-center ${
+                      isOdd ? "md:order-2" : "md:order-1"
+                    }`}
+                  >
+                    <Editable
+                      id={`pilares.${p.id}.kicker`}
+                      className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary-glow mb-5"
+                    >
+                      {p.kicker}
+                    </Editable>
+                    <Editable
+                      as="h3"
+                      id={`pilares.${p.id}.title`}
+                      multiline
+                      className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-6 text-background text-balance"
+                    >
+                      {p.title}
+                    </Editable>
                     <Editable
                       as="p"
-                      id={`pilares.${p.id}.quote`}
+                      id={`pilares.${p.id}.body`}
                       multiline
-                      className="relative font-display italic text-xl md:text-2xl text-background leading-snug"
+                      className="text-background/65 leading-relaxed max-w-md text-[0.95rem]"
                     >
-                      {p.quote}
-                    </Editable>
-                    <Editable
-                      id={`pilares.${p.id}.attr`}
-                      className="block mt-4 font-mono text-[10px] uppercase tracking-[0.3em] text-primary-glow/70"
-                    >
-                      — NL Arquitetos
+                      {p.body}
                     </Editable>
                   </div>
-                </div>
 
-                {/* Indicador de progresso lateral */}
-                <span className="hidden md:block absolute right-0 top-12 font-mono text-[10px] tracking-[0.3em] text-background/30">
-                  0{idx + 1} / 04
-                </span>
-              </article>
-            ))}
+                  {/* Citação — dominante, peso editorial */}
+                  <div
+                    className={`col-span-12 md:col-span-4 flex items-center md:order-3 ${
+                      isOdd ? "md:border-l border-background/15 md:pl-10" : "md:pr-10"
+                    }`}
+                  >
+                    <div className="relative">
+                      <span className="absolute -top-12 -left-3 font-display text-[8rem] text-primary-glow/25 leading-none select-none">
+                        “
+                      </span>
+                      <Editable
+                        as="p"
+                        id={`pilares.${p.id}.quote`}
+                        multiline
+                        className="relative font-display italic text-2xl md:text-3xl lg:text-[2rem] text-background leading-[1.15] text-balance"
+                      >
+                        {p.quote}
+                      </Editable>
+                      <Editable
+                        id={`pilares.${p.id}.attr`}
+                        className="block mt-6 font-mono text-[10px] uppercase tracking-[0.3em] text-primary-glow/70"
+                      >
+                        — NL Arquitetos
+                      </Editable>
+                    </div>
+                  </div>
+
+                  {/* Indicador de progresso */}
+                  <span className="hidden md:block absolute right-0 top-10 font-mono text-[10px] tracking-[0.3em] text-background/30">
+                    0{idx + 1} / 04
+                  </span>
+                </article>
+              );
+            })}
           </div>
 
           {/* Fechamento — assinatura editorial */}
-          <div className="mt-24 pt-12 border-t border-background/15 grid grid-cols-12 gap-6">
+          <div className="mt-32 pt-16 border-t border-background/15 grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-8 md:col-start-3 text-center">
               <Editable
                 as="p"
                 id="pilares.closing"
-                className="font-display italic text-3xl md:text-5xl text-background leading-tight text-balance"
+                className="font-display italic text-4xl md:text-6xl text-background leading-[1.05] text-balance"
               >
                 A arquitetura como <em className="text-primary-glow not-italic">decisão</em>.
               </Editable>
               <Editable
                 id="pilares.signature"
-                className="block mt-6 font-mono text-[10px] uppercase tracking-[0.4em] text-primary-glow"
+                className="block mt-8 font-mono text-[10px] uppercase tracking-[0.4em] text-primary-glow"
               >
                 Esta é a NL.
               </Editable>
