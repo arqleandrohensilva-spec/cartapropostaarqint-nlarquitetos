@@ -952,6 +952,19 @@ const Index = () => {
             </div>
           </div>
 
+          <div className="mb-16 md:mb-20 text-center">
+            <Editable
+              id="beneficios.intro"
+              as="p"
+              className="font-display italic text-balance"
+              ariaLabel="Editar chamada"
+            >
+              <span style={{ color: "#8B7355", fontSize: "clamp(1.75rem, 3.2vw, 3rem)", lineHeight: 1.15 }}>
+                Decidir no papel é barato. Decidir no canteiro é caro.
+              </span>
+            </Editable>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {[
               {
@@ -961,8 +974,8 @@ const Index = () => {
               },
               {
                 impact: "0 retrabalho",
-                t: "Redução de erros",
-                d: "Cada disciplina é validada em conjunto. O que está na prancha é o que vai para a obra.",
+                t: "Decisão antes da obra",
+                d: "Cada disciplina validada em projeto. O que está na prancha é o que vai para o canteiro — sem surpresa.",
               },
               {
                 impact: "100%",
@@ -987,6 +1000,18 @@ const Index = () => {
             ].map((b, i) => (
               <BenefitCard key={i} {...b} idx={i} />
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Editable
+              id="beneficios.tags"
+              className="font-mono-edit uppercase text-muted-foreground"
+              ariaLabel="Editar tags"
+            >
+              <span style={{ fontSize: "clamp(0.65rem, 0.85vw, 0.8rem)", letterSpacing: "0.35em" }}>
+                Projeto Executivo · Compatibilização · Validação Antecipada · Resultado Previsível
+              </span>
+            </Editable>
           </div>
 
           <div className="mt-16 text-center">
