@@ -10,7 +10,7 @@ const SECTIONS = [
   { id: "portfolio", label: "Portfólio" },
   { id: "etapas", label: "Etapas do projeto" },
   { id: "escopo", label: "Escopo técnico" },
-  { id: "metodologia", label: "Metodologia" },
+  { id: "pilares", label: "Nossos Pilares" },
   { id: "cronograma", label: "Cronograma" },
   { id: "beneficios", label: "Benefícios" },
   { id: "investimento", label: "Pacotes" },

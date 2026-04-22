@@ -612,59 +612,116 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          08 · METODOLOGIA
+          08 · NOSSOS PILARES
           ============================================================ */}
-      <section id="metodologia" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
+      <section id="pilares" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-baseline justify-between mb-20 border-b border-border/60 pb-6">
             <div className="flex items-baseline gap-6">
               <span className="number-marker">08</span>
-              <Editable id="metodologia.eyebrow" className="eyebrow">
-                Metodologia · Como funciona
+              <Editable id="pilares.eyebrow" className="eyebrow">
+                Nossos Pilares
               </Editable>
             </div>
             <Editable
-              id="metodologia.tag"
+              id="pilares.tag"
               className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
             >
-              Cinco tempos · Um ritmo
+              Quatro decisões · Um método
             </Editable>
           </div>
 
           <Editable
             as="h2"
-            id="metodologia.title"
+            id="pilares.title"
             multiline
             className="font-display text-5xl md:text-7xl leading-[1.0] mb-20 max-w-4xl text-balance"
           >
-            Um processo que <em className="text-primary not-italic">respeita</em>
+            O que <em className="text-primary not-italic">sustenta</em>
             <br />
-            quem vai morar.
+            cada decisão.
           </Editable>
 
-          <div className="grid grid-cols-12 gap-6">
+          <div className="grid grid-cols-12 gap-px bg-border border border-border">
             {[
-              { n: "I", t: "Imersão", d: "Conhecer você antes de desenhar." },
-              { n: "II", t: "Conceito", d: "Traduzir desejo em diretriz arquitetônica." },
-              { n: "III", t: "Desenvolvimento", d: "Refinamento técnico e visual." },
-              { n: "IV", t: "Detalhamento", d: "Precisão executiva, sem ambiguidade." },
-              { n: "V", t: "Entrega", d: "Pranchas, render e acompanhamento." },
-            ].map((step, i) => (
-              <MethodStep key={i} {...step} idx={i} />
+              {
+                id: "decisao",
+                num: "I",
+                kicker: "Decisão · Antes da Obra",
+                title: "Decidir no papel é barato.",
+                body: "Cada detalhe é resolvido antes da primeira escavação. O que chega à obra já está validado — sem espaço para improviso, sem custo de retrabalho.",
+                quote: "Decidir no canteiro é caro.",
+              },
+              {
+                id: "compatibilizacao",
+                num: "II",
+                kicker: "Compatibilização · Total",
+                title: "O erro aparece no computador.",
+                body: "Estrutura, hidráulica, elétrica e arquitetura são revisadas em conjunto. Colisões técnicas são eliminadas no projeto — antes de virarem custo na obra.",
+                quote: "Mostramos o erro no computador para não errar no cimento.",
+              },
+              {
+                id: "processo",
+                num: "III",
+                kicker: "Processo · Conduzido",
+                title: "O cliente nunca se sente perdido.",
+                body: "Cada etapa tem objetivo claro, entregável definido e critério de avanço. A NL conduz — o cliente aprova com segurança, sem precisar entender de obra.",
+                quote: "Você não precisa entender de obra. Precisa entender o que está aprovando.",
+              },
+              {
+                id: "resultado",
+                num: "IV",
+                kicker: "Resultado · Previsível",
+                title: "O resultado é consequência do método.",
+                body: "Obra sem improviso, sem surpresa de custo, sem retrabalho. A estética é a última camada — o que garante o resultado é a decisão tomada antes de tudo começar.",
+                quote: "A NL não projeta para impressionar. Projeta para funcionar.",
+              },
+            ].map((p) => (
+              <article key={p.id} className="col-span-12 md:col-span-6 bg-background p-8 md:p-10 flex flex-col">
+                <div className="flex items-baseline gap-5 mb-6">
+                  <span className="font-display italic text-3xl text-primary/60">{p.num}</span>
+                  <Editable
+                    id={`pilares.${p.id}.kicker`}
+                    className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+                  >
+                    {p.kicker}
+                  </Editable>
+                </div>
+                <Editable
+                  as="h3"
+                  id={`pilares.${p.id}.title`}
+                  multiline
+                  className="font-display text-2xl md:text-3xl leading-[1.15] mb-5 text-foreground"
+                >
+                  {p.title}
+                </Editable>
+                <Editable
+                  as="p"
+                  id={`pilares.${p.id}.body`}
+                  multiline
+                  className="text-foreground/75 leading-relaxed mb-6 flex-1"
+                >
+                  {p.body}
+                </Editable>
+                <Editable
+                  as="p"
+                  id={`pilares.${p.id}.quote`}
+                  multiline
+                  className="font-display italic text-lg text-primary leading-snug border-l-2 border-primary/40 pl-4"
+                >
+                  “{p.quote}”
+                </Editable>
+              </article>
             ))}
           </div>
 
-          <div className="mt-20 relative aspect-[16/9] overflow-hidden">
-            <img
-              src={processBlueprint}
-              alt="Croqui de planta com instrumentos de desenho sobre papel"
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-              width={1600}
-              height={1000}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-          </div>
+          <Editable
+            as="p"
+            id="pilares.closing"
+            className="mt-16 font-display italic text-2xl md:text-3xl text-foreground/80 text-center"
+          >
+            A arquitetura como decisão.
+          </Editable>
         </div>
       </section>
 
