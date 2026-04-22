@@ -1729,7 +1729,7 @@ const SCOPE_INT: ScopeBloco[] = [
     id: "marcenaria-int",
     num: "VII",
     title: "Caderno de Marcenaria",
-    wide: true,
+    wide: false,
     description:
       "Detalhamento completo de todo mobiliário fabricado sob medida.",
   },
