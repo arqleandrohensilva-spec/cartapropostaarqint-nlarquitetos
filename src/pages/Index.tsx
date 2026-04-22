@@ -836,8 +836,9 @@ const Index = () => {
                           style={{ background: "rgba(139, 115, 85, 0.18)" }}
                         />
                         <div
-                          className="absolute top-0 left-0 transition-all duration-700"
+                          className="absolute top-0 transition-all duration-700"
                           style={{
+                            left: `${offsetPct}%`,
                             width: `${widthPct}%`,
                             height: "1px",
                             background: "#8B7355",
@@ -846,7 +847,17 @@ const Index = () => {
                         <div
                           className="absolute"
                           style={{
-                            left: `calc(${widthPct}% - 0.5px)`,
+                            left: `calc(${offsetPct}% - 0.5px)`,
+                            top: "-3px",
+                            width: "1px",
+                            height: "7px",
+                            background: "rgba(139, 115, 85, 0.6)",
+                          }}
+                        />
+                        <div
+                          className="absolute"
+                          style={{
+                            left: `calc(${offsetPct + widthPct}% - 0.5px)`,
                             top: "-3px",
                             width: "1px",
                             height: "7px",
