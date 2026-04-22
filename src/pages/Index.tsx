@@ -798,10 +798,13 @@ const Index = () => {
                 { num: "05", name: "Projeto Executivo", days: 15 },
                 { num: "06", name: "Interiores", days: 90 },
               ];
-              const max = Math.max(...stages.map((s) => s.days));
+              const total = stages.reduce((acc, s) => acc + s.days, 0);
+              let cumulative = 0;
 
               return stages.map((s) => {
-                const widthPct = (s.days / max) * 100;
+                const offsetPct = (cumulative / total) * 100;
+                const widthPct = (s.days / total) * 100;
+                cumulative += s.days;
                 return (
                   <div
                     key={s.num}
@@ -833,8 +836,9 @@ const Index = () => {
                           style={{ background: "rgba(139, 115, 85, 0.18)" }}
                         />
                         <div
-                          className="absolute top-0 left-0 transition-all duration-700"
+                          className="absolute top-0 transition-all duration-700"
                           style={{
+                            left: `${offsetPct}%`,
                             width: `${widthPct}%`,
                             height: "1px",
                             background: "#8B7355",
@@ -843,7 +847,17 @@ const Index = () => {
                         <div
                           className="absolute"
                           style={{
-                            left: `calc(${widthPct}% - 0.5px)`,
+                            left: `calc(${offsetPct}% - 0.5px)`,
+                            top: "-3px",
+                            width: "1px",
+                            height: "7px",
+                            background: "rgba(139, 115, 85, 0.6)",
+                          }}
+                        />
+                        <div
+                          className="absolute"
+                          style={{
+                            left: `calc(${offsetPct + widthPct}% - 0.5px)`,
                             top: "-3px",
                             width: "1px",
                             height: "7px",
@@ -877,7 +891,7 @@ const Index = () => {
           <div className="grid grid-cols-12 gap-8 mt-20 pt-2">
             <div className="col-span-12 md:col-span-5">
               <div
-                className="font-mono-edit text-[10px] tracking-[0.35em] uppercase mb-4"
+                className="font-mono-edit text-[12px] md:text-[13px] tracking-[0.4em] uppercase mb-5"
                 style={{ color: "#8B7355" }}
               >
                 Prazo total estimado
@@ -894,7 +908,7 @@ const Index = () => {
             </div>
 
             <div
-              className="col-span-12 md:col-span-7 md:pl-12 md:border-l"
+              className="col-span-12 md:col-span-7 md:pl-12 md:border-l flex items-end"
               style={{ borderColor: "rgba(139, 115, 85, 0.3)" }}
             >
               <Editable
@@ -904,9 +918,9 @@ const Index = () => {
                 className="font-display italic leading-relaxed"
                 ariaLabel="Editar nota do cronograma"
               >
-                <span style={{ color: "rgba(232, 228, 223, 0.6)", fontSize: "clamp(1rem, 1.25vw, 1.2rem)" }}>
-                  Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros
-                  (prefeitura, condomínio) e disponibilidade do cliente nas etapas de aprovação.
+                <span style={{ color: "#8B7355", fontSize: "clamp(1rem, 1.25vw, 1.2rem)" }}>
+                  "Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros
+                  (prefeitura, condomínio) e disponibilidade do cliente nas etapas de aprovação."
                 </span>
               </Editable>
             </div>
