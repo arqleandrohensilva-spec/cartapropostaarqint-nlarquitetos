@@ -658,8 +658,8 @@ const Index = () => {
               {
                 id: "compatibilizacao",
                 num: "II",
-                kicker: "Compatibilização · Total",
-                body: "Estrutura, hidráulica, elétrica e arquitetura revisadas em conjunto. Colisões eliminadas no projeto.",
+                kicker: "Coordenação · Técnica",
+                body: "Todas as disciplinas coordenadas em conjunto com engenheiros parceiros. O que chega à obra já foi revisado e validado.",
                 quote: "Mostramos o erro no computador para não errar no cimento.",
               },
               {
