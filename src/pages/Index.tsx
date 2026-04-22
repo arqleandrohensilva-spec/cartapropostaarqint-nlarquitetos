@@ -2,6 +2,7 @@ import { useState } from "react";
 import Editable from "@/components/Editable";
 import SectionNav from "@/components/SectionNav";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 import caseCasaCostas from "@/assets/case-casa-costas.jpg";
 import interiorLiving from "@/assets/interior-living.jpg";
 import portfolioStair from "@/assets/portfolio-stair.jpg";
@@ -1610,7 +1611,9 @@ type ScopeBloco = {
   num: string;
   title: string;
   note?: string;
-  items: string[];
+  description?: string;
+  items?: string[];
+  wide?: boolean;
 };
 
 const SCOPE_ARQ: ScopeBloco[] = [
@@ -1669,49 +1672,67 @@ const SCOPE_ARQ: ScopeBloco[] = [
 
 const SCOPE_INT: ScopeBloco[] = [
   {
-    id: "conceito-int",
+    id: "caderno-geral-int",
     num: "I",
-    title: "Conceito & Atmosfera",
+    title: "Caderno Geral",
+    wide: true,
     items: [
-      "Moodboard por ambiente",
-      "Paleta cromática e materialidade",
-      "Diretriz de estilo e narrativa",
-      "Referências afetivas traduzidas",
+      "Capa",
+      "Imagens aprovadas",
+      "Quadros quantitativos e especificações",
+      "Planta baixa de layout",
+      "Planta baixa demolir / construir",
+      "Planta baixa construtiva",
+      "Paginação de piso",
+      "Mapa de revestimentos",
+      "Planta de forro",
+      "Projeto luminotécnico",
+      "Mapa de instalações elétricas, hidráulicas e ar-condicionado",
     ],
+    note: "instalações em parceria com engenheiros especializados",
   },
   {
-    id: "concepcao-3d",
+    id: "detalhes-int",
     num: "II",
-    title: "Concepção 3D",
-    items: [
-      "Imagens realistas por ambiente",
-      "Vídeo 360° navegável",
-      "Estudo de iluminação cênica",
-      "Validação de atmosfera antes da obra",
-    ],
+    title: "Caderno de Detalhes Construtivos",
+    description:
+      "Graficação de todos os detalhes necessários para execução — o escopo de detalhamento é definido conforme a complexidade de cada projeto.",
   },
   {
-    id: "executivo-int",
+    id: "ambientes-int",
     num: "III",
-    title: "Executivo de Interiores",
-    items: [
-      "Plantas de layout humanizado",
-      "Marcenaria sob medida — cortes e detalhes",
-      "Projeto luminotécnico cênico",
-      "Paginação de revestimentos e forros",
-      "Pranchas para marceneiro e instaladores",
-    ],
+    title: "Caderno de Ambientes",
+    description:
+      "Especificações completas por ambiente, com localizações de vistas e siglas de materiais.",
   },
   {
-    id: "curadoria",
+    id: "esquadrias-int",
     num: "IV",
-    title: "Curadoria & Especificação",
-    items: [
-      "Mobiliário solto e estofados",
-      "Têxteis, tapetes e cortinas",
-      "Acessórios, arte e adega",
-      "Lista codificada e orçada por fornecedor",
-    ],
+    title: "Caderno de Esquadrias",
+    description:
+      "Especificação e localização de todas as esquadrias novas, com detalhamento para fabricação.",
+  },
+  {
+    id: "marmoraria-int",
+    num: "V",
+    title: "Caderno de Marmoraria",
+    description:
+      "Bancadas, soleiras, bordas, nichos e elementos em mármore ou pedra natural.",
+  },
+  {
+    id: "porcelanataria-int",
+    num: "VI",
+    title: "Caderno de Porcelanataria",
+    description:
+      "Paginação, perfis, fixação e intervenções em revestimentos cerâmicos por ambiente.",
+  },
+  {
+    id: "marcenaria-int",
+    num: "VII",
+    title: "Caderno de Marcenaria",
+    wide: true,
+    description:
+      "Detalhamento completo de todo mobiliário fabricado sob medida — portas, gavetas, elementos internos e acabamentos.",
   },
 ];
 
@@ -1720,7 +1741,10 @@ const ScopeBlocos = ({ data, trackId }: { data: ScopeBloco[]; trackId: string })
     {data.map((bloco) => (
       <article
         key={bloco.id}
-        className="col-span-12 md:col-span-6 bg-background p-7 md:p-8 flex flex-col"
+        className={cn(
+          "bg-background p-7 md:p-8 flex flex-col col-span-12",
+          bloco.wide ? "md:col-span-12" : "md:col-span-6"
+        )}
       >
         <div className="flex items-baseline gap-3 mb-5">
           <span className="font-display italic text-2xl text-primary/60">{bloco.num}</span>
@@ -1742,20 +1766,32 @@ const ScopeBlocos = ({ data, trackId }: { data: ScopeBloco[]; trackId: string })
           </Editable>
         )}
 
-        <ul className="space-y-2 mt-1">
-          {bloco.items.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 group/item">
-              <span className="mt-[0.55rem] h-px w-3 bg-primary/40 flex-shrink-0 group-hover/item:bg-primary group-hover/item:w-5 transition-all duration-300" />
-              <Editable
-                as="span"
-                id={`scope.${trackId}.${bloco.id}.item.${i}`}
-                className="font-display text-[0.95rem] text-foreground/80 leading-snug"
-              >
-                {item}
-              </Editable>
-            </li>
-          ))}
-        </ul>
+        {bloco.description && (
+          <Editable
+            as="p"
+            id={`scope.${trackId}.${bloco.id}.description`}
+            className="font-display italic text-[0.95rem] text-foreground/75 leading-relaxed mt-1"
+          >
+            {bloco.description}
+          </Editable>
+        )}
+
+        {bloco.items && (
+          <ul className={cn("space-y-2 mt-1", bloco.wide && "md:columns-2 md:gap-x-10 md:space-y-0")}>
+            {bloco.items.map((item, i) => (
+              <li key={i} className="flex items-start gap-3 group/item md:break-inside-avoid md:mb-2">
+                <span className="mt-[0.55rem] h-px w-3 bg-primary/40 flex-shrink-0 group-hover/item:bg-primary group-hover/item:w-5 transition-all duration-300" />
+                <Editable
+                  as="span"
+                  id={`scope.${trackId}.${bloco.id}.item.${i}`}
+                  className="font-display text-[0.95rem] text-foreground/80 leading-snug"
+                >
+                  {item}
+                </Editable>
+              </li>
+            ))}
+          </ul>
+        )}
       </article>
     ))}
   </div>
