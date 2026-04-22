@@ -588,8 +588,8 @@ const Index = () => {
               as="p"
               className="font-display text-lg leading-relaxed text-foreground/75 mb-10"
             >
-              O escopo técnico é dividido em duas frentes complementares — Arquitetônico e Interiores. Cada entregável
-              tem prazo definido, ponto de aprovação e documentação que vai direto para a obra.
+              Quatro cadernos coordenados pela NL — base documental para uma obra sem improviso, com cada componente
+              identificado, localizado e quantificado. Mesma estrutura para Arquitetônico e Interiores.
             </Editable>
 
             <div className="relative aspect-[4/5] overflow-hidden hidden lg:block">
