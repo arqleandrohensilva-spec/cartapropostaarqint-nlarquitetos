@@ -955,32 +955,51 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {[
               {
+                impact: "−27%",
                 t: "Segurança na obra",
                 d: "Projeto compatibilizado evita decisões improvisadas no canteiro — e os custos imprevistos que vêm com elas.",
               },
               {
+                impact: "0 retrabalho",
                 t: "Redução de erros",
                 d: "Cada disciplina é validada em conjunto. O que está na prancha é o que vai para a obra.",
               },
               {
+                impact: "100%",
                 t: "Aproveitamento do terreno",
                 d: "Estudo de implantação que extrai o melhor da topografia, insolação e ventos predominantes.",
               },
               {
+                impact: "+25%",
                 t: "Valorização do imóvel",
                 d: "Arquitetura assinada e bem documentada agrega valor patrimonial mensurável na revenda.",
               },
               {
+                impact: "180 dias",
                 t: "Conforto a longo prazo",
                 d: "Decisões pensadas para 10, 20 anos: pé-direito, fluxos, iluminação natural e materiais que envelhecem bem.",
               },
               {
+                impact: "0 surpresas",
                 t: "Previsibilidade financeira",
                 d: "Quantitativos precisos permitem orçamentos firmes — e protegem você de aditivos surpresa.",
               },
             ].map((b, i) => (
               <BenefitCard key={i} {...b} idx={i} />
             ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Editable
+              id="beneficios.fechamento"
+              as="p"
+              className="font-display italic"
+              ariaLabel="Editar fechamento"
+            >
+              <span style={{ color: "#8B7355", fontSize: "clamp(1.1rem, 1.5vw, 1.5rem)" }}>
+                "Cada prancha entregue é uma decisão que não precisará ser tomada na obra."
+              </span>
+            </Editable>
           </div>
         </div>
       </section>
