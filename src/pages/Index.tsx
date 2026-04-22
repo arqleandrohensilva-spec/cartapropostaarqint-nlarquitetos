@@ -721,77 +721,74 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          08.5 · CRONOGRAMA — PRANCHA TÉCNICA
+          08.5 · CRONOGRAMA — LISTA COM BARRAS PROPORCIONAIS
           ============================================================ */}
       <section
         id="cronograma"
         className="relative px-6 md:px-16 lg:px-24 py-32 overflow-hidden"
         style={{ background: "#1A1816", color: "#E8E4DF" }}
       >
-        {/* Número fantasma 180 */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-8 right-6 md:right-16 lg:right-24 font-display leading-none select-none"
-          style={{
-            fontSize: "clamp(12rem, 26vw, 26rem)",
-            color: "#8B7355",
-            opacity: 0.07,
-            letterSpacing: "-0.05em",
-          }}
-        >
-          180
-        </div>
-
         <div className="relative max-w-7xl mx-auto">
-          {/* Cabeçalho técnico */}
-          <div
-            className="flex items-baseline justify-between mb-20 pb-6"
-            style={{ borderBottom: "1px solid rgba(139, 115, 85, 0.3)" }}
-          >
-            <div className="flex items-baseline gap-6">
-              <span className="font-mono-edit text-[10px] tracking-[0.2em]" style={{ color: "#8B7355" }}>
-                08.5
-              </span>
+          {/* Cabeçalho — título à esquerda, 180 fantasma à direita */}
+          <div className="relative grid grid-cols-12 gap-8 items-start mb-24">
+            <div className="col-span-12 md:col-span-7 relative z-10">
+              <div className="flex items-baseline gap-6 mb-8">
+                <span
+                  className="font-mono-edit text-[10px] tracking-[0.3em] uppercase"
+                  style={{ color: "#8B7355" }}
+                >
+                  08.5
+                </span>
+                <Editable
+                  id="crono.eyebrow"
+                  className="font-mono-edit text-[10px] uppercase tracking-[0.3em]"
+                >
+                  <span style={{ color: "rgba(232, 228, 223, 0.5)" }}>Linha do tempo · Estimativa</span>
+                </Editable>
+              </div>
+
               <Editable
-                id="crono.eyebrow"
-                className="font-mono-edit text-xs uppercase tracking-[0.3em]"
+                as="h2"
+                id="crono.title"
+                multiline
+                className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-balance"
               >
-                <span style={{ color: "#8B7355" }}>Cronograma · Prancha técnica</span>
+                <span style={{ color: "#E8E4DF" }}>Cronograma </span>
+                <em className="not-italic" style={{ color: "#8B7355" }}>estimado</em>
+                <span style={{ color: "#E8E4DF" }}>.</span>
               </Editable>
             </div>
-            <Editable
-              id="crono.tag"
-              className="font-mono-edit text-[10px] uppercase tracking-[0.3em] hidden md:block"
-            >
-              <span style={{ color: "rgba(232, 228, 223, 0.5)" }}>Escala · Dias corridos</span>
-            </Editable>
+
+            {/* 180 fantasma */}
+            <div className="col-span-12 md:col-span-5 relative">
+              <div className="md:text-right">
+                <div
+                  aria-hidden
+                  className="font-display leading-[0.85] select-none"
+                  style={{
+                    fontSize: "clamp(8rem, 16vw, 16rem)",
+                    color: "#8B7355",
+                    opacity: 0.18,
+                    letterSpacing: "-0.05em",
+                  }}
+                >
+                  180
+                </div>
+                <div
+                  className="font-mono-edit text-[10px] tracking-[0.35em] uppercase mt-2"
+                  style={{ color: "#8B7355" }}
+                >
+                  Dias totais
+                </div>
+              </div>
+            </div>
           </div>
 
-          <Editable
-            as="h2"
-            id="crono.title"
-            multiline
-            className="font-display text-5xl md:text-7xl leading-[1.0] mb-8 max-w-4xl text-balance"
+          {/* ===== Lista de etapas com barras proporcionais ===== */}
+          <div
+            className="border-t"
+            style={{ borderColor: "rgba(139, 115, 85, 0.3)" }}
           >
-            Um ritmo <em className="not-italic" style={{ color: "#8B7355" }}>previsível</em>,<br />
-            cotado em prancha.
-          </Editable>
-
-          <Editable
-            id="crono.intro"
-            multiline
-            as="p"
-            className="font-display text-lg max-w-2xl mb-32"
-            ariaLabel="Editar introdução do cronograma"
-          >
-            <span style={{ color: "rgba(232, 228, 223, 0.7)" }}>
-              Cada etapa tem janela própria, ponto de aprovação e entregável. Você sabe, desde o início,
-              quando cada decisão será tomada.
-            </span>
-          </Editable>
-
-          {/* ===== Prancha de cotas ===== */}
-          <div className="relative pt-20 pb-12">
             {(() => {
               const stages = [
                 { num: "01", name: "Levantamento & Briefing", days: 15 },
@@ -801,238 +798,119 @@ const Index = () => {
                 { num: "05", name: "Projeto Executivo", days: 15 },
                 { num: "06", name: "Interiores", days: 90 },
               ];
-              const total = stages.reduce((s, x) => s + x.days, 0); // 185? check: 15+20+30+15+15+90=185
-              // Mas usuário declarou total 180 — usaremos proporção real, exibindo 180 como rótulo declarado.
-              const sum = stages.reduce((s, x) => s + x.days, 0);
+              const max = Math.max(...stages.map((s) => s.days));
 
-              return (
-                <>
-                  {/* Linha horizontal principal em bronze */}
+              return stages.map((s) => {
+                const widthPct = (s.days / max) * 100;
+                return (
                   <div
-                    className="absolute left-0 right-0"
-                    style={{
-                      top: "50%",
-                      height: "1px",
-                      background: "#8B7355",
-                    }}
-                  />
-
-                  {/* Marcas de extremidade */}
-                  <div
-                    className="absolute"
-                    style={{ left: 0, top: "calc(50% - 8px)", width: "1px", height: "16px", background: "#8B7355" }}
-                  />
-                  <div
-                    className="absolute"
-                    style={{ right: 0, top: "calc(50% - 8px)", width: "1px", height: "16px", background: "#8B7355" }}
-                  />
-
-                  {/* Etapas — desktop */}
-                  <div className="hidden md:flex relative" style={{ minHeight: "260px" }}>
-                    {stages.map((s, i) => {
-                      const widthPct = (s.days / sum) * 100;
-                      const isEven = i % 2 === 0;
-                      return (
-                        <div
-                          key={s.num}
-                          className="relative flex flex-col"
-                          style={{ width: `${widthPct}%` }}
-                        >
-                          {/* Linha vertical divisória direita */}
-                          {i < stages.length - 1 && (
-                            <div
-                              className="absolute"
-                              style={{
-                                right: 0,
-                                top: "calc(50% - 24px)",
-                                width: "1px",
-                                height: "48px",
-                                background: "rgba(139, 115, 85, 0.55)",
-                              }}
-                            />
-                          )}
-
-                          {/* Cota superior — ACIMA da linha (etapas pares) */}
-                          {isEven && (
-                            <div className="absolute left-0 right-0" style={{ bottom: "calc(50% + 14px)" }}>
-                              {/* Linha de cota com setas duplas */}
-                              <svg
-                                className="w-full"
-                                height="14"
-                                viewBox="0 0 100 14"
-                                preserveAspectRatio="none"
-                                style={{ display: "block" }}
-                              >
-                                <line x1="0" y1="7" x2="100" y2="7" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
-                                <polyline points="3,4 0,7 3,10" fill="none" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
-                                <polyline points="97,4 100,7 97,10" fill="none" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
-                              </svg>
-                              <div
-                                className="font-display text-center"
-                                style={{ color: "#B5A48A", fontSize: "0.95rem", marginTop: "4px", fontStyle: "italic" }}
-                              >
-                                {s.days} <span className="font-mono-edit not-italic text-[9px] tracking-[0.2em] uppercase">dias</span>
-                              </div>
-                            </div>
-                          )}
-
-                          {/* Nome da etapa abaixo da linha (etapas pares) */}
-                          {isEven && (
-                            <div
-                              className="absolute left-0 right-0 px-2"
-                              style={{ top: "calc(50% + 18px)" }}
-                            >
-                              <div
-                                className="font-mono-edit text-[9px] tracking-[0.25em] uppercase mb-2"
-                                style={{ color: "#8B7355" }}
-                              >
-                                {s.num}
-                              </div>
-                              <div
-                                className="font-display leading-tight"
-                                style={{ color: "#E8E4DF", fontSize: "0.95rem" }}
-                              >
-                                {s.name}
-                              </div>
-                            </div>
-                          )}
-
-                          {/* Etapas ímpares — invertidas: nome em cima, cota embaixo */}
-                          {!isEven && (
-                            <div className="absolute left-0 right-0 px-2" style={{ bottom: "calc(50% + 18px)" }}>
-                              <div
-                                className="font-mono-edit text-[9px] tracking-[0.25em] uppercase mb-2"
-                                style={{ color: "#8B7355" }}
-                              >
-                                {s.num}
-                              </div>
-                              <div
-                                className="font-display leading-tight"
-                                style={{ color: "#E8E4DF", fontSize: "0.95rem" }}
-                              >
-                                {s.name}
-                              </div>
-                            </div>
-                          )}
-
-                          {!isEven && (
-                            <div className="absolute left-0 right-0" style={{ top: "calc(50% + 14px)" }}>
-                              <svg
-                                className="w-full"
-                                height="14"
-                                viewBox="0 0 100 14"
-                                preserveAspectRatio="none"
-                                style={{ display: "block" }}
-                              >
-                                <line x1="0" y1="7" x2="100" y2="7" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
-                                <polyline points="3,4 0,7 3,10" fill="none" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
-                                <polyline points="97,4 100,7 97,10" fill="none" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
-                              </svg>
-                              <div
-                                className="font-display text-center"
-                                style={{ color: "#B5A48A", fontSize: "0.95rem", marginTop: "4px", fontStyle: "italic" }}
-                              >
-                                {s.days} <span className="font-mono-edit not-italic text-[9px] tracking-[0.2em] uppercase">dias</span>
-                              </div>
-                            </div>
-                          )}
-
-                          {/* Tick vertical no eixo */}
-                          <div
-                            className="absolute"
-                            style={{
-                              left: "50%",
-                              top: "calc(50% - 4px)",
-                              width: "1px",
-                              height: "8px",
-                              background: "#8B7355",
-                            }}
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Etapas — mobile (lista vertical) */}
-                  <div className="md:hidden space-y-6 relative" style={{ paddingTop: "0", marginTop: "-50%" }}>
-                    {stages.map((s) => (
-                      <div
-                        key={s.num}
-                        className="flex items-baseline gap-4 pb-4"
-                        style={{ borderBottom: "1px solid rgba(139, 115, 85, 0.25)" }}
+                    key={s.num}
+                    className="grid grid-cols-12 gap-4 md:gap-8 items-center py-7 md:py-8 border-b"
+                    style={{ borderColor: "rgba(139, 115, 85, 0.3)" }}
+                  >
+                    <div className="col-span-2 md:col-span-1">
+                      <span
+                        className="font-mono-edit text-[11px] md:text-xs tracking-[0.25em]"
+                        style={{ color: "#8B7355" }}
                       >
-                        <span
-                          className="font-mono-edit text-[10px] tracking-[0.25em]"
-                          style={{ color: "#8B7355" }}
-                        >
-                          {s.num}
-                        </span>
-                        <div className="flex-1">
-                          <div className="font-display text-base" style={{ color: "#E8E4DF" }}>
-                            {s.name}
-                          </div>
-                        </div>
-                        <span
-                          className="font-display italic"
-                          style={{ color: "#B5A48A", fontSize: "0.95rem" }}
-                        >
-                          {s.days} <span className="font-mono-edit not-italic text-[9px] tracking-[0.2em] uppercase">d</span>
-                        </span>
+                        {s.num}
+                      </span>
+                    </div>
+
+                    <div className="col-span-10 md:col-span-4">
+                      <span
+                        className="font-display leading-tight"
+                        style={{ color: "#E8E4DF", fontSize: "clamp(1.05rem, 1.6vw, 1.5rem)" }}
+                      >
+                        {s.name}
+                      </span>
+                    </div>
+
+                    <div className="col-span-10 md:col-span-5 order-last md:order-none">
+                      <div className="relative w-full" style={{ height: "1px" }}>
+                        <div
+                          className="absolute inset-0"
+                          style={{ background: "rgba(139, 115, 85, 0.18)" }}
+                        />
+                        <div
+                          className="absolute top-0 left-0 transition-all duration-700"
+                          style={{
+                            width: `${widthPct}%`,
+                            height: "1px",
+                            background: "#8B7355",
+                          }}
+                        />
+                        <div
+                          className="absolute"
+                          style={{
+                            left: `calc(${widthPct}% - 0.5px)`,
+                            top: "-3px",
+                            width: "1px",
+                            height: "7px",
+                            background: "#8B7355",
+                          }}
+                        />
                       </div>
-                    ))}
+                    </div>
+
+                    <div className="col-span-2 md:col-span-2 text-right">
+                      <span
+                        className="font-display italic"
+                        style={{ color: "#B5A48A", fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)" }}
+                      >
+                        {s.days}
+                      </span>
+                      <span
+                        className="font-mono-edit not-italic ml-1.5 text-[9px] tracking-[0.2em] uppercase"
+                        style={{ color: "rgba(139, 115, 85, 0.7)" }}
+                      >
+                        dias
+                      </span>
+                    </div>
                   </div>
-                </>
-              );
+                );
+              });
             })()}
           </div>
 
-          {/* Rodapé técnico */}
-          <div
-            className="mt-24 pt-8 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
-            style={{ borderTop: "1px solid rgba(139, 115, 85, 0.3)" }}
-          >
-            <div>
+          {/* Rodapé — prazo total à esquerda, citação à direita */}
+          <div className="grid grid-cols-12 gap-8 mt-20 pt-2">
+            <div className="col-span-12 md:col-span-5">
               <div
-                className="font-mono-edit text-[10px] tracking-[0.3em] uppercase mb-3"
+                className="font-mono-edit text-[10px] tracking-[0.35em] uppercase mb-4"
                 style={{ color: "#8B7355" }}
               >
                 Prazo total estimado
               </div>
               <Editable
                 id="crono.total"
-                className="font-display"
+                className="font-display leading-none block"
                 ariaLabel="Editar prazo total"
               >
-                <span style={{ color: "#E8E4DF", fontSize: "1.75rem" }}>
-                  6 meses <span style={{ color: "rgba(232, 228, 223, 0.5)", fontSize: "1rem" }}>· 180 dias</span>
+                <span style={{ color: "#E8E4DF", fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}>
+                  6 <em className="not-italic" style={{ color: "#8B7355" }}>meses</em>
                 </span>
               </Editable>
             </div>
 
-            <Editable
-              id="crono.quote"
-              multiline
-              as="blockquote"
-              className="font-display italic max-w-md md:text-right"
-              ariaLabel="Editar citação do cronograma"
+            <div
+              className="col-span-12 md:col-span-7 md:pl-12 md:border-l"
+              style={{ borderColor: "rgba(139, 115, 85, 0.3)" }}
             >
-              <span style={{ color: "#B5A48A", fontSize: "1.15rem", lineHeight: 1.4 }}>
-                “O tempo do projeto é o que evita o tempo perdido na obra.”
-              </span>
-            </Editable>
+              <Editable
+                id="crono.note"
+                multiline
+                as="p"
+                className="font-display italic leading-relaxed"
+                ariaLabel="Editar nota do cronograma"
+              >
+                <span style={{ color: "rgba(232, 228, 223, 0.6)", fontSize: "clamp(1rem, 1.25vw, 1.2rem)" }}>
+                  Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros
+                  (prefeitura, condomínio) e disponibilidade do cliente nas etapas de aprovação.
+                </span>
+              </Editable>
+            </div>
           </div>
-
-          <Editable
-            id="crono.note"
-            multiline
-            as="p"
-            className="font-mono-edit text-[10px] uppercase tracking-[0.25em] mt-12 max-w-3xl leading-relaxed"
-          >
-            <span style={{ color: "rgba(232, 228, 223, 0.4)" }}>
-              Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros (prefeitura, condomínio)
-              e disponibilidade do cliente nas etapas de aprovação.
-            </span>
-          </Editable>
         </div>
       </section>
 
