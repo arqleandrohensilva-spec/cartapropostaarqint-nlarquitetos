@@ -1037,7 +1037,7 @@ const Index = () => {
               multiline
               className="font-display text-5xl md:text-7xl leading-[1.0] mb-8 text-balance"
             >
-              Dois pacotes. <em className="text-primary not-italic">Um só método.</em>
+              Dois planos. <em className="text-primary not-italic">Um só método.</em>
             </Editable>
             <Editable
               id="investimento.body"
@@ -1045,60 +1045,70 @@ const Index = () => {
               as="p"
               className="font-display italic text-lg md:text-xl text-foreground/70"
             >
-              Cada R$ 1 investido em projeto economiza, em média, R$ 3 em obra e adiciona até 25% ao valor de revenda do
-              imóvel. Escolha a profundidade do escopo — o rigor é o mesmo.
+              O valor de cada plano é calculado com base no escopo e na complexidade do projeto. Não é preço de tabela —
+              é o custo real de eliminar o improviso antes da obra começar.
             </Editable>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
-            <ValueAnchor id="va1" label="Sem projeto" value="100%" sub="Custo da obra · referência" muted />
-            <ValueAnchor id="va2" label="Projeto comum" value="−12%" sub="Economia média de mercado" muted />
-            <ValueAnchor id="va3" label="Método NL" value="−27%" sub="Economia comprovada em obra" highlight />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <PackageCard
               id="basic"
-              tier="Pacote Essencial"
-              tagline="Arquitetura essencial · pronto para construir"
+              tier="Plano Executivo"
+              tagline="Arquitetura"
               price="R$ 00.000"
-              priceNote="A partir de · 8x sem juros"
+              priceNote="Sob consulta · conforme escopo"
               features={[
-                { included: true, text: "Levantamento, briefing e estudo do terreno" },
-                { included: true, text: "Estudo Preliminar com 1 render conceitual" },
-                { included: true, text: "Anteprojeto arquitetônico (plantas, cortes, fachadas)" },
-                { included: true, text: "Projeto Executivo arquitetônico" },
-                { included: true, text: "Compatibilização básica · até 3 disciplinas" },
-                { included: true, text: "2 rodadas de revisão por etapa" },
-                { included: false, text: "Projeto de Interiores" },
-                { included: false, text: "Projeto luminotécnico cênico" },
-                { included: false, text: "Curadoria de mobiliário e arte" },
-                { included: false, text: "Acompanhamento de obra mensal" },
+                { included: true, text: "Levantamento & Briefing" },
+                { included: true, text: "Criação do Conceito" },
+                { included: true, text: "Estudo Preliminar com 3D" },
+                { included: true, text: "Projeto Legal & Aprovações" },
+                { included: true, text: "Projeto Executivo Arquitetônico" },
+                { included: true, text: "Caderno Geral completo" },
+                { included: true, text: "Caderno de Detalhes Construtivos" },
+                { included: true, text: "Memorial Descritivo" },
+                { included: true, text: "Mapas de Instalações (em parceria)" },
+                { included: false, text: "Concepção 3D de Alta Fidelidade" },
+                { included: false, text: "Vídeo 3D 360°" },
+                { included: false, text: "Projeto Executivo de Interiores" },
+                { included: false, text: "Caderno de Ambientes" },
+                { included: false, text: "Caderno de Esquadrias" },
+                { included: false, text: "Caderno de Marmoraria" },
+                { included: false, text: "Caderno de Porcelanataria" },
+                { included: false, text: "Caderno de Marcenaria" },
+                { included: false, text: "EVF — Viabilidade Financeira" },
               ]}
-              cta="Quero o pacote Essencial"
-              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Essencial."
+              cta="Quero o Plano Executivo"
+              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Plano%20Executivo."
             />
 
             <PackageCard
               id="premium"
-              tier="Pacote Completo"
-              tagline="Arquitetura + Interiores · experiência completa"
+              tier="Plano Completo"
+              tagline="Arquitetura + Interiores"
               price="R$ 00.000"
-              priceNote="A partir de · 10x sem juros"
+              priceNote="Sob consulta · conforme escopo"
               features={[
-                { included: true, text: "Tudo do Pacote Essencial" },
-                { included: true, text: "Compatibilização total · 6 disciplinas" },
-                { included: true, text: "Renders fotorrealistas ilimitados" },
-                { included: true, text: "Projeto completo de Interiores" },
-                { included: true, text: "Marcenaria sob medida detalhada" },
-                { included: true, text: "Projeto luminotécnico cênico integrado" },
-                { included: true, text: "Curadoria de mobiliário, arte e revestimentos" },
-                { included: true, text: "Acompanhamento de obra (visitas mensais)" },
-                { included: true, text: "Atendimento direto com os sócios" },
-                { included: true, text: "Revisões ilimitadas por etapa" },
+                { included: true, text: "Levantamento & Briefing" },
+                { included: true, text: "Criação do Conceito" },
+                { included: true, text: "Estudo Preliminar com 3D" },
+                { included: true, text: "Projeto Legal & Aprovações" },
+                { included: true, text: "Projeto Executivo Arquitetônico" },
+                { included: true, text: "Caderno Geral completo" },
+                { included: true, text: "Caderno de Detalhes Construtivos" },
+                { included: true, text: "Memorial Descritivo" },
+                { included: true, text: "Mapas de Instalações (em parceria)" },
+                { included: true, text: "Concepção 3D de Alta Fidelidade" },
+                { included: true, text: "Vídeo 3D 360°" },
+                { included: true, text: "Projeto Executivo de Interiores" },
+                { included: true, text: "Caderno de Ambientes" },
+                { included: true, text: "Caderno de Esquadrias" },
+                { included: true, text: "Caderno de Marmoraria" },
+                { included: true, text: "Caderno de Porcelanataria" },
+                { included: true, text: "Caderno de Marcenaria" },
+                { included: true, text: "EVF — Viabilidade Financeira (opcional)" },
               ]}
-              cta="Quero o pacote Completo"
-              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Pacote%20Completo."
+              cta="Quero o Plano Completo"
+              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Plano%20Completo."
               recommended
             />
           </div>
@@ -1111,7 +1121,7 @@ const Index = () => {
                 id="invest.pay.label"
                 className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block"
               >
-                Condições de pagamento · Aplicáveis aos dois pacotes
+                Condições de pagamento · Aplicáveis aos dois planos
               </Editable>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border/60">
@@ -1128,7 +1138,7 @@ const Index = () => {
                 id="invest.guarantee.label"
                 className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-2"
               >
-                Garantia NL
+                Garantia técnica NL
               </Editable>
               <Editable
                 id="invest.guarantee.body"
@@ -1136,19 +1146,19 @@ const Index = () => {
                 as="p"
                 className="font-display text-lg text-foreground/85 leading-relaxed"
               >
-                Se o estudo preliminar não capturar a essência do que você imaginou, refazemos sem custo adicional — até
-                estar certo.
+                Se após a entrega for identificada qualquer ambiguidade técnica dentro do escopo contratado, a NL produz
+                o detalhamento necessário sem custo adicional. O risco da documentação é nosso.
               </Editable>
             </div>
           </div>
 
           <Editable
-            id="invest.note"
+            id="invest.closing"
             multiline
             as="p"
-            className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground text-center mt-8 max-w-2xl mx-auto leading-relaxed"
+            className="font-display italic text-2xl md:text-3xl text-primary text-center mt-16 max-w-3xl mx-auto leading-snug"
           >
-            Valores estimados · Ajustáveis conforme metragem e complexidade do projeto · Validade 30 dias
+            "Decidir no papel é barato. Decidir no canteiro é caro."
           </Editable>
         </div>
       </section>
