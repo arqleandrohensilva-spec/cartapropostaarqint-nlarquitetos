@@ -2200,44 +2200,44 @@ const COMPARISON_GROUPS: {
   {
     group: "Arquitetura",
     rows: [
-      { id: "cmp.arq.1", label: "Levantamento, briefing e estudo do terreno", basic: true, premium: true },
-      { id: "cmp.arq.2", label: "Estudo Preliminar", basic: "1 render conceitual", premium: "Renders ilimitados" },
-      { id: "cmp.arq.3", label: "Anteprojeto arquitetônico", basic: true, premium: true },
-      { id: "cmp.arq.4", label: "Projeto Executivo arquitetônico", basic: true, premium: true },
-      {
-        id: "cmp.arq.5",
-        label: "Compatibilização de disciplinas",
-        basic: "Até 3 disciplinas",
-        premium: "Até 6 disciplinas",
-      },
-      { id: "cmp.arq.6", label: "Detalhamentos construtivos", basic: "Essenciais", premium: "Completos" },
+      { id: "cmp.arq.1", label: "Levantamento & Briefing", basic: true, premium: true },
+      { id: "cmp.arq.2", label: "Criação do Conceito", basic: true, premium: true },
+      { id: "cmp.arq.3", label: "Estudo Preliminar com 3D", basic: true, premium: true },
+      { id: "cmp.arq.4", label: "Projeto Legal & Aprovações", basic: true, premium: true },
+      { id: "cmp.arq.5", label: "Projeto Executivo Arquitetônico", basic: true, premium: true },
+    ],
+  },
+  {
+    group: "Documentação técnica",
+    rows: [
+      { id: "cmp.doc.1", label: "Caderno Geral completo", basic: true, premium: true },
+      { id: "cmp.doc.2", label: "Caderno de Detalhes Construtivos", basic: true, premium: true },
+      { id: "cmp.doc.3", label: "Memorial Descritivo", basic: true, premium: true },
+      { id: "cmp.doc.4", label: "Mapas de Instalações (em parceria)", basic: true, premium: true },
+    ],
+  },
+  {
+    group: "Visualização 3D",
+    rows: [
+      { id: "cmp.vis.1", label: "Concepção 3D de Alta Fidelidade", basic: false, premium: true },
+      { id: "cmp.vis.2", label: "Vídeo 3D 360°", basic: false, premium: true },
     ],
   },
   {
     group: "Interiores",
     rows: [
-      { id: "cmp.int.1", label: "Layout e ambientação completa", basic: false, premium: true },
-      { id: "cmp.int.2", label: "Marcenaria sob medida detalhada", basic: false, premium: true },
-      { id: "cmp.int.3", label: "Projeto luminotécnico cênico", basic: false, premium: true },
-      { id: "cmp.int.4", label: "Curadoria de mobiliário e arte", basic: false, premium: true },
-      { id: "cmp.int.5", label: "Paleta de revestimentos e acabamentos", basic: false, premium: true },
+      { id: "cmp.int.1", label: "Projeto Executivo de Interiores", basic: false, premium: true },
+      { id: "cmp.int.2", label: "Caderno de Ambientes", basic: false, premium: true },
+      { id: "cmp.int.3", label: "Caderno de Esquadrias", basic: false, premium: true },
+      { id: "cmp.int.4", label: "Caderno de Marmoraria", basic: false, premium: true },
+      { id: "cmp.int.5", label: "Caderno de Porcelanataria", basic: false, premium: true },
+      { id: "cmp.int.6", label: "Caderno de Marcenaria", basic: false, premium: true },
     ],
   },
   {
-    group: "Visualização e experiência",
+    group: "Viabilidade",
     rows: [
-      { id: "cmp.vis.1", label: "Renders fotorrealistas", basic: "1 imagem", premium: "Ilimitados" },
-      { id: "cmp.vis.2", label: "Tour virtual 360°", basic: false, premium: true },
-      { id: "cmp.vis.3", label: "Apresentação editorial impressa", basic: false, premium: true },
-    ],
-  },
-  {
-    group: "Acompanhamento",
-    rows: [
-      { id: "cmp.acc.1", label: "Rodadas de revisão por etapa", basic: "2 rodadas", premium: "Ilimitadas" },
-      { id: "cmp.acc.2", label: "Acompanhamento de obra", basic: "Sob demanda", premium: "Visitas mensais" },
-      { id: "cmp.acc.3", label: "Atendimento direto com os sócios", basic: false, premium: true },
-      { id: "cmp.acc.4", label: "Garantia NL", basic: "Estudo preliminar", premium: "Todas as etapas" },
+      { id: "cmp.viab.1", label: "EVF — Viabilidade Financeira", basic: false, premium: "Opcional" },
     ],
   },
 ];
