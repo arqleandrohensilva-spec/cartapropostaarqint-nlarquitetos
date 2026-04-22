@@ -1806,7 +1806,7 @@ const ScopeBlocos = ({ data, trackId }: { data: ScopeBloco[]; trackId: string })
             className="font-display italic text-[0.9rem] text-foreground/70 leading-relaxed"
           >
             <span className="font-mono not-italic text-primary mr-1">*</span>
-            Desenvolvido em parceria com engenheiros especializados. A NL Arquitetos coordena e valida todos os projetos complementares.
+            Desenvolvido em parceria com engenheiros especializados. A NL coordena e valida todos os projetos complementares.
           </Editable>
         </div>
       )}
