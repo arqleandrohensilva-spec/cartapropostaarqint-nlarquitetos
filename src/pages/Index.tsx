@@ -721,22 +721,49 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          08.5 · CRONOGRAMA ESTIMADO
+          08.5 · CRONOGRAMA — PRANCHA TÉCNICA
           ============================================================ */}
-      <section id="cronograma" className="relative px-6 md:px-16 lg:px-24 py-32">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
+      <section
+        id="cronograma"
+        className="relative px-6 md:px-16 lg:px-24 py-32 overflow-hidden"
+        style={{ background: "#1A1816", color: "#E8E4DF" }}
+      >
+        {/* Número fantasma 180 */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-8 right-6 md:right-16 lg:right-24 font-display leading-none select-none"
+          style={{
+            fontSize: "clamp(12rem, 26vw, 26rem)",
+            color: "#8B7355",
+            opacity: 0.07,
+            letterSpacing: "-0.05em",
+          }}
+        >
+          180
+        </div>
+
+        <div className="relative max-w-7xl mx-auto">
+          {/* Cabeçalho técnico */}
+          <div
+            className="flex items-baseline justify-between mb-20 pb-6"
+            style={{ borderBottom: "1px solid rgba(139, 115, 85, 0.3)" }}
+          >
             <div className="flex items-baseline gap-6">
-              <span className="number-marker">08.5</span>
-              <Editable id="crono.eyebrow" className="eyebrow">
-                Cronograma · Linha do tempo estimada
+              <span className="font-mono-edit text-[10px] tracking-[0.2em]" style={{ color: "#8B7355" }}>
+                08.5
+              </span>
+              <Editable
+                id="crono.eyebrow"
+                className="font-mono-edit text-xs uppercase tracking-[0.3em]"
+              >
+                <span style={{ color: "#8B7355" }}>Cronograma · Prancha técnica</span>
               </Editable>
             </div>
             <Editable
               id="crono.tag"
-              className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
+              className="font-mono-edit text-[10px] uppercase tracking-[0.3em] hidden md:block"
             >
-              Arquitetura + Interiores · 8 a 10 meses
+              <span style={{ color: "rgba(232, 228, 223, 0.5)" }}>Escala · Dias corridos</span>
             </Editable>
           </div>
 
@@ -746,50 +773,265 @@ const Index = () => {
             multiline
             className="font-display text-5xl md:text-7xl leading-[1.0] mb-8 max-w-4xl text-balance"
           >
-            Um ritmo <em className="text-primary not-italic">previsível</em>,<br />
-            de ponta a ponta.
+            Um ritmo <em className="not-italic" style={{ color: "#8B7355" }}>previsível</em>,<br />
+            cotado em prancha.
           </Editable>
 
           <Editable
             id="crono.intro"
             multiline
             as="p"
-            className="font-display text-lg text-foreground/70 max-w-2xl mb-20"
+            className="font-display text-lg max-w-2xl mb-32"
+            ariaLabel="Editar introdução do cronograma"
           >
-            Cada fase tem janela própria, ponto de aprovação e entregável. Você sabe, desde o início, quando cada
-            decisão será tomada.
+            <span style={{ color: "rgba(232, 228, 223, 0.7)" }}>
+              Cada etapa tem janela própria, ponto de aprovação e entregável. Você sabe, desde o início,
+              quando cada decisão será tomada.
+            </span>
           </Editable>
 
-          <div className="relative">
-            <div className="absolute left-0 right-0 top-[34px] h-px bg-border hidden md:block" />
-            <div className="absolute left-0 top-[34px] h-px bg-primary hidden md:block" style={{ width: "100%" }} />
+          {/* ===== Prancha de cotas ===== */}
+          <div className="relative pt-20 pb-12">
+            {(() => {
+              const stages = [
+                { num: "01", name: "Levantamento & Briefing", days: 15 },
+                { num: "02", name: "Criação do Conceito", days: 20 },
+                { num: "03", name: "Estudo Preliminar com 3D", days: 30 },
+                { num: "04", name: "Projeto Legal & Aprovações", days: 15 },
+                { num: "05", name: "Projeto Executivo", days: 15 },
+                { num: "06", name: "Interiores", days: 90 },
+              ];
+              const total = stages.reduce((s, x) => s + x.days, 0); // 185? check: 15+20+30+15+15+90=185
+              // Mas usuário declarou total 180 — usaremos proporção real, exibindo 180 como rótulo declarado.
+              const sum = stages.reduce((s, x) => s + x.days, 0);
 
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-x-4 gap-y-10">
-              {(
-                [
-                  { m: "Mês 01", t: "Briefing & Levantamento", trail: "ARQ" },
-                  { m: "Mês 02", t: "Estudo Preliminar + 3D", trail: "ARQ" },
-                  { m: "Mês 03", t: "Anteprojeto", trail: "ARQ" },
-                  { m: "Mês 04", t: "Compatibilização", trail: "ARQ" },
-                  { m: "Mês 05–06", t: "Projeto Executivo", trail: "ARQ" },
-                  { m: "Mês 07", t: "Conceito de Interiores", trail: "INT" },
-                  { m: "Mês 08–09", t: "Layout, Marcenaria & Iluminação", trail: "INT" },
-                  { m: "Mês 10", t: "Detalhamento & Entrega", trail: "INT" },
-                ] as const
-              ).map((p, i) => (
-                <TimelineNode key={i} idx={i} {...p} />
-              ))}
+              return (
+                <>
+                  {/* Linha horizontal principal em bronze */}
+                  <div
+                    className="absolute left-0 right-0"
+                    style={{
+                      top: "50%",
+                      height: "1px",
+                      background: "#8B7355",
+                    }}
+                  />
+
+                  {/* Marcas de extremidade */}
+                  <div
+                    className="absolute"
+                    style={{ left: 0, top: "calc(50% - 8px)", width: "1px", height: "16px", background: "#8B7355" }}
+                  />
+                  <div
+                    className="absolute"
+                    style={{ right: 0, top: "calc(50% - 8px)", width: "1px", height: "16px", background: "#8B7355" }}
+                  />
+
+                  {/* Etapas — desktop */}
+                  <div className="hidden md:flex relative" style={{ minHeight: "260px" }}>
+                    {stages.map((s, i) => {
+                      const widthPct = (s.days / sum) * 100;
+                      const isEven = i % 2 === 0;
+                      return (
+                        <div
+                          key={s.num}
+                          className="relative flex flex-col"
+                          style={{ width: `${widthPct}%` }}
+                        >
+                          {/* Linha vertical divisória direita */}
+                          {i < stages.length - 1 && (
+                            <div
+                              className="absolute"
+                              style={{
+                                right: 0,
+                                top: "calc(50% - 24px)",
+                                width: "1px",
+                                height: "48px",
+                                background: "rgba(139, 115, 85, 0.55)",
+                              }}
+                            />
+                          )}
+
+                          {/* Cota superior — ACIMA da linha (etapas pares) */}
+                          {isEven && (
+                            <div className="absolute left-0 right-0" style={{ bottom: "calc(50% + 14px)" }}>
+                              {/* Linha de cota com setas duplas */}
+                              <svg
+                                className="w-full"
+                                height="14"
+                                viewBox="0 0 100 14"
+                                preserveAspectRatio="none"
+                                style={{ display: "block" }}
+                              >
+                                <line x1="0" y1="7" x2="100" y2="7" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
+                                <polyline points="3,4 0,7 3,10" fill="none" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
+                                <polyline points="97,4 100,7 97,10" fill="none" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
+                              </svg>
+                              <div
+                                className="font-display text-center"
+                                style={{ color: "#B5A48A", fontSize: "0.95rem", marginTop: "4px", fontStyle: "italic" }}
+                              >
+                                {s.days} <span className="font-mono-edit not-italic text-[9px] tracking-[0.2em] uppercase">dias</span>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Nome da etapa abaixo da linha (etapas pares) */}
+                          {isEven && (
+                            <div
+                              className="absolute left-0 right-0 px-2"
+                              style={{ top: "calc(50% + 18px)" }}
+                            >
+                              <div
+                                className="font-mono-edit text-[9px] tracking-[0.25em] uppercase mb-2"
+                                style={{ color: "#8B7355" }}
+                              >
+                                {s.num}
+                              </div>
+                              <div
+                                className="font-display leading-tight"
+                                style={{ color: "#E8E4DF", fontSize: "0.95rem" }}
+                              >
+                                {s.name}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Etapas ímpares — invertidas: nome em cima, cota embaixo */}
+                          {!isEven && (
+                            <div className="absolute left-0 right-0 px-2" style={{ bottom: "calc(50% + 18px)" }}>
+                              <div
+                                className="font-mono-edit text-[9px] tracking-[0.25em] uppercase mb-2"
+                                style={{ color: "#8B7355" }}
+                              >
+                                {s.num}
+                              </div>
+                              <div
+                                className="font-display leading-tight"
+                                style={{ color: "#E8E4DF", fontSize: "0.95rem" }}
+                              >
+                                {s.name}
+                              </div>
+                            </div>
+                          )}
+
+                          {!isEven && (
+                            <div className="absolute left-0 right-0" style={{ top: "calc(50% + 14px)" }}>
+                              <svg
+                                className="w-full"
+                                height="14"
+                                viewBox="0 0 100 14"
+                                preserveAspectRatio="none"
+                                style={{ display: "block" }}
+                              >
+                                <line x1="0" y1="7" x2="100" y2="7" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
+                                <polyline points="3,4 0,7 3,10" fill="none" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
+                                <polyline points="97,4 100,7 97,10" fill="none" stroke="#8B7355" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
+                              </svg>
+                              <div
+                                className="font-display text-center"
+                                style={{ color: "#B5A48A", fontSize: "0.95rem", marginTop: "4px", fontStyle: "italic" }}
+                              >
+                                {s.days} <span className="font-mono-edit not-italic text-[9px] tracking-[0.2em] uppercase">dias</span>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Tick vertical no eixo */}
+                          <div
+                            className="absolute"
+                            style={{
+                              left: "50%",
+                              top: "calc(50% - 4px)",
+                              width: "1px",
+                              height: "8px",
+                              background: "#8B7355",
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Etapas — mobile (lista vertical) */}
+                  <div className="md:hidden space-y-6 relative" style={{ paddingTop: "0", marginTop: "-50%" }}>
+                    {stages.map((s) => (
+                      <div
+                        key={s.num}
+                        className="flex items-baseline gap-4 pb-4"
+                        style={{ borderBottom: "1px solid rgba(139, 115, 85, 0.25)" }}
+                      >
+                        <span
+                          className="font-mono-edit text-[10px] tracking-[0.25em]"
+                          style={{ color: "#8B7355" }}
+                        >
+                          {s.num}
+                        </span>
+                        <div className="flex-1">
+                          <div className="font-display text-base" style={{ color: "#E8E4DF" }}>
+                            {s.name}
+                          </div>
+                        </div>
+                        <span
+                          className="font-display italic"
+                          style={{ color: "#B5A48A", fontSize: "0.95rem" }}
+                        >
+                          {s.days} <span className="font-mono-edit not-italic text-[9px] tracking-[0.2em] uppercase">d</span>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              );
+            })()}
+          </div>
+
+          {/* Rodapé técnico */}
+          <div
+            className="mt-24 pt-8 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
+            style={{ borderTop: "1px solid rgba(139, 115, 85, 0.3)" }}
+          >
+            <div>
+              <div
+                className="font-mono-edit text-[10px] tracking-[0.3em] uppercase mb-3"
+                style={{ color: "#8B7355" }}
+              >
+                Prazo total estimado
+              </div>
+              <Editable
+                id="crono.total"
+                className="font-display"
+                ariaLabel="Editar prazo total"
+              >
+                <span style={{ color: "#E8E4DF", fontSize: "1.75rem" }}>
+                  6 meses <span style={{ color: "rgba(232, 228, 223, 0.5)", fontSize: "1rem" }}>· 180 dias</span>
+                </span>
+              </Editable>
             </div>
+
+            <Editable
+              id="crono.quote"
+              multiline
+              as="blockquote"
+              className="font-display italic max-w-md md:text-right"
+              ariaLabel="Editar citação do cronograma"
+            >
+              <span style={{ color: "#B5A48A", fontSize: "1.15rem", lineHeight: 1.4 }}>
+                “O tempo do projeto é o que evita o tempo perdido na obra.”
+              </span>
+            </Editable>
           </div>
 
           <Editable
             id="crono.note"
             multiline
             as="p"
-            className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mt-16 max-w-3xl leading-relaxed"
+            className="font-mono-edit text-[10px] uppercase tracking-[0.25em] mt-12 max-w-3xl leading-relaxed"
           >
-            Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros (prefeitura, condomínio) e
-            disponibilidade do cliente nas etapas de aprovação.
+            <span style={{ color: "rgba(232, 228, 223, 0.4)" }}>
+              Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros (prefeitura, condomínio)
+              e disponibilidade do cliente nas etapas de aprovação.
+            </span>
           </Editable>
         </div>
       </section>
