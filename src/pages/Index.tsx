@@ -9,7 +9,7 @@ import portfolioStair from "@/assets/portfolio-stair.jpg";
 import portfolioKitchen from "@/assets/portfolio-kitchen.jpg";
 import portfolioBedroom from "@/assets/portfolio-bedroom.jpg";
 import portfolioFacade from "@/assets/portfolio-facade.jpg";
-import processBlueprint from "@/assets/process-blueprint.jpg";
+
 import scopeMaterials from "@/assets/scope-materials.jpg";
 import beforeAfter from "@/assets/before-after.jpg";
 
@@ -1390,25 +1390,6 @@ const ScopeRow = ({ idx, n, t, d }: { idx: number | string; n: string; t: string
     >
       {d}
     </Editable>
-  </div>
-);
-
-const MethodStep = ({ n, t, d, idx }: { n: string; t: string; d: string; idx: number }) => (
-  <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2 group">
-    <div className="border-t border-primary/30 pt-6">
-      <span className="font-display text-5xl md:text-6xl text-primary/80 block mb-6 leading-none">{n}</span>
-      <Editable as="h3" id={`method.${idx}.t`} className="font-display text-2xl text-foreground mb-3">
-        {t}
-      </Editable>
-      <Editable
-        id={`method.${idx}.d`}
-        multiline
-        as="p"
-        className="font-display text-sm text-foreground/65 leading-relaxed"
-      >
-        {d}
-      </Editable>
-    </div>
   </div>
 );
 
