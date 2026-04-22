@@ -1687,7 +1687,7 @@ const SCOPE_INT: ScopeBloco[] = [
       "Mapa de revestimentos",
       "Planta de forro",
       "Luminotécnico",
-      "Instalações elétricas, hidráulicas e ar-condicionado *",
+      "Instalações elétricas, hidráulicas e ar-condicionado  *",
     ],
   },
   {
@@ -1806,7 +1806,7 @@ const ScopeBlocos = ({ data, trackId }: { data: ScopeBloco[]; trackId: string })
             className="font-display italic text-[0.9rem] text-foreground/70 leading-relaxed"
           >
             <span className="font-mono not-italic text-primary mr-1">*</span>
-            Desenvolvido em parceria com engenheiros especializados. A NL Arquitetos coordena e valida todos os projetos complementares.
+            Desenvolvido em parceria com engenheiros especializados. A NL coordena e valida todos os projetos complementares.
           </Editable>
         </div>
       )}
@@ -1840,8 +1840,8 @@ const ScopeTabs = () => {
           as="p"
           className="mt-6 font-display italic text-sm text-foreground/65 leading-relaxed border-l-2 border-primary/40 pl-4"
         >
-          A nota "em parceria com engenheiros especializados" comunica duas coisas: transparência sobre quem
-          executa — e que a NL coordena e garante a qualidade desses entregáveis.
+          <span className="font-mono not-italic text-primary mr-1">*</span>
+          Desenvolvido em parceria com engenheiros especializados. A NL coordena e valida todos os projetos complementares.
         </Editable>
       </TabsContent>
       <TabsContent value="int" className="mt-0">
