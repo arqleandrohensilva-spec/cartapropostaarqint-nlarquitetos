@@ -1057,26 +1057,6 @@ const Index = () => {
               tagline="Arquitetura"
               price="R$ 00.000"
               priceNote="Sob consulta · conforme escopo"
-              features={[
-                { included: true, text: "Levantamento & Briefing" },
-                { included: true, text: "Criação do Conceito" },
-                { included: true, text: "Estudo Preliminar com 3D" },
-                { included: true, text: "Projeto Legal & Aprovações" },
-                { included: true, text: "Projeto Executivo Arquitetônico" },
-                { included: true, text: "Caderno Geral completo" },
-                { included: true, text: "Caderno de Detalhes Construtivos" },
-                { included: true, text: "Memorial Descritivo" },
-                { included: true, text: "Mapas de Instalações (em parceria)" },
-                { included: false, text: "Concepção 3D de Alta Fidelidade" },
-                { included: false, text: "Vídeo 3D 360°" },
-                { included: false, text: "Projeto Executivo de Interiores" },
-                { included: false, text: "Caderno de Ambientes" },
-                { included: false, text: "Caderno de Esquadrias" },
-                { included: false, text: "Caderno de Marmoraria" },
-                { included: false, text: "Caderno de Porcelanataria" },
-                { included: false, text: "Caderno de Marcenaria" },
-                { included: false, text: "EVF — Viabilidade Financeira" },
-              ]}
               cta="Quero o Plano Executivo"
               ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Plano%20Executivo."
             />
@@ -1087,26 +1067,6 @@ const Index = () => {
               tagline="Arquitetura + Interiores"
               price="R$ 00.000"
               priceNote="Sob consulta · conforme escopo"
-              features={[
-                { included: true, text: "Levantamento & Briefing" },
-                { included: true, text: "Criação do Conceito" },
-                { included: true, text: "Estudo Preliminar com 3D" },
-                { included: true, text: "Projeto Legal & Aprovações" },
-                { included: true, text: "Projeto Executivo Arquitetônico" },
-                { included: true, text: "Caderno Geral completo" },
-                { included: true, text: "Caderno de Detalhes Construtivos" },
-                { included: true, text: "Memorial Descritivo" },
-                { included: true, text: "Mapas de Instalações (em parceria)" },
-                { included: true, text: "Concepção 3D de Alta Fidelidade" },
-                { included: true, text: "Vídeo 3D 360°" },
-                { included: true, text: "Projeto Executivo de Interiores" },
-                { included: true, text: "Caderno de Ambientes" },
-                { included: true, text: "Caderno de Esquadrias" },
-                { included: true, text: "Caderno de Marmoraria" },
-                { included: true, text: "Caderno de Porcelanataria" },
-                { included: true, text: "Caderno de Marcenaria" },
-                { included: true, text: "EVF — Viabilidade Financeira (opcional)" },
-              ]}
               cta="Quero o Plano Completo"
               ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Plano%20Completo."
               recommended
