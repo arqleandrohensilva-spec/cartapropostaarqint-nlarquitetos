@@ -891,7 +891,7 @@ const Index = () => {
           <div className="grid grid-cols-12 gap-8 mt-20 pt-2">
             <div className="col-span-12 md:col-span-5">
               <div
-                className="font-mono-edit text-[10px] tracking-[0.35em] uppercase mb-4"
+                className="font-mono-edit text-[12px] md:text-[13px] tracking-[0.4em] uppercase mb-5"
                 style={{ color: "#8B7355" }}
               >
                 Prazo total estimado
@@ -908,7 +908,7 @@ const Index = () => {
             </div>
 
             <div
-              className="col-span-12 md:col-span-7 md:pl-12 md:border-l"
+              className="col-span-12 md:col-span-7 md:pl-12 md:border-l flex items-end"
               style={{ borderColor: "rgba(139, 115, 85, 0.3)" }}
             >
               <Editable
@@ -918,9 +918,9 @@ const Index = () => {
                 className="font-display italic leading-relaxed"
                 ariaLabel="Editar nota do cronograma"
               >
-                <span style={{ color: "rgba(232, 228, 223, 0.6)", fontSize: "clamp(1rem, 1.25vw, 1.2rem)" }}>
-                  Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros
-                  (prefeitura, condomínio) e disponibilidade do cliente nas etapas de aprovação.
+                <span style={{ color: "#8B7355", fontSize: "clamp(1rem, 1.25vw, 1.2rem)" }}>
+                  "Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros
+                  (prefeitura, condomínio) e disponibilidade do cliente nas etapas de aprovação."
                 </span>
               </Editable>
             </div>
