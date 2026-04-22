@@ -1686,31 +1686,30 @@ const SCOPE_INT: ScopeBloco[] = [
       "Paginação de piso",
       "Mapa de revestimentos",
       "Planta de forro",
-      "Projeto luminotécnico",
-      "Mapa de instalações elétricas, hidráulicas e ar-condicionado",
+      "Luminotécnico",
+      "Instalações elétricas, hidráulicas e ar-condicionado *",
     ],
-    note: "instalações em parceria com engenheiros especializados",
   },
   {
     id: "detalhes-int",
     num: "II",
     title: "Caderno de Detalhes Construtivos",
     description:
-      "Graficação de todos os detalhes necessários para execução — o escopo de detalhamento é definido conforme a complexidade de cada projeto.",
+      "Graficação de todos os detalhes necessários para execução conforme complexidade do projeto.",
   },
   {
     id: "ambientes-int",
     num: "III",
     title: "Caderno de Ambientes",
     description:
-      "Especificações completas por ambiente, com localizações de vistas e siglas de materiais.",
+      "Especificações completas por ambiente com localizações de vistas e siglas de materiais.",
   },
   {
     id: "esquadrias-int",
     num: "IV",
     title: "Caderno de Esquadrias",
     description:
-      "Especificação e localização de todas as esquadrias novas, com detalhamento para fabricação.",
+      "Especificação e localização de todas as esquadrias novas com detalhamento para fabricação.",
   },
   {
     id: "marmoraria-int",
@@ -1732,7 +1731,7 @@ const SCOPE_INT: ScopeBloco[] = [
     title: "Caderno de Marcenaria",
     wide: true,
     description:
-      "Detalhamento completo de todo mobiliário fabricado sob medida — portas, gavetas, elementos internos e acabamentos.",
+      "Detalhamento completo de todo mobiliário fabricado sob medida.",
   },
 ];
 
