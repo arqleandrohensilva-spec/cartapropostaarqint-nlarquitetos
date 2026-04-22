@@ -1522,8 +1522,17 @@ const ScopeRow = ({ idx, n, t, d }: { idx: number | string; n: string; t: string
   </div>
 );
 
-const BenefitCard = ({ t, d, idx }: { t: string; d: string; idx: number }) => (
+const BenefitCard = ({ t, d, idx, impact }: { t: string; d: string; idx: number; impact?: string }) => (
   <div className="bg-background p-8 md:p-10 group hover:bg-surface/60 transition-colors">
+    {impact && (
+      <Editable
+        id={`benefit.${idx}.impact`}
+        className="font-display block leading-none mb-4"
+        ariaLabel="Editar impacto"
+      >
+        <span style={{ color: "#8B7355", fontSize: "clamp(2.5rem, 3.6vw, 3.5rem)" }}>{impact}</span>
+      </Editable>
+    )}
     <div className="gold-line w-8 mb-6 group-hover:w-16 transition-all duration-700" />
     <Editable
       as="h3"
