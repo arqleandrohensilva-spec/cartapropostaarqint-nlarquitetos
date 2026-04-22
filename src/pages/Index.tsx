@@ -798,10 +798,13 @@ const Index = () => {
                 { num: "05", name: "Projeto Executivo", days: 15 },
                 { num: "06", name: "Interiores", days: 90 },
               ];
-              const max = Math.max(...stages.map((s) => s.days));
+              const total = stages.reduce((acc, s) => acc + s.days, 0);
+              let cumulative = 0;
 
               return stages.map((s) => {
-                const widthPct = (s.days / max) * 100;
+                const offsetPct = (cumulative / total) * 100;
+                const widthPct = (s.days / total) * 100;
+                cumulative += s.days;
                 return (
                   <div
                     key={s.num}
