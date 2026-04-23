@@ -11,8 +11,18 @@ import portfolioBedroom from "@/assets/portfolio-bedroom.jpg";
 import portfolioFacade from "@/assets/portfolio-facade.jpg";
 
 import scopeMaterials from "@/assets/scope-materials.jpg";
+import capaWarm from "@/assets/capa-warm.jpg";
 
-const Index = () => {
+interface IndexProps {
+  variant?: "default" | "warm";
+}
+
+const Index = ({ variant = "default" }: IndexProps) => {
+  const isWarm = variant === "warm";
+  const capaSrc = isWarm
+    ? capaWarm
+    : "https://www.dropbox.com/scl/fi/h4zgd1j7vbpy7vnp8nc93/Capa-Apresenta-o.jpg?rlkey=42sutzf60yam0hhmjvyrvfwym&raw=1";
+
   return (
     <main className="relative bg-background text-foreground overflow-x-hidden">
       <SectionNav />
@@ -22,14 +32,30 @@ const Index = () => {
           ============================================================ */}
       <section id="capa" className="relative min-h-screen flex flex-col justify-end px-6 md:px-16 lg:px-24 py-20">
         <img
-          src="https://www.dropbox.com/scl/fi/h4zgd1j7vbpy7vnp8nc93/Capa-Apresenta-o.jpg?rlkey=42sutzf60yam0hhmjvyrvfwym&raw=1"
+          src={capaSrc}
           alt="NL Arquitetos · monograma esculpido com luz dourada"
-          className="absolute inset-0 w-full h-full object-cover opacity-90 contrast-110 saturate-125"
+          className={cn(
+            "absolute inset-0 w-full h-full object-cover",
+            isWarm
+              ? "opacity-95 contrast-105 saturate-110"
+              : "opacity-90 contrast-110 saturate-125"
+          )}
           width={1920}
           height={1280}
         />
         {/* Gradient escurece apenas a base, preservando o brilho dourado no topo/centro */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/95" />
+        <div
+          className={cn(
+            "absolute inset-0",
+            isWarm
+              ? "bg-gradient-to-b from-[#3a1f0e]/20 via-[#2a1408]/30 to-background/95"
+              : "bg-gradient-to-b from-transparent via-background/10 to-background/95"
+          )}
+        />
+        {/* Overlay quente extra apenas na variante warm */}
+        {isWarm && (
+          <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/15 via-transparent to-orange-700/10 mix-blend-overlay" />
+        )}
         {/* Vignette suave para profundidade editorial */}
         <div className="absolute inset-0 vignette opacity-60" />
 
