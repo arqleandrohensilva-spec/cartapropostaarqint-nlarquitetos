@@ -69,15 +69,15 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="relative z-10 mt-16 flex items-end justify-between text-muted-foreground">
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-xs tracking-[0.3em]">01 / 16</span>
-            <span className="h-px w-12 bg-border" />
-            <Editable id="capa.client" className="font-mono text-xs tracking-[0.3em] uppercase text-primary/80">
+        <div className="relative z-10 mt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-4 text-muted-foreground">
+          <div className="flex items-center gap-3 md:gap-4 flex-wrap">
+            <span className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em]">01 / 16</span>
+            <span className="h-px w-8 md:w-12 bg-border" />
+            <Editable id="capa.client" className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-primary/80 break-words">
               Cliente · [Nome do Cliente]
             </Editable>
           </div>
-          <Editable id="capa.date" className="font-mono text-xs tracking-[0.3em] uppercase">
+          <Editable id="capa.date" className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase break-words">
             São José dos Campos · 2025
           </Editable>
         </div>
@@ -1474,7 +1474,7 @@ const Index = () => {
                   href="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20li%20a%20Carta%20Proposta%20e%20gostaria%20de%20conversar%20sobre%20meu%20projeto."
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-4 px-10 py-5 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-[0.3em] hover:bg-primary-glow transition-colors duration-500"
+                  className="group inline-flex items-center gap-3 md:gap-4 px-6 md:px-10 py-4 md:py-5 bg-primary text-primary-foreground font-mono text-[11px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] hover:bg-primary-glow transition-colors duration-500"
                 >
                   Iniciar conversa
                   <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
@@ -1602,14 +1602,14 @@ const Index = () => {
               href="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20li%20a%20Carta%20Proposta%20e%20gostaria%20de%20agendar%20a%20conversa%20inicial."
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-4 px-10 py-5 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-[0.3em] hover:bg-primary-glow transition-colors duration-500"
+              className="group inline-flex items-center gap-3 md:gap-4 px-5 md:px-10 py-4 md:py-5 bg-primary text-primary-foreground font-mono text-[11px] md:text-xs uppercase tracking-[0.18em] md:tracking-[0.3em] hover:bg-primary-glow transition-colors duration-500 text-center"
             >
               Agendar conversa inicial
               <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
             </a>
             <Editable
               id="encerramento.cta.sub"
-              className="font-mono text-[10px] uppercase tracking-[0.3em]"
+              className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-center px-4 break-words"
             >
               <span style={{ color: "rgba(232, 228, 223, 0.5)" }}>
                 Resposta em até 4 horas úteis · Sem compromisso
@@ -1626,12 +1626,12 @@ const Index = () => {
             <Contact id="ct3" label="Instagram" value="@nlarquitetos" />
           </div>
 
-          <div className="mt-24 flex items-center justify-between">
+          <div className="mt-24 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-center md:text-left">
             <span className="font-display italic" style={{ color: "rgba(232, 228, 223, 0.6)" }}>
               "A arquitetura como decisão."
             </span>
             <span
-              className="font-mono text-[10px] uppercase tracking-[0.3em]"
+              className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] break-words"
               style={{ color: "rgba(139, 115, 85, 0.8)" }}
             >
               NL Arquitetos · 2025
@@ -1720,11 +1720,11 @@ const CaseStat = ({ id, value, label }: { id: string; value: string; label: stri
 );
 
 const Contact = ({ id, label, value }: { id: string; label: string; value: string }) => (
-  <div>
+  <div className="min-w-0">
     <Editable id={`${id}.lbl`} className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2">
       {label}
     </Editable>
-    <Editable id={`${id}.val`} className="font-display text-lg text-foreground/90 block">
+    <Editable id={`${id}.val`} className="font-display text-base md:text-lg text-foreground/90 block break-all">
       {value}
     </Editable>
   </div>
