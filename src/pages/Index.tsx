@@ -11,7 +11,7 @@ import portfolioBedroom from "@/assets/portfolio-bedroom.jpg";
 import portfolioFacade from "@/assets/portfolio-facade.jpg";
 
 import scopeMaterials from "@/assets/scope-materials.jpg";
-import logoBranca from "@/assets/logo-branca.png";
+const LOGO_BRANCA = "/logo-branca.png";
 
 const Index = () => {
   return (
@@ -1556,7 +1556,7 @@ const Index = () => {
           {/* Logo branca centralizada */}
           <div className="flex justify-center mb-10">
             <img
-              src={logoBranca}
+              src={LOGO_BRANCA}
               alt="NL Arquitetos"
               className="h-20 md:h-28 w-auto object-contain opacity-95"
               width={280}

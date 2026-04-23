@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { clearAllEdits } from "./Editable";
 import { isEditMode } from "@/lib/edit-mode";
-import logoPreta from "@/assets/logo-preta.png";
-import logoBranca from "@/assets/logo-branca.png";
+
+const LOGO_PRETA = "/logo-preta.png";
+const LOGO_BRANCA = "/logo-branca.png";
 
 const SECTIONS = [
   { id: "capa", label: "Capa" },
@@ -88,7 +89,7 @@ const SectionNav = () => {
           aria-label="NL Arquitetos"
         >
           <img
-            src={onDarkSection ? logoBranca : logoPreta}
+            src={onDarkSection ? LOGO_BRANCA : LOGO_PRETA}
             alt="NL Arquitetos"
             className="h-8 md:h-10 w-auto object-contain transition-opacity duration-500"
             width={120}
