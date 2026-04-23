@@ -48,13 +48,13 @@ const Index = ({ variant = "default" }: IndexProps) => {
           className={cn(
             "absolute inset-0",
             isWarm
-              ? "bg-gradient-to-b from-amber-950/20 via-orange-950/30 to-background/95"
+              ? "bg-gradient-to-b from-primary/10 via-primary/15 to-background/95"
               : "bg-gradient-to-b from-transparent via-background/10 to-background/95"
           )}
         />
-        {/* Overlay quente extra apenas na variante warm */}
+        {/* Overlay quente extra apenas na variante warm — banha a cena em primary/bronze */}
         {isWarm && (
-          <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/15 via-transparent to-orange-700/10 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-primary/15 mix-blend-overlay" />
         )}
         {/* Vignette suave para profundidade editorial */}
         <div className="absolute inset-0 vignette opacity-60" />
