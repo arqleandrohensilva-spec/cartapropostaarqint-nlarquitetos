@@ -182,7 +182,7 @@ const Index = () => {
                 controle.
               </Editable>
 
-              <div className="mt-8 grid grid-cols-3 gap-6 max-w-lg">
+              <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
                 <Stat number="+50" label="Projetos entregues" id="stat1" />
                 <Stat number="+8" label="Anos de mercado" id="stat2" />
                 <Stat number="100%" label="Compatibilizados" id="stat3" />
@@ -190,7 +190,7 @@ const Index = () => {
             </div>
 
             <aside className="col-span-12 lg:col-span-6 lg:pl-10 lg:border-l border-border/60">
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <PartnerCard
                   id="leandro"
                   name="Leandro Henrique"
@@ -260,7 +260,7 @@ const Index = () => {
                 revestimento ao recuo da garagem, foi validado em projeto antes de qualquer execução. O resultado é uma
                 casa que funciona exatamente como foi decidido — antes da primeira escavação.
               </Editable>
-              <div className="grid grid-cols-3 gap-6 border-t border-border/60 pt-8">
+              <div className="grid grid-cols-3 gap-3 sm:gap-6 border-t border-border/60 pt-8">
                 <CaseStat id="case.s1" value="04" label="Meses de projeto" />
                 <CaseStat id="case.s2" value="05" label="Disciplinas" />
                 <CaseStat id="case.s3" value="0" label="Retrabalho" />
