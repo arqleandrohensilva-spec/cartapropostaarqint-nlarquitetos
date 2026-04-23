@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import CapaSwitcher from "./components/CapaSwitcher.tsx";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <CapaSwitcher />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/quente" element={<Index variant="warm" />} />
