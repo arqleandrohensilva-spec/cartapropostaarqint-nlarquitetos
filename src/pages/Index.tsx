@@ -1307,13 +1307,6 @@ const Index = () => {
                   </span>
                 </div>
 
-                <Editable
-                  id={`nota.${block.id}.title`}
-                  as="h3"
-                  className="font-display text-2xl md:text-3xl text-foreground mb-5 leading-tight"
-                >
-                  {block.title}
-                </Editable>
 
                 {block.intro && (
                   <Editable
