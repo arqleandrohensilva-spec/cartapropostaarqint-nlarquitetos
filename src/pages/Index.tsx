@@ -1194,7 +1194,189 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          12 · PRÓXIMOS PASSOS
+          12 · NOTA — TRANSPARÊNCIA ANTES DO INÍCIO
+          ============================================================ */}
+      <section
+        id="nota"
+        className="relative px-6 md:px-16 lg:px-24 py-32 overflow-hidden"
+        style={{ backgroundColor: "#1A1816" }}
+      >
+        {/* Decorative top line */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent to-primary/40" />
+
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-20 max-w-3xl mx-auto">
+            <span className="number-marker block mb-6 text-primary/70">12 · NOTA</span>
+            <Editable
+              id="nota.title"
+              as="h2"
+              className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.05] text-balance"
+            >
+              Nota <span className="text-primary">·</span> Transparência antes do início
+            </Editable>
+            <div className="gold-line w-24 mx-auto mt-10 opacity-60" />
+          </div>
+
+          {/* 2x2 Grid */}
+          <div className="grid md:grid-cols-2 gap-px bg-primary/15 border border-primary/15">
+            {[
+              {
+                id: "01",
+                title: "Dados fornecidos pelo cliente",
+                intro: "Para o desenvolvimento do projeto será fundamental que o cliente forneça:",
+                items: [
+                  "Matrícula do imóvel",
+                  "Legislação do terreno junto ao condomínio",
+                  "Documentação de aprovações anteriores (se existirem)",
+                ],
+              },
+              {
+                id: "02",
+                title: "Serviços extras contratados pelo cliente",
+                intro: "A contratação dos itens abaixo é responsabilidade do cliente e essencial para o início do projeto:",
+                items: [
+                  "Levantamento topográfico",
+                  "Sondagem do lote",
+                  "ART/RRT dos projetos complementares",
+                ],
+              },
+              {
+                id: "03",
+                title: "Serviços não inclusos",
+                intro: null,
+                items: [
+                  "Estudo de Impacto de Vizinhança",
+                  "Licenças Ambientais",
+                  "Projeto e aprovação do Corpo de Bombeiros",
+                  "Responsabilidade técnica pela execução da obra",
+                  "Gestão de obra e contratação de mão de obra",
+                  "Compra de materiais e insumos",
+                  "Projetos complementares de estrutura (coordenados em parceria, não executados pela NL)",
+                ],
+              },
+              {
+                id: "04",
+                title: "Serviços inclusos",
+                intro: null,
+                items: [],
+                groups: [
+                  {
+                    label: "Plano Executivo",
+                    items: [
+                      "Orientação na entrega dos cadernos técnicos",
+                      "Suporte técnico por 90 dias após entrega",
+                    ],
+                  },
+                  {
+                    label: "Plano Completo",
+                    items: [
+                      "Tudo do Executivo",
+                      "4 visitas técnicas à obra",
+                      "Visitas em lojas para curadoria de materiais",
+                    ],
+                  },
+                ],
+              },
+            ].map((block) => (
+              <div
+                key={block.id}
+                className="relative p-10 md:p-12 group"
+                style={{ backgroundColor: "#1A1816" }}
+              >
+                {/* Number marker */}
+                <div className="flex items-baseline gap-4 mb-6">
+                  <span
+                    className="font-display text-5xl md:text-6xl text-primary/30"
+                    style={{ WebkitTextStroke: "1px hsl(var(--primary) / 0.4)", color: "transparent" }}
+                  >
+                    {block.id}
+                  </span>
+                  <span
+                    className="text-[10px] uppercase tracking-[0.3em] text-primary/80"
+                    style={{ fontFamily: "'Courier New', monospace" }}
+                  >
+                    {block.id} · {block.title.toUpperCase()}
+                  </span>
+                </div>
+
+                <Editable
+                  id={`nota.${block.id}.title`}
+                  as="h3"
+                  className="font-display text-2xl md:text-3xl text-foreground mb-5 leading-tight"
+                >
+                  {block.title}
+                </Editable>
+
+                {block.intro && (
+                  <Editable
+                    id={`nota.${block.id}.intro`}
+                    multiline
+                    as="p"
+                    className="text-sm md:text-base text-muted-foreground leading-relaxed mb-5"
+                  >
+                    {block.intro}
+                  </Editable>
+                )}
+
+                {block.items.length > 0 && (
+                  <ul className="space-y-2.5">
+                    {block.items.map((item, i) => (
+                      <li key={i} className="flex gap-3 text-sm md:text-base text-foreground/85 leading-relaxed">
+                        <span className="text-primary mt-1.5 text-[8px]">✦</span>
+                        <Editable id={`nota.${block.id}.item.${i}`} as="span" className="flex-1">
+                          {item}
+                        </Editable>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {block.groups && (
+                  <div className="space-y-6">
+                    {block.groups.map((group, gi) => (
+                      <div key={gi}>
+                        <div
+                          className="text-[10px] uppercase tracking-[0.3em] text-primary mb-3"
+                          style={{ fontFamily: "'Courier New', monospace" }}
+                        >
+                          {group.label}
+                        </div>
+                        <ul className="space-y-2.5">
+                          {group.items.map((item, i) => (
+                            <li key={i} className="flex gap-3 text-sm md:text-base text-foreground/85 leading-relaxed">
+                              <span className="text-primary mt-1.5 text-[8px]">✦</span>
+                              <Editable id={`nota.${block.id}.${gi}.item.${i}`} as="span" className="flex-1">
+                                {item}
+                              </Editable>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Closing italic bronze */}
+          <Editable
+            id="nota.closing"
+            multiline
+            as="p"
+            className="font-display italic text-2xl md:text-3xl text-primary text-center mt-20 max-w-3xl mx-auto leading-snug"
+          >
+            "Transparência antes do início — porque surpresa na obra custa caro."
+          </Editable>
+        </div>
+
+        {/* Decorative bottom line */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-t from-transparent to-primary/40" />
+      </section>
+
+      {/* ============================================================
+          13 · PRÓXIMOS PASSOS
           ============================================================ */}
       <section
         id="proximos"
