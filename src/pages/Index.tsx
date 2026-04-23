@@ -1504,7 +1504,7 @@ const Index = () => {
                   Condições gerais
                 </Editable>
               </div>
-              <div className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+              <div className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 min-w-0">
                 <Condition
                   id="c1"
                   label="Prazo total"
@@ -1874,11 +1874,11 @@ const NextStep = ({
 };
 
 const Condition = ({ id, label, value }: { id: string; label: string; value: string }) => (
-  <div>
+  <div className="min-w-0">
     <Editable id={`${id}.lbl`} className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2">
       {label}
     </Editable>
-    <Editable id={`${id}.val`} multiline as="p" className="font-display text-foreground/80 leading-relaxed">
+    <Editable id={`${id}.val`} multiline as="p" className="font-display text-foreground/80 leading-relaxed break-words">
       {value}
     </Editable>
   </div>
