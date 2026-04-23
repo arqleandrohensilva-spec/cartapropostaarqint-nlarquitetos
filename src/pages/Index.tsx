@@ -1504,7 +1504,7 @@ const Index = () => {
                   Condições gerais
                 </Editable>
               </div>
-              <div className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+              <div className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 min-w-0">
                 <Condition
                   id="c1"
                   label="Prazo total"
