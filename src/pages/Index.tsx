@@ -1196,79 +1196,125 @@ const Index = () => {
       {/* ============================================================
           12 · PRÓXIMOS PASSOS
           ============================================================ */}
-      <section id="proximos" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-12 gap-8 mb-20">
-            <div className="col-span-12 md:col-span-3">
-              <span className="number-marker block mb-2">13</span>
-              <Editable id="proximos.eyebrow" className="eyebrow">
-                Próximos passos
-              </Editable>
+      <section
+        id="proximos"
+        className="relative px-6 md:px-16 lg:px-24 py-40 bg-gradient-to-b from-surface/60 via-background to-background overflow-hidden"
+      >
+        {/* Decorative bronze frame */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-primary/40" />
+
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-24">
+            <span className="number-marker block mb-4">12</span>
+            <Editable
+              id="proximos.eyebrow"
+              className="eyebrow mb-8 inline-block"
+            >
+              Próximos passos
+            </Editable>
+            <Editable
+              as="h2"
+              id="proximos.title"
+              multiline
+              className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.0] mb-8 text-balance max-w-4xl mx-auto"
+            >
+              Quatro passos. <em className="text-primary not-italic">Sete dias</em>
+              <br />
+              até o primeiro traço.
+            </Editable>
+
+            <Editable
+              id="proximos.intro"
+              multiline
+              as="p"
+              className="font-display italic text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed"
+            >
+              A partir do momento em que você aprova a proposta, o processo começa. Sem espera. Sem fila.
+            </Editable>
+          </div>
+
+          {/* Timeline */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Vertical bronze line */}
+            <div className="absolute left-[28px] md:left-1/2 md:-translate-x-1/2 top-4 bottom-4 w-px bg-gradient-to-b from-primary/10 via-primary/40 to-primary/10" />
+
+            <div className="space-y-20 md:space-y-28">
+              {[
+                {
+                  n: "01",
+                  timing: "Imediato",
+                  t: "Aprovação da proposta",
+                  d: "Você responde com um sim — por mensagem, e-mail ou em pessoa.",
+                },
+                {
+                  n: "02",
+                  timing: "Em até 24h",
+                  t: "Assinatura do contrato",
+                  d: "Enviamos o contrato em até 24 horas. Assinatura digital, sem deslocamento.",
+                },
+                {
+                  n: "03",
+                  timing: "Em até 5 dias",
+                  t: "Reunião de imersão",
+                  d: "Encontro de até 3 horas, agendado em até 5 dias. Aqui ouvimos tudo — terreno, família, modo de viver.",
+                },
+                {
+                  n: "04",
+                  timing: "Em até 7 dias",
+                  t: "Início do estudo preliminar",
+                  d: "Em até 7 dias após a imersão, o primeiro traço sai da prancheta. O projeto começa.",
+                },
+              ].map((p, i) => (
+                <NextStep key={i} index={i} {...p} />
+              ))}
             </div>
-            <div className="col-span-12 md:col-span-9">
-              <Editable
-                as="h2"
-                id="proximos.title"
-                multiline
-                className="font-display text-5xl md:text-6xl leading-[1.0] mb-8 text-balance"
-              >
-                Quatro passos. <em className="text-primary not-italic">Sete dias</em>
-                <br />
-                até o primeiro traço.
-              </Editable>
+          </div>
+
+          {/* Closing CTA block */}
+          <div className="mt-32 max-w-4xl mx-auto">
+            <div className="border border-primary/30 bg-surface/60 px-8 md:px-16 py-16 md:py-20 relative">
+              <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-background px-4 font-display text-3xl text-primary leading-none">
+                ✦
+              </span>
 
               <Editable
-                id="proximos.intro"
+                id="proximos.cta.text"
                 multiline
                 as="p"
-                className="font-display text-lg text-foreground/70 mb-16 max-w-2xl"
+                className="font-display italic text-3xl md:text-4xl text-foreground text-center leading-tight max-w-2xl mx-auto mb-10"
               >
-                A partir do momento em que você aprova a proposta, o processo começa. Sem espera. Sem fila.
+                Pronto para dar início ao seu projeto?
               </Editable>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                {[
-                  {
-                    n: "01",
-                    t: "Aprovação da proposta",
-                    d: "Você responde com um sim — por mensagem, e-mail ou em pessoa.",
-                  },
-                  {
-                    n: "02",
-                    t: "Assinatura do contrato",
-                    d: "Enviamos o contrato em até 24h. Assinatura digital, sem deslocamento.",
-                  },
-                  {
-                    n: "03",
-                    t: "Reunião de imersão",
-                    d: "Encontro de até 3h, agendado em até 5 dias. Aqui ouvimos tudo.",
-                  },
-                  { n: "04", t: "Início imediato", d: "Em até 7 dias após a imersão, o estudo preliminar começa." },
-                ].map((p, i) => (
-                  <NextStep key={i} {...p} />
-                ))}
-              </div>
-
-              <div className="border-t border-primary/40 pt-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <Editable
-                  id="proximos.cta.text"
-                  className="font-display italic text-xl md:text-2xl text-foreground/85 max-w-md"
-                >
-                  Pronto para dar início ao seu projeto?
-                </Editable>
+              <div className="flex justify-center">
                 <a
                   href="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20li%20a%20Carta%20Proposta%20e%20gostaria%20de%20conversar%20sobre%20meu%20projeto."
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-4 px-8 py-4 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-[0.3em] hover:bg-primary-glow transition-colors duration-500 self-start md:self-auto"
+                  className="group inline-flex items-center gap-4 px-10 py-5 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-[0.3em] hover:bg-primary-glow transition-colors duration-500"
                 >
-                  Aprovar e iniciar conversa
+                  Iniciar conversa
                   <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
                 </a>
               </div>
+
+              <Editable
+                id="proximos.cta.note"
+                className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground text-center block mt-8"
+              >
+                Resposta em até 24 horas · Leandro & Neandro
+              </Editable>
             </div>
           </div>
+        </div>
+      </section>
 
+      {/* ============================================================
+          CONDIÇÕES GERAIS
+          ============================================================ */}
+      <section className="relative px-6 md:px-16 lg:px-24 py-32">
+        <div className="max-w-7xl mx-auto">
           <div className="border-t border-border pt-16">
             <div className="grid grid-cols-12 gap-8">
               <div className="col-span-12 md:col-span-3">
@@ -1544,19 +1590,73 @@ const DifferentialItem = ({ r, t, d }: { r: string; t: string; d: string }) => (
   </div>
 );
 
-const NextStep = ({ n, t, d }: { n: string; t: string; d: string }) => (
-  <div className="flex gap-6 items-baseline">
-    <span className="font-display text-4xl text-primary/80 leading-none shrink-0">{n}</span>
-    <div>
-      <Editable as="h3" id={`next.${n}.t`} className="font-display text-2xl text-foreground mb-2">
-        {t}
-      </Editable>
-      <Editable id={`next.${n}.d`} multiline as="p" className="font-display text-foreground/70 leading-relaxed">
-        {d}
-      </Editable>
+const NextStep = ({
+  n,
+  timing,
+  t,
+  d,
+  index,
+}: {
+  n: string;
+  timing: string;
+  t: string;
+  d: string;
+  index: number;
+}) => {
+  const isLeft = index % 2 === 0;
+  return (
+    <div className="relative md:grid md:grid-cols-2 md:gap-16 group">
+      {/* Marker dot on the line */}
+      <div className="absolute left-[28px] md:left-1/2 md:-translate-x-1/2 top-2 z-10">
+        <div className="w-3 h-3 rounded-full bg-primary ring-4 ring-background transition-all duration-500 group-hover:scale-125" />
+      </div>
+
+      {/* Content */}
+      <div
+        className={`pl-20 md:pl-0 ${
+          isLeft ? "md:pr-16 md:text-right md:col-start-1" : "md:pl-16 md:col-start-2"
+        }`}
+      >
+        {/* Outline number */}
+        <span
+          className="font-display text-7xl md:text-8xl leading-none block mb-3 select-none"
+          style={{
+            WebkitTextStroke: "1px hsl(var(--primary) / 0.5)",
+            color: "transparent",
+          }}
+        >
+          {n}
+        </span>
+
+        {/* Timing tag */}
+        <span
+          className={`font-mono text-[10px] uppercase tracking-[0.3em] text-primary inline-flex items-center gap-2 mb-4 ${
+            isLeft ? "md:flex-row-reverse" : ""
+          }`}
+        >
+          <span className="w-6 h-px bg-primary/60" />
+          {timing}
+        </span>
+
+        <Editable
+          as="h3"
+          id={`next.${n}.t`}
+          className="font-display text-3xl md:text-4xl text-foreground mb-3 leading-tight block"
+        >
+          {t}
+        </Editable>
+        <Editable
+          id={`next.${n}.d`}
+          multiline
+          as="p"
+          className="font-display text-foreground/70 leading-relaxed text-lg"
+        >
+          {d}
+        </Editable>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Condition = ({ id, label, value }: { id: string; label: string; value: string }) => (
   <div>
