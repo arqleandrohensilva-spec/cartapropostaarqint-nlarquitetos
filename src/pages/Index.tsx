@@ -2492,31 +2492,31 @@ const ComparisonTable = () => (
         O que você recebe em <em className="text-primary not-italic">cada pacote</em>
       </Editable>
     </div>
-    <div className="border border-border/60 bg-background overflow-x-auto md:overflow-hidden">
-      <div className="min-w-[600px] md:min-w-0">
-      <div className="grid grid-cols-[1.6fr_1fr_1fr] border-b border-border/60 bg-surface/40">
-        <div className="px-3 md:px-6 py-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Entregáveis</span>
+    <div className="border border-border/60 bg-background w-full">
+      <div className="w-full">
+      <div className="grid grid-cols-[1.4fr_1fr_1fr] md:grid-cols-[1.6fr_1fr_1fr] border-b border-border/60 bg-surface/40">
+        <div className="px-2 md:px-6 py-4 md:py-5 min-w-0">
+          <span className="font-mono text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground">Entregáveis</span>
         </div>
-        <div className="px-3 md:px-6 py-5 border-l border-border/60 text-center">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-1">
+        <div className="px-2 md:px-6 py-4 md:py-5 border-l border-border/60 text-center min-w-0">
+          <span className="font-mono text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground block mb-1">
             Pacote
           </span>
-          <span className="font-display text-lg md:text-xl text-foreground">Essencial</span>
+          <span className="font-display text-sm md:text-xl text-foreground">Essencial</span>
         </div>
-        <div className="px-3 md:px-6 py-5 border-l border-border/60 text-center bg-primary/[0.04] relative">
+        <div className="px-2 md:px-6 py-4 md:py-5 border-l border-border/60 text-center bg-primary/[0.04] relative min-w-0">
           <div className="absolute top-0 inset-x-0 h-px bg-primary" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80 block mb-1">
+          <span className="font-mono text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-primary/80 block mb-1">
             Recomendado
           </span>
-          <span className="font-display text-lg md:text-xl text-primary">Completo</span>
+          <span className="font-display text-sm md:text-xl text-primary">Completo</span>
         </div>
       </div>
       {COMPARISON_GROUPS.map((g, gi) => (
         <div key={gi}>
-          <div className="grid grid-cols-[1.6fr_1fr_1fr] border-b border-border/40 bg-surface/20">
-            <div className="px-3 md:px-6 py-3 col-span-3">
-              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70">
+          <div className="grid grid-cols-[1.4fr_1fr_1fr] md:grid-cols-[1.6fr_1fr_1fr] border-b border-border/40 bg-surface/20">
+            <div className="px-2 md:px-6 py-3 col-span-3">
+              <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-primary/70">
                 {String(gi + 1).padStart(2, "0")} · {g.group}
               </span>
             </div>
@@ -2524,27 +2524,27 @@ const ComparisonTable = () => (
           {g.rows.map((r, ri) => (
             <div
               key={r.id}
-              className={`grid grid-cols-[1.6fr_1fr_1fr] ${ri === g.rows.length - 1 && gi === COMPARISON_GROUPS.length - 1 ? "" : "border-b border-border/40"}`}
+              className={`grid grid-cols-[1.4fr_1fr_1fr] md:grid-cols-[1.6fr_1fr_1fr] ${ri === g.rows.length - 1 && gi === COMPARISON_GROUPS.length - 1 ? "" : "border-b border-border/40"}`}
             >
-              <div className="px-3 md:px-6 py-4 flex items-center">
-                <Editable id={`${r.id}.label`} className="font-display text-xs md:text-sm text-foreground/85 leading-snug">
+              <div className="px-2 md:px-6 py-3 md:py-4 flex items-center min-w-0">
+                <Editable id={`${r.id}.label`} className="font-display text-[11px] md:text-sm text-foreground/85 leading-snug break-words">
                   {r.label}
                 </Editable>
               </div>
-              <div className="px-3 md:px-6 py-4 border-l border-border/40 flex items-center justify-center text-center">
+              <div className="px-2 md:px-6 py-3 md:py-4 border-l border-border/40 flex items-center justify-center text-center min-w-0">
                 {typeof r.basic === "string" ? (
-                  <Editable id={`${r.id}.basic`} className="font-display text-xs md:text-sm text-foreground/75 leading-snug">
+                  <Editable id={`${r.id}.basic`} className="font-display text-[11px] md:text-sm text-foreground/75 leading-snug break-words">
                     {r.basic}
                   </Editable>
                 ) : (
                   <ComparisonCell value={r.basic} />
                 )}
               </div>
-              <div className="px-3 md:px-6 py-4 border-l border-border/40 flex items-center justify-center text-center bg-primary/[0.025]">
+              <div className="px-2 md:px-6 py-3 md:py-4 border-l border-border/40 flex items-center justify-center text-center bg-primary/[0.025] min-w-0">
                 {typeof r.premium === "string" ? (
                   <Editable
                     id={`${r.id}.premium`}
-                    className="font-display text-xs md:text-sm text-primary leading-snug font-medium"
+                    className="font-display text-[11px] md:text-sm text-primary leading-snug font-medium break-words"
                   >
                     {r.premium}
                   </Editable>
@@ -2558,9 +2558,6 @@ const ComparisonTable = () => (
       ))}
       </div>
     </div>
-    <p className="md:hidden font-mono text-[9px] uppercase tracking-[0.25em] text-muted-foreground/70 text-center mt-3">
-      ← Deslize para ver mais →
-    </p>
     <Editable
       id="cmp.footnote"
       multiline
