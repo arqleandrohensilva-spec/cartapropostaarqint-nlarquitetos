@@ -60,8 +60,9 @@ const Index = () => {
             decidido no papel, não no canteiro.
           </Editable>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-muted-foreground">
-            <Editable id="capa.validity" className="font-mono text-[10px] uppercase tracking-[0.3em]">
+          <div className="mt-12 flex items-center gap-4 text-muted-foreground">
+            <span className="h-px w-12 bg-primary/40" />
+            <Editable id="capa.validity" className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80">
               Validade · 30 dias corridos
             </Editable>
           </div>
