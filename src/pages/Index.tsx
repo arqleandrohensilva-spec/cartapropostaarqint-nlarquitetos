@@ -1650,6 +1650,61 @@ const Index = () => {
    Subcomponents
    ============================================================ */
 
+const FullBleedBand = ({
+  src,
+  alt,
+  caption,
+  number,
+  height = "tall",
+  align = "left",
+}: {
+  src: string;
+  alt: string;
+  caption: string;
+  number: string;
+  height?: "short" | "tall";
+  align?: "left" | "right";
+}) => (
+  <section
+    aria-hidden="false"
+    className={`relative w-full ${
+      height === "tall" ? "h-[55vh] md:h-[80vh]" : "h-[40vh] md:h-[60vh]"
+    } overflow-hidden bg-background`}
+  >
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      width={1920}
+      height={1080}
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+    {/* Editorial overlays — top/bottom fade to keep continuity with dark sections */}
+    <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none" />
+    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+    {/* Side vignette for caption legibility */}
+    <div
+      className={`absolute inset-y-0 ${
+        align === "left" ? "left-0 right-1/3 bg-gradient-to-r" : "right-0 left-1/3 bg-gradient-to-l"
+      } from-background/80 via-background/30 to-transparent pointer-events-none`}
+    />
+
+    <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-16 lg:px-24 flex items-end pb-12 md:pb-20">
+      <div className={`max-w-md ${align === "right" ? "ml-auto text-right" : ""}`}>
+        <div className={`flex items-center gap-3 mb-4 ${align === "right" ? "justify-end" : ""}`}>
+          <span className="h-px w-10 bg-primary/60" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80">
+            {number}
+          </span>
+        </div>
+        <p className="font-display italic text-xl md:text-2xl text-foreground/90 leading-snug text-balance">
+          {caption}
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
 const Stat = ({ number, label, id }: { number: string; label: string; id: string }) => (
   <div>
     <Editable id={`stat.${id}.num`} className="font-display text-3xl md:text-4xl text-primary block mb-1">
