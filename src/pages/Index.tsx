@@ -1211,9 +1211,16 @@ const Index = () => {
             <Editable
               id="nota.title"
               as="h2"
-              className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.05] text-balance"
+              className="font-display text-6xl md:text-7xl lg:text-8xl text-foreground leading-[1.05] text-balance"
             >
-              Nota <span className="text-primary">·</span> Transparência antes do início
+              Nota.
+            </Editable>
+            <Editable
+              id="nota.subtitle"
+              as="p"
+              className="font-display italic text-xl md:text-2xl text-primary/90 mt-4 leading-snug"
+            >
+              Transparência antes do início.
             </Editable>
             <div className="gold-line w-24 mx-auto mt-10 opacity-60" />
           </div>
@@ -1296,7 +1303,7 @@ const Index = () => {
                     className="text-[10px] uppercase tracking-[0.3em] text-primary/80"
                     style={{ fontFamily: "'Courier New', monospace" }}
                   >
-                    {block.id} · {block.title.toUpperCase()}
+                    {block.title.toUpperCase()}
                   </span>
                 </div>
 
