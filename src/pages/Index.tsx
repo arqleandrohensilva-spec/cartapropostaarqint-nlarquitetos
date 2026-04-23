@@ -613,6 +613,16 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── BAND · BLUEPRINT — transição contemplativa antes dos Pilares ── */}
+      <FullBleedBand
+        src={bandBlueprint}
+        alt="Detalhe de prancha técnica e instrumentos de desenho — projeto executivo NL Arquitetos"
+        number="Intermezzo · 01"
+        caption="Cada linha no papel é uma decisão que não precisará ser tomada na obra."
+        align="left"
+        height="short"
+      />
+
       {/* ============================================================
           08 · NOSSOS PILARES
           ============================================================ */}
@@ -1025,6 +1035,16 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── BAND · INTERIOR — o resultado antes do investimento ── */}
+      <FullBleedBand
+        src={bandInterior}
+        alt="Sala de estar premium em final de tarde, com mobiliário Eames e janelas amplas"
+        number="Intermezzo · 02"
+        caption="O projeto que você não vê hoje é a casa que você vai habitar amanhã."
+        align="right"
+        height="tall"
+      />
+
       {/* ============================================================
           10 · INVESTIMENTO
           ============================================================ */}
@@ -1377,6 +1397,16 @@ const Index = () => {
         {/* Decorative bottom line */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-t from-transparent to-primary/40" />
       </section>
+
+      {/* ── BAND · MATERIAL — respiro tátil antes dos próximos passos ── */}
+      <FullBleedBand
+        src={bandMaterial}
+        alt="Detalhe de travertino e madeira nogueira sob luz natural — paleta material NL Arquitetos"
+        number="Intermezzo · 03"
+        caption="Travertino, nogueira, luz. A matéria-prima de uma decisão bem tomada."
+        align="left"
+        height="short"
+      />
 
       {/* ============================================================
           13 · PRÓXIMOS PASSOS
