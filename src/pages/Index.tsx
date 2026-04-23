@@ -1160,27 +1160,23 @@ const Index = () => {
             {[
               {
                 r: "I",
-                n: "01",
-                t: "Atendimento direto com os sócios",
-                d: "Você fala com Leandro e Neandro — não com um assistente. Cada decisão passa pelos arquitetos titulares, do briefing à entrega.",
+                t: "Duas disciplinas, um único processo",
+                d: "Arquitetura e Interiores desenvolvidos em sequência pelo mesmo escritório. Sem ruído de comunicação entre equipes diferentes. O que foi decidido na arquitetura alimenta diretamente os interiores — sem retrabalho, sem interpretação.",
               },
               {
                 r: "II",
-                n: "02",
-                t: "Projeto personalizado, não catálogo",
-                d: "Cada casa é desenhada a partir do seu terreno, da sua família e do seu modo de viver. Nenhum projeto da NL se repete.",
+                t: "Documentação que vai para a obra",
+                d: "Os cadernos técnicos da NL são feitos para o construtor executar — não para o cliente guardar. Cada prancha tem o nível de detalhe necessário para que nenhuma decisão precise ser tomada no canteiro.",
               },
               {
                 r: "III",
-                n: "03",
-                t: "Visualização antes da obra",
-                d: "Renders em alta fidelidade mostram a casa antes de qualquer escavação. Você decide com clareza, não com suposições.",
+                t: "A NL conduz — você nunca fica perdido",
+                d: "Cada etapa tem objetivo claro, entregável definido e critério de aprovação. Você sabe sempre em que momento está e o que vem a seguir.",
               },
               {
                 r: "IV",
-                n: "04",
-                t: "Decisão técnica que protege o patrimônio",
-                d: "Arquitetura pensada como ativo de longo prazo. Cada decisão de projeto aumenta o valor do imóvel e reduz o custo da obra.",
+                t: "Dois sócios em cada projeto — do briefing à última prancha",
+                d: "Leandro e Neandro estão presentes em cada decisão. Não existe delegação para assistentes ou estagiários.",
               },
             ].map((d, i) => (
               <DifferentialItem key={i} {...d} />
@@ -1593,17 +1589,16 @@ const PaymentTier = ({ id, label, value, sub }: { id: string; label: string; val
   </div>
 );
 
-const DifferentialItem = ({ r, n, t, d }: { r: string; n: string; t: string; d: string }) => (
+const DifferentialItem = ({ r, t, d }: { r: string; t: string; d: string }) => (
   <div className="group">
     <div className="flex items-baseline gap-6 mb-4">
       <span className="font-display text-6xl md:text-7xl text-primary/20 leading-none shrink-0 select-none">{r}</span>
-      <span className="font-mono text-xs text-primary/70 tracking-[0.2em]">{n}</span>
       <span className="h-px flex-1 bg-border group-hover:bg-primary/60 transition-colors duration-700" />
     </div>
-    <Editable as="h3" id={`diff.${n}.t`} className="font-display text-3xl md:text-4xl text-foreground mb-4">
+    <Editable as="h3" id={`diff.${r}.t`} className="font-display text-3xl md:text-4xl text-foreground mb-4">
       {t}
     </Editable>
-    <Editable id={`diff.${n}.d`} multiline as="p" className="font-display text-foreground/70 leading-relaxed max-w-md">
+    <Editable id={`diff.${r}.d`} multiline as="p" className="font-display text-foreground/70 leading-relaxed max-w-md">
       {d}
     </Editable>
   </div>
