@@ -79,10 +79,16 @@ const SectionNav = () => {
       <header className="fixed top-0 inset-x-0 z-40 px-6 md:px-10 py-5 flex items-center justify-between pointer-events-none">
         <a
           href="#capa"
-          className="pointer-events-auto font-display text-lg tracking-[0.4em] text-foreground/80 hover:text-primary transition-colors"
+          className="pointer-events-auto block transition-opacity hover:opacity-70"
           aria-label="NL Arquitetos"
         >
-          NL
+          <img
+            src="https://www.dropbox.com/scl/fi/qrqgxymzc3506juyfd8fe/Logo-preta-transparente.png?rlkey=527z8kp9prd2fsdk6xmxmudt3&raw=1"
+            alt="NL Arquitetos"
+            className="h-8 md:h-10 w-auto object-contain"
+            width={120}
+            height={40}
+          />
         </a>
         {editing && (
           <button
