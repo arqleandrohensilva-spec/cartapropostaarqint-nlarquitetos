@@ -24,12 +24,14 @@ const Index = () => {
         <img
           src="https://www.dropbox.com/scl/fi/h4zgd1j7vbpy7vnp8nc93/Capa-Apresenta-o.jpg?rlkey=42sutzf60yam0hhmjvyrvfwym&raw=1"
           alt="NL Arquitetos · monograma esculpido com luz dourada"
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="absolute inset-0 w-full h-full object-cover opacity-90 contrast-110 saturate-125"
           width={1920}
           height={1280}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
-        <div className="absolute inset-0 vignette" />
+        {/* Gradient escurece apenas a base, preservando o brilho dourado no topo/centro */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/95" />
+        {/* Vignette suave para profundidade editorial */}
+        <div className="absolute inset-0 vignette opacity-60" />
 
         <div className="relative z-10 max-w-4xl fade-up">
           <Editable id="capa.eyebrow" className="eyebrow mb-8 inline-block">
