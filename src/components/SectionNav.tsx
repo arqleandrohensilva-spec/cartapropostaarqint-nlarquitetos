@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { clearAllEdits } from "./Editable";
+import { isEditMode } from "@/lib/edit-mode";
 
 const SECTIONS = [
   { id: "capa", label: "Capa" },
@@ -15,7 +16,7 @@ const SECTIONS = [
   { id: "beneficios", label: "Benefícios" },
   { id: "investimento", label: "Pacotes" },
   { id: "diferenciais", label: "Diferenciais" },
-  { id: "prova", label: "Prova social" },
+  { id: "nota", label: "Nota" },
   { id: "proximos", label: "Próximos passos" },
   { id: "encerramento", label: "Encerramento" },
 ];
@@ -23,6 +24,7 @@ const SECTIONS = [
 const SectionNav = () => {
   const [active, setActive] = useState("capa");
   const [showHelper, setShowHelper] = useState(true);
+  const editing = isEditMode();
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -73,7 +75,7 @@ const SectionNav = () => {
         ))}
       </nav>
 
-      {/* Top: brand + reset */}
+      {/* Top: brand + reset (reset only in edit mode) */}
       <header className="fixed top-0 inset-x-0 z-40 px-6 md:px-10 py-5 flex items-center justify-between pointer-events-none">
         <a
           href="#capa"
@@ -82,18 +84,20 @@ const SectionNav = () => {
         >
           NL
         </a>
-        <button
-          onClick={() => {
-            if (confirm("Restaurar todos os textos originais?")) clearAllEdits();
-          }}
-          className="pointer-events-auto font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary transition-colors"
-        >
-          Restaurar texto
-        </button>
+        {editing && (
+          <button
+            onClick={() => {
+              if (confirm("Restaurar todos os textos originais?")) clearAllEdits();
+            }}
+            className="pointer-events-auto font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary transition-colors"
+          >
+            Restaurar texto
+          </button>
+        )}
       </header>
 
-      {/* Edit helper toast */}
-      {showHelper && (
+      {/* Edit helper toast — only in edit mode */}
+      {editing && showHelper && (
         <div className="fixed bottom-6 left-6 z-40 max-w-xs animate-fade-in">
           <div className="bg-card border border-border/60 px-4 py-3 backdrop-blur shadow-lg">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary mb-1">
