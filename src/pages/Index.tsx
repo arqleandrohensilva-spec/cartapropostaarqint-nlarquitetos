@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import Editable from "@/components/Editable";
 import SectionNav from "@/components/SectionNav";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -1719,16 +1719,62 @@ const CaseStat = ({ id, value, label }: { id: string; value: string; label: stri
   </div>
 );
 
-const Contact = ({ id, label, value }: { id: string; label: string; value: string }) => (
-  <div className="min-w-0">
-    <Editable id={`${id}.lbl`} className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2">
-      {label}
-    </Editable>
-    <Editable id={`${id}.val`} className="font-display text-base md:text-lg text-foreground/90 block break-all">
-      {value}
-    </Editable>
-  </div>
-);
+const Contact = ({ id, label, value }: { id: string; label: string; value: string }) => {
+  const valueRef = useRef<HTMLDivElement | null>(null);
+  const [breakMode, setBreakMode] = useState<"normal" | "words" | "all">("normal");
+
+  useLayoutEffect(() => {
+    const el = valueRef.current;
+    if (!el) return;
+
+    const measure = () => {
+      // Reset to normal so we can measure natural overflow
+      el.style.wordBreak = "normal";
+      el.style.overflowWrap = "normal";
+
+      if (el.scrollWidth <= el.clientWidth + 1) {
+        setBreakMode("normal");
+        return;
+      }
+
+      // Try break-words first (preserves whole words when possible)
+      el.style.overflowWrap = "anywhere";
+      el.style.wordBreak = "normal";
+      if (el.scrollWidth <= el.clientWidth + 1) {
+        setBreakMode("words");
+        return;
+      }
+
+      // Last resort: break-all (mid-word break for very long tokens like emails/URLs)
+      setBreakMode("all");
+    };
+
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [value]);
+
+  const breakClass =
+    breakMode === "all" ? "break-all" : breakMode === "words" ? "break-words [overflow-wrap:anywhere]" : "";
+
+  return (
+    <div className="min-w-0">
+      <Editable id={`${id}.lbl`} className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2">
+        {label}
+      </Editable>
+      <div ref={valueRef} className={`block ${breakClass}`}>
+        <Editable id={`${id}.val`} className="font-display text-base md:text-lg text-foreground/90 block">
+          {value}
+        </Editable>
+      </div>
+    </div>
+  );
+};
 
 const ScopeRow = ({ idx, n, t, d }: { idx: number | string; n: string; t: string; d: string }) => (
   <div className="group border-t border-border/60 last:border-b py-8 grid grid-cols-12 gap-6 items-baseline transition-colors hover:bg-surface/40 px-4 -mx-4">
