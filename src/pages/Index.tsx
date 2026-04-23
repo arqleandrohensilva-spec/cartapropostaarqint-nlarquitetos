@@ -1125,7 +1125,7 @@ const Index = () => {
             as="p"
             className="font-display italic text-2xl md:text-3xl text-primary text-center mt-16 max-w-3xl mx-auto leading-snug"
           >
-            "Decidir no papel é barato. Decidir no canteiro é caro."
+            "O preço do projeto é o seguro contra o imprevisto da obra."
           </Editable>
         </div>
       </section>
