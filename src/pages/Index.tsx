@@ -1300,8 +1300,8 @@ const Index = () => {
                     {block.id}
                   </span>
                   <span
-                    className="text-[10px] uppercase tracking-[0.3em] text-primary/80"
-                    style={{ fontFamily: "'Courier New', monospace" }}
+                    className="inline-block text-[11px] leading-none uppercase tracking-[0.3em] text-primary/80"
+                    style={{ fontFamily: "'Courier New', monospace", fontWeight: 400 }}
                   >
                     {block.title.toUpperCase()}
                   </span>
@@ -1337,10 +1337,10 @@ const Index = () => {
                     {block.groups.map((group, gi) => (
                       <div key={gi}>
                         <div
-                          className="text-[10px] uppercase tracking-[0.3em] text-primary mb-3"
-                          style={{ fontFamily: "'Courier New', monospace" }}
+                          className="inline-block text-[11px] leading-none uppercase tracking-[0.3em] text-primary mb-3"
+                          style={{ fontFamily: "'Courier New', monospace", fontWeight: 400 }}
                         >
-                          {group.label}
+                          {group.label.toUpperCase()}
                         </div>
                         <ul className="space-y-2.5">
                           {group.items.map((item, i) => (
