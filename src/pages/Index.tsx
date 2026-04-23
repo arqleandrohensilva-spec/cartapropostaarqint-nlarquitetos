@@ -1593,9 +1593,10 @@ const PaymentTier = ({ id, label, value, sub }: { id: string; label: string; val
   </div>
 );
 
-const DifferentialItem = ({ n, t, d }: { n: string; t: string; d: string }) => (
+const DifferentialItem = ({ r, n, t, d }: { r: string; n: string; t: string; d: string }) => (
   <div className="group">
     <div className="flex items-baseline gap-6 mb-4">
+      <span className="font-display text-6xl md:text-7xl text-primary/20 leading-none shrink-0 select-none">{r}</span>
       <span className="font-mono text-xs text-primary/70 tracking-[0.2em]">{n}</span>
       <span className="h-px flex-1 bg-border group-hover:bg-primary/60 transition-colors duration-700" />
     </div>
