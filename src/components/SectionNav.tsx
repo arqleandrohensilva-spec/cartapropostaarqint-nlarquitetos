@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { clearAllEdits } from "./Editable";
 import { isEditMode } from "@/lib/edit-mode";
+import logoPreta from "@/assets/logo-preta.png";
+import logoBranca from "@/assets/logo-branca.png";
 
 const SECTIONS = [
   { id: "capa", label: "Capa" },
@@ -25,6 +27,9 @@ const SectionNav = () => {
   const [active, setActive] = useState("capa");
   const [showHelper, setShowHelper] = useState(true);
   const editing = isEditMode();
+  // Seções com fundo escuro — header usa logo branca para garantir contraste
+  const DARK_SECTIONS = new Set(["capa", "cronograma", "nota", "encerramento"]);
+  const onDarkSection = DARK_SECTIONS.has(active);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -83,9 +88,9 @@ const SectionNav = () => {
           aria-label="NL Arquitetos"
         >
           <img
-            src="https://www.dropbox.com/scl/fi/qrqgxymzc3506juyfd8fe/Logo-preta-transparente.png?rlkey=527z8kp9prd2fsdk6xmxmudt3&raw=1"
+            src={onDarkSection ? logoBranca : logoPreta}
             alt="NL Arquitetos"
-            className="h-8 md:h-10 w-auto object-contain"
+            className="h-8 md:h-10 w-auto object-contain transition-opacity duration-500"
             width={120}
             height={40}
           />
