@@ -61,10 +61,6 @@ const Index = () => {
           </Editable>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-muted-foreground">
-            <Editable id="capa.scarcity" className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80">
-              Metodologia R.E.S.O.L.V.E.
-            </Editable>
-            <span className="hidden md:block h-px w-8 bg-border" />
             <Editable id="capa.validity" className="font-mono text-[10px] uppercase tracking-[0.3em]">
               Validade · 30 dias corridos
             </Editable>
@@ -73,7 +69,7 @@ const Index = () => {
 
         <div className="relative z-10 mt-16 flex items-end justify-between text-muted-foreground">
           <div className="flex items-center gap-4">
-            <span className="font-mono text-xs tracking-[0.3em]">01 / 13</span>
+            <span className="font-mono text-xs tracking-[0.3em]">01 / 14</span>
             <span className="h-px w-12 bg-border" />
             <Editable id="capa.client" className="font-mono text-xs tracking-[0.3em] uppercase text-primary/80">
               Cliente · [Nome do Cliente]
