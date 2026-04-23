@@ -1,4 +1,7 @@
 import { useState, useRef, useLayoutEffect } from "react";
+import bandMaterial from "@/assets/band-material.jpg";
+import bandInterior from "@/assets/band-interior.jpg";
+import bandBlueprint from "@/assets/band-blueprint.jpg";
 import Editable from "@/components/Editable";
 import SectionNav from "@/components/SectionNav";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
