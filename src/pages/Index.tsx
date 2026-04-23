@@ -1874,11 +1874,11 @@ const NextStep = ({
 };
 
 const Condition = ({ id, label, value }: { id: string; label: string; value: string }) => (
-  <div>
+  <div className="min-w-0">
     <Editable id={`${id}.lbl`} className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2">
       {label}
     </Editable>
-    <Editable id={`${id}.val`} multiline as="p" className="font-display text-foreground/80 leading-relaxed">
+    <Editable id={`${id}.val`} multiline as="p" className="font-display text-foreground/80 leading-relaxed break-words">
       {value}
     </Editable>
   </div>
