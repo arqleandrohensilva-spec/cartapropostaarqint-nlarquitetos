@@ -12,15 +12,20 @@ import portfolioFacade from "@/assets/portfolio-facade.jpg";
 
 import scopeMaterials from "@/assets/scope-materials.jpg";
 import capaWarm from "@/assets/capa-warm.jpg";
+import capaGeometrica from "@/assets/capa-geometrica.jpg";
 
 interface IndexProps {
-  variant?: "default" | "warm";
+  variant?: "default" | "warm" | "geometric";
 }
 
 const Index = ({ variant = "default" }: IndexProps) => {
   const isWarm = variant === "warm";
+  const isGeometric = variant === "geometric";
+
   const capaSrc = isWarm
     ? capaWarm
+    : isGeometric
+    ? capaGeometrica
     : "https://www.dropbox.com/scl/fi/h4zgd1j7vbpy7vnp8nc93/Capa-Apresenta-o.jpg?rlkey=42sutzf60yam0hhmjvyrvfwym&raw=1";
 
   return (
@@ -36,9 +41,9 @@ const Index = ({ variant = "default" }: IndexProps) => {
           alt="NL Arquitetos · monograma esculpido com luz dourada"
           className={cn(
             "absolute inset-0 w-full h-full object-cover",
-            isWarm
-              ? "opacity-95 contrast-105 saturate-110"
-              : "opacity-90 contrast-110 saturate-125"
+            isWarm && "opacity-95 contrast-105 saturate-110",
+            isGeometric && "opacity-100 contrast-110 saturate-110",
+            !isWarm && !isGeometric && "opacity-90 contrast-110 saturate-125"
           )}
           width={1920}
           height={1280}
@@ -47,14 +52,18 @@ const Index = ({ variant = "default" }: IndexProps) => {
         <div
           className={cn(
             "absolute inset-0",
-            isWarm
-              ? "bg-gradient-to-b from-primary/10 via-primary/15 to-background/95"
-              : "bg-gradient-to-b from-transparent via-background/10 to-background/95"
+            isWarm && "bg-gradient-to-b from-primary/10 via-primary/15 to-background/95",
+            isGeometric && "bg-gradient-to-b from-transparent via-transparent to-background",
+            !isWarm && !isGeometric && "bg-gradient-to-b from-transparent via-background/10 to-background/95"
           )}
         />
         {/* Overlay quente extra apenas na variante warm — banha a cena em primary/bronze */}
         {isWarm && (
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-primary/15 mix-blend-overlay" />
+        )}
+        {/* Overlay sutil para variante geométrica — reforça profundidade lateral sem apagar luz */}
+        {isGeometric && (
+          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent" />
         )}
         {/* Vignette suave para profundidade editorial */}
         <div className="absolute inset-0 vignette opacity-60" />
