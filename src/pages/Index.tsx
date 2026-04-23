@@ -1590,19 +1590,73 @@ const DifferentialItem = ({ r, t, d }: { r: string; t: string; d: string }) => (
   </div>
 );
 
-const NextStep = ({ n, t, d }: { n: string; t: string; d: string }) => (
-  <div className="flex gap-6 items-baseline">
-    <span className="font-display text-4xl text-primary/80 leading-none shrink-0">{n}</span>
-    <div>
-      <Editable as="h3" id={`next.${n}.t`} className="font-display text-2xl text-foreground mb-2">
-        {t}
-      </Editable>
-      <Editable id={`next.${n}.d`} multiline as="p" className="font-display text-foreground/70 leading-relaxed">
-        {d}
-      </Editable>
+const NextStep = ({
+  n,
+  timing,
+  t,
+  d,
+  index,
+}: {
+  n: string;
+  timing: string;
+  t: string;
+  d: string;
+  index: number;
+}) => {
+  const isLeft = index % 2 === 0;
+  return (
+    <div className="relative md:grid md:grid-cols-2 md:gap-16 group">
+      {/* Marker dot on the line */}
+      <div className="absolute left-[28px] md:left-1/2 md:-translate-x-1/2 top-2 z-10">
+        <div className="w-3 h-3 rounded-full bg-primary ring-4 ring-background transition-all duration-500 group-hover:scale-125" />
+      </div>
+
+      {/* Content */}
+      <div
+        className={`pl-20 md:pl-0 ${
+          isLeft ? "md:pr-16 md:text-right md:col-start-1" : "md:pl-16 md:col-start-2"
+        }`}
+      >
+        {/* Outline number */}
+        <span
+          className="font-display text-7xl md:text-8xl leading-none block mb-3 select-none"
+          style={{
+            WebkitTextStroke: "1px hsl(var(--primary) / 0.5)",
+            color: "transparent",
+          }}
+        >
+          {n}
+        </span>
+
+        {/* Timing tag */}
+        <span
+          className={`font-mono text-[10px] uppercase tracking-[0.3em] text-primary inline-flex items-center gap-2 mb-4 ${
+            isLeft ? "md:flex-row-reverse" : ""
+          }`}
+        >
+          <span className="w-6 h-px bg-primary/60" />
+          {timing}
+        </span>
+
+        <Editable
+          as="h3"
+          id={`next.${n}.t`}
+          className="font-display text-3xl md:text-4xl text-foreground mb-3 leading-tight block"
+        >
+          {t}
+        </Editable>
+        <Editable
+          id={`next.${n}.d`}
+          multiline
+          as="p"
+          className="font-display text-foreground/70 leading-relaxed text-lg"
+        >
+          {d}
+        </Editable>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Condition = ({ id, label, value }: { id: string; label: string; value: string }) => (
   <div>
