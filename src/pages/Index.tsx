@@ -1935,8 +1935,8 @@ const PhaseTimeline = ({
 }) => (
   <div className="group/timeline">
     {/* Cabeçalho da trilha */}
-    <div className="flex items-end justify-between mb-10 border-b border-primary/30 pb-5">
-      <div className="flex items-baseline gap-5">
+    <div className="flex flex-wrap items-end justify-between gap-3 mb-10 border-b border-primary/30 pb-5">
+      <div className="flex items-baseline gap-3 md:gap-5 flex-wrap">
         <Editable
           id={`etapas.${trackId}.num`}
           className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary"
@@ -1946,7 +1946,7 @@ const PhaseTimeline = ({
         <Editable
           as="h3"
           id={`etapas.${trackId}.title`}
-          className="font-display text-3xl md:text-4xl text-foreground leading-none"
+          className="font-display text-2xl md:text-4xl text-foreground leading-tight"
         >
           {title}
         </Editable>
@@ -1959,23 +1959,32 @@ const PhaseTimeline = ({
       </Editable>
     </div>
 
-    {/* Timeline horizontal */}
+    {/* Timeline — vertical no mobile, horizontal no desktop */}
     <div className="relative">
-      {/* Linha base contínua atrás dos marcadores */}
-      <div className="absolute left-0 right-0 top-[26px] h-px bg-border" aria-hidden />
-      {/* Linha bronze sobreposta — progresso visual */}
+      {/* Linha base (apenas desktop, horizontal) */}
+      <div className="absolute left-0 right-0 top-[26px] h-px bg-border hidden md:block" aria-hidden />
       <div
-        className="absolute left-0 top-[26px] h-px bg-primary/40 transition-all duration-700 group-hover/timeline:bg-primary"
+        className="absolute left-0 top-[26px] h-px bg-primary/40 transition-all duration-700 group-hover/timeline:bg-primary hidden md:block"
         style={{ right: `${100 / phases.length / 2}%` }}
         aria-hidden
       />
+      {/* Linha vertical (apenas mobile) */}
+      <div className="absolute left-[26px] top-0 bottom-0 w-px bg-border md:hidden" aria-hidden />
 
-      <ol className={`relative grid gap-6`} style={{ gridTemplateColumns: `repeat(${phases.length}, minmax(0, 1fr))` }}>
+      <ol
+        className="relative grid gap-8 md:gap-6"
+        style={{
+          gridTemplateColumns:
+            typeof window !== 'undefined' && window.innerWidth >= 768
+              ? `repeat(${phases.length}, minmax(0, 1fr))`
+              : '1fr',
+        }}
+      >
         {phases.map((p, i) => (
-          <li key={i} className="relative flex flex-col items-start group/step">
+          <li key={i} className="relative flex md:flex-col items-start gap-4 md:gap-0 group/step">
             {/* Marcador circular */}
             <div
-              className={`relative z-10 flex items-center justify-center w-[52px] h-[52px] rounded-full bg-background mb-5 transition-all duration-500 group-hover/step:scale-110 ${
+              className={`relative z-10 flex items-center justify-center w-[52px] h-[52px] shrink-0 rounded-full bg-background md:mb-5 transition-all duration-500 group-hover/step:scale-110 ${
                 p.optional
                   ? "border border-dashed border-primary/40 group-hover/step:border-primary group-hover/step:bg-background"
                   : "border border-primary/40 group-hover/step:bg-primary group-hover/step:border-primary"
@@ -1991,30 +2000,28 @@ const PhaseTimeline = ({
               </Editable>
             </div>
 
-            {/* Tick decorativo */}
-            <div className="absolute left-[26px] top-[52px] w-px h-3 bg-primary/30 -translate-x-1/2" aria-hidden />
-
-            {p.optional && (
-              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-primary/70 mb-1">
-                Opcional
-              </span>
-            )}
-
-            <Editable
-              as="h4"
-              id={`etapas.${trackId}.${i}.t`}
-              className="font-display text-base md:text-lg text-foreground leading-snug mb-2 mt-2 pr-2"
-            >
-              {p.t}
-            </Editable>
-            <Editable
-              id={`etapas.${trackId}.${i}.d`}
-              multiline
-              as="p"
-              className="font-display italic text-[13px] text-foreground/60 leading-relaxed pr-3"
-            >
-              {p.d}
-            </Editable>
+            <div className="flex-1 min-w-0 md:mt-0">
+              {p.optional && (
+                <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-primary/70 mb-1 block">
+                  Opcional
+                </span>
+              )}
+              <Editable
+                as="h4"
+                id={`etapas.${trackId}.${i}.t`}
+                className="font-display text-base md:text-lg text-foreground leading-snug mb-2 md:mt-2 pr-2"
+              >
+                {p.t}
+              </Editable>
+              <Editable
+                id={`etapas.${trackId}.${i}.d`}
+                multiline
+                as="p"
+                className="font-display italic text-[13px] text-foreground/60 leading-relaxed pr-3"
+              >
+                {p.d}
+              </Editable>
+            </div>
           </li>
         ))}
       </ol>
