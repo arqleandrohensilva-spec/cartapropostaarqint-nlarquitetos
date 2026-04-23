@@ -1154,24 +1154,30 @@ const Index = () => {
             </div>
           </div>
 
+          <div className="h-px bg-primary/30 w-full max-w-5xl mx-auto my-16" />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
             {[
               {
+                r: "I",
                 n: "01",
                 t: "Atendimento direto com os sócios",
                 d: "Você fala com Leandro e Neandro — não com um assistente. Cada decisão passa pelos arquitetos titulares, do briefing à entrega.",
               },
               {
+                r: "II",
                 n: "02",
                 t: "Projeto personalizado, não catálogo",
                 d: "Cada casa é desenhada a partir do seu terreno, da sua família e do seu modo de viver. Nenhum projeto da NL se repete.",
               },
               {
+                r: "III",
                 n: "03",
                 t: "Visualização antes da obra",
                 d: "Renders em alta fidelidade mostram a casa antes de qualquer escavação. Você decide com clareza, não com suposições.",
               },
               {
+                r: "IV",
                 n: "04",
                 t: "Decisão técnica que protege o patrimônio",
                 d: "Arquitetura pensada como ativo de longo prazo. Cada decisão de projeto aumenta o valor do imóvel e reduz o custo da obra.",
@@ -1180,6 +1186,15 @@ const Index = () => {
               <DifferentialItem key={i} {...d} />
             ))}
           </div>
+
+          <Editable
+            id="diferenciais.closing"
+            multiline
+            as="p"
+            className="font-display italic text-2xl md:text-3xl text-primary text-center mt-20 max-w-3xl mx-auto leading-snug"
+          >
+            "O especialista que conduz — não o vendedor que convence."
+          </Editable>
         </div>
       </section>
 
