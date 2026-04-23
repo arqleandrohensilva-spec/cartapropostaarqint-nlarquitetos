@@ -1972,12 +1972,16 @@ const PhaseTimeline = ({
       <div className="absolute left-[26px] top-0 bottom-0 w-px bg-border md:hidden" aria-hidden />
 
       <ol
-        className="relative grid gap-8 md:gap-6"
+        className="relative grid gap-8 md:gap-6 grid-cols-1"
         style={{
-          gridTemplateColumns:
-            typeof window !== 'undefined' && window.innerWidth >= 768
-              ? `repeat(${phases.length}, minmax(0, 1fr))`
-              : '1fr',
+          gridTemplateColumns: `repeat(var(--phase-cols, 1), minmax(0, 1fr))`,
+        }}
+        ref={(el) => {
+          if (el) {
+            const update = () => el.style.setProperty('--phase-cols', window.innerWidth >= 768 ? String(phases.length) : '1');
+            update();
+            window.addEventListener('resize', update);
+          }
         }}
       >
         {phases.map((p, i) => (
