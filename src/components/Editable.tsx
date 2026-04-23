@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { isEditMode } from "@/lib/edit-mode";
 
 interface EditableProps {
   id: string;
@@ -33,7 +34,8 @@ export const clearAllEdits = () => {
 };
 
 /**
- * Inline-editable element. Click to edit. Persists to localStorage.
+ * Inline-editable element. Editable apenas quando ?edit=1 está na URL.
+ * Para o cliente (sem ?edit=1), renderiza como texto estático normal.
  */
 const Editable = ({
   id,
@@ -44,6 +46,7 @@ const Editable = ({
   ariaLabel,
 }: EditableProps) => {
   const ref = useRef<HTMLElement | null>(null);
+  const editable = isEditMode();
 
   useEffect(() => {
     if (!ref.current) return;
@@ -52,6 +55,14 @@ const Editable = ({
       ref.current.innerHTML = stored;
     }
   }, [id]);
+
+  if (!editable) {
+    return (
+      <Tag ref={ref as never} className={className}>
+        {children}
+      </Tag>
+    );
+  }
 
   return (
     <Tag
