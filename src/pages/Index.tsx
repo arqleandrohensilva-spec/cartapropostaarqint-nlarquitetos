@@ -1545,12 +1545,30 @@ const Index = () => {
           ============================================================ */}
       <section
         id="encerramento"
-        className="relative min-h-screen flex items-center px-6 md:px-16 lg:px-24 py-32 bg-background"
+        className="relative min-h-screen flex items-center px-6 md:px-16 lg:px-24 py-32 overflow-hidden"
+        style={{ backgroundColor: "#1A1816", color: "#E8E4DF" }}
       >
-        <div className="absolute inset-0 vignette opacity-60" />
+        {/* Decorative top line */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent to-primary/40" />
 
         <div className="relative max-w-5xl mx-auto w-full">
-          <span className="number-marker block mb-6 text-center">16 · Encerramento</span>
+          {/* Logo branca centralizada */}
+          <div className="flex justify-center mb-10">
+            <img
+              src="https://www.dropbox.com/scl/fi/qco4v2ur12448rhwknyl3/Logo-branca-Transparente.png?rlkey=idhgr1sufqz5auecszht0wmi9&raw=1"
+              alt="NL Arquitetos"
+              className="h-20 md:h-28 w-auto object-contain opacity-95"
+              width={280}
+              height={112}
+            />
+          </div>
+
+          <span
+            className="font-mono-edit text-[10px] tracking-[0.3em] uppercase block mb-6 text-center"
+            style={{ color: "#8B7355" }}
+          >
+            16 · Encerramento
+          </span>
 
           <div className="gold-line w-24 mx-auto mb-12" />
 
@@ -1560,19 +1578,22 @@ const Index = () => {
             multiline
             className="font-display text-5xl md:text-7xl lg:text-8xl text-center leading-[1.0] mb-12 text-balance"
           >
-            A casa que você imagina
+            <span style={{ color: "#E8E4DF" }}>A casa que você imagina</span>
             <br />
-            <em className="text-primary not-italic">já existe.</em> Falta começar.
+            <em className="not-italic" style={{ color: "#8B7355" }}>já existe.</em>{" "}
+            <span style={{ color: "#E8E4DF" }}>Falta começar.</span>
           </Editable>
 
           <Editable
             id="encerramento.body"
             multiline
             as="p"
-            className="font-display italic text-xl md:text-2xl text-center text-foreground/70 max-w-2xl mx-auto mb-12"
+            className="font-display italic text-xl md:text-2xl text-center max-w-2xl mx-auto mb-12"
           >
-            Cada mês de adiamento é um mês a menos vivendo nela. O próximo passo é uma conversa de 30 minutos — sem
-            compromisso.
+            <span style={{ color: "rgba(232, 228, 223, 0.7)" }}>
+              Cada mês de adiamento é um mês a menos vivendo nela. O próximo passo é uma conversa de 30 minutos — sem
+              compromisso.
+            </span>
           </Editable>
 
           <div className="flex flex-col items-center gap-6 mb-20">
@@ -1587,21 +1608,33 @@ const Index = () => {
             </a>
             <Editable
               id="encerramento.cta.sub"
-              className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+              className="font-mono text-[10px] uppercase tracking-[0.3em]"
             >
-              Resposta em até 4 horas úteis · Sem compromisso
+              <span style={{ color: "rgba(232, 228, 223, 0.5)" }}>
+                Resposta em até 4 horas úteis · Sem compromisso
+              </span>
             </Editable>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-border pt-12 max-w-3xl mx-auto">
+          <div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 max-w-3xl mx-auto border-t"
+            style={{ borderColor: "rgba(139, 115, 85, 0.3)" }}
+          >
             <Contact id="ct1" label="WhatsApp" value="(12) 99623-5559" />
             <Contact id="ct2" label="E-mail" value="contato.nlarquitetos@gmail.com" />
             <Contact id="ct3" label="Instagram" value="@nlarquitetos" />
           </div>
 
-          <div className="mt-24 flex items-center justify-between text-muted-foreground">
-            <span className="font-display italic text-foreground/60">"A arquitetura como decisão."</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em]">NL Arquitetos · 2025</span>
+          <div className="mt-24 flex items-center justify-between">
+            <span className="font-display italic" style={{ color: "rgba(232, 228, 223, 0.6)" }}>
+              "A arquitetura como decisão."
+            </span>
+            <span
+              className="font-mono text-[10px] uppercase tracking-[0.3em]"
+              style={{ color: "rgba(139, 115, 85, 0.8)" }}
+            >
+              NL Arquitetos · 2025
+            </span>
           </div>
         </div>
       </section>
