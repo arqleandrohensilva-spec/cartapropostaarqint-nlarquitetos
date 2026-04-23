@@ -48,7 +48,7 @@ const Index = ({ variant = "default" }: IndexProps) => {
           className={cn(
             "absolute inset-0",
             isWarm
-              ? "bg-gradient-to-b from-[#3a1f0e]/20 via-[#2a1408]/30 to-background/95"
+              ? "bg-gradient-to-b from-amber-950/20 via-orange-950/30 to-background/95"
               : "bg-gradient-to-b from-transparent via-background/10 to-background/95"
           )}
         />
