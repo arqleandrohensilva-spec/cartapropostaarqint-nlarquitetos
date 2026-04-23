@@ -11,7 +11,6 @@ import portfolioBedroom from "@/assets/portfolio-bedroom.jpg";
 import portfolioFacade from "@/assets/portfolio-facade.jpg";
 
 import scopeMaterials from "@/assets/scope-materials.jpg";
-import beforeAfter from "@/assets/before-after.jpg";
 
 const Index = () => {
   return (
@@ -1195,66 +1194,7 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-          12 · PROVA SOCIAL
-          ============================================================ */}
-      <section id="prova" className="relative">
-        <div className="grid grid-cols-12 min-h-screen">
-          <div className="col-span-12 lg:col-span-6 relative min-h-[60vh] lg:min-h-screen">
-            <img
-              src={beforeAfter}
-              alt="Resultado de projeto arquitetônico NL"
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-              width={1920}
-              height={1080}
-            />
-          </div>
-
-          <div className="col-span-12 lg:col-span-6 px-8 md:px-16 py-20 lg:py-32 flex flex-col justify-center">
-            <div className="max-w-md">
-              <span className="number-marker block mb-4">12 · Prova social</span>
-              <Editable
-                as="h2"
-                id="prova.title"
-                multiline
-                className="font-display text-5xl md:text-6xl leading-[0.95] mb-12 text-balance"
-              >
-                A confiança de quem <em className="text-primary not-italic">já viveu</em> o processo.
-              </Editable>
-
-              <div className="gold-line w-16 mb-10" />
-
-              <Editable
-                id="prova.quote"
-                multiline
-                as="blockquote"
-                className="font-display italic text-2xl md:text-3xl leading-snug text-foreground/85 mb-8"
-              >
-                "Eles não desenharam uma casa para nós — desenharam a forma como queríamos viver. Cada detalhe fez
-                sentido na obra, e ainda faz sentido todos os dias."
-              </Editable>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-px bg-primary/60" />
-                <div>
-                  <Editable id="prova.author" className="font-display text-foreground block">
-                    Família Costas
-                  </Editable>
-                  <Editable
-                    id="prova.location"
-                    className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground block"
-                  >
-                    Residência · São José dos Campos
-                  </Editable>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          13 · PRÓXIMOS PASSOS
+          12 · PRÓXIMOS PASSOS
           ============================================================ */}
       <section id="proximos" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
         <div className="max-w-7xl mx-auto">
