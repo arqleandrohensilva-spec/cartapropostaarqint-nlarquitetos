@@ -11,7 +11,6 @@ import portfolioBedroom from "@/assets/portfolio-bedroom.jpg";
 import portfolioFacade from "@/assets/portfolio-facade.jpg";
 
 import scopeMaterials from "@/assets/scope-materials.jpg";
-import beforeAfter from "@/assets/before-after.jpg";
 
 const Index = () => {
   return (
