@@ -1720,11 +1720,11 @@ const CaseStat = ({ id, value, label }: { id: string; value: string; label: stri
 );
 
 const Contact = ({ id, label, value }: { id: string; label: string; value: string }) => (
-  <div>
+  <div className="min-w-0">
     <Editable id={`${id}.lbl`} className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/70 block mb-2">
       {label}
     </Editable>
-    <Editable id={`${id}.val`} className="font-display text-lg text-foreground/90 block">
+    <Editable id={`${id}.val`} className="font-display text-base md:text-lg text-foreground/90 block break-all">
       {value}
     </Editable>
   </div>
