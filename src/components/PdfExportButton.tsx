@@ -233,13 +233,13 @@ const PdfExportButton = () => {
         // dataURL corrompido, dimensões absurdas.
         // ────────────────────────────────────────────────────────────
         const check = validateCanvasForA4(canvas, id);
-        if (!check.ok) {
+        if (check.ok === false) {
           console.warn(`[PDF] ✗ #${id} reprovado no teste:`, check.reason, check.metrics);
           if (!firstError) firstError = `#${id}: ${check.reason}`;
           continue;
         }
 
-        const { cw, ch, drawW, drawH, offsetX, offsetY } = check.metrics!;
+        const { cw, ch, drawW, drawH, offsetX, offsetY } = check.metrics;
 
         // Garantia final: dataURL não-vazio e começando com cabeçalho JPEG
         const imgData = canvas.toDataURL("image/jpeg", 0.9);
