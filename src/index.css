@@ -51,6 +51,13 @@
     --gradient-fade-top: linear-gradient(to top, transparent 0%, hsl(var(--background)) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(36 38% 62%) 0%, hsl(38 55% 75%) 50%, hsl(34 30% 50%) 100%);
 
+    /* Band scrims — unified across breakpoints for editorial harmony.
+       Same warm-dark base, three intensity steps. */
+    --band-scrim-strong: linear-gradient(to top, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.55) 45%, hsl(var(--background) / 0) 100%);
+    --band-scrim-side-left: linear-gradient(to right, hsl(var(--background) / 0.78) 0%, hsl(var(--background) / 0.35) 45%, hsl(var(--background) / 0) 80%);
+    --band-scrim-side-right: linear-gradient(to left, hsl(var(--background) / 0.78) 0%, hsl(var(--background) / 0.35) 45%, hsl(var(--background) / 0) 80%);
+    --band-fade-edge: linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.6) 40%, hsl(var(--background) / 0) 100%);
+
     --shadow-editorial: 0 30px 80px -20px hsl(0 0% 0% / 0.6);
     --shadow-soft: 0 10px 40px -10px hsl(0 0% 0% / 0.4);
 

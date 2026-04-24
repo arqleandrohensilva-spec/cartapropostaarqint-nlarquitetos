@@ -1710,20 +1710,24 @@ const FullBleedBand = ({
       className="absolute inset-0 w-full h-full object-cover"
     />
 
-    {/* Top/bottom fade — stronger on mobile (taller bands needed for legibility),
-        softer on desktop so the image breathes */}
-    <div className="absolute inset-x-0 top-0 h-24 md:h-40 bg-gradient-to-b from-background via-background/70 to-transparent pointer-events-none" />
-    <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
-
-    {/* Mobile: full-width dark scrim at the bottom for caption contrast.
-        Desktop: side vignette only on the caption side, image breathes on the other side */}
-    <div className="absolute inset-x-0 bottom-0 h-1/2 md:hidden bg-gradient-to-t from-background/95 via-background/55 to-transparent pointer-events-none" />
+    {/* Top/bottom edge fade — same warm-dark token, scaled by breakpoint */}
     <div
-      className={`hidden md:block absolute inset-y-0 ${
-        align === "left"
-          ? "left-0 right-1/2 bg-gradient-to-r"
-          : "right-0 left-1/2 bg-gradient-to-l"
-      } from-background/75 via-background/25 to-transparent pointer-events-none`}
+      className="absolute inset-x-0 top-0 h-24 md:h-40 pointer-events-none"
+      style={{ background: "var(--band-fade-edge)" }}
+    />
+    <div
+      className="absolute inset-x-0 bottom-0 h-32 md:h-48 pointer-events-none"
+      style={{ background: "var(--band-fade-edge)", transform: "scaleY(-1)" }}
+    />
+
+    {/* Caption scrim — same token everywhere; mobile = bottom band, desktop = side panel */}
+    <div
+      className="absolute inset-x-0 bottom-0 h-1/2 md:hidden pointer-events-none"
+      style={{ background: "var(--band-scrim-strong)" }}
+    />
+    <div
+      className={`hidden md:block absolute inset-y-0 ${align === "left" ? "left-0 right-1/2" : "right-0 left-1/2"} pointer-events-none`}
+      style={{ background: align === "left" ? "var(--band-scrim-side-left)" : "var(--band-scrim-side-right)" }}
     />
 
     <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-16 lg:px-24 flex items-end pb-10 md:pb-20">
