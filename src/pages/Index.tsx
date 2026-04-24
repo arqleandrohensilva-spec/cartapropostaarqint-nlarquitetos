@@ -927,13 +927,11 @@ const Index = () => {
                 id="crono.note"
                 multiline
                 as="p"
-                className="font-display italic leading-relaxed"
+                className="font-display italic leading-relaxed text-primary text-[clamp(1rem,1.25vw,1.2rem)]"
                 ariaLabel="Editar nota do cronograma"
               >
-                <span style={{ color: "#8B7355", fontSize: "clamp(1rem, 1.25vw, 1.2rem)" }}>
-                  "Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros
-                  (prefeitura, condomínio) e disponibilidade do cliente nas etapas de aprovação."
-                </span>
+                "Cronograma estimado · Pode variar conforme escopo, aprovações de terceiros
+                (prefeitura, condomínio) e disponibilidade do cliente nas etapas de aprovação."
               </Editable>
             </div>
           </div>
