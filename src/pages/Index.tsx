@@ -1038,9 +1038,9 @@ const Index = () => {
       {/* ── BAND · INTERIOR — o resultado antes do investimento ── */}
       <FullBleedBand
         src="https://www.dropbox.com/scl/fi/ggvyeix2o57kb5osli6gc/nomo-result-1776989586497.png?rlkey=y1nz70uq2kfb28qm6dz74dre3&raw=1"
-        alt="Pérgola de madeira, cobogó e área gourmet integrada — projeto residencial NL Arquitetos"
+        alt="Área gourmet externa com pérgola de madeira coberta por trepadeira, parede de cobogós, lounge com poltronas claras e bancada de churrasqueira integrada — projeto residencial NL Arquitetos"
         number="Intermezzo · 02"
-        caption="O projeto que você não vê hoje é a casa que você vai habitar amanhã."
+        caption="Pérgola, cobogó e gourmet integrados — cada elemento decidido em projeto, não no canteiro."
         align="right"
         height="tall"
         // Foco no centro-baixo: prioriza pérgola + área gourmet, evita excesso de céu
