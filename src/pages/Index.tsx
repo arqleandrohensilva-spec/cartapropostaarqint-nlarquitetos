@@ -367,7 +367,7 @@ const Index = () => {
           </div>
           <div className="col-span-12 lg:col-span-5 relative px-8 md:px-16 py-20 lg:py-32 flex flex-col justify-center">
             <div className="max-w-md">
-              <span className="number-marker block mb-4">04 · Projeto referência</span>
+              <span className="number-marker block mb-4">05 · Projeto referência</span>
               <Editable
                 as="h2"
                 id="case.title"
@@ -410,7 +410,7 @@ const Index = () => {
       <section id="interiores" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-center">
           <div className="col-span-12 lg:col-span-5 order-2 lg:order-1">
-            <span className="number-marker block mb-3">05</span>
+            <span className="number-marker block mb-3">06</span>
             <Editable id="interiores.eyebrow" className="eyebrow mb-8 inline-block">
               Interiores · Camada do habitar
             </Editable>
@@ -478,7 +478,7 @@ const Index = () => {
   <div className="max-w-7xl mx-auto">
     <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
       <div className="flex items-baseline gap-6">
-        <span className="number-marker">06</span>
+        <span className="number-marker">07</span>
         <Editable id="portfolio.eyebrow" className="eyebrow">
           Portfólio · Sequência
         </Editable>
@@ -616,7 +616,7 @@ const Index = () => {
           {/* Cabeçalho */}
           <div className="flex items-baseline justify-between mb-12 border-b border-border/60 pb-6">
             <div className="flex items-baseline gap-6">
-              <span className="number-marker">07</span>
+              <span className="number-marker">08</span>
               <Editable id="etapas.eyebrow" className="eyebrow">
                 Etapas · Do briefing à entrega
               </Editable>
@@ -702,7 +702,7 @@ const Index = () => {
       <section id="escopo" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8">
           <div className="col-span-12 lg:col-span-5 lg:sticky lg:top-24 self-start">
-            <span className="number-marker block mb-3">08</span>
+            <span className="number-marker block mb-3">09</span>
             <Editable id="escopo.eyebrow" className="eyebrow mb-8 inline-block">
               Escopo técnico · O que entregamos
             </Editable>
@@ -765,7 +765,7 @@ const Index = () => {
           {/* Cabeçalho — minimal */}
           <div className="flex items-baseline justify-between mb-10 md:mb-14 border-b border-border/60 pb-5">
             <div className="flex items-baseline gap-6">
-              <span className="number-marker">09</span>
+              <span className="number-marker">10</span>
               <Editable id="pilares.eyebrow" className="eyebrow">
                 Nossos Pilares
               </Editable>
@@ -1076,7 +1076,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-8 mb-20">
             <div className="col-span-12 md:col-span-3">
-              <span className="number-marker block mb-2">11</span>
+              <span className="number-marker block mb-2">12</span>
               <Editable id="beneficios.eyebrow" className="eyebrow">
                 Benefícios
               </Editable>
@@ -1188,7 +1188,7 @@ const Index = () => {
       <section id="investimento" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="number-marker block mb-4">12 · Investimento</span>
+            <span className="number-marker block mb-4">13 · Investimento</span>
             <div className="gold-line w-16 mx-auto mb-10" />
             <Editable
               as="h2"
@@ -1298,7 +1298,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-8 mb-20 items-end">
             <div className="col-span-12 md:col-span-7">
-              <span className="number-marker block mb-3">13</span>
+              <span className="number-marker block mb-3">14</span>
               <Editable id="diferenciais.eyebrow" className="eyebrow mb-8 inline-block">
                 Diferenciais · O que nos separa
               </Editable>
@@ -1367,7 +1367,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-20 max-w-3xl mx-auto">
-            <span className="number-marker block mb-6 text-primary/70">14 · NOTA</span>
+            <span className="number-marker block mb-6 text-primary/70">15 · NOTA</span>
             <Editable
               id="nota.title"
               as="h2"
@@ -1558,7 +1558,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-24">
-            <span className="number-marker block mb-4">15</span>
+            <span className="number-marker block mb-4">16</span>
             <Editable
               id="proximos.eyebrow"
               className="eyebrow mb-8 inline-block"
