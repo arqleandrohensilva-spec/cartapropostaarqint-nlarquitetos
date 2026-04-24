@@ -54,8 +54,7 @@ const SectionNav = () => {
 
   return (
     <>
-      {/* Edit helper toast — only in edit mode */}
-      {editing && showHelper && (
+      {/* Top: brand + reset (reset only in edit mode) */}
       <header className="fixed top-0 inset-x-0 z-40 px-6 md:px-10 py-5 flex items-center justify-between pointer-events-none">
         <a
           href="#capa"
