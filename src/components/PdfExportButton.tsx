@@ -71,16 +71,10 @@ export function validateCanvasForA4(
     drawW = PAGE_H * imgRatio;
   }
 
-  // Sanity: dimensões finais devem ocupar ao menos 50% da página
-  // (evita "página em branco" visual com selo minúsculo no centro)
-  const occupancy = (drawW * drawH) / (PAGE_W * PAGE_H);
-  if (occupancy < 0.4) {
-    return {
-      ok: false,
-      reason: `ocupação ${(occupancy * 100).toFixed(0)}% < 40%`,
-      metrics: { cw, ch, drawW, drawH, imgRatio, pageRatio },
-    };
-  }
+  // Sanity removida: seções altas (ex: Investimento com tabela comparativa)
+  // legitimamente ocupam menos área em A4 paisagem mas ainda renderizam
+  // perfeitamente centralizadas. Validamos apenas dimensões finais > 0.
+  void pageRatio;
 
   if (drawW <= 0 || drawH <= 0 || drawW > PAGE_W + 0.01 || drawH > PAGE_H + 0.01) {
     return {
