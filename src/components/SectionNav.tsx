@@ -57,6 +57,7 @@ const SectionNav = () => {
       {/* Right side: dot navigation */}
       <nav
         aria-label="Navegação da carta"
+        data-section-nav
         className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4"
       >
         {SECTIONS.map((s, i) => (

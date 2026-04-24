@@ -4,6 +4,7 @@ import bandInterior from "@/assets/band-interior.jpg";
 import bandBlueprint from "@/assets/band-blueprint.jpg";
 import Editable from "@/components/Editable";
 import SectionNav from "@/components/SectionNav";
+import PdfExportButton from "@/components/PdfExportButton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import caseCasaCostas from "@/assets/case-casa-costas.jpg";
@@ -1680,6 +1681,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <PdfExportButton />
     </main>
   );
 };
