@@ -138,8 +138,7 @@ const PdfExportButton = () => {
     setProgress("Preparando…");
     console.log("[PDF] Iniciando export");
 
-    const PAGE_W = 297; // A4 paisagem
-    const PAGE_H = 210;
+    // (PAGE_W e PAGE_H definidos no topo do módulo)
 
     let pdf: jsPDF | null = null;
     const hideEls = document.querySelectorAll<HTMLElement>(
