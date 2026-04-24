@@ -1038,11 +1038,19 @@ const Index = () => {
       {/* ── BAND · INTERIOR — o resultado antes do investimento ── */}
       <FullBleedBand
         src="https://www.dropbox.com/scl/fi/ggvyeix2o57kb5osli6gc/nomo-result-1776989586497.png?rlkey=y1nz70uq2kfb28qm6dz74dre3&raw=1"
-        alt="Render arquitetônico premium — visão do projeto antes da obra"
+        alt="Pérgola de madeira, cobogó e área gourmet integrada — projeto residencial NL Arquitetos"
         number="Intermezzo · 02"
         caption="O projeto que você não vê hoje é a casa que você vai habitar amanhã."
         align="right"
         height="tall"
+        // Foco no centro-baixo: prioriza pérgola + área gourmet, evita excesso de céu
+        objectPosition="35% 65%"
+        // Altura levemente reduzida para harmonizar com o ritmo das outras bandas
+        heightClassName="h-[60vh] sm:h-[68vh] md:h-[78vh]"
+        // Fade inferior mais alto para fundir a base clara da imagem com o background escuro
+        edgeFadeBottomClassName="h-44 md:h-64"
+        // Sutil ajuste de contraste/saturação para baixar o brilho do céu e casar com a paleta NL
+        imgClassName="brightness-[0.92] contrast-[1.06] saturate-[0.95]"
       />
 
       {/* ============================================================
