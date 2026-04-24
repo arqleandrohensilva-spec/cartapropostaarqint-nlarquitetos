@@ -204,6 +204,8 @@ const PdfExportButton = () => {
     });
     document.body.setAttribute("data-pdf-capturing", "true");
 
+    let restoreSrcs: Array<() => void> = [];
+
     // Scroll para o topo para garantir layout consistente
     const prevScroll = window.scrollY;
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -225,7 +227,7 @@ const PdfExportButton = () => {
       // Pré-carrega imagens externas (Dropbox etc.) como base64
       // para o html2canvas conseguir renderizá-las sem CORS taint.
       setProgress("Carregando imagens…");
-      const restoreSrcs = await inlineExternalImages();
+      restoreSrcs = await inlineExternalImages();
       console.log(`[PDF] ${restoreSrcs.length} imagens externas inlinadas`);
 
       const bgColor = getComputedStyle(document.body).backgroundColor || "#14110f";
@@ -337,6 +339,10 @@ const PdfExportButton = () => {
         `Não foi possível gerar o PDF.\n\nErro: ${msg}\n\nAbra o Console do navegador (F12) para detalhes.`
       );
     } finally {
+      // restaura srcs originais das imagens externas
+      restoreSrcs.forEach((fn) => {
+        try { fn(); } catch { /* noop */ }
+      });
       hideEls.forEach((el, i) => {
         el.style.display = prevDisplay[i] ?? "";
       });
