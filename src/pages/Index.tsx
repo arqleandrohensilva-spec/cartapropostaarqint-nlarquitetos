@@ -1687,6 +1687,10 @@ const FullBleedBand = ({
   number,
   height = "tall",
   align = "left",
+  objectPosition = "center",
+  imgClassName = "",
+  heightClassName,
+  edgeFadeBottomClassName = "h-32 md:h-48",
 }: {
   src: string;
   alt: string;
@@ -1694,11 +1698,16 @@ const FullBleedBand = ({
   number: string;
   height?: "short" | "tall";
   align?: "left" | "right";
+  objectPosition?: string;
+  imgClassName?: string;
+  heightClassName?: string;
+  edgeFadeBottomClassName?: string;
 }) => (
   <section
     aria-hidden="false"
     className={`relative w-full ${
-      height === "tall" ? "h-[70vh] md:h-[85vh]" : "h-[55vh] md:h-[65vh]"
+      heightClassName ??
+      (height === "tall" ? "h-[70vh] md:h-[85vh]" : "h-[55vh] md:h-[65vh]")
     } overflow-hidden bg-background`}
   >
     <img
@@ -1707,7 +1716,8 @@ const FullBleedBand = ({
       loading="lazy"
       width={1920}
       height={1080}
-      className="absolute inset-0 w-full h-full object-cover"
+      className={`absolute inset-0 w-full h-full object-cover ${imgClassName}`}
+      style={{ objectPosition }}
     />
 
     {/* Top/bottom edge fade — same warm-dark token, scaled by breakpoint */}
@@ -1716,7 +1726,7 @@ const FullBleedBand = ({
       style={{ background: "var(--band-fade-edge)" }}
     />
     <div
-      className="absolute inset-x-0 bottom-0 h-32 md:h-48 pointer-events-none"
+      className={`absolute inset-x-0 bottom-0 ${edgeFadeBottomClassName} pointer-events-none`}
       style={{ background: "var(--band-fade-edge)", transform: "scaleY(-1)" }}
     />
 
