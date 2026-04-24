@@ -215,7 +215,138 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-    04 · CASE — CASA COSTAS
+          04 · DIAGNÓSTICO — PREPARADO PARA O CLIENTE
+          ============================================================ */}
+      <section
+        id="diagnostico"
+        className="relative px-6 md:px-16 lg:px-24 py-28 lg:py-32"
+        style={{ backgroundColor: "#1A1816", color: "#E8E4DF" }}
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Top marker line */}
+          <div
+            className="flex items-baseline justify-between mb-14 lg:mb-20 pb-4 border-b"
+            style={{ borderColor: "rgba(139, 115, 85, 0.35)" }}
+          >
+            <div className="flex items-baseline gap-6">
+              <span
+                className="font-mono-edit text-[10px] tracking-[0.3em]"
+                style={{ color: "rgba(232, 228, 223, 0.55)" }}
+              >
+                04
+              </span>
+              <Editable
+                id="diagnostico.eyebrow"
+                className="font-mono-edit text-[10px] uppercase tracking-[0.3em]"
+                style={{ color: "#8B7355", fontFamily: '"Courier New", monospace' }}
+              >
+                Diagnóstico · Preparado para
+              </Editable>
+            </div>
+            <Editable
+              id="diagnostico.tag"
+              className="font-mono-edit text-[10px] uppercase tracking-[0.3em] hidden md:block"
+              style={{ color: "rgba(232, 228, 223, 0.55)" }}
+            >
+              Resposta · não catálogo
+            </Editable>
+          </div>
+
+          <div className="grid grid-cols-12 gap-x-12 gap-y-12 items-start">
+            {/* LEFT — title + intro */}
+            <div className="col-span-12 lg:col-span-5">
+              <Editable
+                as="h2"
+                id="diagnostico.title"
+                multiline
+                className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.0] text-balance mb-8"
+                style={{ color: "#E8E4DF" }}
+              >
+                Esta proposta foi <em className="not-italic" style={{ color: "#8B7355" }}>construída para você.</em>
+              </Editable>
+
+              <div
+                className="h-px w-16 mb-8"
+                style={{ backgroundColor: "#8B7355" }}
+              />
+
+              <Editable
+                as="p"
+                id="diagnostico.subtitle"
+                multiline
+                className="font-display italic text-lg md:text-xl leading-relaxed max-w-md"
+                style={{ color: "rgba(232, 228, 223, 0.78)" }}
+              >
+                Cada seção deste documento foi estruturada com base no que você nos contou.
+                O que está aqui não é um catálogo — é uma resposta.
+              </Editable>
+
+              {/* Mobile divider between blocks */}
+              <div
+                className="lg:hidden mt-12 h-px w-full"
+                style={{ backgroundColor: "rgba(139, 115, 85, 0.4)" }}
+              />
+            </div>
+
+            {/* RIGHT — fields grid 2x3 */}
+            <div className="col-span-12 lg:col-span-7 lg:pl-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-0">
+                {[
+                  { id: "cliente", label: "Cliente", value: "[Nome do Cliente]" },
+                  { id: "projeto", label: "Projeto", value: "[Residencial · Comercial · Interiores]" },
+                  { id: "localizacao", label: "Localização", value: "[Cidade, Estado]" },
+                  { id: "metragem", label: "Metragem estimada", value: "[XXX m²]" },
+                  { id: "objetivo", label: "Objetivo", value: "[Descrição breve do objetivo do cliente]" },
+                  { id: "data", label: "Data", value: "[DD Mês AAAA]" },
+                ].map((field) => (
+                  <div
+                    key={field.id}
+                    className="py-6 border-b"
+                    style={{ borderColor: "rgba(139, 115, 85, 0.35)" }}
+                  >
+                    <Editable
+                      id={`diagnostico.field.${field.id}.label`}
+                      className="block mb-3 text-[10px] uppercase tracking-[0.3em]"
+                      style={{ color: "#8B7355", fontFamily: '"Courier New", monospace' }}
+                    >
+                      {field.label}
+                    </Editable>
+                    <Editable
+                      id={`diagnostico.field.${field.id}.value`}
+                      multiline
+                      as="p"
+                      className="font-display text-xl md:text-2xl leading-snug"
+                      style={{ color: "#E8E4DF" }}
+                    >
+                      {field.value}
+                    </Editable>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Closing italic bronze centered */}
+          <div className="mt-20 lg:mt-24 flex flex-col items-center">
+            <div
+              className="h-px w-16 mb-8"
+              style={{ backgroundColor: "#8B7355" }}
+            />
+            <Editable
+              as="p"
+              id="diagnostico.closing"
+              multiline
+              className="font-display italic text-lg md:text-xl text-center max-w-2xl leading-relaxed"
+              style={{ color: "#8B7355" }}
+            >
+              Nenhum projeto da NL se repete — porque nenhum cliente é igual.
+            </Editable>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+    05 · CASE — CASA COSTAS
     ============================================================ */}
       <section id="case" className="relative">
         <div className="grid grid-cols-12 min-h-screen">
@@ -236,7 +367,7 @@ const Index = () => {
           </div>
           <div className="col-span-12 lg:col-span-5 relative px-8 md:px-16 py-20 lg:py-32 flex flex-col justify-center">
             <div className="max-w-md">
-              <span className="number-marker block mb-4">04 · Projeto referência</span>
+              <span className="number-marker block mb-4">05 · Projeto referência</span>
               <Editable
                 as="h2"
                 id="case.title"
@@ -279,7 +410,7 @@ const Index = () => {
       <section id="interiores" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-center">
           <div className="col-span-12 lg:col-span-5 order-2 lg:order-1">
-            <span className="number-marker block mb-3">05</span>
+            <span className="number-marker block mb-3">06</span>
             <Editable id="interiores.eyebrow" className="eyebrow mb-8 inline-block">
               Interiores · Camada do habitar
             </Editable>
@@ -347,7 +478,7 @@ const Index = () => {
   <div className="max-w-7xl mx-auto">
     <div className="flex items-baseline justify-between mb-16 border-b border-border/60 pb-6">
       <div className="flex items-baseline gap-6">
-        <span className="number-marker">06</span>
+        <span className="number-marker">07</span>
         <Editable id="portfolio.eyebrow" className="eyebrow">
           Portfólio · Sequência
         </Editable>
@@ -485,7 +616,7 @@ const Index = () => {
           {/* Cabeçalho */}
           <div className="flex items-baseline justify-between mb-12 border-b border-border/60 pb-6">
             <div className="flex items-baseline gap-6">
-              <span className="number-marker">07</span>
+              <span className="number-marker">08</span>
               <Editable id="etapas.eyebrow" className="eyebrow">
                 Etapas · Do briefing à entrega
               </Editable>
@@ -571,7 +702,7 @@ const Index = () => {
       <section id="escopo" className="relative px-6 md:px-16 lg:px-24 py-32">
         <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8">
           <div className="col-span-12 lg:col-span-5 lg:sticky lg:top-24 self-start">
-            <span className="number-marker block mb-3">08</span>
+            <span className="number-marker block mb-3">09</span>
             <Editable id="escopo.eyebrow" className="eyebrow mb-8 inline-block">
               Escopo técnico · O que entregamos
             </Editable>
@@ -634,7 +765,7 @@ const Index = () => {
           {/* Cabeçalho — minimal */}
           <div className="flex items-baseline justify-between mb-10 md:mb-14 border-b border-border/60 pb-5">
             <div className="flex items-baseline gap-6">
-              <span className="number-marker">09</span>
+              <span className="number-marker">10</span>
               <Editable id="pilares.eyebrow" className="eyebrow">
                 Nossos Pilares
               </Editable>
@@ -945,7 +1076,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-8 mb-20">
             <div className="col-span-12 md:col-span-3">
-              <span className="number-marker block mb-2">11</span>
+              <span className="number-marker block mb-2">12</span>
               <Editable id="beneficios.eyebrow" className="eyebrow">
                 Benefícios
               </Editable>
@@ -1057,7 +1188,7 @@ const Index = () => {
       <section id="investimento" className="relative px-6 md:px-16 lg:px-24 py-32 bg-surface/40">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="number-marker block mb-4">12 · Investimento</span>
+            <span className="number-marker block mb-4">13 · Investimento</span>
             <div className="gold-line w-16 mx-auto mb-10" />
             <Editable
               as="h2"
@@ -1167,7 +1298,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-8 mb-20 items-end">
             <div className="col-span-12 md:col-span-7">
-              <span className="number-marker block mb-3">13</span>
+              <span className="number-marker block mb-3">14</span>
               <Editable id="diferenciais.eyebrow" className="eyebrow mb-8 inline-block">
                 Diferenciais · O que nos separa
               </Editable>
@@ -1236,7 +1367,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-20 max-w-3xl mx-auto">
-            <span className="number-marker block mb-6 text-primary/70">14 · NOTA</span>
+            <span className="number-marker block mb-6 text-primary/70">15 · NOTA</span>
             <Editable
               id="nota.title"
               as="h2"
@@ -1427,7 +1558,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-24">
-            <span className="number-marker block mb-4">15</span>
+            <span className="number-marker block mb-4">16</span>
             <Editable
               id="proximos.eyebrow"
               className="eyebrow mb-8 inline-block"
@@ -1607,7 +1738,7 @@ const Index = () => {
             className="font-mono-edit text-[10px] tracking-[0.3em] uppercase block mb-6 text-center"
             style={{ color: "#8B7355" }}
           >
-            16 · Encerramento
+            17 · Encerramento
           </span>
 
           <div className="gold-line w-24 mx-auto mb-12" />

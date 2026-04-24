@@ -9,6 +9,7 @@ const SECTIONS = [
   { id: "capa", label: "Capa" },
   { id: "manifesto", label: "Carta" },
   { id: "apresentacao", label: "Apresentação" },
+  { id: "diagnostico", label: "Diagnóstico" },
   { id: "case", label: "Casa Costas" },
   { id: "interiores", label: "Interiores" },
   { id: "portfolio", label: "Portfólio" },
@@ -29,7 +30,7 @@ const SectionNav = () => {
   const [showHelper, setShowHelper] = useState(true);
   const editing = isEditMode();
   // Seções com fundo escuro — header usa logo branca para garantir contraste
-  const DARK_SECTIONS = new Set(["capa", "cronograma", "nota", "encerramento"]);
+  const DARK_SECTIONS = new Set(["capa", "diagnostico", "cronograma", "nota", "encerramento"]);
   const onDarkSection = DARK_SECTIONS.has(active);
 
   useEffect(() => {
