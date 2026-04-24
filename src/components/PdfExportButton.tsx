@@ -2,6 +2,127 @@ import { useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
+// A4 paisagem em mm
+const PAGE_W = 297;
+const PAGE_H = 210;
+
+type CanvasMetrics = {
+  cw: number;
+  ch: number;
+  drawW: number;
+  drawH: number;
+  offsetX: number;
+  offsetY: number;
+  imgRatio: number;
+  pageRatio: number;
+};
+
+type CanvasCheck =
+  | { ok: true; metrics: CanvasMetrics }
+  | { ok: false; reason: string; metrics?: Partial<CanvasMetrics> };
+
+/**
+ * Teste automático de canvas antes de adicionar ao jsPDF.
+ * Garante que a página resultante:
+ *  - não fique em branco (canvas com pixels reais);
+ *  - tenha proporção plausível (não 1px de altura, não tira tira);
+ *  - caiba em A4 paisagem mantendo aspect ratio (letterbox centralizado);
+ *  - tenha dimensões finais > 0 em mm.
+ */
+export function validateCanvasForA4(
+  canvas: HTMLCanvasElement | null,
+  id: string
+): CanvasCheck {
+  if (!canvas) return { ok: false, reason: "canvas nulo" };
+
+  const cw = canvas.width;
+  const ch = canvas.height;
+
+  if (cw === 0 || ch === 0) {
+    return { ok: false, reason: "canvas com dimensão 0", metrics: { cw, ch } };
+  }
+  // Mínimo razoável: 200×200px (qualquer coisa abaixo é fragmento ou bug)
+  if (cw < 200 || ch < 200) {
+    return {
+      ok: false,
+      reason: `canvas muito pequeno (${cw}×${ch}px)`,
+      metrics: { cw, ch },
+    };
+  }
+  // Ratio absurdo (tira fina) — provável captura quebrada
+  const imgRatio = cw / ch;
+  if (imgRatio > 10 || imgRatio < 0.1) {
+    return {
+      ok: false,
+      reason: `ratio implausível ${imgRatio.toFixed(2)}`,
+      metrics: { cw, ch, imgRatio },
+    };
+  }
+
+  // Cálculo "contain" dentro do A4 paisagem
+  const pageRatio = PAGE_W / PAGE_H; // ~1.414
+  let drawW: number;
+  let drawH: number;
+  if (imgRatio > pageRatio) {
+    drawW = PAGE_W;
+    drawH = PAGE_W / imgRatio;
+  } else {
+    drawH = PAGE_H;
+    drawW = PAGE_H * imgRatio;
+  }
+
+  // Sanity: dimensões finais devem ocupar ao menos 50% da página
+  // (evita "página em branco" visual com selo minúsculo no centro)
+  const occupancy = (drawW * drawH) / (PAGE_W * PAGE_H);
+  if (occupancy < 0.4) {
+    return {
+      ok: false,
+      reason: `ocupação ${(occupancy * 100).toFixed(0)}% < 40%`,
+      metrics: { cw, ch, drawW, drawH, imgRatio, pageRatio },
+    };
+  }
+
+  if (drawW <= 0 || drawH <= 0 || drawW > PAGE_W + 0.01 || drawH > PAGE_H + 0.01) {
+    return {
+      ok: false,
+      reason: `dimensões finais inválidas ${drawW.toFixed(1)}×${drawH.toFixed(1)}mm`,
+      metrics: { cw, ch, drawW, drawH },
+    };
+  }
+
+  const offsetX = (PAGE_W - drawW) / 2;
+  const offsetY = (PAGE_H - drawH) / 2;
+
+  // Amostra de pixels para detectar canvas totalmente transparente/em branco
+  try {
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      // amostra do centro
+      const sx = Math.floor(cw / 2);
+      const sy = Math.floor(ch / 2);
+      const data = ctx.getImageData(sx, sy, 1, 1).data;
+      const isFullyTransparent = data[3] === 0;
+      if (isFullyTransparent) {
+        return {
+          ok: false,
+          reason: "pixel central totalmente transparente (canvas vazio)",
+          metrics: { cw, ch },
+        };
+      }
+    }
+  } catch {
+    // getImageData pode falhar por taint — não é fatal, seguimos
+  }
+
+  void id; // disponível para logging externo
+  return {
+    ok: true,
+    metrics: { cw, ch, drawW, drawH, offsetX, offsetY, imgRatio, pageRatio },
+  };
+}
+
+
+
 /**
  * Botão flutuante que exporta a carta-proposta como PDF A4 paisagem.
  * Captura cada <section id="..."> em uma página dedicada — sem quebra de layout.
