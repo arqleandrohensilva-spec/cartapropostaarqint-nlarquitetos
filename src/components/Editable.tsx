@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ElementType, type ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { isEditMode } from "@/lib/edit-mode";
 
@@ -6,6 +6,7 @@ interface EditableProps {
   id: string;
   as?: ElementType;
   className?: string;
+  style?: CSSProperties;
   children: ReactNode;
   multiline?: boolean;
   ariaLabel?: string;
@@ -41,6 +42,7 @@ const Editable = ({
   id,
   as: Tag = "div",
   className,
+  style,
   children,
   multiline = false,
   ariaLabel,
@@ -58,7 +60,7 @@ const Editable = ({
 
   if (!editable) {
     return (
-      <Tag ref={ref as never} className={className}>
+      <Tag ref={ref as never} className={className} style={style}>
         {children}
       </Tag>
     );
@@ -72,6 +74,7 @@ const Editable = ({
       suppressContentEditableWarning
       role="textbox"
       aria-label={ariaLabel || `Editar ${id}`}
+      style={style}
       onBlur={(e: React.FocusEvent<HTMLElement>) => saveStore(id, e.currentTarget.innerHTML)}
       onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => {
         if (!multiline && e.key === "Enter") {
