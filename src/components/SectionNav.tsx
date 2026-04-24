@@ -54,35 +54,8 @@ const SectionNav = () => {
 
   return (
     <>
-      {/* Right side: dot navigation */}
-      <nav
-        aria-label="Navegação da carta"
-        data-section-nav
-        className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4"
-      >
-        {SECTIONS.map((s, i) => (
-          <a
-            key={s.id}
-            href={`#${s.id}`}
-            className="group flex items-center gap-3 justify-end"
-            aria-label={`Ir para ${s.label}`}
-          >
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
-              {s.label}
-            </span>
-            <span
-              className={`block h-px transition-all duration-500 ${
-                active === s.id ? "w-8 bg-primary" : "w-4 bg-border"
-              }`}
-            />
-            <span className="font-mono text-[9px] text-muted-foreground/60 w-4 text-right">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-          </a>
-        ))}
-      </nav>
-
-      {/* Top: brand + reset (reset only in edit mode) */}
+      {/* Edit helper toast — only in edit mode */}
+      {editing && showHelper && (
       <header className="fixed top-0 inset-x-0 z-40 px-6 md:px-10 py-5 flex items-center justify-between pointer-events-none">
         <a
           href="#capa"

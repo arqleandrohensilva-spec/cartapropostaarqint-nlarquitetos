@@ -75,8 +75,6 @@ const Index = () => {
 
         <div className="relative z-10 mt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-4 text-muted-foreground">
           <div className="flex items-center gap-3 md:gap-4 flex-wrap">
-            <span className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em]">01 / 16</span>
-            <span className="h-px w-8 md:w-12 bg-border" />
             <Editable id="capa.client" className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-primary/80 break-words">
               Cliente · [Nome do Cliente]
             </Editable>
