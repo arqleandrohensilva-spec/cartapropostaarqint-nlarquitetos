@@ -169,6 +169,12 @@ const PdfExportButton = () => {
       );
       console.log(`[PDF] ${sections.length} seções encontradas`);
 
+      // Pré-carrega imagens externas (Dropbox etc.) como base64
+      // para o html2canvas conseguir renderizá-las sem CORS taint.
+      setProgress("Carregando imagens…");
+      const restoreSrcs = await inlineExternalImages();
+      console.log(`[PDF] ${restoreSrcs.length} imagens externas inlinadas`);
+
       const bgColor = getComputedStyle(document.body).backgroundColor || "#14110f";
       const rgb = bgColor.match(/\d+/g);
 
