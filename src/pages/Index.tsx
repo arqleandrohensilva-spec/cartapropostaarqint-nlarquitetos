@@ -1698,7 +1698,7 @@ const FullBleedBand = ({
   <section
     aria-hidden="false"
     className={`relative w-full ${
-      height === "tall" ? "h-[55vh] md:h-[80vh]" : "h-[40vh] md:h-[60vh]"
+      height === "tall" ? "h-[70vh] md:h-[85vh]" : "h-[55vh] md:h-[65vh]"
     } overflow-hidden bg-background`}
   >
     <img
@@ -1709,25 +1709,32 @@ const FullBleedBand = ({
       height={1080}
       className="absolute inset-0 w-full h-full object-cover"
     />
-    {/* Editorial overlays — top/bottom fade to keep continuity with dark sections */}
-    <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none" />
-    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-    {/* Side vignette for caption legibility */}
+
+    {/* Top/bottom fade — stronger on mobile (taller bands needed for legibility),
+        softer on desktop so the image breathes */}
+    <div className="absolute inset-x-0 top-0 h-24 md:h-40 bg-gradient-to-b from-background via-background/70 to-transparent pointer-events-none" />
+    <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+
+    {/* Mobile: full-width dark scrim at the bottom for caption contrast.
+        Desktop: side vignette only on the caption side, image breathes on the other side */}
+    <div className="absolute inset-x-0 bottom-0 h-1/2 md:hidden bg-gradient-to-t from-background/95 via-background/55 to-transparent pointer-events-none" />
     <div
-      className={`absolute inset-y-0 ${
-        align === "left" ? "left-0 right-1/3 bg-gradient-to-r" : "right-0 left-1/3 bg-gradient-to-l"
-      } from-background/80 via-background/30 to-transparent pointer-events-none`}
+      className={`hidden md:block absolute inset-y-0 ${
+        align === "left"
+          ? "left-0 right-1/2 bg-gradient-to-r"
+          : "right-0 left-1/2 bg-gradient-to-l"
+      } from-background/75 via-background/25 to-transparent pointer-events-none`}
     />
 
-    <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-16 lg:px-24 flex items-end pb-12 md:pb-20">
-      <div className={`max-w-md ${align === "right" ? "ml-auto text-right" : ""}`}>
-        <div className={`flex items-center gap-3 mb-4 ${align === "right" ? "justify-end" : ""}`}>
-          <span className="h-px w-10 bg-primary/60" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary/80">
+    <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-16 lg:px-24 flex items-end pb-10 md:pb-20">
+      <div className={`max-w-xs md:max-w-md ${align === "right" ? "md:ml-auto md:text-right" : ""}`}>
+        <div className={`flex items-center gap-3 mb-3 md:mb-4 ${align === "right" ? "md:justify-end" : ""}`}>
+          <span className="h-px w-8 md:w-10 bg-primary/60" />
+          <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-primary/80">
             {number}
           </span>
         </div>
-        <p className="font-display italic text-xl md:text-2xl text-foreground/90 leading-snug text-balance">
+        <p className="font-display italic text-lg md:text-2xl text-foreground leading-snug text-balance drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           {caption}
         </p>
       </div>
