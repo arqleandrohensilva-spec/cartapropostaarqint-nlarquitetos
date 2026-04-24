@@ -107,28 +107,27 @@ const PdfExportButton = () => {
           continue; // pula a seção mas segue
         }
 
-        if (!canvas || canvas.width === 0 || canvas.height === 0) {
-          console.warn(`[PDF] Canvas vazio em #${id}, pulando`);
+        // ────────────────────────────────────────────────────────────
+        // TESTE AUTOMÁTICO — valida canvas e dimensões antes do jsPDF
+        // Evita: páginas em branco, ratio incompatível com A4 paisagem,
+        // dataURL corrompido, dimensões absurdas.
+        // ────────────────────────────────────────────────────────────
+        const check = validateCanvasForA4(canvas, id);
+        if (!check.ok) {
+          console.warn(`[PDF] ✗ #${id} reprovado no teste:`, check.reason, check.metrics);
+          if (!firstError) firstError = `#${id}: ${check.reason}`;
           continue;
         }
 
-        const imgData = canvas.toDataURL("image/jpeg", 0.9);
-        const cw = canvas.width;
-        const ch = canvas.height;
-        const pageRatio = PAGE_W / PAGE_H;
-        const imgRatio = cw / ch;
+        const { cw, ch, drawW, drawH, offsetX, offsetY } = check.metrics!;
 
-        let drawW = PAGE_W;
-        let drawH = PAGE_H;
-        if (imgRatio > pageRatio) {
-          drawW = PAGE_W;
-          drawH = PAGE_W / imgRatio;
-        } else {
-          drawH = PAGE_H;
-          drawW = PAGE_H * imgRatio;
+        // Garantia final: dataURL não-vazio e começando com cabeçalho JPEG
+        const imgData = canvas.toDataURL("image/jpeg", 0.9);
+        if (!imgData || imgData.length < 1000 || !imgData.startsWith("data:image/jpeg")) {
+          console.warn(`[PDF] ✗ #${id} dataURL inválido (len=${imgData?.length})`);
+          if (!firstError) firstError = `#${id}: dataURL inválido`;
+          continue;
         }
-        const offsetX = (PAGE_W - drawW) / 2;
-        const offsetY = (PAGE_H - drawH) / 2;
 
         if (pagesAdded > 0) pdf.addPage("a4", "landscape");
 
@@ -139,7 +138,9 @@ const PdfExportButton = () => {
 
         pdf.addImage(imgData, "JPEG", offsetX, offsetY, drawW, drawH, undefined, "FAST");
         pagesAdded++;
-        console.log(`[PDF] ✓ #${id} adicionada (${cw}x${ch})`);
+        console.log(
+          `[PDF] ✓ #${id} adicionada — canvas ${cw}×${ch}px → ${drawW.toFixed(1)}×${drawH.toFixed(1)}mm @ (${offsetX.toFixed(1)}, ${offsetY.toFixed(1)})`
+        );
       }
 
       if (pagesAdded === 0) {
