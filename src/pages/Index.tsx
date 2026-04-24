@@ -2,6 +2,7 @@ import { useState, useRef, useLayoutEffect } from "react";
 import bandMaterial from "@/assets/band-material.jpg";
 import bandInterior from "@/assets/band-interior.jpg";
 import bandBlueprint from "@/assets/band-blueprint.jpg";
+import bandIntermezzo02 from "@/assets/band-intermezzo-02.jpg";
 import Editable from "@/components/Editable";
 import SectionNav from "@/components/SectionNav";
 import PdfExportButton from "@/components/PdfExportButton";
@@ -1036,7 +1037,7 @@ const Index = () => {
 
       {/* ── BAND · INTERIOR — o resultado antes do investimento ── */}
       <FullBleedBand
-        src="https://www.dropbox.com/scl/fi/ggvyeix2o57kb5osli6gc/nomo-result-1776989586497.png?rlkey=y1nz70uq2kfb28qm6dz74dre3&raw=1"
+        src={bandIntermezzo02}
         alt="Área gourmet externa com pérgola de madeira coberta por trepadeira, parede de cobogós, lounge com poltronas claras e bancada de churrasqueira integrada — projeto residencial NL Arquitetos"
         number="Intermezzo · 02"
         caption="Pérgola, cobogó e gourmet integrados — cada elemento decidido em projeto, não no canteiro."
