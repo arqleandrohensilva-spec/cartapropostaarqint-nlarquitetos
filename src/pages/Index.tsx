@@ -215,7 +215,138 @@ const Index = () => {
       </section>
 
       {/* ============================================================
-    04 · CASE — CASA COSTAS
+          04 · DIAGNÓSTICO — PREPARADO PARA O CLIENTE
+          ============================================================ */}
+      <section
+        id="diagnostico"
+        className="relative px-6 md:px-16 lg:px-24 py-28 lg:py-32"
+        style={{ backgroundColor: "#1A1816", color: "#E8E4DF" }}
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Top marker line */}
+          <div
+            className="flex items-baseline justify-between mb-14 lg:mb-20 pb-4 border-b"
+            style={{ borderColor: "rgba(139, 115, 85, 0.35)" }}
+          >
+            <div className="flex items-baseline gap-6">
+              <span
+                className="font-mono-edit text-[10px] tracking-[0.3em]"
+                style={{ color: "rgba(232, 228, 223, 0.55)" }}
+              >
+                04
+              </span>
+              <Editable
+                id="diagnostico.eyebrow"
+                className="font-mono-edit text-[10px] uppercase tracking-[0.3em]"
+                style={{ color: "#8B7355", fontFamily: '"Courier New", monospace' }}
+              >
+                Diagnóstico · Preparado para
+              </Editable>
+            </div>
+            <Editable
+              id="diagnostico.tag"
+              className="font-mono-edit text-[10px] uppercase tracking-[0.3em] hidden md:block"
+              style={{ color: "rgba(232, 228, 223, 0.55)" }}
+            >
+              Resposta · não catálogo
+            </Editable>
+          </div>
+
+          <div className="grid grid-cols-12 gap-x-12 gap-y-12 items-start">
+            {/* LEFT — title + intro */}
+            <div className="col-span-12 lg:col-span-5">
+              <Editable
+                as="h2"
+                id="diagnostico.title"
+                multiline
+                className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.0] text-balance mb-8"
+                style={{ color: "#E8E4DF" }}
+              >
+                Esta proposta foi <em className="not-italic" style={{ color: "#8B7355" }}>construída para você.</em>
+              </Editable>
+
+              <div
+                className="h-px w-16 mb-8"
+                style={{ backgroundColor: "#8B7355" }}
+              />
+
+              <Editable
+                as="p"
+                id="diagnostico.subtitle"
+                multiline
+                className="font-display italic text-lg md:text-xl leading-relaxed max-w-md"
+                style={{ color: "rgba(232, 228, 223, 0.78)" }}
+              >
+                Cada seção deste documento foi estruturada com base no que você nos contou.
+                O que está aqui não é um catálogo — é uma resposta.
+              </Editable>
+
+              {/* Mobile divider between blocks */}
+              <div
+                className="lg:hidden mt-12 h-px w-full"
+                style={{ backgroundColor: "rgba(139, 115, 85, 0.4)" }}
+              />
+            </div>
+
+            {/* RIGHT — fields grid 2x3 */}
+            <div className="col-span-12 lg:col-span-7 lg:pl-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-0">
+                {[
+                  { id: "cliente", label: "Cliente", value: "[Nome do Cliente]" },
+                  { id: "projeto", label: "Projeto", value: "[Residencial · Comercial · Interiores]" },
+                  { id: "localizacao", label: "Localização", value: "[Cidade, Estado]" },
+                  { id: "metragem", label: "Metragem estimada", value: "[XXX m²]" },
+                  { id: "objetivo", label: "Objetivo", value: "[Descrição breve do objetivo do cliente]" },
+                  { id: "data", label: "Data", value: "[DD Mês AAAA]" },
+                ].map((field) => (
+                  <div
+                    key={field.id}
+                    className="py-6 border-b"
+                    style={{ borderColor: "rgba(139, 115, 85, 0.35)" }}
+                  >
+                    <Editable
+                      id={`diagnostico.field.${field.id}.label`}
+                      className="block mb-3 text-[10px] uppercase tracking-[0.3em]"
+                      style={{ color: "#8B7355", fontFamily: '"Courier New", monospace' }}
+                    >
+                      {field.label}
+                    </Editable>
+                    <Editable
+                      id={`diagnostico.field.${field.id}.value`}
+                      multiline
+                      as="p"
+                      className="font-display text-xl md:text-2xl leading-snug"
+                      style={{ color: "#E8E4DF" }}
+                    >
+                      {field.value}
+                    </Editable>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Closing italic bronze centered */}
+          <div className="mt-20 lg:mt-24 flex flex-col items-center">
+            <div
+              className="h-px w-16 mb-8"
+              style={{ backgroundColor: "#8B7355" }}
+            />
+            <Editable
+              as="p"
+              id="diagnostico.closing"
+              multiline
+              className="font-display italic text-lg md:text-xl text-center max-w-2xl leading-relaxed"
+              style={{ color: "#8B7355" }}
+            >
+              Nenhum projeto da NL se repete — porque nenhum cliente é igual.
+            </Editable>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+    05 · CASE — CASA COSTAS
     ============================================================ */}
       <section id="case" className="relative">
         <div className="grid grid-cols-12 min-h-screen">
