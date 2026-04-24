@@ -57,6 +57,7 @@ const SectionNav = () => {
       {/* Right side: dot navigation */}
       <nav
         aria-label="Navegação da carta"
+        data-section-nav
         className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4"
       >
         {SECTIONS.map((s, i) => (
@@ -110,7 +111,7 @@ const SectionNav = () => {
 
       {/* Edit helper toast — only in edit mode */}
       {editing && showHelper && (
-        <div className="fixed bottom-6 left-6 z-40 max-w-xs animate-fade-in">
+        <div data-pdf-hide className="fixed bottom-6 left-6 z-40 max-w-xs animate-fade-in">
           <div className="bg-card border border-border/60 px-4 py-3 backdrop-blur shadow-lg">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary mb-1">
               Edição inline
