@@ -4,11 +4,8 @@ import jsPDF from "jspdf";
 
 /**
  * Botão flutuante que exporta a carta-proposta como PDF A4 paisagem.
- * Estratégia: captura cada <section id="..."> separadamente e dedica
- * uma página por seção — assim NÃO há quebra de layout no meio de um bloco.
- *
- * Identidade visual preservada: a captura usa exatamente a renderização
- * atual (fontes Cormorant + Inter, paleta NL, bandas, scrims, vinheta).
+ * Captura cada <section id="..."> em uma página dedicada — sem quebra de layout.
+ * Identidade NL preservada (Cormorant + Inter, paleta, bandas, scrims).
  */
 const PdfExportButton = () => {
   const [busy, setBusy] = useState(false);
@@ -18,24 +15,12 @@ const PdfExportButton = () => {
     if (busy) return;
     setBusy(true);
     setProgress("Preparando…");
+    console.log("[PDF] Iniciando export");
 
-    // A4 landscape em mm: 297 x 210
-    const PAGE_W = 297;
+    const PAGE_W = 297; // A4 paisagem
     const PAGE_H = 210;
 
-    const pdf = new jsPDF({
-      orientation: "landscape",
-      unit: "mm",
-      format: "a4",
-      compress: true,
-    });
-
-    // Coleta seções na ordem do DOM
-    const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("main section[id]")
-    );
-
-    // Esconde overlays que não devem aparecer no PDF (nav lateral, próprio botão)
+    let pdf: jsPDF | null = null;
     const hideEls = document.querySelectorAll<HTMLElement>(
       "[data-pdf-hide], [data-section-nav]"
     );
@@ -44,55 +29,90 @@ const PdfExportButton = () => {
       prevDisplay[i] = el.style.display;
       el.style.display = "none";
     });
-
-    // Marca o body para neutralizar afordâncias de edição durante a captura
     document.body.setAttribute("data-pdf-capturing", "true");
 
+    // Scroll para o topo para garantir layout consistente
+    const prevScroll = window.scrollY;
+    window.scrollTo({ top: 0, behavior: "auto" });
+    await new Promise((r) => setTimeout(r, 200));
+
     try {
+      pdf = new jsPDF({
+        orientation: "landscape",
+        unit: "mm",
+        format: "a4",
+        compress: true,
+      });
+
+      const sections = Array.from(
+        document.querySelectorAll<HTMLElement>("main section[id]")
+      );
+      console.log(`[PDF] ${sections.length} seções encontradas`);
+
+      const bgColor = getComputedStyle(document.body).backgroundColor || "#14110f";
+      const rgb = bgColor.match(/\d+/g);
+
+      let pagesAdded = 0;
+      let firstError: string | null = null;
+
       for (let i = 0; i < sections.length; i++) {
         const section = sections[i];
+        const id = section.id || `s${i}`;
         setProgress(`Capturando ${i + 1}/${sections.length}…`);
+        console.log(`[PDF] → seção ${i + 1}/${sections.length} (#${id})`);
 
-        // Garante que imagens dentro da seção estejam carregadas
+        // Aguarda imagens da seção
         const imgs = Array.from(section.querySelectorAll("img"));
         await Promise.all(
           imgs.map((img) =>
             img.complete && img.naturalWidth > 0
               ? Promise.resolve()
               : new Promise<void>((resolve) => {
-                  img.addEventListener("load", () => resolve(), { once: true });
-                  img.addEventListener("error", () => resolve(), { once: true });
+                  const done = () => resolve();
+                  img.addEventListener("load", done, { once: true });
+                  img.addEventListener("error", done, { once: true });
+                  setTimeout(done, 5000); // timeout duro
                 })
           )
         );
 
-        const canvas = await html2canvas(section, {
-          backgroundColor: getComputedStyle(document.body).backgroundColor,
-          scale: 2, // alta resolução para premium
-          useCORS: true,
-          allowTaint: false,
-          logging: false,
-          windowWidth: 1600, // força layout desktop, ignora viewport real
-          imageTimeout: 15000,
-          onclone: (clonedDoc) => {
-            // Remove afordâncias de edição (hover/borda) no clone
-            const style = clonedDoc.createElement("style");
-            style.textContent = `
-              [data-editable]:hover,
-              [data-editable]:focus {
-                background: transparent !important;
-                box-shadow: none !important;
-                outline: none !important;
-              }
-              [data-pdf-hide], [data-section-nav] { display: none !important; }
-            `;
-            clonedDoc.head.appendChild(style);
-          },
-        });
+        let canvas: HTMLCanvasElement | null = null;
+        try {
+          canvas = await html2canvas(section, {
+            backgroundColor: bgColor,
+            scale: 1.5,
+            useCORS: true,
+            allowTaint: true,
+            logging: false,
+            windowWidth: 1600,
+            imageTimeout: 10000,
+            onclone: (clonedDoc) => {
+              const style = clonedDoc.createElement("style");
+              style.textContent = `
+                [data-editable]:hover,
+                [data-editable]:focus {
+                  background: transparent !important;
+                  box-shadow: none !important;
+                  outline: none !important;
+                }
+                [data-pdf-hide], [data-section-nav] { display: none !important; }
+                * { animation: none !important; transition: none !important; }
+              `;
+              clonedDoc.head.appendChild(style);
+            },
+          });
+        } catch (err) {
+          console.error(`[PDF] Falha ao capturar #${id}:`, err);
+          if (!firstError) firstError = `#${id}: ${(err as Error).message}`;
+          continue; // pula a seção mas segue
+        }
 
-        const imgData = canvas.toDataURL("image/jpeg", 0.92);
+        if (!canvas || canvas.width === 0 || canvas.height === 0) {
+          console.warn(`[PDF] Canvas vazio em #${id}, pulando`);
+          continue;
+        }
 
-        // Calcula dimensões mantendo aspect ratio dentro do A4 paisagem
+        const imgData = canvas.toDataURL("image/jpeg", 0.9);
         const cw = canvas.width;
         const ch = canvas.height;
         const pageRatio = PAGE_W / PAGE_H;
@@ -100,57 +120,48 @@ const PdfExportButton = () => {
 
         let drawW = PAGE_W;
         let drawH = PAGE_H;
-
         if (imgRatio > pageRatio) {
-          // imagem mais larga que a página → ajusta pela largura
           drawW = PAGE_W;
           drawH = PAGE_W / imgRatio;
         } else {
-          // imagem mais alta → ajusta pela altura
           drawH = PAGE_H;
           drawW = PAGE_H * imgRatio;
         }
-
         const offsetX = (PAGE_W - drawW) / 2;
         const offsetY = (PAGE_H - drawH) / 2;
 
-        if (i > 0) pdf.addPage("a4", "landscape");
+        if (pagesAdded > 0) pdf.addPage("a4", "landscape");
 
-        // Fundo da página com a cor do tema (evita bordas brancas se houver letterbox)
-        const bg = getComputedStyle(document.body).backgroundColor;
-        const rgb = bg.match(/\d+/g);
         if (rgb && rgb.length >= 3) {
-          pdf.setFillColor(
-            parseInt(rgb[0]),
-            parseInt(rgb[1]),
-            parseInt(rgb[2])
-          );
+          pdf.setFillColor(parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2]));
           pdf.rect(0, 0, PAGE_W, PAGE_H, "F");
         }
 
-        pdf.addImage(
-          imgData,
-          "JPEG",
-          offsetX,
-          offsetY,
-          drawW,
-          drawH,
-          undefined,
-          "FAST"
-        );
+        pdf.addImage(imgData, "JPEG", offsetX, offsetY, drawW, drawH, undefined, "FAST");
+        pagesAdded++;
+        console.log(`[PDF] ✓ #${id} adicionada (${cw}x${ch})`);
+      }
+
+      if (pagesAdded === 0) {
+        throw new Error(firstError || "Nenhuma seção pôde ser capturada");
       }
 
       setProgress("Finalizando…");
+      console.log(`[PDF] Salvando ${pagesAdded} páginas`);
       pdf.save("NL-Arquitetos-Carta-Proposta.pdf");
+      console.log("[PDF] ✓ Concluído");
     } catch (err) {
-      console.error("[PDF Export] erro:", err);
-      alert("Não foi possível gerar o PDF. Tente novamente.");
+      const msg = (err as Error)?.message || String(err);
+      console.error("[PDF] Erro fatal:", err);
+      alert(
+        `Não foi possível gerar o PDF.\n\nErro: ${msg}\n\nAbra o Console do navegador (F12) para detalhes.`
+      );
     } finally {
-      // Restaura visibilidade
       hideEls.forEach((el, i) => {
         el.style.display = prevDisplay[i] ?? "";
       });
       document.body.removeAttribute("data-pdf-capturing");
+      window.scrollTo({ top: prevScroll, behavior: "auto" });
       setBusy(false);
       setProgress("");
     }
