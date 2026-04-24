@@ -1037,8 +1037,8 @@ const Index = () => {
 
       {/* ── BAND · INTERIOR — o resultado antes do investimento ── */}
       <FullBleedBand
-        src={bandInterior}
-        alt="Sala de estar premium em final de tarde, com mobiliário Eames e janelas amplas"
+        src="https://www.dropbox.com/scl/fi/ggvyeix2o57kb5osli6gc/nomo-result-1776989586497.png?rlkey=y1nz70uq2kfb28qm6dz74dre3&raw=1"
+        alt="Render arquitetônico premium — visão do projeto antes da obra"
         number="Intermezzo · 02"
         caption="O projeto que você não vê hoje é a casa que você vai habitar amanhã."
         align="right"
