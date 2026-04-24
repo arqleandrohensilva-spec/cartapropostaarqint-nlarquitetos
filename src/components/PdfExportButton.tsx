@@ -121,6 +121,59 @@ export function validateCanvasForA4(
   };
 }
 
+/**
+ * Substitui temporariamente o src de imagens externas (Dropbox, CDNs)
+ * por dataURLs base64 — html2canvas precisa disso para renderizar
+ * sem CORS taint. Retorna função de restauração.
+ */
+async function inlineExternalImages(): Promise<Array<() => void>> {
+  const imgs = Array.from(document.querySelectorAll<HTMLImageElement>("img"));
+  const restorers: Array<() => void> = [];
+
+  await Promise.all(
+    imgs.map(async (img) => {
+      const src = img.src;
+      // só processa URLs externas (http/https que não sejam do próprio host)
+      if (!src || src.startsWith("data:") || src.startsWith("blob:")) return;
+      try {
+        const u = new URL(src, window.location.href);
+        if (u.origin === window.location.origin) return; // assets locais, ok
+      } catch {
+        return;
+      }
+
+      try {
+        const res = await fetch(src, { mode: "cors", credentials: "omit" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const blob = await res.blob();
+        const dataUrl: string = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = () => reject(reader.error);
+          reader.readAsDataURL(blob);
+        });
+        const original = img.getAttribute("src");
+        img.setAttribute("src", dataUrl);
+        // aguarda repaint com a nova fonte
+        await new Promise<void>((resolve) => {
+          if (img.complete && img.naturalWidth > 0) return resolve();
+          img.addEventListener("load", () => resolve(), { once: true });
+          img.addEventListener("error", () => resolve(), { once: true });
+          setTimeout(() => resolve(), 3000);
+        });
+        restorers.push(() => {
+          if (original !== null) img.setAttribute("src", original);
+        });
+      } catch (err) {
+        console.warn("[PDF] não consegui inlinar:", src, err);
+      }
+    })
+  );
+
+  return restorers;
+}
+
+
 
 
 /**
@@ -151,6 +204,8 @@ const PdfExportButton = () => {
     });
     document.body.setAttribute("data-pdf-capturing", "true");
 
+    let restoreSrcs: Array<() => void> = [];
+
     // Scroll para o topo para garantir layout consistente
     const prevScroll = window.scrollY;
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -168,6 +223,12 @@ const PdfExportButton = () => {
         document.querySelectorAll<HTMLElement>("main section[id]")
       );
       console.log(`[PDF] ${sections.length} seções encontradas`);
+
+      // Pré-carrega imagens externas (Dropbox etc.) como base64
+      // para o html2canvas conseguir renderizá-las sem CORS taint.
+      setProgress("Carregando imagens…");
+      restoreSrcs = await inlineExternalImages();
+      console.log(`[PDF] ${restoreSrcs.length} imagens externas inlinadas`);
 
       const bgColor = getComputedStyle(document.body).backgroundColor || "#14110f";
       const rgb = bgColor.match(/\d+/g);
@@ -278,6 +339,10 @@ const PdfExportButton = () => {
         `Não foi possível gerar o PDF.\n\nErro: ${msg}\n\nAbra o Console do navegador (F12) para detalhes.`
       );
     } finally {
+      // restaura srcs originais das imagens externas
+      restoreSrcs.forEach((fn) => {
+        try { fn(); } catch { /* noop */ }
+      });
       hideEls.forEach((el, i) => {
         el.style.display = prevDisplay[i] ?? "";
       });

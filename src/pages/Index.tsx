@@ -843,37 +843,37 @@ const Index = () => {
                     </div>
 
                     <div className="col-span-10 md:col-span-5 order-last md:order-none">
-                      <div className="relative w-full" style={{ height: "1px" }}>
+                      <div className="relative w-full" style={{ height: "3px" }}>
                         <div
                           className="absolute inset-0"
-                          style={{ background: "rgba(139, 115, 85, 0.18)" }}
+                          style={{ background: "rgba(139, 115, 85, 0.18)", height: "3px" }}
                         />
                         <div
                           className="absolute top-0 transition-all duration-700"
                           style={{
                             left: `${offsetPct}%`,
                             width: `${widthPct}%`,
-                            height: "1px",
+                            height: "3px",
                             background: "#8B7355",
                           }}
                         />
                         <div
                           className="absolute"
                           style={{
-                            left: `calc(${offsetPct}% - 0.5px)`,
-                            top: "-3px",
-                            width: "1px",
-                            height: "7px",
-                            background: "rgba(139, 115, 85, 0.6)",
+                            left: `calc(${offsetPct}% - 1px)`,
+                            top: "-4px",
+                            width: "2px",
+                            height: "11px",
+                            background: "rgba(139, 115, 85, 0.8)",
                           }}
                         />
                         <div
                           className="absolute"
                           style={{
-                            left: `calc(${offsetPct + widthPct}% - 0.5px)`,
-                            top: "-3px",
-                            width: "1px",
-                            height: "7px",
+                            left: `calc(${offsetPct + widthPct}% - 1px)`,
+                            top: "-4px",
+                            width: "2px",
+                            height: "11px",
                             background: "#8B7355",
                           }}
                         />
