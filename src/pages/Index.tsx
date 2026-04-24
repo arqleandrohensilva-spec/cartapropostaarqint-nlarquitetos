@@ -1738,7 +1738,7 @@ const Index = () => {
             className="font-mono-edit text-[10px] tracking-[0.3em] uppercase block mb-6 text-center"
             style={{ color: "#8B7355" }}
           >
-            16 · Encerramento
+            17 · Encerramento
           </span>
 
           <div className="gold-line w-24 mx-auto mb-12" />
