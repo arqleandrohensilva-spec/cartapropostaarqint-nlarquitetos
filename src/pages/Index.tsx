@@ -1759,13 +1759,12 @@ const Index = () => {
             id="encerramento.body"
             multiline
             as="p"
-            className="font-display italic text-xl md:text-2xl text-center max-w-2xl mx-auto mb-20"
+            className="font-display italic text-center max-w-2xl mx-auto mb-24 leading-relaxed text-[clamp(1.125rem,1.4vw,1.5rem)]"
+            style={{ color: "#8B7355" }}
           >
-            <span style={{ color: "rgba(232, 228, 223, 0.7)" }}>
-              Agradecemos seu tempo e interesse.
-              <br />
-              Estamos à disposição para transformar suas ideias em realidade.
-            </span>
+            Agradecemos seu tempo e interesse.
+            <br />
+            Estamos à disposição para transformar suas ideias em realidade.
           </Editable>
 
           <div
