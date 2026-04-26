@@ -1759,33 +1759,14 @@ const Index = () => {
             id="encerramento.body"
             multiline
             as="p"
-            className="font-display italic text-xl md:text-2xl text-center max-w-2xl mx-auto mb-12"
+            className="font-display italic text-xl md:text-2xl text-center max-w-2xl mx-auto mb-20"
           >
             <span style={{ color: "rgba(232, 228, 223, 0.7)" }}>
-              Cada mês de adiamento é um mês a menos vivendo nela. O próximo passo é uma conversa de 30 minutos — sem
-              compromisso.
+              Agradecemos seu tempo e interesse.
+              <br />
+              Estamos à disposição para transformar suas ideias em realidade.
             </span>
           </Editable>
-
-          <div className="flex flex-col items-center gap-6 mb-20">
-            <a
-              href="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20li%20a%20Carta%20Proposta%20e%20gostaria%20de%20agendar%20a%20conversa%20inicial."
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-3 md:gap-4 px-5 md:px-10 py-4 md:py-5 bg-primary text-primary-foreground font-mono text-[11px] md:text-xs uppercase tracking-[0.18em] md:tracking-[0.3em] hover:bg-primary-glow transition-colors duration-500 text-center"
-            >
-              Agendar conversa inicial
-              <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
-            </a>
-            <Editable
-              id="encerramento.cta.sub"
-              className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-center px-4 break-words"
-            >
-              <span style={{ color: "rgba(232, 228, 223, 0.5)" }}>
-                Resposta em até 4 horas úteis · Sem compromisso
-              </span>
-            </Editable>
-          </div>
 
           <div
             className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 max-w-3xl mx-auto border-t"
