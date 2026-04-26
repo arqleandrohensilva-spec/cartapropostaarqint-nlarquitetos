@@ -186,8 +186,8 @@ const Index = () => {
               </Editable>
 
               <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
-                <Stat number="+50" label="Projetos entregues" id="stat1" />
-                <Stat number="+8" label="Anos de mercado" id="stat2" />
+                <Stat number="+50" label="Projetos no portfólio" sublabel="residencial · comercial · interiores" id="stat1" />
+                <Stat number="+5" label="Anos de prática autoral" id="stat2" />
                 <Stat number="100%" label="Compatibilizados" id="stat3" />
               </div>
             </div>
@@ -1875,7 +1875,17 @@ const FullBleedBand = ({
   </section>
 );
 
-const Stat = ({ number, label, id }: { number: string; label: string; id: string }) => (
+const Stat = ({
+  number,
+  label,
+  sublabel,
+  id,
+}: {
+  number: string;
+  label: string;
+  sublabel?: string;
+  id: string;
+}) => (
   <div>
     <Editable id={`stat.${id}.num`} className="font-display text-3xl md:text-4xl text-primary block mb-1">
       {number}
@@ -1886,6 +1896,14 @@ const Stat = ({ number, label, id }: { number: string; label: string; id: string
     >
       {label}
     </Editable>
+    {sublabel && (
+      <Editable
+        id={`stat.${id}.sublbl`}
+        className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/70 leading-tight block mt-1"
+      >
+        {sublabel}
+      </Editable>
+    )}
   </div>
 );
 
