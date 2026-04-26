@@ -16,6 +16,15 @@ import portfolioBedroom from "@/assets/portfolio-bedroom.jpg";
 import portfolioFacade from "@/assets/portfolio-facade.jpg";
 
 import scopeMaterials from "@/assets/scope-materials.jpg";
+import propostaCapa from "@/assets/proposta/capa.jpg";
+import propostaLeandro from "@/assets/proposta/leandro.jpg";
+import propostaNeandro from "@/assets/proposta/neandro.jpg";
+import propostaCaseCasa from "@/assets/proposta/gemini-896.jpg";
+import propostaInteriores from "@/assets/proposta/tghdfjg.jpg";
+import propostaPortFachada from "@/assets/proposta/nomo-ai-6adc.jpg";
+import propostaPortLiving from "@/assets/proposta/nomo-result-2062.jpg";
+import propostaPortLazer from "@/assets/proposta/nomo-result-1759.jpg";
+import propostaPortSuite from "@/assets/proposta/gemini-m7jp.jpg";
 const LOGO_BRANCA = "/logo-branca.png";
 
 const Index = () => {
