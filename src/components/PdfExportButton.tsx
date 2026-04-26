@@ -2,9 +2,12 @@ import { useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-// A4 paisagem em mm
-const PAGE_W = 297;
-const PAGE_H = 210;
+// A4 em mm
+const A4_LONG = 297;
+const A4_SHORT = 210;
+// Threshold de orientação: se o canvas for mais largo que alto, paisagem; senão, retrato.
+// Margem de 5% para evitar oscilação em ratios próximos de 1.
+const LANDSCAPE_THRESHOLD = 1.05;
 
 type CanvasMetrics = {
   cw: number;
@@ -15,6 +18,9 @@ type CanvasMetrics = {
   offsetY: number;
   imgRatio: number;
   pageRatio: number;
+  orientation: "landscape" | "portrait";
+  pageW: number;
+  pageH: number;
 };
 
 type CanvasCheck =
