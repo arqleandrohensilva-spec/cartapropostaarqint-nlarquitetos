@@ -213,13 +213,6 @@ const PdfExportButton = () => {
     await new Promise((r) => setTimeout(r, 200));
 
     try {
-      pdf = new jsPDF({
-        orientation: "landscape",
-        unit: "mm",
-        format: "a4",
-        compress: true,
-      });
-
       const sections = Array.from(
         document.querySelectorAll<HTMLElement>("main section[id]")
       );
@@ -286,13 +279,13 @@ const PdfExportButton = () => {
         } catch (err) {
           console.error(`[PDF] Falha ao capturar #${id}:`, err);
           if (!firstError) firstError = `#${id}: ${(err as Error).message}`;
-          continue; // pula a seção mas segue
+          continue;
         }
 
         // ────────────────────────────────────────────────────────────
-        // TESTE AUTOMÁTICO — valida canvas e dimensões antes do jsPDF
-        // Evita: páginas em branco, ratio incompatível com A4 paisagem,
-        // dataURL corrompido, dimensões absurdas.
+        // TESTE AUTOMÁTICO — valida canvas, escolhe orientação A4
+        // por seção (paisagem para conteúdo largo, retrato para alto),
+        // calcula dimensões "contain" centralizado.
         // ────────────────────────────────────────────────────────────
         const check = validateCanvasForA4(canvas, id);
         if (check.ok === false) {
@@ -301,7 +294,7 @@ const PdfExportButton = () => {
           continue;
         }
 
-        const { cw, ch, drawW, drawH, offsetX, offsetY } = check.metrics;
+        const { cw, ch, drawW, drawH, offsetX, offsetY, orientation, pageW, pageH } = check.metrics;
 
         // Garantia final: dataURL não-vazio e começando com cabeçalho JPEG
         const imgData = canvas.toDataURL("image/jpeg", 0.9);
@@ -311,17 +304,28 @@ const PdfExportButton = () => {
           continue;
         }
 
-        if (pagesAdded > 0) pdf.addPage("a4", "landscape");
+        // Cria o PDF na orientação da primeira página, ou adiciona página
+        // com a orientação específica desta seção.
+        if (!pdf) {
+          pdf = new jsPDF({
+            orientation,
+            unit: "mm",
+            format: "a4",
+            compress: true,
+          });
+        } else {
+          pdf.addPage("a4", orientation);
+        }
 
         if (rgb && rgb.length >= 3) {
           pdf.setFillColor(parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2]));
-          pdf.rect(0, 0, PAGE_W, PAGE_H, "F");
+          pdf.rect(0, 0, pageW, pageH, "F");
         }
 
         pdf.addImage(imgData, "JPEG", offsetX, offsetY, drawW, drawH, undefined, "FAST");
         pagesAdded++;
         console.log(
-          `[PDF] ✓ #${id} adicionada — canvas ${cw}×${ch}px → ${drawW.toFixed(1)}×${drawH.toFixed(1)}mm @ (${offsetX.toFixed(1)}, ${offsetY.toFixed(1)})`
+          `[PDF] ✓ #${id} (${orientation}) — canvas ${cw}×${ch}px → ${drawW.toFixed(1)}×${drawH.toFixed(1)}mm @ (${offsetX.toFixed(1)}, ${offsetY.toFixed(1)})`
         );
       }
 
