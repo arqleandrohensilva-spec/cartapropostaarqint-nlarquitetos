@@ -1216,8 +1216,6 @@ const Index = () => {
               tagline="Arquitetura"
               price="Sob consulta"
               priceNote="Sob consulta · conforme escopo"
-              cta="Iniciar conversa"
-              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Plano%20Executivo."
             />
 
             <PackageCard
@@ -1226,8 +1224,6 @@ const Index = () => {
               tagline="Arquitetura + Interiores"
               price="Sob consulta"
               priceNote="Sob consulta · conforme escopo"
-              cta="Iniciar conversa"
-              ctaHref="https://wa.me/5512996235559?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Plano%20Completo."
               recommended
             />
           </div>
@@ -2657,8 +2653,8 @@ const PackageCard = ({
   tagline: string;
   price: string;
   priceNote: string;
-  cta: string;
-  ctaHref: string;
+  cta?: string;
+  ctaHref?: string;
   recommended?: boolean;
 }) => (
   <div
@@ -2700,17 +2696,19 @@ const PackageCard = ({
         {price}
       </Editable>
     </div>
-    <a
-      href={ctaHref}
-      target="_blank"
-      rel="noreferrer"
-      className={`group inline-flex items-center justify-center gap-4 px-8 py-4 font-mono text-xs uppercase tracking-[0.3em] transition-colors duration-500 self-stretch ${recommended ? "bg-primary text-primary-foreground hover:bg-primary-glow" : "border border-foreground/30 text-foreground hover:border-primary hover:text-primary"}`}
-    >
-      <Editable id={`pkg.${id}.cta`} className="inline-block">
-        {cta}
-      </Editable>
-      <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
-    </a>
+    {cta && ctaHref && (
+      <a
+        href={ctaHref}
+        target="_blank"
+        rel="noreferrer"
+        className={`group inline-flex items-center justify-center gap-4 px-8 py-4 font-mono text-xs uppercase tracking-[0.3em] transition-colors duration-500 self-stretch ${recommended ? "bg-primary text-primary-foreground hover:bg-primary-glow" : "border border-foreground/30 text-foreground hover:border-primary hover:text-primary"}`}
+      >
+        <Editable id={`pkg.${id}.cta`} className="inline-block">
+          {cta}
+        </Editable>
+        <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+      </a>
+    )}
   </div>
 );
 
