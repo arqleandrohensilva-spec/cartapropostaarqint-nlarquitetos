@@ -452,7 +452,7 @@ const Index = () => {
             <div className="relative aspect-[4/5] overflow-hidden">
               <img
                 src="https://www.dropbox.com/scl/fi/hv5ka2it7y3mx78a9plos/tghdfjg.png?rlkey=7gx28a6t2ru8o4s8nz0mea4jp&raw=1"
-                alt="Espaço Gourmet SJ · NL Arquitetos · interiores"
+                alt="Espaço Gourmet Jardim · NL Arquitetos · interiores"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
                 width={1600}
@@ -464,7 +464,7 @@ const Index = () => {
                 id="interiores.caption"
                 className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
               >
-                Espaço Gourmet SJ · Materialidade e precisão
+                Espaço Gourmet Jardim · Materialidade e precisão
               </Editable>
             </div>
           </div>
