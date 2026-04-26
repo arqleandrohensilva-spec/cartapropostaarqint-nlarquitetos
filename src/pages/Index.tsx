@@ -186,7 +186,7 @@ const Index = () => {
               </Editable>
 
               <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
-                <Stat number="+50" label="Projetos no portfólio" sublabel="residencial · comercial · interiores" id="stat1" />
+                <Stat number="+50" label="Projetos no portfólio" id="stat1" />
                 <Stat number="+5" label="Anos de prática autoral" id="stat2" />
                 <Stat number="100%" label="Compatibilizados" id="stat3" />
               </div>
