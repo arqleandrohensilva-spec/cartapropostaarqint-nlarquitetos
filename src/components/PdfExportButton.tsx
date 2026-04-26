@@ -65,24 +65,26 @@ export function validateCanvasForA4(
     };
   }
 
-  // Cálculo "contain" dentro do A4 paisagem
-  const pageRatio = PAGE_W / PAGE_H; // ~1.414
+  // Decide orientação baseada no aspect ratio: seções largas → paisagem,
+  // seções altas/quadradas → retrato. Threshold em 1.05 para evitar oscilação.
+  const orientation: "landscape" | "portrait" =
+    imgRatio >= LANDSCAPE_THRESHOLD ? "landscape" : "portrait";
+  const pageW = orientation === "landscape" ? A4_LONG : A4_SHORT;
+  const pageH = orientation === "landscape" ? A4_SHORT : A4_LONG;
+
+  // Cálculo "contain" dentro da página escolhida
+  const pageRatio = pageW / pageH;
   let drawW: number;
   let drawH: number;
   if (imgRatio > pageRatio) {
-    drawW = PAGE_W;
-    drawH = PAGE_W / imgRatio;
+    drawW = pageW;
+    drawH = pageW / imgRatio;
   } else {
-    drawH = PAGE_H;
-    drawW = PAGE_H * imgRatio;
+    drawH = pageH;
+    drawW = pageH * imgRatio;
   }
 
-  // Sanity removida: seções altas (ex: Investimento com tabela comparativa)
-  // legitimamente ocupam menos área em A4 paisagem mas ainda renderizam
-  // perfeitamente centralizadas. Validamos apenas dimensões finais > 0.
-  void pageRatio;
-
-  if (drawW <= 0 || drawH <= 0 || drawW > PAGE_W + 0.01 || drawH > PAGE_H + 0.01) {
+  if (drawW <= 0 || drawH <= 0 || drawW > pageW + 0.01 || drawH > pageH + 0.01) {
     return {
       ok: false,
       reason: `dimensões finais inválidas ${drawW.toFixed(1)}×${drawH.toFixed(1)}mm`,
@@ -90,14 +92,13 @@ export function validateCanvasForA4(
     };
   }
 
-  const offsetX = (PAGE_W - drawW) / 2;
-  const offsetY = (PAGE_H - drawH) / 2;
+  const offsetX = (pageW - drawW) / 2;
+  const offsetY = (pageH - drawH) / 2;
 
   // Amostra de pixels para detectar canvas totalmente transparente/em branco
   try {
     const ctx = canvas.getContext("2d");
     if (ctx) {
-      // amostra do centro
       const sx = Math.floor(cw / 2);
       const sy = Math.floor(ch / 2);
       const data = ctx.getImageData(sx, sy, 1, 1).data;
@@ -117,7 +118,7 @@ export function validateCanvasForA4(
   void id; // disponível para logging externo
   return {
     ok: true,
-    metrics: { cw, ch, drawW, drawH, offsetX, offsetY, imgRatio, pageRatio },
+    metrics: { cw, ch, drawW, drawH, offsetX, offsetY, imgRatio, pageRatio, orientation, pageW, pageH },
   };
 }
 
