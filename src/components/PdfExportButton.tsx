@@ -2,9 +2,12 @@ import { useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-// A4 paisagem em mm
-const PAGE_W = 297;
-const PAGE_H = 210;
+// A4 em mm
+const A4_LONG = 297;
+const A4_SHORT = 210;
+// Threshold de orientação: se o canvas for mais largo que alto, paisagem; senão, retrato.
+// Margem de 5% para evitar oscilação em ratios próximos de 1.
+const LANDSCAPE_THRESHOLD = 1.05;
 
 type CanvasMetrics = {
   cw: number;
@@ -15,6 +18,9 @@ type CanvasMetrics = {
   offsetY: number;
   imgRatio: number;
   pageRatio: number;
+  orientation: "landscape" | "portrait";
+  pageW: number;
+  pageH: number;
 };
 
 type CanvasCheck =
@@ -59,24 +65,26 @@ export function validateCanvasForA4(
     };
   }
 
-  // Cálculo "contain" dentro do A4 paisagem
-  const pageRatio = PAGE_W / PAGE_H; // ~1.414
+  // Decide orientação baseada no aspect ratio: seções largas → paisagem,
+  // seções altas/quadradas → retrato. Threshold em 1.05 para evitar oscilação.
+  const orientation: "landscape" | "portrait" =
+    imgRatio >= LANDSCAPE_THRESHOLD ? "landscape" : "portrait";
+  const pageW = orientation === "landscape" ? A4_LONG : A4_SHORT;
+  const pageH = orientation === "landscape" ? A4_SHORT : A4_LONG;
+
+  // Cálculo "contain" dentro da página escolhida
+  const pageRatio = pageW / pageH;
   let drawW: number;
   let drawH: number;
   if (imgRatio > pageRatio) {
-    drawW = PAGE_W;
-    drawH = PAGE_W / imgRatio;
+    drawW = pageW;
+    drawH = pageW / imgRatio;
   } else {
-    drawH = PAGE_H;
-    drawW = PAGE_H * imgRatio;
+    drawH = pageH;
+    drawW = pageH * imgRatio;
   }
 
-  // Sanity removida: seções altas (ex: Investimento com tabela comparativa)
-  // legitimamente ocupam menos área em A4 paisagem mas ainda renderizam
-  // perfeitamente centralizadas. Validamos apenas dimensões finais > 0.
-  void pageRatio;
-
-  if (drawW <= 0 || drawH <= 0 || drawW > PAGE_W + 0.01 || drawH > PAGE_H + 0.01) {
+  if (drawW <= 0 || drawH <= 0 || drawW > pageW + 0.01 || drawH > pageH + 0.01) {
     return {
       ok: false,
       reason: `dimensões finais inválidas ${drawW.toFixed(1)}×${drawH.toFixed(1)}mm`,
@@ -84,14 +92,13 @@ export function validateCanvasForA4(
     };
   }
 
-  const offsetX = (PAGE_W - drawW) / 2;
-  const offsetY = (PAGE_H - drawH) / 2;
+  const offsetX = (pageW - drawW) / 2;
+  const offsetY = (pageH - drawH) / 2;
 
   // Amostra de pixels para detectar canvas totalmente transparente/em branco
   try {
     const ctx = canvas.getContext("2d");
     if (ctx) {
-      // amostra do centro
       const sx = Math.floor(cw / 2);
       const sy = Math.floor(ch / 2);
       const data = ctx.getImageData(sx, sy, 1, 1).data;
@@ -111,7 +118,7 @@ export function validateCanvasForA4(
   void id; // disponível para logging externo
   return {
     ok: true,
-    metrics: { cw, ch, drawW, drawH, offsetX, offsetY, imgRatio, pageRatio },
+    metrics: { cw, ch, drawW, drawH, offsetX, offsetY, imgRatio, pageRatio, orientation, pageW, pageH },
   };
 }
 
@@ -206,13 +213,6 @@ const PdfExportButton = () => {
     await new Promise((r) => setTimeout(r, 200));
 
     try {
-      pdf = new jsPDF({
-        orientation: "landscape",
-        unit: "mm",
-        format: "a4",
-        compress: true,
-      });
-
       const sections = Array.from(
         document.querySelectorAll<HTMLElement>("main section[id]")
       );
@@ -279,13 +279,13 @@ const PdfExportButton = () => {
         } catch (err) {
           console.error(`[PDF] Falha ao capturar #${id}:`, err);
           if (!firstError) firstError = `#${id}: ${(err as Error).message}`;
-          continue; // pula a seção mas segue
+          continue;
         }
 
         // ────────────────────────────────────────────────────────────
-        // TESTE AUTOMÁTICO — valida canvas e dimensões antes do jsPDF
-        // Evita: páginas em branco, ratio incompatível com A4 paisagem,
-        // dataURL corrompido, dimensões absurdas.
+        // TESTE AUTOMÁTICO — valida canvas, escolhe orientação A4
+        // por seção (paisagem para conteúdo largo, retrato para alto),
+        // calcula dimensões "contain" centralizado.
         // ────────────────────────────────────────────────────────────
         const check = validateCanvasForA4(canvas, id);
         if (check.ok === false) {
@@ -294,7 +294,7 @@ const PdfExportButton = () => {
           continue;
         }
 
-        const { cw, ch, drawW, drawH, offsetX, offsetY } = check.metrics;
+        const { cw, ch, drawW, drawH, offsetX, offsetY, orientation, pageW, pageH } = check.metrics;
 
         // Garantia final: dataURL não-vazio e começando com cabeçalho JPEG
         const imgData = canvas.toDataURL("image/jpeg", 0.9);
@@ -304,17 +304,28 @@ const PdfExportButton = () => {
           continue;
         }
 
-        if (pagesAdded > 0) pdf.addPage("a4", "landscape");
+        // Cria o PDF na orientação da primeira página, ou adiciona página
+        // com a orientação específica desta seção.
+        if (!pdf) {
+          pdf = new jsPDF({
+            orientation,
+            unit: "mm",
+            format: "a4",
+            compress: true,
+          });
+        } else {
+          pdf.addPage("a4", orientation);
+        }
 
         if (rgb && rgb.length >= 3) {
           pdf.setFillColor(parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2]));
-          pdf.rect(0, 0, PAGE_W, PAGE_H, "F");
+          pdf.rect(0, 0, pageW, pageH, "F");
         }
 
         pdf.addImage(imgData, "JPEG", offsetX, offsetY, drawW, drawH, undefined, "FAST");
         pagesAdded++;
         console.log(
-          `[PDF] ✓ #${id} adicionada — canvas ${cw}×${ch}px → ${drawW.toFixed(1)}×${drawH.toFixed(1)}mm @ (${offsetX.toFixed(1)}, ${offsetY.toFixed(1)})`
+          `[PDF] ✓ #${id} (${orientation}) — canvas ${cw}×${ch}px → ${drawW.toFixed(1)}×${drawH.toFixed(1)}mm @ (${offsetX.toFixed(1)}, ${offsetY.toFixed(1)})`
         );
       }
 
