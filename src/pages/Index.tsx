@@ -37,7 +37,7 @@ const Index = () => {
           ============================================================ */}
       <section id="capa" className="relative min-h-screen flex flex-col justify-end px-6 md:px-16 lg:px-24 py-20">
         <img
-          src="https://www.dropbox.com/scl/fi/h4zgd1j7vbpy7vnp8nc93/Capa-Apresenta-o.jpg?rlkey=42sutzf60yam0hhmjvyrvfwym&raw=1"
+          src={propostaCapa}
           alt="NL Arquitetos · monograma esculpido com luz dourada"
           className="absolute inset-0 w-full h-full object-cover opacity-90 contrast-110 saturate-125"
           width={1920}
@@ -208,14 +208,14 @@ const Index = () => {
                   name="Leandro Henrique"
                   role="Co-Fundador · Arquiteto"
                   cau="CAU A252250-0"
-                  image="https://www.dropbox.com/scl/fi/uydr0i2jkh4eq2semj7ey/Leandro.png?rlkey=1784s67wn6c6hjdma6wkgy91a&raw=1"
+                  image={propostaLeandro}
                 />
                 <PartnerCard
                   id="neandro"
                   name="Neandro Jacque"
                   role="Co-Fundador · Arquiteto"
                   cau="CAU A264629-3"
-                  image="https://www.dropbox.com/scl/fi/6060a867ejklropxdqju3/Neandro.png?rlkey=3z4ynhzr1lq6treoni9h1fqyr&raw=1"
+                  image={propostaNeandro}
                 />
               </div>
             </aside>
@@ -361,7 +361,7 @@ const Index = () => {
         <div className="grid grid-cols-12 min-h-screen">
           <div className="col-span-12 lg:col-span-7 relative min-h-[60vh] lg:min-h-screen">
             <img
-              src="https://www.dropbox.com/scl/fi/dibhyhod5xpz47v3l9rp3/Gemini_Generated_Image_896gxz896gxz896g-1.png?rlkey=q1ltxbytg9eo2ynmbz0njb0f3&raw=1"
+              src={propostaCaseCasa}
               alt="Casa Costas · residência NL Arquitetos · São José dos Campos"
               className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
@@ -460,7 +460,7 @@ const Index = () => {
           <div className="col-span-12 lg:col-span-7 order-1 lg:order-2 relative">
             <div className="relative aspect-[4/5] overflow-hidden">
               <img
-                src="https://www.dropbox.com/scl/fi/hv5ka2it7y3mx78a9plos/tghdfjg.png?rlkey=7gx28a6t2ru8o4s8nz0mea4jp&raw=1"
+                src={propostaInteriores}
                 alt="Espaço Gourmet Jardim · NL Arquitetos · interiores"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
@@ -512,14 +512,14 @@ const Index = () => {
     <div className="grid grid-cols-12 gap-4 md:gap-6">
       <figure className="col-span-12 md:col-span-5 row-span-2 group">
         <a
-          href="https://www.dropbox.com/scl/fi/gc7yr8gcdep5iaxthxlz6/nomo-ai-6adc7dfa-c608-4cee-ad95-4693eb7f5a61.png?rlkey=mewhomhfyn14gs2p6a6y757rc&raw=1"
+          href={propostaPortFachada}
           target="_blank"
           rel="noreferrer"
           className="block overflow-hidden"
         >
           <div className="relative aspect-[3/4] overflow-hidden">
             <img
-              src="https://www.dropbox.com/scl/fi/gc7yr8gcdep5iaxthxlz6/nomo-ai-6adc7dfa-c608-4cee-ad95-4693eb7f5a61.png?rlkey=mewhomhfyn14gs2p6a6y757rc&raw=1"
+              src={propostaPortFachada}
               alt="Residência · fachada · NL Arquitetos"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
               loading="lazy"
@@ -538,14 +538,14 @@ const Index = () => {
 
       <figure className="col-span-12 md:col-span-7 group">
         <a
-          href="https://www.dropbox.com/scl/fi/mnuvtilaks5qtv8ghjjll/nomo-result-1776203970806.png?rlkey=nuz4nzorchhctk9ef6efxt5km&raw=1"
+          href={propostaPortLiving}
           target="_blank"
           rel="noreferrer"
           className="block overflow-hidden"
         >
           <div className="relative aspect-[16/10] overflow-hidden">
             <img
-              src="https://www.dropbox.com/scl/fi/mnuvtilaks5qtv8ghjjll/nomo-result-1776203970806.png?rlkey=nuz4nzorchhctk9ef6efxt5km&raw=1"
+              src={propostaPortLiving}
               alt="Sala de estar · NL Arquitetos"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
               loading="lazy"
@@ -564,14 +564,14 @@ const Index = () => {
 
       <figure className="col-span-6 md:col-span-3 group">
         <a
-          href="https://www.dropbox.com/scl/fi/qprr4s2fjkfti6tnyd89v/nomo-result-1775917620975.png?rlkey=0o6hu9dkmh2wr2phqu23z6avb&raw=1"
+          href={propostaPortLazer}
           target="_blank"
           rel="noreferrer"
           className="block overflow-hidden"
         >
           <div className="relative aspect-[3/4] overflow-hidden">
             <img
-              src="https://www.dropbox.com/scl/fi/qprr4s2fjkfti6tnyd89v/nomo-result-1775917620975.png?rlkey=0o6hu9dkmh2wr2phqu23z6avb&raw=1"
+              src={propostaPortLazer}
               alt="Área de lazer · NL Arquitetos"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
               loading="lazy"
@@ -590,14 +590,14 @@ const Index = () => {
 
       <figure className="col-span-6 md:col-span-4 group">
         <a
-          href="https://www.dropbox.com/scl/fi/vr5t57j716ouai5a8nujn/Gemini_Generated_Image_m7jpdpm7jpdpm7jp.png?rlkey=al8wrep2dwow5zulb8xnyzgyv&raw=1"
+          href={propostaPortSuite}
           target="_blank"
           rel="noreferrer"
           className="block overflow-hidden"
         >
           <div className="relative aspect-[3/4] overflow-hidden">
             <img
-              src="https://www.dropbox.com/scl/fi/vr5t57j716ouai5a8nujn/Gemini_Generated_Image_m7jpdpm7jpdpm7jp.png?rlkey=al8wrep2dwow5zulb8xnyzgyv&raw=1"
+              src={propostaPortSuite}
               alt="Suíte · NL Arquitetos"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
               loading="lazy"
