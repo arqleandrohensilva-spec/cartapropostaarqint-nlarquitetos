@@ -27,7 +27,7 @@ import propostaPortLazer from "@/assets/proposta/nomo-result-1759.jpg";
 import propostaPortSuite from "@/assets/proposta/gemini-m7jp.jpg";
 const LOGO_BRANCA = "/logo-branca.png";
 
-const Index = () => {
+const Int = () => {
   return (
     <main className="relative bg-background text-foreground overflow-x-hidden">
       <SectionNav />
@@ -2868,4 +2868,4 @@ const ComparisonTable = () => (
   </div>
 );
 
-export default Index;
+export default Int;
