@@ -124,8 +124,8 @@ const Int = () => {
                 as="p"
                 className="font-display text-lg md:text-xl leading-relaxed text-foreground/80"
               >
-                A NL não começa pelo desenho. Começa pela escuta — entendendo o terreno, a família, o modo de viver. Só
-                depois o primeiro traço aparece. E quando aparece, já foi validado.
+                A NL não começa pelo desenho. Começa pela escuta — entendendo o espaço, o modo de viver e o que cada
+                ambiente precisa ser. Só depois o primeiro traço aparece. E quando aparece, já foi validado.
               </Editable>
               <Editable
                 id="manifesto.p2"
@@ -134,7 +134,7 @@ const Int = () => {
                 className="font-display text-lg md:text-xl leading-relaxed text-foreground/80"
               >
                 Cada decisão tomada em projeto evita uma decisão custosa na obra. Não é opinião — é lógica construtiva.
-                Quando você decide no canteiro, o material já foi comprado e o erro já virou custo.
+                Quando você decide durante a execução, o material já foi comprado e o erro já virou retrabalho.
               </Editable>
             </div>
             <div className="mt-20 pl-8 border-l border-primary/40 max-w-2xl">
@@ -144,7 +144,7 @@ const Int = () => {
                 as="p"
                 className="font-display italic text-2xl md:text-3xl text-primary/90 leading-snug"
               >
-                "Beleza sem método é apenas decoração. Arquitetura é a decisão tomada antes do primeiro traço."
+                "Beleza sem método é apenas decoração. Interiores é a decisão tomada antes do primeiro traço."
               </Editable>
             </div>
           </div>
