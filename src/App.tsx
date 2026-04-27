@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+import Int from "./pages/Int.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { Navigate } from "react-router-dom";
 
@@ -18,6 +19,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Navigate to="/arqint" replace />} />
           <Route path="/arqint" element={<Index />} />
+          <Route path="/int" element={<Int />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
