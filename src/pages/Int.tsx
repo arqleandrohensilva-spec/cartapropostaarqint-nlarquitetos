@@ -71,8 +71,8 @@ const Int = () => {
             multiline
             className="font-display italic text-xl md:text-2xl text-foreground/70 max-w-xl block"
           >
-            Projeto executivo com compatibilização técnica e validação antecipada — para que cada centímetro seja
-            decidido no papel, não no canteiro.
+            Projeto executivo de interiores com especificação completa — para que cada material, cada medida e cada
+            detalhe seja decidido antes da execução.
           </Editable>
 
           <div className="mt-12 flex items-center gap-4 text-muted-foreground">
