@@ -21,7 +21,7 @@ import propostaLeandro from "@/assets/proposta/leandro.jpg";
 import propostaNeandro from "@/assets/proposta/neandro.jpg";
 import propostaCaseCasa from "@/assets/proposta/chale-juruva.png";
 import propostaInteriores from "@/assets/proposta/tghdfjg.jpg";
-import propostaPortFachada from "@/assets/proposta/nomo-ai-6adc.jpg";
+import propostaPortFachada from "@/assets/proposta/casa-jf.png";
 import propostaPortLiving from "@/assets/proposta/nomo-result-2062.jpg";
 import propostaPortLazer from "@/assets/proposta/nomo-result-1759.jpg";
 import propostaPortSuite from "@/assets/proposta/gemini-m7jp.jpg";
@@ -554,7 +554,7 @@ const Int = () => {
         </a>
         <figcaption className="mt-4 flex items-baseline justify-between">
           <Editable id="port.cap1" className="font-display italic text-foreground/80">
-            Fachada residencial · São José dos Campos
+            Casa JF · Jacareí SP
           </Editable>
           <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">01</span>
         </figcaption>
