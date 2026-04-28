@@ -466,10 +466,11 @@ const Int = () => {
             </Editable>
             <ul className="space-y-3 font-display text-foreground/80">
               {[
-                ["01", "Curadoria de materiais e acabamentos"],
-                ["02", "Marcenaria sob medida com detalhamento executivo"],
-                ["03", "Iluminação cênica e funcional integrada"],
-                ["04", "Especificação de mobiliário e arte"],
+                ["01", "Layout funcional e fluxos"],
+                ["02", "Paleta de materiais e acabamentos"],
+                ["03", "Marcenaria sob medida com detalhamento executivo"],
+                ["04", "Iluminação cênica e funcional integrada"],
+                ["05", "Curadoria de mobiliário e arte"],
               ].map(([num, txt], i) => (
                 <li key={i} className="flex gap-4 items-baseline border-b border-border/40 pb-3">
                   <span className="font-mono text-xs text-primary/70">{num}</span>
