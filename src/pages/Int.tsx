@@ -383,27 +383,50 @@ const Int = () => {
                 multiline
                 className="font-display text-5xl md:text-6xl leading-[0.95] mb-2"
               >
-                Casa <em className="text-primary not-italic">Costas.</em>
+                A casa nasce do <em className="text-primary not-italic">terreno e da luz.</em>
               </Editable>
               <Editable
                 id="case.location"
                 className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground block mb-10"
               >
-                Residência · 300m² · São José dos Campos
+                Casa Costas · 300m² · São José dos Campos
               </Editable>
               <div className="gold-line w-16 mb-8" />
               <Editable
                 id="case.body"
                 multiline
                 as="p"
-                className="font-display text-lg leading-relaxed text-foreground/80 mb-10"
+                className="font-display text-base md:text-lg leading-relaxed text-foreground/80 mb-10"
               >
                 O pedido era claro: uma residência que equilibrasse presença e acolhimento. A fachada em concreto e
-                madeira define o limite entre o público e o privado — sem abrir mão da luz. Cada detalhe, do
-                revestimento ao recuo da garagem, foi validado em projeto antes de qualquer execução. O resultado é uma
-                casa que funciona exatamente como foi decidido — antes da primeira escavação.
+                madeira define o limite entre o público e o privado — sem abrir mão da luz. Cada detalhe foi validado
+                em projeto antes de qualquer execução.
               </Editable>
-              <div className="grid grid-cols-3 gap-3 sm:gap-6 border-t border-border/60 pt-8">
+              <ul className="space-y-3 font-display text-foreground/80 mb-10">
+                {[
+                  "Implantação e estudo solar",
+                  "Volumetria e composição de fachadas",
+                  "Plantas, cortes e elevações",
+                  "Coordenação técnica com engenheiros parceiros",
+                  "Detalhamento construtivo",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-4 items-baseline border-b border-border/40 pb-3"
+                  >
+                    <span className="font-mono text-[10px] text-primary/70">
+                      0{i + 1}
+                    </span>
+                    <Editable
+                      id={`case.item.${i}`}
+                      className="flex-1 text-sm md:text-base"
+                    >
+                      {item}
+                    </Editable>
+                  </li>
+                ))}
+              </ul>
+              <div className="grid grid-cols-3 gap-3 sm:gap-6 border-t border-border/60 pt-6">
                 <CaseStat id="case.s1" value="04" label="Meses de projeto" />
                 <CaseStat id="case.s2" value="05" label="Disciplinas" />
                 <CaseStat id="case.s3" value="0" label="Retrabalho" />
