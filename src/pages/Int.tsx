@@ -2730,32 +2730,6 @@ const COMPARISON_GROUPS: {
   rows: { id: string; label: string; basic: string | boolean; premium: string | boolean }[];
 }[] = [
   {
-    group: "Arquitetura",
-    rows: [
-      { id: "cmp.arq.1", label: "Levantamento & Briefing", basic: true, premium: true },
-      { id: "cmp.arq.2", label: "Criação do Conceito", basic: true, premium: true },
-      { id: "cmp.arq.3", label: "Estudo Preliminar com 3D", basic: true, premium: true },
-      { id: "cmp.arq.4", label: "Projeto Legal & Aprovações", basic: true, premium: true },
-      { id: "cmp.arq.5", label: "Projeto Executivo Arquitetônico", basic: true, premium: true },
-    ],
-  },
-  {
-    group: "Documentação técnica",
-    rows: [
-      { id: "cmp.doc.1", label: "Caderno Geral completo", basic: true, premium: true },
-      { id: "cmp.doc.2", label: "Caderno de Detalhes Construtivos", basic: true, premium: true },
-      { id: "cmp.doc.3", label: "Memorial Descritivo", basic: true, premium: true },
-      { id: "cmp.doc.4", label: "Mapas de Instalações (em parceria)", basic: true, premium: true },
-    ],
-  },
-  {
-    group: "Visualização 3D",
-    rows: [
-      { id: "cmp.vis.1", label: "Concepção 3D de Alta Fidelidade", basic: false, premium: true },
-      { id: "cmp.vis.2", label: "Vídeo 3D 360°", basic: false, premium: true },
-    ],
-  },
-  {
     group: "Interiores",
     rows: [
       { id: "cmp.int.1", label: "Projeto Executivo de Interiores", basic: false, premium: true },
