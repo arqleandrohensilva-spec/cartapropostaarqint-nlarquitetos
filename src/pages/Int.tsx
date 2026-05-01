@@ -1773,10 +1773,10 @@ const Int = () => {
             multiline
             className="font-display text-5xl md:text-7xl lg:text-8xl text-center leading-[1.0] mb-12 text-balance"
           >
-            <span style={{ color: "#E8E4DF" }}>A casa que você imagina</span>
+            <span style={{ color: "#E8E4DF" }}>O ambiente que você imagina</span>
             <br />
             <em className="not-italic" style={{ color: "#8B7355" }}>já existe.</em>{" "}
-            <span style={{ color: "#E8E4DF" }}>Falta começar.</span>
+            <span style={{ color: "#E8E4DF" }}>Falta documentar.</span>
           </Editable>
 
           <Editable
@@ -1788,7 +1788,7 @@ const Int = () => {
           >
             Agradecemos seu tempo e interesse.
             <br />
-            Estamos à disposição para transformar suas ideias em realidade.
+            Estamos à disposição para transformar cada detalhe em projeto executivo.
           </Editable>
 
           <div
