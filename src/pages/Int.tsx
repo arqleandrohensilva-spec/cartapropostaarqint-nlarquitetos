@@ -1421,9 +1421,9 @@ const Int = () => {
                 title: "Dados fornecidos pelo cliente",
                 intro: "Para o desenvolvimento do projeto será fundamental que o cliente forneça:",
                 items: [
-                  "Matrícula do imóvel",
-                  "Legislação do terreno junto ao condomínio",
+                  "Plantas do imóvel (arquitetônica e estrutural)",
                   "Documentação de aprovações anteriores (se existirem)",
+                  "Referências visuais e programa de necessidades",
                 ],
               },
               {
@@ -1431,8 +1431,7 @@ const Int = () => {
                 title: "Serviços extras contratados pelo cliente",
                 intro: "A contratação dos itens abaixo é responsabilidade do cliente e essencial para o início do projeto:",
                 items: [
-                  "Levantamento topográfico",
-                  "Sondagem do lote",
+                  "Levantamento métrico do imóvel (se não houver planta atualizada)",
                   "ART/RRT dos projetos complementares",
                 ],
               },
@@ -1441,13 +1440,10 @@ const Int = () => {
                 title: "Serviços não inclusos",
                 intro: null,
                 items: [
-                  "Estudo de Impacto de Vizinhança",
-                  "Licenças Ambientais",
-                  "Projeto e aprovação do Corpo de Bombeiros",
                   "Responsabilidade técnica pela execução da obra",
                   "Gestão de obra e contratação de mão de obra",
                   "Compra de materiais e insumos",
-                  "Projetos complementares de estrutura (coordenados em parceria, não executados pela NL)",
+                  "Licenças e aprovações junto ao condomínio (quando aplicável)",
                 ],
               },
               {
