@@ -1347,8 +1347,8 @@ const Int = () => {
             {[
               {
                 r: "I",
-                t: "Duas disciplinas, um único processo",
-                d: "Arquitetura e Interiores desenvolvidos em sequência pelo mesmo escritório. Sem ruído de comunicação entre equipes diferentes. O que foi decidido na arquitetura alimenta diretamente os interiores — sem retrabalho, sem interpretação.",
+                t: "Cada decisão tomada antes da obra começar",
+                d: "Materiais, medidas, fornecedores — tudo definido no projeto. Quando a obra começa, não há dúvida, não há imprevisto, não há custo extra.",
               },
               {
                 r: "II",
