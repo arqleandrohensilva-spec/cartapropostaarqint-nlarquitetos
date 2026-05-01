@@ -2855,6 +2855,14 @@ const ComparisonTable = () => (
     >
       Itens opcionais são formalizados via aditivo de contrato conforme necessidade do projeto.
     </Editable>
+    <Editable
+      id="cmp.footnote2"
+      multiline
+      as="p"
+      className="font-display text-xs md:text-sm text-foreground/70 italic text-center mt-3 leading-relaxed max-w-2xl mx-auto"
+    >
+      No Plano Completo, cada fornecedor recebe o caderno específico da sua execução — sem margem para improviso.
+    </Editable>
   </div>
 );
 
