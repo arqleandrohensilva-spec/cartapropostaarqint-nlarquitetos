@@ -1245,7 +1245,7 @@ const Int = () => {
             <PackageCard
               id="basic"
               tier="Plano Executivo"
-              tagline="Arquitetura"
+              tagline="Interiores"
               price="Sob consulta"
               priceNote="Sob consulta · conforme escopo"
             />
@@ -1253,7 +1253,7 @@ const Int = () => {
             <PackageCard
               id="premium"
               tier="Plano Completo"
-              tagline="Arquitetura + Interiores"
+              tagline="Interiores + Especificações"
               price="Sob consulta"
               priceNote="Sob consulta · conforme escopo"
               recommended
