@@ -2605,7 +2605,6 @@ const ScopeBlocos = ({ data, trackId }: { data: ScopeBloco[]; trackId: string })
 };
 
 const ScopeTabs = () => {
-  const [tab, setTab] = useState("arq");
   return (
     <Tabs value="int" className="w-full">
       <TabsList className="bg-transparent border-b border-border/60 rounded-none p-0 h-auto w-full justify-start gap-8 mb-8">
