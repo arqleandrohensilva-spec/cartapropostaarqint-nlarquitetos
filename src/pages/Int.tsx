@@ -755,8 +755,8 @@ const Int = () => {
               as="p"
               className="font-display text-lg leading-relaxed text-foreground/75 mb-10"
             >
-              Quatro cadernos coordenados pela NL — base documental para uma obra sem improviso, com cada componente
-              identificado, localizado e quantificado. Mesma estrutura para Arquitetônico e Interiores.
+              Sete cadernos coordenados pela NL — base documental para uma obra sem improviso, com cada componente
+              identificado, localizado e quantificado.
             </Editable>
 
             <div className="relative aspect-[4/5] overflow-hidden hidden lg:block">
@@ -948,7 +948,7 @@ const Int = () => {
                     letterSpacing: "-0.05em",
                   }}
                 >
-                  180
+                  90
                 </div>
                 <div
                   className="font-mono-edit text-[10px] tracking-[0.35em] uppercase mt-2"
@@ -967,12 +967,11 @@ const Int = () => {
           >
             {(() => {
               const stages = [
-                { num: "01", name: "Levantamento & Briefing", days: 15 },
+                { num: "01", name: "Levantamento & Briefing", days: 10 },
                 { num: "02", name: "Criação do Conceito", days: 20 },
                 { num: "03", name: "Estudo Preliminar com 3D", days: 30 },
                 { num: "04", name: "Projeto Legal & Aprovações", days: 15 },
                 { num: "05", name: "Projeto Executivo", days: 15 },
-                { num: "06", name: "Interiores", days: 90 },
               ];
               const total = stages.reduce((acc, s) => acc + s.days, 0);
               let cumulative = 0;
@@ -2606,16 +2605,9 @@ const ScopeBlocos = ({ data, trackId }: { data: ScopeBloco[]; trackId: string })
 };
 
 const ScopeTabs = () => {
-  const [tab, setTab] = useState("arq");
   return (
-    <Tabs value={tab} onValueChange={setTab} className="w-full">
+    <Tabs value="int" className="w-full">
       <TabsList className="bg-transparent border-b border-border/60 rounded-none p-0 h-auto w-full justify-start gap-8 mb-8">
-        <TabsTrigger
-          value="arq"
-          className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary text-muted-foreground rounded-none px-0 pb-4 font-mono text-[11px] uppercase tracking-[0.3em] border-b-2 border-transparent data-[state=active]:border-primary"
-        >
-          Arquitetônico
-        </TabsTrigger>
         <TabsTrigger
           value="int"
           className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary text-muted-foreground rounded-none px-0 pb-4 font-mono text-[11px] uppercase tracking-[0.3em] border-b-2 border-transparent data-[state=active]:border-primary"
@@ -2623,18 +2615,6 @@ const ScopeTabs = () => {
           Interiores
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="arq" className="mt-0">
-        <ScopeBlocos data={SCOPE_ARQ} trackId="arq" />
-        <Editable
-          id="scope.arq.parceria"
-          multiline
-          as="p"
-          className="mt-6 font-display italic text-sm text-foreground/65 leading-relaxed border-l-2 border-primary/40 pl-4"
-        >
-          <span className="font-mono not-italic text-primary mr-1">*</span>
-          Desenvolvido em parceria com engenheiros especializados. A NL coordena e valida todos os projetos complementares.
-        </Editable>
-      </TabsContent>
       <TabsContent value="int" className="mt-0">
         <ScopeBlocos data={SCOPE_INT} trackId="int" />
       </TabsContent>
