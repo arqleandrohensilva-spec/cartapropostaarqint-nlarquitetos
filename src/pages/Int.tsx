@@ -1776,7 +1776,7 @@ const Int = () => {
             <span style={{ color: "#E8E4DF" }}>O ambiente que você imagina</span>
             <br />
             <em className="not-italic" style={{ color: "#8B7355" }}>já existe.</em>{" "}
-            <span style={{ color: "#E8E4DF" }}>Falta documentar.</span>
+            <span style={{ color: "#E8E4DF" }}>Resta documentá-lo.</span>
           </Editable>
 
           <Editable
@@ -1786,9 +1786,9 @@ const Int = () => {
             className="font-display italic text-center max-w-2xl mx-auto mb-24 leading-relaxed text-[clamp(1.125rem,1.4vw,1.5rem)]"
             style={{ color: "#8B7355" }}
           >
-            Agradecemos seu tempo e interesse.
+            Agradecemos seu tempo e a confiança em compartilhar este projeto conosco.
             <br />
-            Estamos à disposição para transformar cada detalhe em projeto executivo.
+            Seguimos à disposição — quando quiser dar o próximo passo, estaremos aqui.
           </Editable>
 
           <div
