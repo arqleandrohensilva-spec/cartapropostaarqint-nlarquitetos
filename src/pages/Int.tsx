@@ -1771,11 +1771,11 @@ const Int = () => {
             as="h2"
             id="encerramento.title"
             multiline
-            className="font-display text-5xl md:text-7xl lg:text-8xl text-center leading-[1.0] mb-12 text-balance"
+            className="font-display text-5xl md:text-7xl lg:text-8xl text-center leading-[1.05] mb-12 text-balance max-w-5xl mx-auto"
           >
-            <span style={{ color: "#E8E4DF" }}>O ambiente que você imagina</span>
+            <span style={{ color: "#E8E4DF" }}>O ambiente que você imagina</span>{" "}
+            <em className="not-italic" style={{ color: "#8B7355" }}>já existe.</em>
             <br />
-            <em className="not-italic" style={{ color: "#8B7355" }}>já existe.</em>{" "}
             <span style={{ color: "#E8E4DF" }}>Falta colocar no papel.</span>
           </Editable>
 
