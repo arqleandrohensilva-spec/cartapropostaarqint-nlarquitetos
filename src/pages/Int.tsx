@@ -1776,7 +1776,7 @@ const Int = () => {
             <span style={{ color: "#E8E4DF" }}>O ambiente que você imagina</span>
             <br />
             <em className="not-italic" style={{ color: "#8B7355" }}>já existe.</em>{" "}
-            <span style={{ color: "#E8E4DF" }}>Resta documentá-lo.</span>
+            <span style={{ color: "#E8E4DF" }}>Falta colocar no papel.</span>
           </Editable>
 
           <Editable
