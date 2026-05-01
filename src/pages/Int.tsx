@@ -1702,7 +1702,7 @@ const Int = () => {
                 <Condition
                   id="c1"
                   label="Prazo total"
-                  value="Até 14 semanas para escopo integral, divididas em entregas parciais aprovadas."
+                  value="Até 90 dias para escopo integral, divididos em entregas parciais aprovadas."
                 />
                 <Condition
                   id="c2"
