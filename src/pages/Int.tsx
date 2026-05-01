@@ -658,7 +658,7 @@ const Int = () => {
               id="etapas.tag"
               className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden md:block"
             >
-              Arquitetura → Interiores · Fluxo encadeado
+              Sete fases · ~90 dias
             </Editable>
           </div>
 
@@ -679,43 +679,17 @@ const Int = () => {
               as="p"
               className="col-span-12 lg:col-span-5 lg:pt-4 font-display text-lg text-foreground/70 leading-relaxed"
             >
-              Interiores inicia somente após aprovação integral da etapa de Arquitetura. Cada decisão é tomada na ordem
-              certa — para que nada precise ser refeito depois.
+              Sete cadernos coordenados em uma única trilha. Cada decisão é tomada na ordem certa —
+              para que nada precise ser refeito depois.
             </Editable>
           </div>
 
-          {/* Trilha 01 · Arquitetura Residencial */}
-          <PhaseTimeline
-            trackId="arq"
-            number="01"
-            title="Arquitetura Residencial"
-            duration="5 a 6 meses"
-            phases={[
-              { n: "01", t: "Levantamento & Briefing", d: "Escuta profunda, programa de necessidades e leitura do terreno." },
-              { n: "02", t: "Criação do Conceito", d: "Partido arquitetônico, narrativa e diretrizes que guiam todo o projeto." },
-              { n: "03", t: "Estudo Preliminar com 3D", d: "Volumetria, implantação e atmosferas em 3D antes de qualquer técnica." },
-              { n: "04", t: "EVF — Viabilidade Financeira", d: "Orçamento por quantitativos reais — decisão consciente de escopo.", optional: true },
-              { n: "05", t: "Projeto Legal & Aprovações", d: "Prefeitura, concessionárias e órgãos — conduzidos pela NL." },
-              { n: "06", t: "Projeto Executivo", d: "Pranchas, memoriais e detalhamentos prontos para canteiro." },
-              { n: "07", t: "Compatibilização Técnica", d: "Coordenação entre arquitetura, estrutura e instalações — em parceria com engenheiros especializados." },
-              { n: "08", t: "Acompanhamento de obra", d: "Visitas técnicas, ajustes e curadoria de fornecedores.", optional: true },
-            ]}
-          />
-
-          <div className="my-20 flex items-center gap-6">
-            <span className="h-px flex-1 bg-border" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
-              Após aprovação da arquitetura
-            </span>
-            <span className="h-px flex-1 bg-border" />
-          </div>
-
-          {/* Trilha 02 · Arquitetura de Interiores */}
+          {/* Trilha única · Arquitetura de Interiores */}
           <PhaseTimeline
             trackId="int"
-            number="02"
+            number="01"
             title="Arquitetura de Interiores"
-            duration="3 a 4 meses · após arquitetura"
+            duration="~90 dias"
             phases={[
               { n: "01", t: "Briefing & Levantamentos", d: "Escuta profunda, leitura do espaço e do estilo de vida." },
               { n: "02", t: "Criação do Conceito", d: "Atmosfera, paleta e narrativa de interiores que orientam cada decisão." },
@@ -746,7 +720,7 @@ const Int = () => {
               multiline
               className="font-display text-5xl md:text-6xl leading-[1.0] mb-10 text-balance"
             >
-              Duas disciplinas. <em className="text-primary not-italic">Um só método.</em>
+              Sete cadernos. <em className="text-primary not-italic">Um só método.</em>
             </Editable>
 
             <Editable
@@ -835,7 +809,7 @@ const Int = () => {
                 id: "compatibilizacao",
                 num: "II",
                 kicker: "Coordenação · Técnica",
-                body: "Todas as disciplinas coordenadas em conjunto com engenheiros parceiros. O que chega à obra já foi revisado e validado.",
+                body: "Marcenaria, iluminação, elétrica e revestimentos coordenados em conjunto com engenheiros e marceneiros parceiros. O que chega à obra já foi revisado e validado.",
                 quote: "Mostramos o erro no computador para não errar no cimento.",
               },
               {
@@ -891,7 +865,7 @@ const Int = () => {
             id="pilares.closing"
             className="mt-12 md:mt-16 pt-6 border-t border-border/60 font-display italic text-xl md:text-2xl text-foreground/75 text-center"
           >
-            A arquitetura como decisão.
+            Os interiores como decisão.
           </Editable>
         </div>
       </section>
@@ -1141,28 +1115,28 @@ const Int = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {[
               {
-                t: "Segurança na obra",
-                d: "Projeto compatibilizado evita decisões improvisadas no canteiro — e os custos imprevistos que vêm com elas.",
+                t: "Marcenaria sob medida",
+                d: "Cada peça desenhada para o seu espaço, com encaixes, ferragens e acabamentos detalhados em prancha — sem improviso no marceneiro.",
               },
               {
                 t: "Decisão antes da obra",
-                d: "Cada disciplina validada em projeto. O que está na prancha é o que vai para o canteiro — sem surpresa.",
+                d: "Cada material, ponto elétrico e luminária validado em projeto. O que está na prancha é o que vai para o canteiro — sem surpresa.",
               },
               {
-                t: "Aproveitamento do terreno",
-                d: "Estudo de implantação que extrai o melhor da topografia, insolação e ventos predominantes.",
+                t: "Iluminação como atmosfera",
+                d: "Projeto luminotécnico que desenha cenas, valoriza texturas e acompanha o ritmo do dia — luz pensada, não improvisada.",
               },
               {
-                t: "Valorização do imóvel",
-                d: "Arquitetura assinada e bem documentada agrega valor patrimonial mensurável na revenda.",
+                t: "Valorização patrimonial",
+                d: "Interiores assinados e bem documentados agregam valor mensurável ao imóvel — e atravessam o tempo sem datar.",
               },
               {
-                t: "Conforto a longo prazo",
-                d: "Decisões pensadas para 10, 20 anos: pé-direito, fluxos, iluminação natural e materiais que envelhecem bem.",
+                t: "Conforto sensorial",
+                d: "Materiais nobres, acústica equilibrada e ergonomia pensada para 10, 20 anos. Ambientes que envelhecem bem.",
               },
               {
                 t: "Previsibilidade financeira",
-                d: "Quantitativos precisos permitem orçamentos firmes — e protegem você de aditivos surpresa.",
+                d: "Quantitativos precisos de marcenaria, revestimentos e mobiliário permitem orçamentos firmes — e protegem você de aditivos surpresa.",
               },
             ].map((b, i) => (
               <BenefitCard key={i} {...b} idx={i} />
@@ -1802,7 +1776,7 @@ const Int = () => {
 
           <div className="mt-24 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-center md:text-left">
             <span className="font-display italic" style={{ color: "rgba(232, 228, 223, 0.6)" }}>
-              "A arquitetura como decisão."
+              "Os interiores como decisão."
             </span>
             <span
               className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] break-words"
