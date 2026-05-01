@@ -2730,20 +2730,32 @@ const COMPARISON_GROUPS: {
   rows: { id: string; label: string; basic: string | boolean; premium: string | boolean }[];
 }[] = [
   {
-    group: "Interiores",
+    group: "Concepção",
     rows: [
-      { id: "cmp.int.1", label: "Projeto Executivo de Interiores", basic: false, premium: true },
-      { id: "cmp.int.2", label: "Caderno de Ambientes", basic: false, premium: true },
-      { id: "cmp.int.3", label: "Caderno de Esquadrias", basic: false, premium: true },
-      { id: "cmp.int.4", label: "Caderno de Marmoraria", basic: false, premium: true },
-      { id: "cmp.int.5", label: "Caderno de Porcelanataria", basic: false, premium: true },
-      { id: "cmp.int.6", label: "Caderno de Marcenaria", basic: false, premium: true },
+      { id: "cmp.conc.1", label: "Levantamento & Briefing", basic: true, premium: true },
+      { id: "cmp.conc.2", label: "Criação do Conceito", basic: true, premium: true },
+      { id: "cmp.conc.3", label: "Estudo Preliminar", basic: true, premium: true },
+      { id: "cmp.conc.4", label: "Concepção 3D de Alta Fidelidade", basic: false, premium: true },
+      { id: "cmp.conc.5", label: "Vídeo 3D 360°", basic: false, premium: true },
     ],
   },
   {
-    group: "Viabilidade",
+    group: "Cadernos Técnicos",
     rows: [
-      { id: "cmp.viab.1", label: "EVF — Viabilidade Financeira", basic: false, premium: "Opcional" },
+      { id: "cmp.cad.1", label: "Caderno Geral", basic: true, premium: true },
+      { id: "cmp.cad.2", label: "Caderno de Detalhes Construtivos", basic: true, premium: true },
+      { id: "cmp.cad.3", label: "Caderno de Ambientes", basic: false, premium: true },
+      { id: "cmp.cad.4", label: "Caderno de Esquadrias", basic: false, premium: true },
+      { id: "cmp.cad.5", label: "Caderno de Marmoraria", basic: false, premium: true },
+      { id: "cmp.cad.6", label: "Caderno de Porcelanataria", basic: false, premium: true },
+      { id: "cmp.cad.7", label: "Caderno de Marcenaria", basic: true, premium: true },
+    ],
+  },
+  {
+    group: "Complementos",
+    rows: [
+      { id: "cmp.comp.1", label: "Projeto Legal (condomínio)", basic: "Opcional", premium: "Opcional" },
+      { id: "cmp.comp.2", label: "EVF — Viabilidade Financeira", basic: false, premium: "Opcional" },
     ],
   },
 ];
@@ -2779,7 +2791,7 @@ const ComparisonTable = () => (
           <span className="font-mono text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground block mb-1">
             Pacote
           </span>
-          <span className="font-display text-sm md:text-xl text-foreground">Essencial</span>
+          <span className="font-display text-sm md:text-xl text-foreground">Executivo</span>
         </div>
         <div className="px-2 md:px-6 py-4 md:py-5 border-l border-border/60 text-center bg-primary/[0.04] relative min-w-0">
           <div className="absolute top-0 inset-x-0 h-px bg-primary" />
@@ -2841,7 +2853,7 @@ const ComparisonTable = () => (
       as="p"
       className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground text-center mt-6 leading-relaxed"
     >
-      Pacotes podem ser personalizados conforme a complexidade do projeto.
+      Itens opcionais são formalizados via aditivo de contrato conforme necessidade do projeto.
     </Editable>
   </div>
 );
