@@ -2859,7 +2859,7 @@ const ComparisonTable = () => (
       id="cmp.footnote2"
       multiline
       as="p"
-      className="font-display text-xs md:text-sm text-foreground/70 italic text-center mt-3 leading-relaxed max-w-2xl mx-auto"
+      className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground text-center mt-3 leading-relaxed"
     >
       No Plano Completo, cada fornecedor recebe o caderno específico da sua execução — sem margem para improviso.
     </Editable>
