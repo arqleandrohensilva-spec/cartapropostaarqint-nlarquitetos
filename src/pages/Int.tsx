@@ -302,7 +302,7 @@ const Int = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-0">
                 {[
                   { id: "cliente", label: "Cliente", value: "[Nome do Cliente]" },
-                  { id: "projeto", label: "Projeto", value: "[Residencial · Comercial · Interiores]" },
+                  { id: "projeto", label: "Projeto", value: "Arquitetura de Interiores" },
                   { id: "localizacao", label: "Localização", value: "[Cidade, Estado]" },
                   { id: "metragem", label: "Metragem estimada", value: "[XXX m²]" },
                   { id: "objetivo", label: "Objetivo", value: "[Descrição breve do objetivo do cliente]" },
@@ -398,17 +398,17 @@ const Int = () => {
                 as="p"
                 className="font-display text-base md:text-lg leading-relaxed text-foreground/80 mb-10"
               >
-                O pedido era um refúgio na Mantiqueira que conversasse com a mata sem competir com ela. Madeira, pedra
-                e grandes panos de vidro emolduram a paisagem e capturam a luz da serra. Cada decisão — da implantação
-                ao caixilho — foi resolvida em projeto, antes da obra começar.
+                O pedido era um refúgio na Mantiqueira em diálogo com a mata. Madeira, pedra e grandes panos de vidro
+                emolduram a paisagem; marcenaria sob medida, iluminação cênica e revestimentos naturais compõem
+                interiores que envelhecem bem. Cada acabamento foi decidido em projeto, antes do canteiro.
               </Editable>
               <ul className="space-y-3 font-display text-foreground/80 mb-10">
                 {[
-                  "Implantação e estudo solar",
-                  "Volumetria e composição de fachadas",
-                  "Plantas, cortes e elevações",
-                  "Coordenação técnica com engenheiros parceiros",
-                  "Detalhamento construtivo",
+                  "Layout, circulação e setorização dos ambientes",
+                  "Marcenaria sob medida e detalhamento de mobiliário fixo",
+                  "Projeto luminotécnico e cenas de iluminação",
+                  "Revestimentos, paginação e materialidade",
+                  "Coordenação com elétrica, hidráulica e marceneiros parceiros",
                 ].map((item, i) => (
                   <li
                     key={i}
@@ -544,7 +544,7 @@ const Int = () => {
           <div className="relative aspect-[3/4] overflow-hidden">
             <img
               src={propostaPortFachada}
-              alt="Residência · fachada · NL Arquitetos"
+              alt="Interiores residenciais · NL Arquitetos"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
               loading="lazy"
               width={1080}
@@ -1173,9 +1173,9 @@ const Int = () => {
       {/* ── BAND · INTERIOR — o resultado antes do investimento ── */}
       <FullBleedBand
         src={bandIntermezzo02}
-        alt="Área gourmet externa com pérgola de madeira coberta por trepadeira, parede de cobogós, lounge com poltronas claras e bancada de churrasqueira integrada — projeto residencial NL Arquitetos"
+        alt="Ambiente integrado de estar e jantar com marcenaria sob medida, iluminação cênica e revestimentos naturais — projeto de interiores NL Arquitetos"
         number="Intermezzo · 02"
-        caption="Pérgola, cobogó e gourmet integrados — cada elemento decidido em projeto, não no canteiro."
+        caption="Marcenaria, iluminação e revestimentos coordenados — cada acabamento decidido em projeto, não no canteiro."
         align="right"
         height="tall"
         // Foco no centro-baixo: prioriza pérgola + área gourmet, evita excesso de céu
@@ -1395,7 +1395,7 @@ const Int = () => {
                 title: "Dados fornecidos pelo cliente",
                 intro: "Para o desenvolvimento do projeto será fundamental que o cliente forneça:",
                 items: [
-                  "Plantas do imóvel (arquitetônica e estrutural)",
+                  "Plantas atualizadas do imóvel (arquitetônica, elétrica e hidráulica, se houver)",
                   "Documentação de aprovações anteriores (se existirem)",
                   "Referências visuais e programa de necessidades",
                 ],
@@ -1607,7 +1607,7 @@ const Int = () => {
                   n: "03",
                   timing: "Em até 5 dias",
                   t: "Reunião de imersão",
-                  d: "Encontro de até 3 horas, agendado em até 5 dias. Aqui ouvimos tudo — terreno, família, modo de viver.",
+                  d: "Encontro de até 3 horas, agendado em até 5 dias. Aqui ouvimos tudo — imóvel, rotina, família e modo de viver.",
                 },
                 {
                   n: "04",
@@ -2383,8 +2383,8 @@ const SCOPE_ARQ: ScopeBloco[] = [
     title: "Caderno Geral",
     items: [
       "Prancha de índice",
-      "Planta de situação, locação e cobertura",
-      "Planta de layout",
+      "Planta de layout e setorização",
+      "Planta de demolir e construir",
       "Plantas construtivas",
       "Planta de paginação de piso",
       "Planta de forro",
